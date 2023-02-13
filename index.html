@@ -28,7 +28,7 @@
     blogImgLink.href = response.url;
 
     var blogImgElement = document.createElement("img");
-    blogImgElement.src = response.images[0].url;
+    blogImgElement.src = response.image.medium_url;
     blogImgElement.alt = response.title;
 
     blogImgLink.appendChild(blogImgElement);
