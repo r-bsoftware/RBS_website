@@ -140,7 +140,7 @@
   }
 
   var script = document.createElement("script");
-  script.src = "https://www.googleapis.com/blogger/v3/blogs/BLOG_ID/posts?fetchImages=true&maxResults=3&key=YOUR_API_KEY&callback=handleResponse";
+  script.src = "https://www.googleapis.com/blogger/v3/blogs/7951109128754895294/posts?fetchImages=true&orderBy=published%20desc&maxResults=3&key=AIzaSyDAKbuG57NV59ruRw2KOdNp6SmZMyz9EGw&callback=handleResponse";
   document.head.appendChild(script);
 </script>
 
