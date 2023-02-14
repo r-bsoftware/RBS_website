@@ -829,7 +829,7 @@
     .then(response => response.json())
     .then(data => console.log(data))
 	
-    .then(data => handleResponse(response))
+    .then(response => handleResponse(response))
     .catch(error => console.error(error));
 </script>
    
