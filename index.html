@@ -132,7 +132,7 @@
 
     var blogSharePinterest = document.createElement("a");
     blogSharePinterest.classList.add("blog-share");
-    blogSharePinterest.href = "https://pinterest.com/pin/create/button/?url=" + item.url + "&media=" + item.images[0].url + "&description=" + encodeURIComponent(response.title);
+    blogSharePinterest.href = "https://pinterest.com/pin/create/button/?url=" + item.url + "&media=" + item.images[0].url + "&description=" + encodeURIComponent(item.title);
 
     var blogSharePinterestIcon = document.createElement("i");
     blogSharePinterestIcon.classList.add("fab", "fa-pinterest-square");
