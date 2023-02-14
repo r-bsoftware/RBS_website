@@ -99,17 +99,14 @@
 
 		
 		
-    var blogDesc = document.createElement("div");
-    blogDesc.classList.add("blog-desc");
+	    var blogDesc = document.createElement("div");
+	    blogDesc.classList.add("blog-desc");
 
-    var blogDescP = document.createElement("p");
-    var blogDescContent = document.createElement("div");
-    blogDescContent.innerHTML = item.content;
-    blogDescP.textContent = blogDescContent.textContent;
+	    var blogDescP = document.createElement("p");
+	    blogDescP.textContent = item.content;
+		console.log(item.content);
 
-    blogDesc.appendChild(blogDescP);
-		
-
+	    blogDesc.appendChild(blogDescP);
 
 	    var blogAuthor = document.createElement("div");
 	    blogAuthor.classList.add("blog-author");
