@@ -25,7 +25,7 @@
 	    
     var contentDiv = document.getElementById("content");
   
-    if (contentDiv) {
+    
     	data.items.forEach(function(item) {
 	    var blogItemWrapper = document.createElement("div");
 	    blogItemWrapper.classList.add("col-md-4", "blog-item-wrapper");
@@ -57,11 +57,13 @@
 
 	    var blogTagH6 = document.createElement("h6");
 	    blogTagH6.classList.add("small");
-	    blogTagH6.textContent  = "item.labels[0];";
+	    if (blogTagH6) {
+		    blogTagH6.textContent  = "item.labels[0];";
 
-	    blogTagLink.appendChild(blogTagH6);
-	    blogTag.appendChild(blogTagLink);
-
+		    blogTagLink.appendChild(blogTagH6);
+		    blogTag.appendChild(blogTagLink);
+	    }
+		
 
 	    var blogTitle = document.createElement("div");
 	    blogTitle.classList.add("blog-title");
@@ -165,7 +167,7 @@
 	    contentDiv.appendChild(blogItemWrapper);
 	
  	})
-    } 
+     
 }
 
 </script>
@@ -474,7 +476,7 @@
         <div class="section-content">
             <div class="title-wrap mb-5">
                 <h2 class="section-title">Entradas <b>Recientes</b></h2>
-                <p class="section-sub-title">Puedes encontrar ùtil nestro blog, si tienes dudas con gusto las responderemos.</p>
+                <p class="section-sub-title">Puedes encontrar ùtil nestro blog, visitalo para resolver tus dudas.</p>
             </div>
 		    
             <!-- Blog -->
