@@ -41,7 +41,7 @@
     blogTag.classList.add("blog-tag");
 
     var blogTagLink = document.createElement("a");
-    blogTagLink.href = "#";
+    blogTagLink.href = response.url;
 
     var blogTagH6 = document.createElement("h6");
     blogTagH6.classList.add("small");
@@ -176,8 +176,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.js"></script>
 	
   
-  <script src="https://www.googleapis.com/blogger/v3/blogs/BLOG_ID/posts?fetchImages=true&maxResults=3&key=AIzaSyDAKbuG57NV59ruRw2KOdNp6SmZMyz9EGw&callback=handleResponse"></script>
-   
+  
 
 
 </head>
@@ -815,8 +814,21 @@
 </footer>	</div>
 	
 </div>
+
+
+
+
 	<!-- External JS -->
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
+
+
+<script>
+  fetch('https://www.googleapis.com/blogger/v3/blogs/7951109128754895294/posts?fetchImages=true&maxResults=3&key=AIzaSyDAKbuG57NV59ruRw2KOdNp6SmZMyz9EGw')
+    .then(response => response.json())
+    .then(data => console.log(data))
+    .catch(error => console.error(error));
+</script>
+   
 	<script src="./vendor/bootstrap/popper.min.js"></script>
 	<script src="./vendor/bootstrap/bootstrap.min.js"></script>
 	<script src="./vendor/select2/select2.min.js "></script>
