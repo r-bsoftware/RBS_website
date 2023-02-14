@@ -11,11 +11,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 
+	
+
+	
 	<script>
- function handleResponse(response) {
-  var contentDiv = document.getElementById("content");
+    function handleResponse(response) {
+    var contentDiv = document.getElementById("content");
   
-  response.items.forEach(function(item) {
+    response.data.items.forEach(function(item) {
     var blogItemWrapper = document.createElement("div");
     blogItemWrapper.classList.add("col-md-4", "blog-item-wrapper");
 
@@ -826,11 +829,9 @@
 
 <script>
   fetch('https://www.googleapis.com/blogger/v3/blogs/7951109128754895294/posts?fetchImages=true&maxResults=3&key=AIzaSyDAKbuG57NV59ruRw2KOdNp6SmZMyz9EGw')
-    .then(response => response.json())
-    .then(data => console.log(data))
-	
-    .then(response => handleResponse(response))
-    .catch(error => console.error(error));
+  .then(response => response.json())
+  .then(data => handleResponse(data))
+  .catch(error => console.error(error));
 </script>
    
 	<script src="./vendor/bootstrap/popper.min.js"></script>
