@@ -14,19 +14,21 @@
 	
 
 <script>
-  fetch('https://www.googleapis.com/blogger/v3/blogs/7951109128754895294/posts?maxResults=2&fetchImages=true&key=AIzaSyDAKbuG57NV59ruRw2KOdNp6SmZMyz9EGw')
+  fetch('https://www.googleapis.com/blogger/v3/blogs/7951109128754895294/posts?fetchImages=true&key=AIzaSyDAKbuG57NV59ruRw2KOdNp6SmZMyz9EGw')
   .then(response => response.json())
   .then(data => handleResponse(data))
   .catch(error => console.error(error));
 </script>
 	
+	
+
+
+	
 	<script>
-    function handleResponse(data) {
-	    
-    var contentDiv = document.getElementById("content");
-  
+    	function handleResponse(data) {
+	  var contentDiv = document.getElementById("content");
+	  data.items.slice(0, 3).forEach(function(item) {
     
-    	data.items.forEach(function(item) {
 	    var blogItemWrapper = document.createElement("div");
 	    blogItemWrapper.classList.add("col-md-4", "blog-item-wrapper");
 
@@ -97,6 +99,21 @@
 	    blogMeta.appendChild(document.createTextNode(" / "));
 	    blogMeta.appendChild(blogComment);
 
+		
+		
+		
+		    var snippet = document.createElement("p");
+    snippet.innerHTML = item.contentSnippet;
+
+    var link = document.createElement("a");
+    link.setAttribute("href", item.link);
+    link.textContent = "Read more";
+
+    blogItemWrapper.appendChild(title);
+    blogItemWrapper.appendChild(snippet);
+		
+		
+		
 		
 		
 	    var blogDesc = document.createElement("div");
