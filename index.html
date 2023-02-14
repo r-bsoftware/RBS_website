@@ -27,7 +27,7 @@
 	<script>
     	function handleResponse(data) {
 	  var contentDiv = document.getElementById("content");
-	  data.items.slice(0, 3).forEach(function(item) {
+	  data.items.forEach(function(item) {
     
 	    var blogItemWrapper = document.createElement("div");
 	    blogItemWrapper.classList.add("col-md-4", "blog-item-wrapper");
