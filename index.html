@@ -12,9 +12,10 @@
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 
 	<script>
-  function handleResponse(response) {
-    var contentDiv = document.getElementById("content");
-
+ function handleResponse(response) {
+  var contentDiv = document.getElementById("content");
+  
+  response.items.forEach(function(item) {
     var blogItemWrapper = document.createElement("div");
     blogItemWrapper.classList.add("col-md-4", "blog-item-wrapper");
 
@@ -25,11 +26,11 @@
     blogImg.classList.add("blog-img");
 
     var blogImgLink = document.createElement("a");
-    blogImgLink.href = response.url;
+    blogImgLink.href = item.url;
 
     var blogImgElement = document.createElement("img");
-    blogImgElement.src = response.image.medium_url;
-    blogImgElement.alt = response.title;
+    blogImgElement.src = item.images[0].url;
+    blogImgElement.alt = item.title;
 
     blogImgLink.appendChild(blogImgElement);
     blogImg.appendChild(blogImgLink);
@@ -41,11 +42,11 @@
     blogTag.classList.add("blog-tag");
 
     var blogTagLink = document.createElement("a");
-    blogTagLink.href = response.url;
+    blogTagLink.href = item.url;
 
     var blogTagH6 = document.createElement("h6");
     blogTagH6.classList.add("small");
-    blogTagH6.textContent = response.labels[0];
+    blogTagH6.textContent = item.labels[0];
 
     blogTagLink.appendChild(blogTagH6);
     blogTag.appendChild(blogTagLink);
@@ -54,10 +55,10 @@
     blogTitle.classList.add("blog-title");
 
     var blogTitleLink = document.createElement("a");
-    blogTitleLink.href = response.url;
+    blogTitleLink.href = item.url;
 
     var blogTitleH4 = document.createElement("h4");
-    blogTitleH4.textContent = response.title;
+    blogTitleH4.textContent = item.title;
 
     blogTitleLink.appendChild(blogTitleH4);
     blogTitle.appendChild(blogTitleLink);
@@ -67,14 +68,14 @@
 
     var blogDate = document.createElement("p");
     blogDate.classList.add("blog-date");
-    blogDate.textContent = new Date(response.published).toLocaleDateString();
+    blogDate.textContent = new Date(item.published).toLocaleDateString();
 
     var blogComment = document.createElement("p");
     blogComment.classList.add("blog-comment");
 
     var blogCommentLink = document.createElement("a");
-    blogCommentLink.href = response.url + "#comments";
-    blogCommentLink.textContent = response.replies.totalItems + " Comments";
+    blogCommentLink.href = item.url + "#comments";
+    blogCommentLink.textContent = item.replies.totalItems + " Comments";
 
     blogComment.appendChild(blogCommentLink);
 
@@ -86,7 +87,7 @@
     blogDesc.classList.add("blog-desc");
 
     var blogDescP = document.createElement("p");
-    blogDescP.textContent = response.content;
+    blogDescP.innerHTML = item.content;
 
     blogDesc.appendChild(blogDescP);
 
@@ -94,7 +95,7 @@
     blogAuthor.classList.add("blog-author");
 
     var blogAuthorP = document.createElement("p");
-    blogAuthorP.textContent = "by " + response.author.displayName;
+    blogAuthorP.textContent = "by " + item.author.displayName;
 
     blogAuthor.appendChild(blogAuthorP);
 
@@ -103,7 +104,7 @@
 
     var blogShareFacebook = document.createElement("a");
     blogShareFacebook.classList.add("blog-share");
-    blogShareFacebook.href = "https://www.facebook.com/sharer.php?u=" + response.url;
+    blogShareFacebook.href = "https://www.facebook.com/sharer.php?u=" + item.url;
 
     var blogShareFacebookIcon = document.createElement("i");
     blogShareFacebookIcon.classList.add("fab", "fa-facebook-square");
@@ -152,7 +153,7 @@
     contentDiv.appendChild(blogItemWrapper);
   }
 
-
+}
 
 </script>
 
