@@ -13,12 +13,18 @@
 
 	
 
+<script>
+  fetch('https://www.googleapis.com/blogger/v3/blogs/7951109128754895294/posts?fetchImages=true&maxResults=3&key=AIzaSyDAKbuG57NV59ruRw2KOdNp6SmZMyz9EGw')
+  .then(response => response.json())
+  .then(data => handleResponse(data))
+  .catch(error => console.error(error));
+</script>
 	
 	<script>
-    function handleResponse(response) {
+    function handleResponse(data) {
     var contentDiv = document.getElementById("content");
   
-    response.data.items.forEach(function(item) {
+    data.items.forEach(function(item) {
     var blogItemWrapper = document.createElement("div");
     blogItemWrapper.classList.add("col-md-4", "blog-item-wrapper");
 
@@ -49,7 +55,7 @@
 
     var blogTagH6 = document.createElement("h6");
     blogTagH6.classList.add("small");
-    blogTagH6.text  = "item.labels[0];";
+    blogTagH6.textContent  = "item.labels[0];";
 
     blogTagLink.appendChild(blogTagH6);
     blogTag.appendChild(blogTagLink);
@@ -90,7 +96,7 @@
     blogDesc.classList.add("blog-desc");
 
     var blogDescP = document.createElement("p");
-    blogDescP.innerHTML = item.content;
+    blogDescP.textContent = item.content;
 
     blogDesc.appendChild(blogDescP);
 
@@ -116,7 +122,7 @@
   
     var blogShareTwitter = document.createElement("a");
     blogShareTwitter.classList.add("blog-share");
-    var blogShareTwitterLink = "https://twitter.com/share?url=" + response.url + "&text=" + encodeURIComponent(response.title);
+    var blogShareTwitterLink = "https://twitter.com/share?url=" + item.url + "&text=" + encodeURIComponent(item.title);
     blogShareTwitter.href = blogShareTwitterLink;
 
     var blogShareTwitterIcon = document.createElement("i");
@@ -126,7 +132,7 @@
 
     var blogSharePinterest = document.createElement("a");
     blogSharePinterest.classList.add("blog-share");
-    blogSharePinterest.href = "https://pinterest.com/pin/create/button/?url=" + response.url + "&media=" + response.images[0].url + "&description=" + encodeURIComponent(response.title);
+    blogSharePinterest.href = "https://pinterest.com/pin/create/button/?url=" + item.url + "&media=" + item.images[0].url + "&description=" + encodeURIComponent(response.title);
 
     var blogSharePinterestIcon = document.createElement("i");
     blogSharePinterestIcon.classList.add("fab", "fa-pinterest-square");
@@ -827,12 +833,7 @@
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.js"></script>
 
 
-<script>
-  fetch('https://www.googleapis.com/blogger/v3/blogs/7951109128754895294/posts?fetchImages=true&maxResults=3&key=AIzaSyDAKbuG57NV59ruRw2KOdNp6SmZMyz9EGw')
-  .then(response => response.json())
-  .then(data => handleResponse(data))
-  .catch(error => console.error(error));
-</script>
+
    
 	<script src="./vendor/bootstrap/popper.min.js"></script>
 	<script src="./vendor/bootstrap/bootstrap.min.js"></script>
