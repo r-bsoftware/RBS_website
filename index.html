@@ -57,8 +57,8 @@
 
 	    var blogTagH6 = document.createElement("h6");
 	    blogTagH6.classList.add("small");
-	    if (blogTagH6) {
-		    blogTagH6.textContent  = "item.labels[0];";
+	    if (item.labels[0]) {
+		    blogTagH6.textContent  = item.labels[0];
 
 		    blogTagLink.appendChild(blogTagH6);
 		    blogTag.appendChild(blogTagLink);
