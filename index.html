@@ -20,159 +20,7 @@
   .catch(error => console.error(error));
 </script>
 	
-	<script>
-	function handleResponse(data) {
-  var contentDiv = document.getElementById("content");
-
-  data.items.forEach(function(item) {
-    var blogItemWrapper = document.createElement("div");
-    blogItemWrapper.classList.add("col-md-4", "blog-item-wrapper");
-
-    var blogItem = document.createElement("div");
-    blogItem.classList.add("blog-item");
-
-    var blogImg = document.createElement("div");
-    blogImg.classList.add("blog-img");
-
-    var blogImgLink = document.createElement("a");
-    blogImgLink.href = item.url;
-
-    var blogImgElement = document.createElement("img");
-    blogImgElement.src = item.images[0].url;
-    blogImgElement.alt = item.title;
-
-    blogImgLink.appendChild(blogImgElement);
-    blogImg.appendChild(blogImgLink);
-
-    var blogText = document.createElement("div");
-    blogText.classList.add("blog-text");
-
-    var blogTag = document.createElement("div");
-    blogTag.classList.add("blog-tag");
-
-    var blogTagLink = document.createElement("a");
-    blogTagLink.href = item.url;
-
-    var blogTagH6 = document.createElement("h6");
-    blogTagH6.classList.add("small");
-    blogTagH6.textContent = item.labels[0];
-
-    blogTagLink.appendChild(blogTagH6);
-    blogTag.appendChild(blogTagLink);
-
-
-    var blogTitle = document.createElement("div");
-    blogTitle.classList.add("blog-title");
-
-    var blogTitleLink = document.createElement("a");
-    blogTitleLink.href = item.url;
-
-    var blogTitleH4 = document.createElement("h4");
-    blogTitleH4.textContent = item.title;
-
-    blogTitleLink.appendChild(blogTitleH4);
-    blogTitle.appendChild(blogTitleLink);
-
-    var blogMeta = document.createElement("div");
-    blogMeta.classList.add("blog-meta");
-
-    var blogDate = document.createElement("p");
-    blogDate.classList.add("blog-date");
-    blogDate.textContent = new Date(item.published).toLocaleDateString();
-
-    var blogComment = document.createElement("p");
-    blogComment.classList.add("blog-comment");
-
-    var blogCommentLink = document.createElement("a");
-    blogCommentLink.href = item.url + "#comments";
-    blogCommentLink.textContent = item.replies.totalItems + " Comments";
-
-    blogComment.appendChild(blogCommentLink);
-
-    blogMeta.appendChild(blogDate);
-    blogMeta.appendChild(document.createTextNode(" / "));
-    blogMeta.appendChild(blogComment);
-
-    var blogDesc = document.createElement("div");
-    blogDesc.classList.add("blog-desc");
-
-    var blogDescP = document.createElement("p");
-    var blogDescContent = document.createElement("div");
-    blogDescContent.innerHTML = item.content;
-    blogDescP.textContent = blogDescContent.textContent.slice(0, 65);
-
-    blogDesc.appendChild(blogDescP);
-
-    var blogAuthor = document.createElement("div");
-    blogAuthor.classList.add("blog-author");
-
-    var blogAuthorP = document.createElement("p");
-    blogAuthorP.textContent = "by " + item.author.displayName;
-
-    blogAuthor.appendChild(blogAuthorP);
-
-    var blogShareWrapper = document.createElement("div");
-    blogShareWrapper.classList.add("blog-share-wrapper");
-
-    var blogShareFacebook = document.createElement("a");
-    blogShareFacebook.classList.add("blog-share");
-    blogShareFacebook.href = "https://www.facebook.com/sharer.php?u=" + item.url;
-
-    var blogShareFacebookIcon = document.createElement("i");
-    blogShareFacebookIcon.classList.add("fab", "fa-facebook-square");
-
-    blogShareFacebook.appendChild(blogShareFacebookIcon);
-  
-    var blogShareTwitter = document.createElement("a");
-    blogShareTwitter.classList.add("blog-share");
-    var blogShareTwitterLink = "https://twitter.com/share?url=" + item.url + "&text=" + encodeURIComponent(item.title);
-    blogShareTwitter.href = blogShareTwitterLink;
-
-    var blogShareTwitterIcon = document.createElement("i");
-    blogShareTwitterIcon.classList.add("fab", "fa-twitter-square");
-
-    blogShareTwitter.appendChild(blogShareTwitterIcon);
-
-    var blogSharePinterest = document.createElement("a");
-    blogSharePinterest.classList.add("blog-share");
-    blogSharePinterest.href = "https://pinterest.com/pin/create/button/?url=" + item.url + "&media=" + item.images[0].url + "&description=" + encodeURIComponent(item.title);
-
-    var blogSharePinterestIcon = document.createElement("i");
-    blogSharePinterestIcon.classList.add("fab", "fa-pinterest-square");
-
-    blogSharePinterest.appendChild(blogSharePinterestIcon);
-
-    blogShareWrapper.appendChild(blogShareFacebook);
-    blogShareWrapper.appendChild(blogShareTwitter);
-    blogShareWrapper.appendChild(blogSharePinterest);
-
-    blogItem.appendChild(blogImg);
-    blogItem.appendChild(blogText);
-    blogText.appendChild(blogTag);
-    blogTag.appendChild(blogTagLink);
-    blogText.appendChild(blogTitle);
-    blogTitle.appendChild(blogTitleLink);
-    blogText.appendChild(blogMeta);
-    blogMeta.appendChild(blogDate);
-    blogMeta.appendChild(document.createTextNode(" / "));
-    blogMeta.appendChild(blogComment);
-    blogText.appendChild(blogDesc);
-    blogText.appendChild(blogAuthor);
-    blogAuthor.appendChild(blogAuthorP);
-    blogText.appendChild(blogShareWrapper);
-	    
-
-    blogItemWrapper.appendChild(blogItem);   
-    contentDiv.appendChild(blogItemWrapper);
-    
-	 
-  })
-
-}
-		
-  
 	
-</script>
 
 	
     <!-- External CSS -->
@@ -857,6 +705,161 @@
 
 
 	<script src="//localhost:35729/livereload.js"></script>
+
+<script>
+	function handleResponse(data) {
+  var contentDiv = document.getElementById("content");
+
+  data.items.forEach(function(item) {
+    var blogItemWrapper = document.createElement("div");
+    blogItemWrapper.classList.add("col-md-4", "blog-item-wrapper");
+
+    var blogItem = document.createElement("div");
+    blogItem.classList.add("blog-item");
+
+    var blogImg = document.createElement("div");
+    blogImg.classList.add("blog-img");
+
+    var blogImgLink = document.createElement("a");
+    blogImgLink.href = item.url;
+
+    var blogImgElement = document.createElement("img");
+    blogImgElement.src = item.images[0].url;
+    blogImgElement.alt = item.title;
+
+    blogImgLink.appendChild(blogImgElement);
+    blogImg.appendChild(blogImgLink);
+
+    var blogText = document.createElement("div");
+    blogText.classList.add("blog-text");
+
+    var blogTag = document.createElement("div");
+    blogTag.classList.add("blog-tag");
+
+    var blogTagLink = document.createElement("a");
+    blogTagLink.href = item.url;
+
+    var blogTagH6 = document.createElement("h6");
+    blogTagH6.classList.add("small");
+    blogTagH6.textContent = item.labels[0];
+
+    blogTagLink.appendChild(blogTagH6);
+    blogTag.appendChild(blogTagLink);
+
+
+    var blogTitle = document.createElement("div");
+    blogTitle.classList.add("blog-title");
+
+    var blogTitleLink = document.createElement("a");
+    blogTitleLink.href = item.url;
+
+    var blogTitleH4 = document.createElement("h4");
+    blogTitleH4.textContent = item.title;
+
+    blogTitleLink.appendChild(blogTitleH4);
+    blogTitle.appendChild(blogTitleLink);
+
+    var blogMeta = document.createElement("div");
+    blogMeta.classList.add("blog-meta");
+
+    var blogDate = document.createElement("p");
+    blogDate.classList.add("blog-date");
+    blogDate.textContent = new Date(item.published).toLocaleDateString();
+
+    var blogComment = document.createElement("p");
+    blogComment.classList.add("blog-comment");
+
+    var blogCommentLink = document.createElement("a");
+    blogCommentLink.href = item.url + "#comments";
+    blogCommentLink.textContent = item.replies.totalItems + " Comments";
+
+    blogComment.appendChild(blogCommentLink);
+
+    blogMeta.appendChild(blogDate);
+    blogMeta.appendChild(document.createTextNode(" / "));
+    blogMeta.appendChild(blogComment);
+
+    var blogDesc = document.createElement("div");
+    blogDesc.classList.add("blog-desc");
+
+    var blogDescP = document.createElement("p");
+    var blogDescContent = document.createElement("div");
+    blogDescContent.innerHTML = item.content;
+    blogDescP.textContent = blogDescContent.textContent.slice(0, 65);
+
+    blogDesc.appendChild(blogDescP);
+
+    var blogAuthor = document.createElement("div");
+    blogAuthor.classList.add("blog-author");
+
+    var blogAuthorP = document.createElement("p");
+    blogAuthorP.textContent = "by " + item.author.displayName;
+
+    blogAuthor.appendChild(blogAuthorP);
+
+    var blogShareWrapper = document.createElement("div");
+    blogShareWrapper.classList.add("blog-share-wrapper");
+
+    var blogShareFacebook = document.createElement("a");
+    blogShareFacebook.classList.add("blog-share");
+    blogShareFacebook.href = "https://www.facebook.com/sharer.php?u=" + item.url;
+
+    var blogShareFacebookIcon = document.createElement("i");
+    blogShareFacebookIcon.classList.add("fab", "fa-facebook-square");
+
+    blogShareFacebook.appendChild(blogShareFacebookIcon);
+  
+    var blogShareTwitter = document.createElement("a");
+    blogShareTwitter.classList.add("blog-share");
+    var blogShareTwitterLink = "https://twitter.com/share?url=" + item.url + "&text=" + encodeURIComponent(item.title);
+    blogShareTwitter.href = blogShareTwitterLink;
+
+    var blogShareTwitterIcon = document.createElement("i");
+    blogShareTwitterIcon.classList.add("fab", "fa-twitter-square");
+
+    blogShareTwitter.appendChild(blogShareTwitterIcon);
+
+    var blogSharePinterest = document.createElement("a");
+    blogSharePinterest.classList.add("blog-share");
+    blogSharePinterest.href = "https://pinterest.com/pin/create/button/?url=" + item.url + "&media=" + item.images[0].url + "&description=" + encodeURIComponent(item.title);
+
+    var blogSharePinterestIcon = document.createElement("i");
+    blogSharePinterestIcon.classList.add("fab", "fa-pinterest-square");
+
+    blogSharePinterest.appendChild(blogSharePinterestIcon);
+
+    blogShareWrapper.appendChild(blogShareFacebook);
+    blogShareWrapper.appendChild(blogShareTwitter);
+    blogShareWrapper.appendChild(blogSharePinterest);
+
+    blogItem.appendChild(blogImg);
+    blogItem.appendChild(blogText);
+    blogText.appendChild(blogTag);
+    blogTag.appendChild(blogTagLink);
+    blogText.appendChild(blogTitle);
+    blogTitle.appendChild(blogTitleLink);
+    blogText.appendChild(blogMeta);
+    blogMeta.appendChild(blogDate);
+    blogMeta.appendChild(document.createTextNode(" / "));
+    blogMeta.appendChild(blogComment);
+    blogText.appendChild(blogDesc);
+    blogText.appendChild(blogAuthor);
+    blogAuthor.appendChild(blogAuthorP);
+    blogText.appendChild(blogShareWrapper);
+	    
+
+    blogItemWrapper.appendChild(blogItem);   
+    contentDiv.appendChild(blogItemWrapper);
+    
+	 
+  })
+
+}
+		
+  
+	
+</script>
+
 </body>
 </html>
 
