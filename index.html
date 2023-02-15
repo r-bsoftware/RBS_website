@@ -104,7 +104,7 @@
 	var parser = new DOMParser();
 	var doc = parser.parseFromString(item.content, "text/html");
     blogDescContent.innerHTML = doc.body.textContent.text[:40];
-    blogDescP.textContent = blogDescContent.textContent.text[:40];
+    blogDescP.textContent = blogDescContent.textContent;
 		
 	blogDesc.appendChild(blogDescP);
 
