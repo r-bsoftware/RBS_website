@@ -23,8 +23,8 @@
 	<script>
     function handleResponse(data) {
     var contentDiv = document.getElementById("content");
-  
-   data.items.slice(0, 3).forEach(function(item) {
+    data.items.forEach(function(item, index) {
+    if (index < 3) {
     var blogItemWrapper = document.createElement("div");
     blogItemWrapper.classList.add("col-md-4", "blog-item-wrapper");
 
@@ -92,12 +92,22 @@
     blogMeta.appendChild(blogDate);
     blogMeta.appendChild(document.createTextNode(" / "));
     blogMeta.appendChild(blogComment);
-
-    var blogDesc = document.createElement("div");
+	    
+	    
+	var blogDesc = document.createElement("div");
     blogDesc.classList.add("blog-desc");
+	        
+	    
+	var contentdesc = document.createElement("p");
+	var parser = new DOMParser();
+	var doc = parser.parseFromString(item.content, "text/html");
+	contentdesc.textContent = doc.body.textContent;
+	blogItemWrapper.appendChild(contentdesc);
+
+
 
     var blogDescP = document.createElement("p");
-    blogDescP.textContent = item.content.snippet;
+    blogDescP.textContent = item.content;
 
     blogDesc.appendChild(blogDescP);
 
@@ -158,9 +168,11 @@
     blogText.appendChild(blogAuthor);
     blogAuthor.appendChild(blogAuthorP);
     blogText.appendChild(blogShareWrapper);
+	    
 
-    blogItemWrapper.appendChild(blogItem);
+    blogItemWrapper.appendChild(blogItem);   
     contentDiv.appendChild(blogItemWrapper);
+    }
 	 
   })
 
