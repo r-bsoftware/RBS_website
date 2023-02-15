@@ -64,11 +64,17 @@
                 <p class="section-sub-title">Presenta la informacion de lo que actualmente tienes <br> y de como te gustarìa que fuera diferente.</p>
                 
             </div>
+		
+		
+		
+
+
+
             <!-- End of Section Title -->
             <div class="row">
                 <!-- Contact Form Holder -->
                 <div class="col-md-8 offset-md-2 contact-form-holder mt-4">
-                    <form method="post" name="contact-us" action="">
+                    <form method="post" name="contact-us">
                         <div class="row">
                             <div class="col-md-6 form-input">
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
@@ -83,7 +89,8 @@
                                 <textarea class="form-control" id="message" name="message" rows="6" placeholder="Tu Mensaje ..."></textarea>
                             </div>
                             <div class="col-md-12 form-btn text-center">
-                                <button class="btn btn-block btn-secondary btn-red" type="submit" name="submit" onclick="return false;">Enviar mensaje</button>
+				
+                                <button class="btn btn-block btn-secondary btn-red" type="submit" name="submit" onclick="sendEmail()";>Enviar mensaje</button>
 
                             </div>
                         </div>
@@ -146,6 +153,37 @@
 
 	<!-- Main JS -->
 	<script src="./js/app.min.js "></script>
+	<script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
+<script>
+  function sendEmail() {
+    // Get the form data
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+	  
+    var subject = document.getElementById("subject").value;
+
+    var message = document.getElementById("message").value;
+
+    // Set up the email parameters
+    var params = {
+      name: name,
+      email: email,
+      subject: subject,
+      message: message
+    };
+
+    // Send the email using EmailJS
+    emailjs.send("service_rbs_site", "template_hr95tnr", params)
+      .then(function(response) {
+        alert("Your message has been sent!");
+        console.log("SUCCESS", response);
+      }, function(error) {
+        alert("Sorry, there was an error sending your message.");
+        console.log("FAILED", error);
+      });
+  }
+</script>
+
 	<script src="//localhost:35729/livereload.js"></script>
 </body>
 </html>
