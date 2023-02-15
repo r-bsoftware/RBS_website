@@ -11,16 +11,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 
-	
-
-<script>
-  fetch('https://www.googleapis.com/blogger/v3/blogs/7951109128754895294/posts?fetchImages=true&key=AIzaSyDAKbuG57NV59ruRw2KOdNp6SmZMyz9EGw')
-  .then(response => response.json())
-  .then(data => handleResponse(data))
-  .catch(error => console.error(error));
-</script>
-	
-	
 
 
 	<script>
@@ -65,7 +55,7 @@
 
     var blogTagH6 = document.createElement("h6");
     blogTagH6.classList.add("small");
-    blogTagH6.textContent  = "item.labels[0];";
+    blogTagH6.textContent  = item.labels[0];;
 	
     blogTagLink.appendChild(blogTagH6);
     blogTag.appendChild(blogTagLink);
@@ -107,7 +97,7 @@
     blogDesc.classList.add("blog-desc");
 
     var blogDescP = document.createElement("p");
-    blogDescP.textContent = item.content;
+    blogDescP.textContent = item.content.snippet;
 
     blogDesc.appendChild(blogDescP);
 
