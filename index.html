@@ -97,20 +97,12 @@
 	var blogDesc = document.createElement("div");
     blogDesc.classList.add("blog-desc");
 	        
-	    
 	var contentdesc = document.createElement("p");
 	var parser = new DOMParser();
 	var doc = parser.parseFromString(item.content, "text/html");
 	    console.log(doc.body.textContent);
 	contentdesc.textContent = doc.body.textContent;
 	blogItemWrapper.appendChild(contentdesc);
-
-
-
-    var blogDescP = document.createElement("p");
-    blogDescP.textContent = item.content;
-
-    blogDesc.appendChild(blogDescP);
 
     var blogAuthor = document.createElement("div");
     blogAuthor.classList.add("blog-author");
