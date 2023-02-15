@@ -98,8 +98,8 @@
 
     var blogDescP = document.createElement("p");
     var blogDescContent = document.createElement("div");
-    blogDescContent.innerHTML = item.content;
-    blogDescP.textContent = blogDescContent.textContent.slice(0, 40);
+    blogDescContent.innerHTML = item.content.slice(0, 40);
+    blogDescP.textContent = blogDescContent.textContent;
 
     blogDesc.appendChild(blogDescP);
 
