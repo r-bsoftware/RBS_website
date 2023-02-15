@@ -93,16 +93,20 @@
     blogMeta.appendChild(document.createTextNode(" / "));
     blogMeta.appendChild(blogComment);
 	    
+
+
 	    
 	var blogDesc = document.createElement("div");
     blogDesc.classList.add("blog-desc");
-	        
-	var contentdesc = document.createElement("p");
+	    
+	var blogDescP = document.createElement("p");
+    var blogDescContent = document.createElement("div");
 	var parser = new DOMParser();
 	var doc = parser.parseFromString(item.content, "text/html");
-	    console.log(doc.body.textContent);
-	contentdesc.textContent = doc.body.textContent;
-	blogItemWrapper.appendChild(contentdesc);
+    blogDescContent.innerHTML = doc.body.textContent;
+    blogDescP.textContent = blogDescContent.textContent;
+		
+	blogDesc.appendChild(blogDescP);
 
     var blogAuthor = document.createElement("div");
     blogAuthor.classList.add("blog-author");
@@ -170,6 +174,10 @@
   })
 
 }
+		
+  
+	        
+	
 </script>
 
 	
