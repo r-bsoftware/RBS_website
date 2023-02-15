@@ -101,6 +101,7 @@
 	var contentdesc = document.createElement("p");
 	var parser = new DOMParser();
 	var doc = parser.parseFromString(item.content, "text/html");
+	    console.log(doc.body.textContent);
 	contentdesc.textContent = doc.body.textContent;
 	blogItemWrapper.appendChild(contentdesc);
 
