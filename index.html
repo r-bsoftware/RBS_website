@@ -103,7 +103,7 @@
     var blogDescContent = document.createElement("div");
 	var parser = new DOMParser();
 	var doc = parser.parseFromString(item.content, "text/html");
-    blogDescContent.innerHTML = doc.body.textContent.slice(0, 40);
+    blogDescContent.innerHTML = doc.body.textContent;
     blogDescP.textContent = blogDescContent.textContent;
 		
 	blogDesc.appendChild(blogDescP);
