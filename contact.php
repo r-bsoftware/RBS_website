@@ -67,43 +67,62 @@
                 
             </div>
 		
+	
+		<div class="row">
+  <!-- Contact Form Holder -->
+  <div class="col-md-8 offset-md-2 contact-form-holder mt-4">
+    <form method="post" action="" name="contact-us">
+      <div class="row">
+        <div class="col-md-6 form-input">
+          <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
+        </div>
+        <div class="col-md-6 form-input">
+          <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+        </div>
+        <div class="col-md-12 form-input">
+          <input type="text" class="form-control" id="subject" name="subject" placeholder="Tema">
+        </div>
+        <div class="col-md-12 form-textarea">
+          <textarea class="form-control" id="message" name="message" rows="6" placeholder="Tu Mensaje ..."></textarea>
+        </div>
+        <div class="col-md-12 form-btn text-center">
+          <button class="btn btn-block btn-secondary btn-red" type="submit" name="submit">Enviar mensaje</button>
+        </div>
+      </div>
+    </form>
+    <div id="form-message-warning"></div>
+    <div id="form-message-success">
+      <?php if(isset($message)) { echo $message; } ?>
+    </div>
+  </div>
+</div>
+
+
+<script>
+  function sendEmail() {
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var subject = document.getElementById("subject").value;
+    var message = document.getElementById("message").value;
+
+    var body = "Nombre: " + name + "\n" +
+               "Email: " + email + "\n" +
+               "Tema: " + subject + "\n" +
+               "Mensaje: " + message;
+
+    // Replace the email address and subject with your own values
+    var recipient = "juliositgespomares@gmail.com";
+    var emailSubject = "Mensaje de contacto desde el sitio web";
+
+    // Send the email using the mail() method
+    mail(recipient, emailSubject, body);
+  }
+</script>
+
 		
 		
+		
 
-
-
-            <!-- End of Section Title -->
-            <div class="row">
-                <!-- Contact Form Holder -->
-                <div class="col-md-8 offset-md-2 contact-form-holder mt-4">
-                    <form method="post" name="contact-us">
-                        <div class="row">
-                            <div class="col-md-6 form-input">
-                                <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
-                            </div>
-                            <div class="col-md-6 form-input">
-                                <input type="text" class="form-control" id="email" name="email" placeholder="Email">
-                            </div>
-                            <div class="col-md-12 form-input">
-                                <input type="text" class="form-control" id="subject" name="subject" placeholder="Tema">
-                            </div>
-                            <div class="col-md-12 form-textarea">
-                                <textarea class="form-control" id="message" name="message" rows="6" placeholder="Tu Mensaje ..."></textarea>
-                            </div>
-                            <div class="col-md-12 form-btn text-center">
-				
-                                <button class="btn btn-block btn-secondary btn-red" type="submit" name="submit" onclick="sendEmail()">Enviar mensaje</button>
-
-                            </div>
-                        </div>
-                    </form>
-                    <div id="form-message-warning"></div>
-                    <div id="form-message-success">
-                        Tu mensaje ha sido enviado con èxito!
-                    </div>
-                </div>
-                <!-- End of Contact Form Holder -->
-            </div>
         </div>
     </div>
 </section>
@@ -155,36 +174,6 @@
 
 	<!-- Main JS -->
 	<script src="./js/app.min.js "></script>
-	<script src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js"></script>
-<script>
-  function sendEmail() {
-    // Get the form data
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-	  
-    var subject = document.getElementById("subject").value;
-
-    var message = document.getElementById("message").value;
-
-    // Set up the email parameters
-    var params = {
-      name: name,
-      email: email,
-      subject: subject,
-      message: message
-    };
-
-    // Send the email using EmailJS
-    emailjs.send("service_rbs_site", "template_hr95tnr", params)
-      .then(function(response) {
-        alert("Your message has been sent!");
-        console.log("SUCCESS", response);
-      }, function(error) {
-        alert("Sorry, there was an error sending your message.");
-        console.log("FAILED", error);
-      });
-  }
-</script>
 
 	<script src="//localhost:35729/livereload.js"></script>
 </body>
