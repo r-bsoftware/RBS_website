@@ -71,7 +71,7 @@
 		<div class="row">
   <!-- Contact Form Holder -->
   <div class="col-md-8 offset-md-2 contact-form-holder mt-4">
-    <form method="post" action="" name="contact-us">
+    <form method="post" action="https://formspree.io/f/mqkoqepd" name="contact-us">
       <div class="row">
         <div class="col-md-6 form-input">
           <input type="text" class="form-control" id="name" name="name" placeholder="Nombre">
@@ -97,31 +97,6 @@
   </div>
 </div>
 
-
-<script>
-  function sendEmail() {
-    var name = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var subject = document.getElementById("subject").value;
-    var message = document.getElementById("message").value;
-
-    var body = "Nombre: " + name + "\n" +
-               "Email: " + email + "\n" +
-               "Tema: " + subject + "\n" +
-               "Mensaje: " + message;
-
-    // Replace the email address and subject with your own values
-    var recipient = "juliositgespomares@gmail.com";
-    var emailSubject = "Mensaje de contacto desde el sitio web";
-
-    // Send the email using the mail() method
-    mail(recipient, emailSubject, body);
-  }
-</script>
-
-		
-		
-		
 
         </div>
     </div>
