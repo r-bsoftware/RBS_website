@@ -13,14 +13,7 @@
 
 
 
-	<script>
-  fetch('https://www.googleapis.com/blogger/v3/blogs/7951109128754895294/posts?fetchImages=true&key=AIzaSyDAKbuG57NV59ruRw2KOdNp6SmZMyz9EGw')
-  .then(response => response.json())
-  .then(data => handleResponse(data))
-  .catch(error => console.error(error));
-</script>
-	
-	
+
 
 	
     <!-- External CSS -->
@@ -856,7 +849,13 @@
 
 }
 		
-  
+  fetch('https://www.googleapis.com/blogger/v3/blogs/7951109128754895294/posts?fetchImages=true&key=AIzaSyDAKbuG57NV59ruRw2KOdNp6SmZMyz9EGw')
+  .then(response => response.json())
+  .then(data => handleResponse(data))
+  .catch(error => console.error(error));
+
+	
+	
 	
 </script>
 
