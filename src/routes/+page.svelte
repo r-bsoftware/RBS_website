@@ -10,6 +10,15 @@
 			features: ['CFDI 4.0', 'IA Fiscal', 'Contabilidad SAT', 'RESICO Optimizer']
 		},
 		{
+			name: 'Camino',
+			subtitle: 'CRM & Marketing',
+			description: 'CRM con captura de leads, scoring automático, email automation y seguimiento de ventas para el ecosistema.',
+			url: 'https://camino-crm.vercel.app',
+			status: 'live',
+			icon: '🛤️',
+			features: ['Lead Scoring', 'Email Automation', 'Multi-tenant', 'Analytics']
+		},
+		{
 			name: 'Caracol',
 			subtitle: 'Restaurante POS',
 			description: 'Sistema punto de venta para restaurantes con mesas, comandas, cocina y facturación automática.',
@@ -398,6 +407,7 @@
 					<h3 class="font-bold mb-4">Productos</h3>
 					<ul class="space-y-2 text-gray-400">
 						<li><a href="https://constanza-oyc4b548x-rbss-projects-204990eb.vercel.app" class="hover:text-white">Constanza (Contabilidad)</a></li>
+						<li><a href="https://camino-crm.vercel.app" class="hover:text-white">Camino (CRM)</a></li>
 						<li><span class="text-white">Caracol (Restaurantes)</span></li>
 						<li><span class="text-gray-600">Colectiva (Próximamente)</span></li>
 						<li><span class="text-gray-600">La Hoja (Próximamente)</span></li>
