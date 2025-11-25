@@ -3,11 +3,11 @@
 		{
 			name: 'Constanza',
 			subtitle: 'Contabilidad Electrónica',
-			description: 'Plataforma de contabilidad fiscal con IA para RESICO y Régimen General. CFDI 4.0, SAT, optimización fiscal con IA.',
-			url: 'https://constanza-oyc4b548x-rbss-projects-204990eb.vercel.app',
+			description: 'Plataforma de contabilidad fiscal con IA para RESICO y Régimen General. CFDI 4.0, SAT, IMSS, optimización fiscal inteligente.',
+			url: 'https://constanza.redbroomsoftware.com',
 			status: 'live',
 			icon: '📊',
-			features: ['CFDI 4.0', 'IA Fiscal', 'Contabilidad SAT', 'RESICO Optimizer']
+			features: ['CFDI 4.0', 'IA Fiscal', 'IMSS/IDSE', 'Multi-tenant']
 		},
 		{
 			name: 'Camino',
@@ -21,47 +21,56 @@
 		{
 			name: 'Caracol',
 			subtitle: 'Restaurante POS',
-			description: 'Sistema punto de venta para restaurantes con mesas, comandas, cocina y facturación automática.',
-			url: '#contacto',
-			status: 'live',
-			icon: '🍽️',
-			features: ['POS Completo', 'KDS Cocina', 'Mesas', 'Facturación']
-		},
-		{
-			name: 'Colectiva',
-			subtitle: 'Wallet Ecosistema',
-			description: 'Cartera digital del ecosistema con CoDi, SPEI, pagos NFC y gestión multi-empresa.',
+			description: 'Sistema punto de venta completo para restaurantes: gestión de mesas, comandas a cocina, meseros y suscripciones.',
 			url: '#contacto',
 			status: 'development',
-			icon: '💳',
-			features: ['CoDi', 'SPEI', 'NFC', 'Multi-org']
-		},
-		{
-			name: 'Banxico',
-			subtitle: 'Procesador de Pagos',
-			description: 'Microservicio de procesamiento de pagos CoDi, SPEI y conciliación bancaria para todo el ecosistema.',
-			url: '#contacto',
-			status: 'live',
-			icon: '🏦',
-			features: ['CoDi API', 'SPEI', 'Multi-FX', 'Infraestructura']
+			icon: '🍽️',
+			features: ['POS Completo', 'KDS Cocina', 'Meseros', 'Suscripciones']
 		},
 		{
 			name: 'La Hoja',
-			subtitle: 'Café POS',
-			description: 'POS ligero para cafetería con pedidos rápidos, programa de lealtad y gestión de inventario.',
+			subtitle: 'ERP Multi-Negocio',
+			description: 'Sistema ERP completo para cafeterías y retail: POS rápido, inventario FIFO, proveedores, lealtad y analíticas.',
 			url: '#contacto',
 			status: 'development',
 			icon: '☕',
-			features: ['POS Rápido', 'Lealtad', 'Pedidos', 'Inventario']
+			features: ['POS Rápido', 'Inventario FIFO', 'Lealtad', 'Multi-sucursal']
+		},
+		{
+			name: 'Cosmos Pet',
+			subtitle: 'Veterinarias & Estéticas',
+			description: 'Plataforma SaaS para clínicas veterinarias: citas, expedientes SOAP, vacunas, cirugías, estética y facturación.',
+			url: '#contacto',
+			status: 'development',
+			icon: '🐾',
+			features: ['Expedientes', 'Vacunas', 'Estética', 'Multi-clínica']
+		},
+		{
+			name: 'Colectiva',
+			subtitle: 'Workspace Colaborativo',
+			description: 'Espacio de trabajo para equipos: decisiones colaborativas, gestión de proyectos, tareas y notificaciones push.',
+			url: '#contacto',
+			status: 'development',
+			icon: '🤝',
+			features: ['Decisiones', 'Proyectos', 'Kanban', 'Push Notifications']
 		},
 		{
 			name: 'Plenura',
 			subtitle: 'Terapia & Wellness',
-			description: 'Plataforma para terapeutas: gestión de citas, expedientes clínicos, facturación y recordatorios automáticos.',
+			description: 'Marketplace para terapeutas: perfiles profesionales, reservaciones, pagos integrados y gestión de clientes.',
 			url: '#contacto',
 			status: 'development',
 			icon: '🧘',
-			features: ['Agenda', 'Expedientes', 'Facturación', 'Recordatorios']
+			features: ['Marketplace', 'Reservaciones', 'Pagos', 'Perfiles']
+		},
+		{
+			name: 'Banxico',
+			subtitle: 'Procesador de Pagos',
+			description: 'Microservicio de pagos CoDi/SPEI desplegado en producción. Motor de pagos para todo el ecosistema RBS.',
+			url: '#contacto',
+			status: 'live',
+			icon: '🏦',
+			features: ['CoDi API', 'SPEI', 'Coins Virtuales', 'Webhooks']
 		}
 	];
 
@@ -117,7 +126,7 @@
 					<a href="#ecosistema" class="text-gray-700 hover:text-blue-600">Ecosistema</a>
 					<a href="#contacto" class="text-gray-700 hover:text-blue-600">Contacto</a>
 					<a
-						href="https://constanza-oyc4b548x-rbss-projects-204990eb.vercel.app"
+						href="https://constanza.redbroomsoftware.com"
 						class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
 					>
 						Acceder a Constanza
@@ -142,7 +151,7 @@
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
 				<a
-					href="https://constanza-oyc4b548x-rbss-projects-204990eb.vercel.app"
+					href="https://constanza.redbroomsoftware.com"
 					class="px-8 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors text-lg font-medium text-center"
 				>
 					Comenzar con Constanza
@@ -231,54 +240,63 @@
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
 					<!-- Architecture Diagram -->
 					<div class="space-y-6">
-						<h3 class="text-2xl font-bold text-gray-900 mb-4">Flujo de Datos</h3>
+						<h3 class="text-2xl font-bold text-gray-900 mb-4">Arquitectura</h3>
 
-						<!-- Core -->
-						<div class="text-center p-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-white">
-							<p class="text-sm font-medium mb-1">Núcleo</p>
-							<p class="text-2xl font-bold">Red Broom Software</p>
+						<!-- Core Infrastructure -->
+						<div class="text-center p-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-white">
+							<p class="text-xs font-medium mb-1">Infraestructura Central</p>
+							<p class="text-lg font-bold">Banxico Payment Engine</p>
+							<p class="text-xs text-blue-100">CoDi • SPEI • Coins Virtuales</p>
 						</div>
 
-						<!-- Layer 1: Core Services -->
-						<div class="grid grid-cols-3 gap-4">
-							<div class="p-4 bg-green-50 border-2 border-green-200 rounded-lg text-center">
-								<p class="text-2xl mb-1">📊</p>
-								<p class="text-sm font-medium text-green-900">Constanza</p>
-								<p class="text-xs text-green-700">Contabilidad</p>
+						<!-- Layer 1: Core Business Apps -->
+						<div class="grid grid-cols-2 gap-3">
+							<div class="p-3 bg-green-50 border-2 border-green-300 rounded-lg text-center">
+								<p class="text-xl mb-1">📊</p>
+								<p class="text-sm font-bold text-green-900">Constanza</p>
+								<p class="text-xs text-green-700">Contabilidad & Fiscal</p>
 							</div>
-							<div class="p-4 bg-blue-50 border-2 border-blue-200 rounded-lg text-center">
-								<p class="text-2xl mb-1">💳</p>
-								<p class="text-sm font-medium text-blue-900">Colectiva</p>
-								<p class="text-xs text-blue-700">Wallet</p>
-							</div>
-							<div class="p-4 bg-purple-50 border-2 border-purple-200 rounded-lg text-center">
-								<p class="text-2xl mb-1">🏦</p>
-								<p class="text-sm font-medium text-purple-900">Banxico</p>
-								<p class="text-xs text-purple-700">Pagos</p>
+							<div class="p-3 bg-blue-50 border-2 border-blue-300 rounded-lg text-center">
+								<p class="text-xl mb-1">🛤️</p>
+								<p class="text-sm font-bold text-blue-900">Camino</p>
+								<p class="text-xs text-blue-700">CRM & Marketing</p>
 							</div>
 						</div>
 
-						<!-- Layer 2: Business Apps -->
-						<div class="grid grid-cols-3 gap-4">
-							<div class="p-4 bg-gray-50 border-2 border-gray-200 rounded-lg text-center">
-								<p class="text-2xl mb-1">🍽️</p>
-								<p class="text-sm font-medium text-gray-900">Caracol</p>
-								<p class="text-xs text-gray-700">Restaurante</p>
+						<!-- Layer 2: Vertical Solutions -->
+						<div class="grid grid-cols-3 gap-2">
+							<div class="p-2 bg-orange-50 border border-orange-200 rounded-lg text-center">
+								<p class="text-lg mb-1">🍽️</p>
+								<p class="text-xs font-medium text-orange-900">Caracol</p>
 							</div>
-							<div class="p-4 bg-gray-50 border-2 border-gray-200 rounded-lg text-center">
-								<p class="text-2xl mb-1">☕</p>
-								<p class="text-sm font-medium text-gray-900">La Hoja</p>
-								<p class="text-xs text-gray-700">Café</p>
+							<div class="p-2 bg-amber-50 border border-amber-200 rounded-lg text-center">
+								<p class="text-lg mb-1">☕</p>
+								<p class="text-xs font-medium text-amber-900">La Hoja</p>
 							</div>
-							<div class="p-4 bg-gray-50 border-2 border-gray-200 rounded-lg text-center">
-								<p class="text-2xl mb-1">🧘</p>
-								<p class="text-sm font-medium text-gray-900">Plenura</p>
-								<p class="text-xs text-gray-700">Terapia</p>
+							<div class="p-2 bg-cyan-50 border border-cyan-200 rounded-lg text-center">
+								<p class="text-lg mb-1">🐾</p>
+								<p class="text-xs font-medium text-cyan-900">Cosmos Pet</p>
 							</div>
 						</div>
 
-						<div class="text-center text-sm text-gray-600 pt-4 border-t">
-							Todas las apps envían transacciones → Constanza genera facturación
+						<!-- Layer 3: Services -->
+						<div class="grid grid-cols-3 gap-2">
+							<div class="p-2 bg-purple-50 border border-purple-200 rounded-lg text-center">
+								<p class="text-lg mb-1">🤝</p>
+								<p class="text-xs font-medium text-purple-900">Colectiva</p>
+							</div>
+							<div class="p-2 bg-pink-50 border border-pink-200 rounded-lg text-center">
+								<p class="text-lg mb-1">🧘</p>
+								<p class="text-xs font-medium text-pink-900">Plenura</p>
+							</div>
+							<div class="p-2 bg-gray-50 border border-gray-200 rounded-lg text-center">
+								<p class="text-lg mb-1">➕</p>
+								<p class="text-xs font-medium text-gray-600">Más...</p>
+							</div>
+						</div>
+
+						<div class="text-center text-xs text-gray-500 pt-3 border-t">
+							Todas las apps → Constanza (facturación) → Banxico (pagos)
 						</div>
 					</div>
 
@@ -368,11 +386,11 @@
 		<div class="max-w-4xl mx-auto text-center text-white">
 			<h2 class="text-4xl font-bold mb-6">¿Listo para empezar?</h2>
 			<p class="text-xl mb-8 text-blue-100">
-				Constanza está en vivo. Empieza a gestionar tu contabilidad con IA hoy mismo.
+				Constanza y Camino están en vivo. Empieza a gestionar tu negocio con IA hoy mismo.
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
 				<a
-					href="https://constanza-oyc4b548x-rbss-projects-204990eb.vercel.app"
+					href="https://constanza.redbroomsoftware.com"
 					class="px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-gray-100 transition-colors text-lg font-medium inline-flex items-center space-x-2 justify-center"
 				>
 					<span>Acceder a Constanza</span>
@@ -403,14 +421,15 @@
 					</p>
 				</div>
 
-				<div>
+					<div>
 					<h3 class="font-bold mb-4">Productos</h3>
 					<ul class="space-y-2 text-gray-400">
-						<li><a href="https://constanza-oyc4b548x-rbss-projects-204990eb.vercel.app" class="hover:text-white">Constanza (Contabilidad)</a></li>
+						<li><a href="https://constanza.redbroomsoftware.com" class="hover:text-white">Constanza (Contabilidad)</a></li>
 						<li><a href="https://camino-crm.vercel.app" class="hover:text-white">Camino (CRM)</a></li>
-						<li><span class="text-white">Caracol (Restaurantes)</span></li>
-						<li><span class="text-gray-600">Colectiva (Próximamente)</span></li>
-						<li><span class="text-gray-600">La Hoja (Próximamente)</span></li>
+						<li><span class="text-gray-500">Caracol (Restaurantes)</span></li>
+						<li><span class="text-gray-500">La Hoja (ERP)</span></li>
+						<li><span class="text-gray-500">Cosmos Pet (Veterinarias)</span></li>
+						<li><span class="text-gray-600">+ 3 más en desarrollo</span></li>
 					</ul>
 				</div>
 
