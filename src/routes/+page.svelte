@@ -8,38 +8,32 @@
 		product: '',
 		message: ''
 	};
-	let isSubmitting = false;
-	let submitStatus: 'idle' | 'success' | 'error' = 'idle';
-	let submitMessage = '';
+	let submitStatus: 'idle' | 'success' = 'idle';
 
-	async function handleContactSubmit(event: Event) {
+	function handleContactSubmit(event: Event) {
 		event.preventDefault();
-		isSubmitting = true;
-		submitStatus = 'idle';
 
-		try {
-			const response = await fetch('/api/contact', {
-				method: 'POST',
-				headers: { 'Content-Type': 'application/json' },
-				body: JSON.stringify(contactForm)
-			});
+		// Build mailto link with form data
+		const subject = encodeURIComponent(
+			contactForm.product
+				? `[Website] Consulta sobre ${contactForm.product}`
+				: '[Website] Formulario de contacto'
+		);
+		const body = encodeURIComponent(
+			`Nombre: ${contactForm.name}\n` +
+			`Email: ${contactForm.email}\n` +
+			`Empresa: ${contactForm.company}\n` +
+			`Teléfono: ${contactForm.phone || 'No proporcionado'}\n` +
+			`Producto de interés: ${contactForm.product}\n\n` +
+			`Mensaje:\n${contactForm.message}`
+		);
 
-			const result = await response.json();
+		// Open mailto link
+		window.location.href = `mailto:ventas@redbroomsoftware.com?subject=${subject}&body=${body}`;
 
-			if (response.ok) {
-				submitStatus = 'success';
-				submitMessage = result.message || '¡Gracias por contactarnos!';
-				contactForm = { name: '', email: '', company: '', phone: '', product: '', message: '' };
-			} else {
-				submitStatus = 'error';
-				submitMessage = result.message || 'Error al enviar el mensaje. Por favor intenta de nuevo.';
-			}
-		} catch {
-			submitStatus = 'error';
-			submitMessage = 'Error de conexión. Por favor intenta de nuevo.';
-		} finally {
-			isSubmitting = false;
-		}
+		// Show success state
+		submitStatus = 'success';
+		contactForm = { name: '', email: '', company: '', phone: '', product: '', message: '' };
 	}
 
 	const products = [
@@ -466,8 +460,8 @@
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
 							</svg>
 						</div>
-						<h3 class="text-2xl font-bold text-white mb-2">¡Mensaje Enviado!</h3>
-						<p class="text-slate-400 mb-8">{submitMessage}</p>
+						<h3 class="text-2xl font-bold text-white mb-2">¡Gracias por contactarnos!</h3>
+						<p class="text-slate-400 mb-8">Se abrió tu aplicación de correo. Envía el mensaje y te responderemos pronto.</p>
 						<button
 							on:click={() => submitStatus = 'idle'}
 							class="px-6 py-3 bg-slate-800 text-white rounded-xl hover:bg-slate-700 transition-colors"
@@ -569,26 +563,11 @@
 							></textarea>
 						</div>
 
-						{#if submitStatus === 'error'}
-							<div class="p-4 bg-red-500/10 border border-red-500/20 rounded-xl">
-								<p class="text-red-400 text-sm">{submitMessage}</p>
-							</div>
-						{/if}
-
 						<button
 							type="submit"
-							disabled={isSubmitting}
-							class="w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all font-semibold disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-2"
+							class="w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all font-semibold flex items-center justify-center space-x-2"
 						>
-							{#if isSubmitting}
-								<svg class="animate-spin h-5 w-5" viewBox="0 0 24 24">
-									<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4" fill="none"></circle>
-									<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-								</svg>
-								<span>Enviando...</span>
-							{:else}
-								<span>Solicitar Demostración</span>
-							{/if}
+							<span>Solicitar Demostración</span>
 						</button>
 					</form>
 				{/if}
