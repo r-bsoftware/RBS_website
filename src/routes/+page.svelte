@@ -189,9 +189,7 @@
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
 			<div class="flex items-center justify-between">
 				<div class="flex items-center space-x-3">
-					<div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-						<span class="text-white font-bold text-xl">R</span>
-					</div>
+					<img src="/logo.svg" alt="Red Broom Software" class="w-10 h-10" />
 					<div>
 						<h1 class="text-xl font-bold text-white">Red Broom Software</h1>
 						<p class="text-xs text-slate-400">Enterprise Solutions</p>
@@ -699,9 +697,7 @@
 			<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
 				<div class="col-span-1 md:col-span-2">
 					<div class="flex items-center space-x-3 mb-6">
-						<div class="w-10 h-10 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-							<span class="text-white font-bold text-xl">R</span>
-						</div>
+						<img src="/logo.svg" alt="Red Broom Software" class="w-10 h-10" />
 						<div>
 							<h3 class="text-xl font-bold text-white">Red Broom Software</h3>
 							<p class="text-xs text-slate-400">S.A.S. de C.V.</p>
