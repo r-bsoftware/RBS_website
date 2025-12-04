@@ -1,4 +1,7 @@
 <script lang="ts">
+	// Camino CRM API endpoint for lead capture
+	const CAMINO_API_URL = 'https://camino.redbroomsoftware.com/api/leads';
+
 	// Contact form state
 	let contactForm = {
 		name: '',
@@ -8,32 +11,48 @@
 		product: '',
 		message: ''
 	};
-	let submitStatus: 'idle' | 'success' = 'idle';
+	let submitStatus: 'idle' | 'submitting' | 'success' | 'error' = 'idle';
+	let errorMessage = '';
 
-	function handleContactSubmit(event: Event) {
+	async function handleContactSubmit(event: Event) {
 		event.preventDefault();
+		submitStatus = 'submitting';
+		errorMessage = '';
 
-		// Build mailto link with form data
-		const subject = encodeURIComponent(
-			contactForm.product
-				? `[Website] Consulta sobre ${contactForm.product}`
-				: '[Website] Formulario de contacto'
-		);
-		const body = encodeURIComponent(
-			`Nombre: ${contactForm.name}\n` +
-			`Email: ${contactForm.email}\n` +
-			`Empresa: ${contactForm.company}\n` +
-			`Teléfono: ${contactForm.phone || 'No proporcionado'}\n` +
-			`Producto de interés: ${contactForm.product}\n\n` +
-			`Mensaje:\n${contactForm.message}`
-		);
+		try {
+			const response = await fetch(CAMINO_API_URL, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json'
+				},
+				body: JSON.stringify({
+					name: contactForm.name,
+					email: contactForm.email,
+					company: contactForm.company,
+					phone: contactForm.phone,
+					product: contactForm.product,
+					message: contactForm.message,
+					source: 'rbs_website',
+					formType: 'demo',
+					landingPage: window.location.href,
+					referrer: document.referrer || undefined
+				})
+			});
 
-		// Open mailto link
-		window.location.href = `mailto:ventas@redbroomsoftware.com?subject=${subject}&body=${body}`;
+			const result = await response.json();
 
-		// Show success state
-		submitStatus = 'success';
-		contactForm = { name: '', email: '', company: '', phone: '', product: '', message: '' };
+			if (!response.ok) {
+				throw new Error(result.error || 'Error al enviar el formulario');
+			}
+
+			// Success
+			submitStatus = 'success';
+			contactForm = { name: '', email: '', company: '', phone: '', product: '', message: '' };
+		} catch (error) {
+			console.error('Form submission error:', error);
+			submitStatus = 'error';
+			errorMessage = error instanceof Error ? error.message : 'Error al enviar el formulario. Por favor intenta de nuevo.';
+		}
 	}
 
 	const products = [
@@ -114,8 +133,8 @@
 		},
 		{
 			name: 'Constanza',
-			subtitle: 'Contabilidad con IA',
-			description: 'Sistema de contabilidad electrónica con inteligencia artificial para optimización fiscal, CFDI 4.0, y cumplimiento SAT automatizado.',
+			subtitle: 'Contabilidad Inteligente para Despachos',
+			description: 'Plataforma multi-cliente para contadores: gestiona decenas de empresas desde un solo dashboard. IA fiscal, CFDI 4.0, DIOT automático, y optimización RESICO.',
 			icon: '📊',
 			tier: 'enterprise',
 			pricing: {
@@ -124,8 +143,8 @@
 				setupLabel: 'Implementación',
 				monthlyLabel: 'por mes'
 			},
-			features: ['IA Fiscal', 'CFDI 4.0', 'Contabilidad SAT', 'IMSS/IDSE', 'Multi-empresa', 'Declaraciones', 'Auditoría'],
-			highlights: ['Ahorro fiscal real', 'Cumplimiento 100%', 'Soporte fiscal']
+			features: ['Multi-cliente (despachos)', 'IA Fiscal + RESICO', 'CFDI 4.0 ilimitado', 'DIOT/Balanza automático', 'IMSS/IDSE integrado', 'Consolidación grupos', 'API ecosistema'],
+			highlights: ['Ideal para despachos', 'Ahorro fiscal real', 'Cumplimiento SAT 100%']
 		}
 	];
 
@@ -180,6 +199,7 @@
 				</div>
 				<nav class="hidden md:flex items-center space-x-8">
 					<a href="#productos" class="text-slate-300 hover:text-white transition-colors">Productos</a>
+					<a href="#ecosistema" class="text-slate-300 hover:text-white transition-colors">Ecosistema</a>
 					<a href="#porque" class="text-slate-300 hover:text-white transition-colors">Por qué RBS</a>
 					<a href="#contacto" class="text-slate-300 hover:text-white transition-colors">Contacto</a>
 					<a
@@ -333,6 +353,79 @@
 		</div>
 	</section>
 
+	<!-- Ecosystem Integration Section -->
+	<section id="ecosistema" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-950 to-slate-900">
+		<div class="max-w-7xl mx-auto">
+			<div class="text-center mb-16">
+				<div class="inline-flex items-center px-4 py-2 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-sm text-emerald-400 mb-6">
+					<span class="w-2 h-2 bg-emerald-400 rounded-full mr-2"></span>
+					Ecosistema Integrado
+				</div>
+				<h2 class="text-4xl font-bold text-white mb-4">Todo conectado, todo automatizado</h2>
+				<p class="text-xl text-slate-400 max-w-3xl mx-auto">
+					Nuestros productos se comunican entre sí. Una venta en tu POS genera automáticamente la factura,
+					registra el pago, actualiza inventario y alimenta tu contabilidad.
+				</p>
+			</div>
+
+			<!-- Integration Flow Diagram -->
+			<div class="bg-slate-900 rounded-2xl border border-slate-800 p-8 mb-12">
+				<div class="grid grid-cols-1 md:grid-cols-5 gap-4 items-center">
+					<div class="text-center p-4">
+						<div class="w-16 h-16 bg-slate-800 rounded-xl flex items-center justify-center text-3xl mx-auto mb-3">
+							🍽️
+						</div>
+						<p class="text-white font-semibold">Caracol/La Hoja</p>
+						<p class="text-slate-400 text-sm">Punto de venta</p>
+					</div>
+					<div class="hidden md:flex items-center justify-center">
+						<svg class="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+						</svg>
+					</div>
+					<div class="text-center p-4">
+						<div class="w-16 h-16 bg-slate-800 rounded-xl flex items-center justify-center text-3xl mx-auto mb-3">
+							💳
+						</div>
+						<p class="text-white font-semibold">Colectiva</p>
+						<p class="text-slate-400 text-sm">Procesa pago</p>
+					</div>
+					<div class="hidden md:flex items-center justify-center">
+						<svg class="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+						</svg>
+					</div>
+					<div class="text-center p-4">
+						<div class="w-16 h-16 bg-slate-800 rounded-xl flex items-center justify-center text-3xl mx-auto mb-3">
+							📊
+						</div>
+						<p class="text-white font-semibold">Constanza</p>
+						<p class="text-slate-400 text-sm">Contabiliza</p>
+					</div>
+				</div>
+			</div>
+
+			<!-- Benefits Grid -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+				<div class="text-center">
+					<div class="text-4xl font-bold text-emerald-400 mb-2">0</div>
+					<p class="text-white font-semibold mb-1">Capturas manuales</p>
+					<p class="text-slate-400 text-sm">Todo fluye automáticamente entre sistemas</p>
+				</div>
+				<div class="text-center">
+					<div class="text-4xl font-bold text-emerald-400 mb-2">100%</div>
+					<p class="text-white font-semibold mb-1">Conciliación automática</p>
+					<p class="text-slate-400 text-sm">Ventas, pagos y facturas siempre cuadran</p>
+				</div>
+				<div class="text-center">
+					<div class="text-4xl font-bold text-emerald-400 mb-2">1-2.5%</div>
+					<p class="text-white font-semibold mb-1">Impuestos con RESICO</p>
+					<p class="text-slate-400 text-sm">Optimización fiscal automática si calificas</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- Why RBS Section -->
 	<section id="porque" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
 		<div class="max-w-7xl mx-auto">
@@ -461,12 +554,28 @@
 							</svg>
 						</div>
 						<h3 class="text-2xl font-bold text-white mb-2">¡Gracias por contactarnos!</h3>
-						<p class="text-slate-400 mb-8">Se abrió tu aplicación de correo. Envía el mensaje y te responderemos pronto.</p>
+						<p class="text-slate-400 mb-8">Tu mensaje ha sido recibido. Un especialista te contactará en menos de 24 horas.</p>
 						<button
 							on:click={() => submitStatus = 'idle'}
 							class="px-6 py-3 bg-slate-800 text-white rounded-xl hover:bg-slate-700 transition-colors"
 						>
 							Enviar otro mensaje
+						</button>
+					</div>
+				{:else if submitStatus === 'error'}
+					<div class="text-center py-12">
+						<div class="w-16 h-16 bg-red-500/10 rounded-full flex items-center justify-center mx-auto mb-6">
+							<svg class="w-8 h-8 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+							</svg>
+						</div>
+						<h3 class="text-2xl font-bold text-white mb-2">Error al enviar</h3>
+						<p class="text-slate-400 mb-8">{errorMessage}</p>
+						<button
+							on:click={() => submitStatus = 'idle'}
+							class="px-6 py-3 bg-slate-800 text-white rounded-xl hover:bg-slate-700 transition-colors"
+						>
+							Intentar de nuevo
 						</button>
 					</div>
 				{:else}
@@ -565,9 +674,18 @@
 
 						<button
 							type="submit"
-							class="w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all font-semibold flex items-center justify-center space-x-2"
+							disabled={submitStatus === 'submitting'}
+							class="w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all font-semibold flex items-center justify-center space-x-2 disabled:opacity-50 disabled:cursor-not-allowed"
 						>
-							<span>Solicitar Demostración</span>
+							{#if submitStatus === 'submitting'}
+								<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+									<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+									<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+								</svg>
+								<span>Enviando...</span>
+							{:else}
+								<span>Solicitar Demostración</span>
+							{/if}
 						</button>
 					</form>
 				{/if}
