@@ -188,13 +188,9 @@
 	<header class="bg-slate-950/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
 			<div class="flex items-center justify-between">
-				<div class="flex items-center space-x-3">
-					<img src="/logo.svg" alt="Red Broom Software" class="w-10 h-10" />
-					<div>
-						<h1 class="text-xl font-bold text-white">Red Broom Software</h1>
-						<p class="text-xs text-slate-400">Enterprise Solutions</p>
-					</div>
-				</div>
+				<a href="/" class="flex items-center">
+					<img src="/logo.svg" alt="Red Broom Software" class="h-10" />
+				</a>
 				<nav class="hidden md:flex items-center space-x-8">
 					<a href="#productos" class="text-slate-300 hover:text-white transition-colors">Productos</a>
 					<a href="#ecosistema" class="text-slate-300 hover:text-white transition-colors">Ecosistema</a>
@@ -696,12 +692,8 @@
 		<div class="max-w-7xl mx-auto">
 			<div class="grid grid-cols-1 md:grid-cols-4 gap-12">
 				<div class="col-span-1 md:col-span-2">
-					<div class="flex items-center space-x-3 mb-6">
-						<img src="/logo.svg" alt="Red Broom Software" class="w-10 h-10" />
-						<div>
-							<h3 class="text-xl font-bold text-white">Red Broom Software</h3>
-							<p class="text-xs text-slate-400">S.A.S. de C.V.</p>
-						</div>
+					<div class="mb-6">
+						<img src="/logo.svg" alt="Red Broom Software" class="h-12" />
 					</div>
 					<p class="text-slate-400 max-w-md">
 						Construimos software empresarial de clase mundial para negocios mexicanos.
