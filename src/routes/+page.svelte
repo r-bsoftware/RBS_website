@@ -88,8 +88,12 @@
 		errorMessage = '';
 
 		try {
-			// Get URL parameters for UTM tracking
+			// Get URL parameters for UTM and campaign tracking
 			const urlParams = new URLSearchParams(window.location.search);
+
+			// Campaign tracking: campaign_id from URL (for paid campaigns) or use utm_campaign
+			const campaignId = urlParams.get('campaign_id') || undefined;
+			const campaignName = urlParams.get('campaign_name') || urlParams.get('utm_campaign') || 'RBS Website Organic';
 
 			const response = await fetch(CAMINO_API_URL, {
 				method: 'POST',
@@ -108,11 +112,14 @@
 					landingPage: window.location.href,
 					referrer: document.referrer || undefined,
 					// UTM tracking
-					utm_source: urlParams.get('utm_source'),
-					utm_medium: urlParams.get('utm_medium'),
+					utm_source: urlParams.get('utm_source') || 'direct',
+					utm_medium: urlParams.get('utm_medium') || 'organic',
 					utm_campaign: urlParams.get('utm_campaign'),
 					utm_content: urlParams.get('utm_content'),
 					utm_term: urlParams.get('utm_term'),
+					// Campaign tracking (links to Camino marketing_campaigns)
+					campaign_id: campaignId,
+					campaign_name: campaignName,
 					// A/B Test tracking (send primary test variant)
 					abTestId: activeTests[0]?.testId,
 					abTestVariant: currentVariants[activeTests[0]?.testId],
