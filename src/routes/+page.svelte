@@ -1,6 +1,74 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
 	// Camino CRM API endpoint for lead capture
 	const CAMINO_API_URL = 'https://camino.redbroomsoftware.com/api/leads';
+
+	// A/B Testing configuration
+	interface ABTestConfig {
+		testId: string;
+		variants: { name: string; weight: number }[];
+	}
+
+	// Active A/B tests (can be fetched from API or defined here)
+	const activeTests: ABTestConfig[] = [
+		{
+			testId: 'hero_cta_dec24',
+			variants: [
+				{ name: 'control', weight: 50 },
+				{ name: 'urgency', weight: 50 }
+			]
+		}
+	];
+
+	// Current variant assignment
+	let currentVariants: Record<string, string> = {};
+	let visitorId = '';
+
+	// Generate or retrieve visitor ID
+	function getVisitorId(): string {
+		if (typeof window === 'undefined') return '';
+		let id = localStorage.getItem('rbs_visitor_id');
+		if (!id) {
+			id = `v_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+			localStorage.setItem('rbs_visitor_id', id);
+		}
+		return id;
+	}
+
+	// Assign visitor to test variants (deterministic based on visitor ID)
+	function assignVariant(testId: string, variants: { name: string; weight: number }[], vid: string): string {
+		const hash = simpleHash(`${testId}-${vid}`);
+		const normalized = Math.abs(hash) / 0x7FFFFFFF;
+		const percentage = normalized * 100;
+
+		let cumulative = 0;
+		for (const variant of variants) {
+			cumulative += variant.weight;
+			if (percentage < cumulative) {
+				return variant.name;
+			}
+		}
+		return variants[variants.length - 1]?.name || 'control';
+	}
+
+	function simpleHash(str: string): number {
+		let hash = 0;
+		for (let i = 0; i < str.length; i++) {
+			const char = str.charCodeAt(i);
+			hash = ((hash << 5) - hash) + char;
+			hash = hash & hash;
+		}
+		return hash;
+	}
+
+	onMount(() => {
+		visitorId = getVisitorId();
+		// Assign variants for all active tests
+		for (const test of activeTests) {
+			currentVariants[test.testId] = assignVariant(test.testId, test.variants, visitorId);
+		}
+	});
 
 	// Contact form state
 	let contactForm = {
@@ -20,6 +88,9 @@
 		errorMessage = '';
 
 		try {
+			// Get URL parameters for UTM tracking
+			const urlParams = new URLSearchParams(window.location.search);
+
 			const response = await fetch(CAMINO_API_URL, {
 				method: 'POST',
 				headers: {
@@ -35,7 +106,17 @@
 					source: 'rbs_website',
 					formType: 'demo',
 					landingPage: window.location.href,
-					referrer: document.referrer || undefined
+					referrer: document.referrer || undefined,
+					// UTM tracking
+					utm_source: urlParams.get('utm_source'),
+					utm_medium: urlParams.get('utm_medium'),
+					utm_campaign: urlParams.get('utm_campaign'),
+					utm_content: urlParams.get('utm_content'),
+					utm_term: urlParams.get('utm_term'),
+					// A/B Test tracking (send primary test variant)
+					abTestId: activeTests[0]?.testId,
+					abTestVariant: currentVariants[activeTests[0]?.testId],
+					visitorId
 				})
 			});
 
@@ -62,6 +143,7 @@
 			description: 'Punto de venta completo con gestión de mesas, comandas a cocina en tiempo real, sistema de meseros, facturación CFDI 4.0 y reportes avanzados.',
 			icon: '🍽️',
 			tier: 'enterprise',
+			url: 'https://caracol.redbroomsoftware.com',
 			pricing: {
 				setup: '$52,500',
 				monthly: '$396/usuario',
@@ -77,6 +159,7 @@
 			description: 'Sistema ERP completo para operaciones de retail: POS ultra-rápido, inventario FIFO, gestión de proveedores, programa de lealtad y analytics.',
 			icon: '☕',
 			tier: 'professional',
+			url: 'https://hoja.redbroomsoftware.com',
 			pricing: {
 				setup: '$35,000',
 				monthly: '$290/usuario',
@@ -92,6 +175,7 @@
 			description: 'Plataforma SaaS especializada para clínicas veterinarias: expedientes médicos SOAP, control de vacunas, agenda, estética canina y facturación.',
 			icon: '🐾',
 			tier: 'professional',
+			url: 'https://cosmos.redbroomsoftware.com',
 			pricing: {
 				setup: '$28,000',
 				monthly: '$245/usuario',
@@ -107,6 +191,7 @@
 			description: 'CRM moderno con captura de leads, scoring automático con IA, pipeline de ventas, tickets de soporte y automatización de marketing.',
 			icon: '🛤️',
 			tier: 'standard',
+			url: 'https://camino.redbroomsoftware.com',
 			pricing: {
 				setup: '$18,000',
 				monthly: '$190/usuario',
@@ -118,18 +203,19 @@
 		},
 		{
 			name: 'Colectiva',
-			subtitle: 'Gateway de Pagos',
-			description: 'Plataforma de pagos con CoDi, SPEI, tarjetas y monedero virtual. Integración completa con facturación y contabilidad automática.',
+			subtitle: 'Gateway de Pagos + Hub de IA',
+			description: 'Plataforma de pagos con CoDi, SPEI, tarjetas y monedero virtual. Centro de control para metrificación de IA del ecosistema con auditoría fiscal completa.',
 			icon: '💳',
 			tier: 'enterprise',
+			url: 'https://colectiva.redbroomsoftware.com',
 			pricing: {
 				setup: '$75,000',
 				monthly: '0.8% + $3.50',
 				setupLabel: 'Integración',
 				monthlyLabel: 'por transacción'
 			},
-			features: ['CoDi en tiempo real', 'SPEI automatizado', 'Monedero virtual', 'Webhooks', 'Dashboard analytics', 'Conciliación automática', 'Multi-merchant'],
-			highlights: ['99.9% uptime', 'PCI DSS', 'Liquidación 24h']
+			features: ['CoDi en tiempo real', 'SPEI automatizado', 'Monedero virtual', 'Metrificación IA centralizada', 'Dashboard analytics', 'Conciliación automática', 'Multi-merchant'],
+			highlights: ['99.9% uptime', 'PCI DSS', 'Control de tokens IA']
 		},
 		{
 			name: 'Constanza',
@@ -137,6 +223,7 @@
 			description: 'Plataforma multi-cliente para contadores: gestiona decenas de empresas desde un solo dashboard. IA fiscal, CFDI 4.0, DIOT automático, y optimización RESICO.',
 			icon: '📊',
 			tier: 'enterprise',
+			url: 'https://constanza.redbroomsoftware.com',
 			pricing: {
 				setup: '$45,000',
 				monthly: '$590/contador',
@@ -199,6 +286,7 @@
 					<a href="#productos" class="text-slate-300 hover:text-white transition-colors">Productos</a>
 					<a href="#ecosistema" class="text-slate-300 hover:text-white transition-colors">Ecosistema</a>
 					<a href="#porque" class="text-slate-300 hover:text-white transition-colors">Por qué RBS</a>
+					<a href="#inversionistas" class="text-slate-300 hover:text-white transition-colors">Inversionistas</a>
 					<a href="#contacto" class="text-slate-300 hover:text-white transition-colors">Contacto</a>
 					<a
 						href="#contacto"
@@ -338,12 +426,25 @@
 							</div>
 
 							<!-- CTA -->
-							<a
-								href="#contacto"
-								class="block w-full text-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all font-semibold"
-							>
-								Solicitar Demo de {product.name}
-							</a>
+							<div class="flex gap-3">
+								<a
+									href={product.url}
+									target="_blank"
+									rel="noopener noreferrer"
+									class="flex-1 text-center px-6 py-3 bg-slate-800 text-white border border-slate-700 rounded-xl hover:bg-slate-700 hover:border-slate-600 transition-all font-semibold flex items-center justify-center gap-2"
+								>
+									Ver Producto
+									<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+									</svg>
+								</a>
+								<a
+									href="#contacto"
+									class="flex-1 text-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all font-semibold"
+								>
+									Solicitar Demo
+								</a>
+							</div>
 						</div>
 					</div>
 				{/each}
@@ -419,6 +520,54 @@
 					<div class="text-4xl font-bold text-emerald-400 mb-2">1-2.5%</div>
 					<p class="text-white font-semibold mb-1">Impuestos con RESICO</p>
 					<p class="text-slate-400 text-sm">Optimización fiscal automática si calificas</p>
+				</div>
+			</div>
+
+			<!-- AI Token Management Feature -->
+			<div class="mt-16 bg-gradient-to-r from-purple-900/50 to-blue-900/50 rounded-2xl border border-purple-500/20 p-8">
+				<div class="flex flex-col md:flex-row items-center gap-8">
+					<div class="flex-shrink-0">
+						<div class="w-20 h-20 bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl flex items-center justify-center text-4xl">
+							🤖
+						</div>
+					</div>
+					<div class="flex-1 text-center md:text-left">
+						<div class="inline-flex items-center px-3 py-1 bg-purple-500/20 border border-purple-500/30 rounded-full text-sm text-purple-300 mb-3">
+							<span class="w-2 h-2 bg-purple-400 rounded-full mr-2 animate-pulse"></span>
+							NUEVO: Gestión Centralizada de IA
+						</div>
+						<h3 class="text-2xl font-bold text-white mb-3">Sistema de Metrificación de Tokens de IA</h3>
+						<p class="text-slate-300 mb-4">
+							Control total sobre el consumo de IA en todo el ecosistema RBS. Límites por plan, auditoría completa
+							de uso, cumplimiento fiscal, y facturación automática. Todo desde un solo dashboard.
+						</p>
+						<div class="flex flex-wrap gap-4 justify-center md:justify-start">
+							<div class="flex items-center gap-2 text-sm text-slate-300">
+								<svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+								</svg>
+								Auditoría completa
+							</div>
+							<div class="flex items-center gap-2 text-sm text-slate-300">
+								<svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+								</svg>
+								Límites por organización
+							</div>
+							<div class="flex items-center gap-2 text-sm text-slate-300">
+								<svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+								</svg>
+								Multi-proveedor (OpenAI, Anthropic, Google)
+							</div>
+							<div class="flex items-center gap-2 text-sm text-slate-300">
+								<svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+								</svg>
+								Facturación automática
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -505,6 +654,135 @@
 					<p class="text-slate-400">
 						Nuestros clientes reportan reducción de costos operativos del 30% en promedio durante el primer año.
 					</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Investors Section -->
+	<section id="inversionistas" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-950">
+		<div class="max-w-7xl mx-auto">
+			<div class="text-center mb-16">
+				<div class="inline-flex items-center px-4 py-2 bg-amber-500/10 border border-amber-500/20 rounded-full text-sm text-amber-400 mb-6">
+					<span class="w-2 h-2 bg-amber-400 rounded-full mr-2"></span>
+					Oportunidad de Inversión
+				</div>
+				<h2 class="text-4xl font-bold text-white mb-4">Para Inversionistas</h2>
+				<p class="text-xl text-slate-400 max-w-3xl mx-auto">
+					Red Broom Software está construyendo el ecosistema de software empresarial más completo para el mercado mexicano.
+					6 productos integrados, cada uno atacando un vertical específico.
+				</p>
+			</div>
+
+			<!-- Investment Highlights -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+				<div class="bg-slate-900/50 rounded-2xl border border-slate-800 p-8 text-center">
+					<div class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-2">6</div>
+					<p class="text-white font-semibold mb-1">Productos en Producción</p>
+					<p class="text-slate-400 text-sm">POS, ERP, CRM, Pagos, Contabilidad, Veterinario</p>
+				</div>
+				<div class="bg-slate-900/50 rounded-2xl border border-slate-800 p-8 text-center">
+					<div class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400 mb-2">1</div>
+					<p class="text-white font-semibold mb-1">Ecosistema Integrado</p>
+					<p class="text-slate-400 text-sm">Todos los productos se comunican entre sí</p>
+				</div>
+				<div class="bg-slate-900/50 rounded-2xl border border-slate-800 p-8 text-center">
+					<div class="text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-orange-400 mb-2">∞</div>
+					<p class="text-white font-semibold mb-1">Potencial de Mercado</p>
+					<p class="text-slate-400 text-sm">+4M PyMEs en México sin software adecuado</p>
+				</div>
+			</div>
+
+			<!-- Why Invest -->
+			<div class="bg-gradient-to-r from-slate-900 to-slate-800 rounded-2xl border border-slate-700 p-8 md:p-12">
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+					<div>
+						<h3 class="text-2xl font-bold text-white mb-6">¿Por qué invertir en RBS?</h3>
+						<ul class="space-y-4">
+							<li class="flex items-start gap-3">
+								<svg class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+								</svg>
+								<div>
+									<p class="text-white font-medium">Productos validados en producción</p>
+									<p class="text-slate-400 text-sm">Clientes reales pagando, no solo MVPs</p>
+								</div>
+							</li>
+							<li class="flex items-start gap-3">
+								<svg class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+								</svg>
+								<div>
+									<p class="text-white font-medium">Modelo de negocio SaaS recurrente</p>
+									<p class="text-slate-400 text-sm">Revenue predecible mes a mes</p>
+								</div>
+							</li>
+							<li class="flex items-start gap-3">
+								<svg class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+								</svg>
+								<div>
+									<p class="text-white font-medium">Cross-sell nativo</p>
+									<p class="text-slate-400 text-sm">Un cliente puede usar múltiples productos</p>
+								</div>
+							</li>
+							<li class="flex items-start gap-3">
+								<svg class="w-6 h-6 text-emerald-400 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+								</svg>
+								<div>
+									<p class="text-white font-medium">IA integrada desde el día 1</p>
+									<p class="text-slate-400 text-sm">Metrificación centralizada de tokens, facturación automática</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+					<div>
+						<h3 class="text-2xl font-bold text-white mb-6">Uso de Fondos</h3>
+						<ul class="space-y-4">
+							<li class="flex items-start gap-3">
+								<div class="w-8 h-8 bg-blue-500/20 rounded-lg flex items-center justify-center text-blue-400 font-bold text-sm flex-shrink-0">1</div>
+								<div>
+									<p class="text-white font-medium">Expansión comercial</p>
+									<p class="text-slate-400 text-sm">Equipo de ventas dedicado por vertical</p>
+								</div>
+							</li>
+							<li class="flex items-start gap-3">
+								<div class="w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center text-purple-400 font-bold text-sm flex-shrink-0">2</div>
+								<div>
+									<p class="text-white font-medium">Desarrollo de producto</p>
+									<p class="text-slate-400 text-sm">Funcionalidades enterprise y mobile</p>
+								</div>
+							</li>
+							<li class="flex items-start gap-3">
+								<div class="w-8 h-8 bg-emerald-500/20 rounded-lg flex items-center justify-center text-emerald-400 font-bold text-sm flex-shrink-0">3</div>
+								<div>
+									<p class="text-white font-medium">Marketing y branding</p>
+									<p class="text-slate-400 text-sm">Posicionamiento en mercado mexicano</p>
+								</div>
+							</li>
+							<li class="flex items-start gap-3">
+								<div class="w-8 h-8 bg-amber-500/20 rounded-lg flex items-center justify-center text-amber-400 font-bold text-sm flex-shrink-0">4</div>
+								<div>
+									<p class="text-white font-medium">Infraestructura</p>
+									<p class="text-slate-400 text-sm">Escalar para +10,000 clientes simultáneos</p>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div class="mt-12 pt-8 border-t border-slate-700 text-center">
+					<p class="text-slate-400 mb-6">¿Interesado en conocer más sobre la oportunidad de inversión?</p>
+					<a
+						href="mailto:inversiones@redbroomsoftware.com?subject=Interés en Inversión - RBS"
+						class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl hover:from-amber-600 hover:to-orange-600 transition-all text-lg font-semibold"
+					>
+						Contactar para Inversión
+						<svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+						</svg>
+					</a>
 				</div>
 			</div>
 		</div>
@@ -713,12 +991,12 @@
 				<div>
 					<h4 class="font-semibold text-white mb-4">Productos</h4>
 					<ul class="space-y-3 text-slate-400">
-						<li><a href="#productos" class="hover:text-white transition-colors">Caracol (Restaurantes)</a></li>
-						<li><a href="#productos" class="hover:text-white transition-colors">La Hoja (Retail)</a></li>
-						<li><a href="#productos" class="hover:text-white transition-colors">Cosmos Pet (Veterinarias)</a></li>
-						<li><a href="#productos" class="hover:text-white transition-colors">Camino CRM</a></li>
-						<li><a href="#productos" class="hover:text-white transition-colors">Colectiva (Pagos)</a></li>
-						<li><a href="https://constanza.redbroomsoftware.com" class="hover:text-white transition-colors">Constanza (Contabilidad)</a></li>
+						<li><a href="https://caracol.redbroomsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">Caracol (Restaurantes)</a></li>
+						<li><a href="https://hoja.redbroomsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">La Hoja (Retail)</a></li>
+						<li><a href="https://cosmos.redbroomsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">Cosmos Pet (Veterinarias)</a></li>
+						<li><a href="https://camino.redbroomsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">Camino CRM</a></li>
+						<li><a href="https://colectiva.redbroomsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">Colectiva (Pagos)</a></li>
+						<li><a href="https://constanza.redbroomsoftware.com" target="_blank" rel="noopener" class="hover:text-white transition-colors">Constanza (Contabilidad)</a></li>
 					</ul>
 				</div>
 
