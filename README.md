@@ -31,12 +31,18 @@ npm run preview
 
 ## 🌐 Products Featured
 
-1. **Constanza** - Fiscal & Accounting (Live)
-2. **Caracol** - Restaurant POS (Live)
-3. **Banxico** - Payment Processing (Live - Infrastructure)
-4. **Colectiva** - Wallet & Finance (In Development)
-5. **La Hoja** - Café POS (In Development)
-6. **Plenura** - Therapy Services (In Development)
+1. **Caracol** - Restaurant POS System (Enterprise)
+2. **La Hoja** - ERP for Cafes & Retail (Professional)
+3. **Cosmos Pet** - Veterinary Software (Professional)
+4. **Camino CRM** - CRM with AI Automation (Standard)
+5. **Colectiva** - Payment Gateway + AI Hub (Enterprise)
+6. **Constanza** - Accounting for Firms (Enterprise)
+
+## 🔗 Ecosystem Integration
+
+- **Lead Capture**: Contact form submits to Camino CRM API
+- **A/B Testing**: Built-in variant testing with visitor tracking
+- **Campaign Tracking**: Full UTM parameter support linked to Camino campaigns
 
 ## 📁 Project Structure
 
@@ -100,18 +106,30 @@ To update the website content:
 ## 🎨 Design
 
 - **Colors**:
-  - Primary: Blue (#1e40af, #3b82f6)
-  - Success: Green (#10b981)
-  - Accent: Purple (#a855f7)
+  - Primary: Blue (#3b82f6) to Purple (#a855f7) gradients
+  - Background: Dark slate (#0f172a, #1e293b)
+  - Success: Emerald (#10b981)
 - **Fonts**: System fonts (optimized for performance)
 - **Layout**: Responsive, mobile-first design
 - **Sections**:
-  - Hero with ecosystem tagline
-  - Product showcase (6 products)
-  - Architecture diagram
-  - Key features
-  - CTA section
-  - Footer with contact
+  - Hero with ecosystem tagline & stats
+  - Product showcase with **dynamic hover effects**
+  - Ecosystem integration diagram
+  - "Why RBS" features grid
+  - Investor section
+  - Contact form (Camino CRM integration)
+  - Footer with product links
+
+### Dynamic Hover Effects (Products)
+
+The product cards feature interactive hover transitions:
+- **Card scaling**: Hovered card scales up 3%, others fade and blur
+- **Icon animation**: Rotates 5° and scales 1.25x with gradient background
+- **Title expansion**: Font size increases dynamically
+- **Description reveal**: Expands from 48px to 120px max-height
+- **Features cascade**: Staggered reveal (25ms delay per feature)
+- **Highlights slide-in**: Hidden by default, slide up on hover
+- **CTA glow**: Blue shadow glow on the demo button
 
 ## 🔗 Links
 
@@ -147,6 +165,6 @@ npm run build
 
 ---
 
-**Last Updated**: November 24, 2025
+**Last Updated**: December 7, 2025
 **Maintainer**: Red Broom Software S.A.S.
-**Version**: 1.0.0
+**Version**: 1.1.0

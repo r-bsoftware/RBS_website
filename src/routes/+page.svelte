@@ -267,6 +267,20 @@
 				return 'Coming Soon';
 		}
 	};
+
+	// Dynamic hover state for products
+	let hoveredProduct: number | null = null;
+	let isAnyHovered = false;
+
+	function handleProductEnter(index: number) {
+		hoveredProduct = index;
+		isAnyHovered = true;
+	}
+
+	function handleProductLeave() {
+		hoveredProduct = null;
+		isAnyHovered = false;
+	}
 </script>
 
 <svelte:head>
@@ -372,84 +386,136 @@
 				</p>
 			</div>
 
-			<div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-				{#each products as product}
+			<!-- Dynamic Products Grid with Hover Effects -->
+			<div class="products-grid grid grid-cols-1 lg:grid-cols-2 gap-6" on:mouseleave={handleProductLeave}>
+				{#each products as product, index}
 					<div
-						class="bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden hover:border-slate-700 transition-all group"
+						class="product-card bg-slate-900 rounded-2xl border overflow-hidden cursor-pointer
+							{hoveredProduct === index ? 'border-blue-500/50 shadow-2xl shadow-blue-500/20 z-10 ring-1 ring-blue-500/30' : 'border-slate-800'}
+							{isAnyHovered && hoveredProduct !== index ? 'opacity-50 blur-[1px]' : 'opacity-100'}"
+						style="transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); transform: {hoveredProduct === index ? 'scale(1.03)' : isAnyHovered && hoveredProduct !== index ? 'scale(0.97)' : 'scale(1)'};"
+						on:mouseenter={() => handleProductEnter(index)}
+						role="article"
 					>
-						<div class="p-8">
-							<!-- Header -->
-							<div class="flex items-start justify-between mb-6">
+						<div class="p-6 lg:p-8">
+							<!-- Header with Dynamic Title -->
+							<div class="flex items-start justify-between mb-4">
 								<div class="flex items-center gap-4">
-									<div class="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+									<div
+										class="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center text-3xl"
+										style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); transform: {hoveredProduct === index ? 'scale(1.25) rotate(5deg)' : 'scale(1)'}; background: {hoveredProduct === index ? 'linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(147, 51, 234, 0.2))' : ''};"
+									>
 										{product.icon}
 									</div>
-									<div>
-										<h3 class="text-2xl font-bold text-white">{product.name}</h3>
-										<p class="text-slate-400 text-sm">{product.subtitle}</p>
+									<div style="transition: transform 0.25s ease; transform: {hoveredProduct === index ? 'translateX(4px)' : 'translateX(0)'};">
+										<h3
+											class="font-bold text-white"
+											style="transition: all 0.2s ease; font-size: {hoveredProduct === index ? '1.75rem' : '1.5rem'}; line-height: 1.2;"
+										>{product.name}</h3>
+										<p
+											class="text-sm"
+											style="transition: color 0.2s ease; color: {hoveredProduct === index ? 'rgb(147, 197, 253)' : 'rgb(148, 163, 184)'};"
+										>{product.subtitle}</p>
 									</div>
 								</div>
-								<span class="px-3 py-1 rounded-full text-xs font-semibold {getTierBadge(product.tier)}">
+								<span class="px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap {getTierBadge(product.tier)}">
 									{getTierLabel(product.tier)}
 								</span>
 							</div>
 
-							<p class="text-slate-300 mb-6 leading-relaxed">{product.description}</p>
+							<!-- Description - Expands on hover -->
+							<div
+								class="overflow-hidden"
+								style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); max-height: {hoveredProduct === index ? '120px' : '48px'}; opacity: {hoveredProduct === index ? '1' : '0.7'}; margin-bottom: {hoveredProduct === index ? '1rem' : '0.5rem'};"
+							>
+								<p class="text-slate-300 leading-relaxed text-sm lg:text-base">{product.description}</p>
+							</div>
 
-							<!-- Pricing -->
-							<div class="bg-slate-800/50 rounded-xl p-5 mb-6">
-								<div class="flex items-end gap-6">
+							<!-- Pricing - Enhanced on hover -->
+							<div
+								class="bg-slate-800/50 rounded-xl p-4 lg:p-5 mb-4"
+								style="transition: all 0.25s ease; background: {hoveredProduct === index ? 'rgba(30, 41, 59, 0.9)' : ''}; box-shadow: {hoveredProduct === index ? 'inset 0 0 0 1px rgba(59, 130, 246, 0.2)' : 'none'};"
+							>
+								<div class="flex items-end gap-4 lg:gap-6">
 									<div>
 										<p class="text-xs text-slate-400 uppercase tracking-wide mb-1">{product.pricing.setupLabel}</p>
-										<p class="text-2xl font-bold text-white">{product.pricing.setup}</p>
+										<p
+											class="font-bold text-white"
+											style="transition: font-size 0.2s ease; font-size: {hoveredProduct === index ? '1.5rem' : '1.25rem'};"
+										>{product.pricing.setup}</p>
 									</div>
-									<div class="text-slate-600">+</div>
+									<div class="text-slate-600 pb-1">+</div>
 									<div>
 										<p class="text-xs text-slate-400 uppercase tracking-wide mb-1">{product.pricing.monthlyLabel}</p>
-										<p class="text-2xl font-bold text-white">{product.pricing.monthly}</p>
+										<p
+											class="font-bold text-white"
+											style="transition: font-size 0.2s ease; font-size: {hoveredProduct === index ? '1.5rem' : '1.25rem'};"
+										>{product.pricing.monthly}</p>
 									</div>
 								</div>
 							</div>
 
-							<!-- Features -->
-							<div class="grid grid-cols-2 gap-2 mb-6">
-								{#each product.features as feature}
-									<div class="flex items-center gap-2 text-sm text-slate-300">
-										<svg class="w-4 h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
-										</svg>
-										{feature}
-									</div>
-								{/each}
+							<!-- Features - Cascade reveal on hover -->
+							<div
+								class="overflow-hidden"
+								style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); max-height: {hoveredProduct === index ? '200px' : '60px'}; opacity: {hoveredProduct === index ? '1' : '0.6'}; margin-bottom: {hoveredProduct === index ? '1rem' : '0.5rem'};"
+							>
+								<div class="grid grid-cols-2 gap-1.5 lg:gap-2">
+									{#each product.features as feature, fi}
+										<div
+											class="flex items-center gap-2 text-xs lg:text-sm text-slate-300"
+											style="transition: all 0.2s ease; transition-delay: {fi * 25}ms; opacity: {hoveredProduct === index ? 1 : (fi < 4 ? 0.8 : 0.3)}; transform: {hoveredProduct === index ? 'translateX(0)' : 'translateX(-4px)'};"
+										>
+											<svg class="w-3.5 h-3.5 lg:w-4 lg:h-4 text-emerald-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+											</svg>
+											<span class="truncate">{feature}</span>
+										</div>
+									{/each}
+								</div>
 							</div>
 
-							<!-- Highlights -->
-							<div class="flex flex-wrap gap-2 mb-6">
-								{#each product.highlights as highlight}
-									<span class="px-3 py-1 bg-slate-800 text-slate-300 rounded-lg text-xs font-medium">
-										{highlight}
-									</span>
-								{/each}
+							<!-- Highlights - Slide in on hover -->
+							<div
+								class="overflow-hidden"
+								style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); max-height: {hoveredProduct === index ? '60px' : '0'}; opacity: {hoveredProduct === index ? '1' : '0'}; margin-bottom: {hoveredProduct === index ? '1rem' : '0'};"
+							>
+								<div class="flex flex-wrap gap-2">
+									{#each product.highlights as highlight, hi}
+										<span
+											class="px-3 py-1 rounded-lg text-xs font-medium"
+											style="transition: all 0.2s ease; transition-delay: {hi * 40}ms; background: {hoveredProduct === index ? 'rgba(59, 130, 246, 0.15)' : 'rgb(30, 41, 59)'}; color: {hoveredProduct === index ? 'rgb(147, 197, 253)' : 'rgb(203, 213, 225)'}; border: {hoveredProduct === index ? '1px solid rgba(59, 130, 246, 0.3)' : 'none'}; transform: {hoveredProduct === index ? 'translateY(0)' : 'translateY(8px)'};"
+										>
+											{highlight}
+										</span>
+									{/each}
+								</div>
 							</div>
 
-							<!-- CTA -->
-							<div class="flex gap-3">
+							<!-- CTA - Glow on hover -->
+							<div
+								class="flex gap-2 lg:gap-3"
+								style="transition: opacity 0.2s ease; opacity: {hoveredProduct === index ? '1' : '0.85'};"
+							>
 								<a
 									href={product.url}
 									target="_blank"
 									rel="noopener noreferrer"
-									class="flex-1 text-center px-6 py-3 bg-slate-800 text-white border border-slate-700 rounded-xl hover:bg-slate-700 hover:border-slate-600 transition-all font-semibold flex items-center justify-center gap-2"
+									class="flex-1 text-center px-4 lg:px-6 py-2.5 lg:py-3 bg-slate-800 text-white border border-slate-700 rounded-xl hover:bg-slate-700 hover:border-slate-600 transition-all font-semibold flex items-center justify-center gap-2 text-sm lg:text-base"
 								>
-									Ver Producto
+									<span class="hidden sm:inline">Ver Producto</span>
+									<span class="sm:hidden">Ver</span>
 									<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
 									</svg>
 								</a>
 								<a
 									href="#contacto"
-									class="flex-1 text-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all font-semibold"
+									class="flex-1 text-center px-4 lg:px-6 py-2.5 lg:py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all font-semibold text-sm lg:text-base"
+									style="box-shadow: {hoveredProduct === index ? '0 10px 40px -10px rgba(59, 130, 246, 0.5)' : 'none'};"
 								>
-									Solicitar Demo
+									<span class="hidden sm:inline">Solicitar Demo</span>
+									<span class="sm:hidden">Demo</span>
 								</a>
 							</div>
 						</div>
