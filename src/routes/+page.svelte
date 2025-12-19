@@ -30,10 +30,21 @@
 		if (typeof window === 'undefined') return '';
 		let id = localStorage.getItem('rbs_visitor_id');
 		if (!id) {
-			id = `v_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
+			id = `v_${Date.now()}_${Math.random().toString(36).substring(2, 11)}`;
 			localStorage.setItem('rbs_visitor_id', id);
 		}
 		return id;
+	}
+
+	// Mobile menu state
+	let mobileMenuOpen = false;
+
+	function toggleMobileMenu() {
+		mobileMenuOpen = !mobileMenuOpen;
+	}
+
+	function closeMobileMenu() {
+		mobileMenuOpen = false;
 	}
 
 	// Assign visitor to test variants (deterministic based on visitor ID)
@@ -289,9 +300,185 @@
 		name="description"
 		content="Soluciones de software empresarial para restaurantes, retail, veterinarias, pagos y contabilidad. Tecnología de clase mundial para negocios mexicanos."
 	/>
+	<!-- Canonical URL -->
+	<link rel="canonical" href="https://redbroomsoftware.com/" />
+
+	<!-- OpenGraph Meta Tags -->
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://redbroomsoftware.com/" />
+	<meta property="og:title" content="Red Broom Software - Software Empresarial de Alto Rendimiento" />
+	<meta property="og:description" content="Soluciones de software empresarial para restaurantes, retail, veterinarias, pagos y contabilidad. 6 productos integrados para PyMEs mexicanas." />
+	<meta property="og:image" content="https://redbroomsoftware.com/og-image.png" />
+	<meta property="og:locale" content="es_MX" />
+	<meta property="og:site_name" content="Red Broom Software" />
+
+	<!-- Twitter Card -->
+	<meta name="twitter:card" content="summary_large_image" />
+	<meta name="twitter:title" content="Red Broom Software - Software Empresarial" />
+	<meta name="twitter:description" content="6 productos integrados: POS, ERP, CRM, Pagos, Contabilidad, Veterinario. Para PyMEs mexicanas." />
+	<meta name="twitter:image" content="https://redbroomsoftware.com/og-image.png" />
+
+	<!-- Additional SEO -->
+	<meta name="robots" content="index, follow" />
+	<meta name="author" content="Red Broom Software S.A.S. de C.V." />
+	<meta name="keywords" content="software empresarial, POS restaurantes, ERP retail, CRM, pagos, contabilidad, veterinarias, México, PyMEs, facturación CFDI" />
+
+	<!-- Schema.org Organization -->
+	{@html `<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "Organization",
+		"name": "Red Broom Software",
+		"legalName": "Red Broom Software S.A.S. de C.V.",
+		"url": "https://redbroomsoftware.com",
+		"logo": "https://redbroomsoftware.com/logo.svg",
+		"description": "Software empresarial de alto rendimiento para PyMEs mexicanas",
+		"address": {
+			"@type": "PostalAddress",
+			"addressLocality": "Ciudad de México",
+			"addressCountry": "MX"
+		},
+		"contactPoint": {
+			"@type": "ContactPoint",
+			"email": "dia@redbroomsoftware.com",
+			"contactType": "sales"
+		},
+		"sameAs": []
+	}
+	</script>`}
+
+	<!-- Schema.org SoftwareApplication for each product -->
+	{@html `<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "ItemList",
+		"itemListElement": [
+			{
+				"@type": "SoftwareApplication",
+				"position": 1,
+				"name": "Caracol POS",
+				"applicationCategory": "BusinessApplication",
+				"operatingSystem": "Web",
+				"description": "Sistema POS para restaurantes con gestión de mesas, comandas y facturación CFDI 4.0",
+				"offers": {
+					"@type": "Offer",
+					"price": "396",
+					"priceCurrency": "MXN",
+					"priceValidUntil": "2025-12-31"
+				}
+			},
+			{
+				"@type": "SoftwareApplication",
+				"position": 2,
+				"name": "La Hoja ERP",
+				"applicationCategory": "BusinessApplication",
+				"operatingSystem": "Web",
+				"description": "ERP para cafeterías y retail con inventario FIFO y programa de lealtad"
+			},
+			{
+				"@type": "SoftwareApplication",
+				"position": 3,
+				"name": "Cosmos Pet",
+				"applicationCategory": "BusinessApplication",
+				"operatingSystem": "Web",
+				"description": "Software para veterinarias con expedientes SOAP y control de vacunas"
+			},
+			{
+				"@type": "SoftwareApplication",
+				"position": 4,
+				"name": "Camino CRM",
+				"applicationCategory": "BusinessApplication",
+				"operatingSystem": "Web",
+				"description": "CRM con lead scoring con IA y automatización de marketing"
+			},
+			{
+				"@type": "SoftwareApplication",
+				"position": 5,
+				"name": "Colectiva",
+				"applicationCategory": "BusinessApplication",
+				"operatingSystem": "Web",
+				"description": "Gateway de pagos con CoDi, SPEI y monedero virtual"
+			},
+			{
+				"@type": "SoftwareApplication",
+				"position": 6,
+				"name": "Constanza",
+				"applicationCategory": "BusinessApplication",
+				"operatingSystem": "Web",
+				"description": "Contabilidad inteligente para despachos con IA fiscal y CFDI 4.0"
+			}
+		]
+	}
+	</script>`}
+
+	<!-- Schema.org FAQPage -->
+	{@html `<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": [
+			{
+				"@type": "Question",
+				"name": "¿Cuánto tiempo toma la implementación?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "La implementación típica toma de 2 a 4 semanas dependiendo del producto y la complejidad de tu operación. Incluye migración de datos existentes, capacitación de tu equipo y soporte durante el arranque."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "¿Puedo usar múltiples productos del ecosistema?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "Sí, nuestros productos están diseñados para trabajar juntos. Por ejemplo, puedes usar Caracol para tu POS, Colectiva para procesar pagos, y Constanza para tu contabilidad. Todos se comunican automáticamente."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "¿Qué pasa con mis datos si cancelo?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "Tus datos siempre son tuyos. Al cancelar, te proporcionamos una exportación completa de tu información en formatos estándar (CSV, JSON, PDF). Mantenemos tus datos por 90 días después de la cancelación."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "¿Cómo funciona la facturación CFDI 4.0?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "Todos nuestros productos incluyen facturación CFDI 4.0 integrada. Solo necesitas subir tu Certificado de Sello Digital (CSD) y nosotros nos encargamos del resto: timbrado automático, envío por email, almacenamiento de XMLs y reportes fiscales."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "¿Ofrecen soporte técnico?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "Sí, ofrecemos soporte 24/7 para todos nuestros clientes. Los planes Professional y Enterprise incluyen un Account Manager dedicado, soporte prioritario y capacitaciones periódicas."
+				}
+			},
+			{
+				"@type": "Question",
+				"name": "¿Puedo probar antes de comprar?",
+				"acceptedAnswer": {
+					"@type": "Answer",
+					"text": "Sí, ofrecemos demos personalizadas y para algunos productos periodos de prueba de 14 días con funcionalidad completa."
+				}
+			}
+		]
+	}
+	</script>`}
 </svelte:head>
 
 <div class="min-h-screen bg-slate-950">
+	<!-- Skip to main content link for accessibility -->
+	<a
+		href="#productos"
+		class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-blue-500 focus:text-white focus:rounded-lg focus:outline-none"
+	>
+		Saltar al contenido principal
+	</a>
+
 	<!-- Header -->
 	<header class="bg-slate-950/90 backdrop-blur-md border-b border-slate-800 sticky top-0 z-50">
 		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -303,11 +490,13 @@
 						<p class="text-xs text-slate-400">Enterprise Solutions</p>
 					</div>
 				</div>
-				<nav class="hidden md:flex items-center space-x-8">
+
+				<!-- Desktop Navigation -->
+				<nav class="hidden md:flex items-center space-x-8" aria-label="Navegación principal">
 					<a href="#productos" class="text-slate-300 hover:text-white transition-colors">Productos</a>
 					<a href="#ecosistema" class="text-slate-300 hover:text-white transition-colors">Ecosistema</a>
 					<a href="#porque" class="text-slate-300 hover:text-white transition-colors">Por qué RBS</a>
-					<a href="#inversionistas" class="text-slate-300 hover:text-white transition-colors">Inversionistas</a>
+					<a href="#faq" class="text-slate-300 hover:text-white transition-colors">FAQ</a>
 					<a href="#contacto" class="text-slate-300 hover:text-white transition-colors">Contacto</a>
 					<a
 						href="#contacto"
@@ -316,7 +505,50 @@
 						Solicitar Demo
 					</a>
 				</nav>
+
+				<!-- Mobile Menu Button -->
+				<button
+					class="md:hidden p-2 text-slate-300 hover:text-white transition-colors"
+					on:click={toggleMobileMenu}
+					aria-label={mobileMenuOpen ? 'Cerrar menú' : 'Abrir menú'}
+					aria-expanded={mobileMenuOpen}
+					aria-controls="mobile-menu"
+				>
+					{#if mobileMenuOpen}
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+						</svg>
+					{:else}
+						<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+						</svg>
+					{/if}
+				</button>
 			</div>
+
+			<!-- Mobile Navigation -->
+			{#if mobileMenuOpen}
+				<nav
+					id="mobile-menu"
+					class="md:hidden mt-4 pb-4 border-t border-slate-800 pt-4"
+					aria-label="Navegación móvil"
+				>
+					<div class="flex flex-col space-y-4">
+						<a href="#productos" on:click={closeMobileMenu} class="text-slate-300 hover:text-white transition-colors py-2">Productos</a>
+						<a href="#ecosistema" on:click={closeMobileMenu} class="text-slate-300 hover:text-white transition-colors py-2">Ecosistema</a>
+						<a href="#porque" on:click={closeMobileMenu} class="text-slate-300 hover:text-white transition-colors py-2">Por qué RBS</a>
+						<a href="#faq" on:click={closeMobileMenu} class="text-slate-300 hover:text-white transition-colors py-2">FAQ</a>
+						<a href="#contacto" on:click={closeMobileMenu} class="text-slate-300 hover:text-white transition-colors py-2">Contacto</a>
+						<a
+							href="#contacto"
+							on:click={closeMobileMenu}
+							class="px-5 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all font-medium text-center"
+						>
+							Solicitar Demo
+						</a>
+					</div>
+				</nav>
+			{/if}
 		</div>
 	</header>
 
@@ -387,23 +619,31 @@
 			</div>
 
 			<!-- Dynamic Products Grid with Hover Effects -->
-			<div class="products-grid grid grid-cols-1 lg:grid-cols-2 gap-6" on:mouseleave={handleProductLeave}>
+			<div class="products-grid grid grid-cols-1 lg:grid-cols-2 gap-6" role="list">
 				{#each products as product, index}
-					<div
-						class="product-card bg-slate-900 rounded-2xl border overflow-hidden cursor-pointer
+					<article
+						class="product-card bg-slate-900 rounded-2xl border overflow-hidden
 							{hoveredProduct === index ? 'border-blue-500/50 shadow-2xl shadow-blue-500/20 z-10 ring-1 ring-blue-500/30' : 'border-slate-800'}
 							{isAnyHovered && hoveredProduct !== index ? 'opacity-50 blur-[1px]' : 'opacity-100'}"
 						style="transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1); transform: {hoveredProduct === index ? 'scale(1.03)' : isAnyHovered && hoveredProduct !== index ? 'scale(0.97)' : 'scale(1)'};"
-						on:mouseenter={() => handleProductEnter(index)}
-						role="article"
+						role="listitem"
 					>
 						<div class="p-6 lg:p-8">
-							<!-- Header with Dynamic Title -->
+							<!-- Header with Dynamic Title - HOVER TRIGGER ZONE -->
 							<div class="flex items-start justify-between mb-4">
-								<div class="flex items-center gap-4">
+								<button
+									type="button"
+									class="flex items-center gap-4 text-left cursor-pointer rounded-lg p-2 -m-2 transition-colors hover:bg-slate-800/30"
+									on:mouseenter={() => handleProductEnter(index)}
+									on:mouseleave={handleProductLeave}
+									on:focus={() => handleProductEnter(index)}
+									on:blur={handleProductLeave}
+									aria-label="Ver detalles de {product.name}"
+								>
 									<div
 										class="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center text-3xl"
 										style="transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); transform: {hoveredProduct === index ? 'scale(1.25) rotate(5deg)' : 'scale(1)'}; background: {hoveredProduct === index ? 'linear-gradient(135deg, rgba(59, 130, 246, 0.2), rgba(147, 51, 234, 0.2))' : ''};"
+										aria-hidden="true"
 									>
 										{product.icon}
 									</div>
@@ -417,7 +657,7 @@
 											style="transition: color 0.2s ease; color: {hoveredProduct === index ? 'rgb(147, 197, 253)' : 'rgb(148, 163, 184)'};"
 										>{product.subtitle}</p>
 									</div>
-								</div>
+								</button>
 								<span class="px-3 py-1 rounded-full text-xs font-semibold whitespace-nowrap {getTierBadge(product.tier)}">
 									{getTierLabel(product.tier)}
 								</span>
@@ -519,7 +759,7 @@
 								</a>
 							</div>
 						</div>
-					</div>
+					</article>
 				{/each}
 			</div>
 		</div>
@@ -732,6 +972,130 @@
 		</div>
 	</section>
 
+	<!-- Trust & Testimonials Section -->
+	<section id="testimonios" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-950">
+		<div class="max-w-7xl mx-auto">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl font-bold text-white mb-4">Lo que dicen nuestros clientes</h2>
+				<p class="text-xl text-slate-400 max-w-2xl mx-auto">
+					Empresas de diversos sectores confían en nuestras soluciones
+				</p>
+			</div>
+
+			<!-- Testimonials Grid -->
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+				<div class="bg-slate-900 rounded-2xl border border-slate-800 p-8">
+					<div class="flex items-center gap-1 mb-4">
+						{#each Array(5) as _}
+							<svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+								<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+							</svg>
+						{/each}
+					</div>
+					<p class="text-slate-300 mb-6 italic">
+						"Caracol transformó completamente nuestra operación. Ahora tenemos visibilidad total de nuestras 3 sucursales desde un solo dashboard. La facturación automática nos ahorra horas cada día."
+					</p>
+					<div class="flex items-center gap-4">
+						<div class="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-500 rounded-full flex items-center justify-center text-white font-bold">
+							MR
+						</div>
+						<div>
+							<p class="text-white font-semibold">María Rodríguez</p>
+							<p class="text-slate-400 text-sm">Dueña, Restaurante La Perla</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="bg-slate-900 rounded-2xl border border-slate-800 p-8">
+					<div class="flex items-center gap-1 mb-4">
+						{#each Array(5) as _}
+							<svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+								<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+							</svg>
+						{/each}
+					</div>
+					<p class="text-slate-300 mb-6 italic">
+						"Como contador con 15 clientes, Constanza me permite gestionar todo desde un lugar. La IA fiscal me ha ayudado a encontrar deducciones que antes se me escapaban."
+					</p>
+					<div class="flex items-center gap-4">
+						<div class="w-12 h-12 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-full flex items-center justify-center text-white font-bold">
+							JG
+						</div>
+						<div>
+							<p class="text-white font-semibold">Jorge García</p>
+							<p class="text-slate-400 text-sm">Contador Público, Despacho García</p>
+						</div>
+					</div>
+				</div>
+
+				<div class="bg-slate-900 rounded-2xl border border-slate-800 p-8">
+					<div class="flex items-center gap-1 mb-4">
+						{#each Array(5) as _}
+							<svg class="w-5 h-5 text-amber-400" fill="currentColor" viewBox="0 0 20 20">
+								<path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+							</svg>
+						{/each}
+					</div>
+					<p class="text-slate-300 mb-6 italic">
+						"Cosmos Pet nos permitió digitalizar completamente nuestra clínica. Los recordatorios automáticos de vacunas aumentaron nuestras citas un 40%. ¡Increíble!"
+					</p>
+					<div class="flex items-center gap-4">
+						<div class="w-12 h-12 bg-gradient-to-br from-amber-500 to-orange-500 rounded-full flex items-center justify-center text-white font-bold">
+							AL
+						</div>
+						<div>
+							<p class="text-white font-semibold">Ana López</p>
+							<p class="text-slate-400 text-sm">MVZ, Clínica Veterinaria Patitas</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<!-- Trust Badges -->
+			<div class="bg-slate-900/50 rounded-2xl border border-slate-800 p-8">
+				<p class="text-center text-slate-400 text-sm uppercase tracking-wide mb-8">Cumplimiento y Seguridad</p>
+				<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+					<div class="text-center">
+						<div class="w-16 h-16 bg-slate-800 rounded-xl flex items-center justify-center mx-auto mb-3">
+							<svg class="w-8 h-8 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+							</svg>
+						</div>
+						<p class="text-white font-semibold text-sm">CFDI 4.0</p>
+						<p class="text-slate-400 text-xs">Certificado SAT</p>
+					</div>
+					<div class="text-center">
+						<div class="w-16 h-16 bg-slate-800 rounded-xl flex items-center justify-center mx-auto mb-3">
+							<svg class="w-8 h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+							</svg>
+						</div>
+						<p class="text-white font-semibold text-sm">Encriptación</p>
+						<p class="text-slate-400 text-xs">AES-256 End-to-End</p>
+					</div>
+					<div class="text-center">
+						<div class="w-16 h-16 bg-slate-800 rounded-xl flex items-center justify-center mx-auto mb-3">
+							<svg class="w-8 h-8 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z"></path>
+							</svg>
+						</div>
+						<p class="text-white font-semibold text-sm">PCI DSS</p>
+						<p class="text-slate-400 text-xs">Pagos Seguros</p>
+					</div>
+					<div class="text-center">
+						<div class="w-16 h-16 bg-slate-800 rounded-xl flex items-center justify-center mx-auto mb-3">
+							<svg class="w-8 h-8 text-amber-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+							</svg>
+						</div>
+						<p class="text-white font-semibold text-sm">99.9% Uptime</p>
+						<p class="text-slate-400 text-xs">SLA Garantizado</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- Investors Section -->
 	<section id="inversionistas" class="py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-900 to-slate-950">
 		<div class="max-w-7xl mx-auto">
@@ -848,7 +1212,7 @@
 				<div class="mt-12 pt-8 border-t border-slate-700 text-center">
 					<p class="text-slate-400 mb-6">¿Interesado en conocer más sobre la oportunidad de inversión?</p>
 					<a
-						href="mailto:inversiones@redbroomsoftware.com?subject=Interés en Inversión - RBS"
+						href="mailto:dia@redbroomsoftware.com?subject=Interés en Inversión - RBS"
 						class="inline-flex items-center px-8 py-4 bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl hover:from-amber-600 hover:to-orange-600 transition-all text-lg font-semibold"
 					>
 						Contactar para Inversión
@@ -881,6 +1245,92 @@
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
 				</svg>
 			</a>
+		</div>
+	</section>
+
+	<!-- FAQ Section -->
+	<section id="faq" class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-950">
+		<div class="max-w-4xl mx-auto">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl font-bold text-white mb-4">Preguntas Frecuentes</h2>
+				<p class="text-xl text-slate-400">
+					Respuestas a las dudas más comunes sobre nuestros productos
+				</p>
+			</div>
+
+			<div class="space-y-4">
+				<details class="group bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden">
+					<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+						<h3 class="text-lg font-semibold text-white pr-4">¿Cuánto tiempo toma la implementación?</h3>
+						<svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+						</svg>
+					</summary>
+					<div class="px-6 pb-6 text-slate-300">
+						<p>La implementación típica toma de 2 a 4 semanas dependiendo del producto y la complejidad de tu operación. Incluye migración de datos existentes, capacitación de tu equipo y soporte durante el arranque. Para implementaciones enterprise con múltiples sucursales, el proceso puede extenderse a 6-8 semanas.</p>
+					</div>
+				</details>
+
+				<details class="group bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden">
+					<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+						<h3 class="text-lg font-semibold text-white pr-4">¿Puedo usar múltiples productos del ecosistema?</h3>
+						<svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+						</svg>
+					</summary>
+					<div class="px-6 pb-6 text-slate-300">
+						<p>¡Absolutamente! Nuestros productos están diseñados para trabajar juntos. Por ejemplo, puedes usar Caracol para tu POS, Colectiva para procesar pagos, y Constanza para tu contabilidad. Todos se comunican automáticamente, eliminando capturas duplicadas y errores humanos. Ofrecemos descuentos por usar múltiples productos.</p>
+					</div>
+				</details>
+
+				<details class="group bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden">
+					<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+						<h3 class="text-lg font-semibold text-white pr-4">¿Qué pasa con mis datos si cancelo?</h3>
+						<svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+						</svg>
+					</summary>
+					<div class="px-6 pb-6 text-slate-300">
+						<p>Tus datos siempre son tuyos. Al cancelar, te proporcionamos una exportación completa de tu información en formatos estándar (CSV, JSON, PDF). Mantenemos tus datos por 90 días después de la cancelación por si decides regresar. Cumplimos con las normativas de protección de datos vigentes en México.</p>
+					</div>
+				</details>
+
+				<details class="group bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden">
+					<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+						<h3 class="text-lg font-semibold text-white pr-4">¿Cómo funciona la facturación CFDI 4.0?</h3>
+						<svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+						</svg>
+					</summary>
+					<div class="px-6 pb-6 text-slate-300">
+						<p>Todos nuestros productos incluyen facturación CFDI 4.0 integrada. Solo necesitas subir tu Certificado de Sello Digital (CSD) y nosotros nos encargamos del resto: timbrado automático, envío por email, almacenamiento de XMLs y reportes fiscales. Cumplimos 100% con los requisitos del SAT y actualizamos automáticamente cuando hay cambios normativos.</p>
+					</div>
+				</details>
+
+				<details class="group bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden">
+					<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+						<h3 class="text-lg font-semibold text-white pr-4">¿Ofrecen soporte técnico?</h3>
+						<svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+						</svg>
+					</summary>
+					<div class="px-6 pb-6 text-slate-300">
+						<p>Sí, ofrecemos soporte 24/7 para todos nuestros clientes. Los planes Professional y Enterprise incluyen un Account Manager dedicado, soporte prioritario y capacitaciones periódicas. También contamos con una base de conocimientos, tutoriales en video y webinars mensuales sobre mejores prácticas.</p>
+					</div>
+				</details>
+
+				<details class="group bg-slate-900 rounded-2xl border border-slate-800 overflow-hidden">
+					<summary class="flex items-center justify-between p-6 cursor-pointer list-none">
+						<h3 class="text-lg font-semibold text-white pr-4">¿Puedo probar antes de comprar?</h3>
+						<svg class="w-5 h-5 text-slate-400 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+						</svg>
+					</summary>
+					<div class="px-6 pb-6 text-slate-300">
+						<p>¡Por supuesto! Ofrecemos demos personalizadas donde te mostramos el producto funcionando con datos similares a tu negocio. Para algunos productos también ofrecemos periodos de prueba de 14 días con funcionalidad completa. Agenda una llamada con nuestro equipo comercial para conocer las opciones disponibles.</p>
+					</div>
+				</details>
+			</div>
 		</div>
 	</section>
 
@@ -1076,15 +1526,25 @@
 				<div>
 					<h4 class="font-semibold text-white mb-4">Contacto</h4>
 					<ul class="space-y-3 text-slate-400">
-						<li>ventas@redbroomsoftware.com</li>
-						<li>soporte@redbroomsoftware.com</li>
+						<li><a href="mailto:dia@redbroomsoftware.com" class="hover:text-white transition-colors">dia@redbroomsoftware.com</a></li>
 						<li>Ciudad de México, México</li>
+					</ul>
+
+					<h4 class="font-semibold text-white mb-4 mt-8">Legal</h4>
+					<ul class="space-y-3 text-slate-400">
+						<li><a href="/privacidad" class="hover:text-white transition-colors">Aviso de Privacidad</a></li>
+						<li><a href="/terminos" class="hover:text-white transition-colors">Términos de Servicio</a></li>
 					</ul>
 				</div>
 			</div>
 
-			<div class="border-t border-slate-800 mt-12 pt-8 text-center text-slate-500">
+			<div class="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-slate-500">
 				<p>© 2025 Red Broom Software S.A.S. de C.V. Todos los derechos reservados.</p>
+				<div class="flex items-center gap-6 text-sm">
+					<a href="/privacidad" class="hover:text-white transition-colors">Privacidad</a>
+					<a href="/terminos" class="hover:text-white transition-colors">Términos</a>
+					<a href="#faq" class="hover:text-white transition-colors">FAQ</a>
+				</div>
 			</div>
 		</div>
 	</footer>
