@@ -205,19 +205,19 @@
 		},
 		{
 			name: 'Camino CRM',
-			subtitle: 'CRM con Automatización',
-			description: 'CRM moderno con captura de leads, scoring automático con IA, pipeline de ventas, tickets de soporte y automatización de marketing.',
+			subtitle: 'CRM con IA Multicanal',
+			description: 'CRM con agentes de IA que atienden WhatsApp y llamadas telefónicas automáticamente. Contexto unificado de cliente, lead scoring, pipeline de ventas y automatización completa.',
 			icon: '🛤️',
-			tier: 'standard',
+			tier: 'enterprise',
 			url: 'https://camino.redbroomsoftware.com',
 			pricing: {
 				setup: '$18,000',
-				monthly: '$190/usuario',
+				monthly: '$290/usuario',
 				setupLabel: 'Implementación',
 				monthlyLabel: 'por mes'
 			},
-			features: ['Lead scoring con IA', 'Pipeline de ventas', 'Tickets de soporte', 'Email automation', 'Integraciones', 'Reportes', 'API REST'],
-			highlights: ['Fácil adopción', 'Integra todo', 'Sin límites']
+			features: ['Agente IA WhatsApp', 'Agente IA Voz (llamadas)', 'Contexto 360° del cliente', 'Lead scoring con IA', 'Pipeline de ventas', 'Automatización de citas', 'API REST'],
+			highlights: ['IA Multicanal', 'Contexto unificado', 'Automatización total']
 		},
 		{
 			name: 'Colectiva',
