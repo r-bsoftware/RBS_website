@@ -64,13 +64,13 @@
 		{ icon: '🏪', title: 'POS & ERP', desc: 'Sistemas operacionales con CFDI 4.0 integrado' },
 		{ icon: '🤖', title: 'CRM con IA', desc: 'Agentes conversacionales para WhatsApp y voz' },
 		{ icon: '🏦', title: 'FinTech', desc: 'Open Banking, SPEI, CoDi, conciliación' },
-		{ icon: '📱', title: 'Apps Móviles', desc: 'Flutter cross-platform con sync en tiempo real' },
-		{ icon: '🎯', title: 'Consultoría', desc: 'Arquitectura, performance, migraciones' }
+		{ icon: '⚖️', title: 'Legal Tech', desc: 'Gestión de casos, trust accounting, documentos con IA' },
+		{ icon: '📱', title: 'Apps Móviles', desc: 'Flutter cross-platform con sync en tiempo real' }
 	];
 
 	const stats = [
-		{ value: '7', label: 'Productos en producción' },
-		{ value: '5', label: 'Industrias diferentes' },
+		{ value: '8', label: 'Productos en producción' },
+		{ value: '6', label: 'Industrias diferentes' },
 		{ value: '99.9%', label: 'Uptime promedio' }
 	];
 </script>
@@ -83,7 +83,7 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://redbroomsoftware.com/" />
 	<meta property="og:title" content="Red Broom Software - Desarrollo de Software Empresarial" />
-	<meta property="og:description" content="Desarrollamos SaaS, POS, CRM con IA y apps móviles para PyMEs mexicanas. 7 productos en producción." />
+	<meta property="og:description" content="Desarrollamos SaaS, POS, CRM con IA y apps móviles para PyMEs mexicanas. 8 productos en producción." />
 	<meta property="og:image" content="https://redbroomsoftware.com/og-image.png" />
 	<meta property="og:locale" content="es_MX" />
 
@@ -181,7 +181,7 @@
 			<div class="max-w-7xl mx-auto text-center relative">
 				<div class="inline-flex items-center px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-full text-sm text-slate-300 mb-8">
 					<span class="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
-					7 productos en producción
+					8 productos en producción
 				</div>
 
 				<h2 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">

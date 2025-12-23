@@ -69,13 +69,23 @@
 			url: 'https://plenura.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'OpenAI', 'Meal Planning AI'],
 			highlights: ['Planes con IA', 'Tracking de pacientes', 'Recetas personalizadas', 'Multi-nutriólogo']
+		},
+		{
+			name: 'Agora',
+			subtitle: 'Software Legal para Despachos',
+			description: 'Plataforma completa para firmas legales: gestión de casos, control de horas, cuentas trust IOLTA, facturación, documentos con IA y calendario judicial.',
+			icon: '⚖️',
+			status: 'live',
+			url: 'https://agora.redbroomsoftware.com',
+			tech: ['SvelteKit', 'Supabase', 'Trust Accounting', 'AI Documents'],
+			highlights: ['Gestión de casos', 'Cuentas Trust IOLTA', 'Control de tiempo', 'IA para documentos']
 		}
 	];
 </script>
 
 <svelte:head>
 	<title>Portafolio - Red Broom Software</title>
-	<meta name="description" content="Portafolio de productos desarrollados por Red Broom Software: 7 plataformas SaaS en producción para PyMEs mexicanas." />
+	<meta name="description" content="Portafolio de productos desarrollados por Red Broom Software: 8 plataformas SaaS en producción para PyMEs mexicanas." />
 </svelte:head>
 
 <div class="min-h-screen bg-slate-950">
@@ -108,7 +118,7 @@
 		<div class="max-w-7xl mx-auto text-center relative">
 			<div class="inline-flex items-center px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-full text-sm text-slate-300 mb-6">
 				<span class="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
-				7 productos en producción
+				8 productos en producción
 			</div>
 			<h2 class="text-4xl md:text-6xl font-bold text-white mb-6">
 				Nuestro <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Portafolio</span>
@@ -178,11 +188,11 @@
 		<div class="max-w-7xl mx-auto">
 			<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
 				<div>
-					<p class="text-4xl font-bold text-white">7</p>
+					<p class="text-4xl font-bold text-white">8</p>
 					<p class="text-slate-400">Productos en producción</p>
 				</div>
 				<div>
-					<p class="text-4xl font-bold text-white">5</p>
+					<p class="text-4xl font-bold text-white">6</p>
 					<p class="text-slate-400">Industrias diferentes</p>
 				</div>
 				<div>
