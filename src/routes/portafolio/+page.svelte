@@ -79,13 +79,23 @@
 			url: 'https://agora.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'Trust Accounting', 'AI Documents'],
 			highlights: ['Gestión de casos', 'Cuentas Trust IOLTA', 'Control de tiempo', 'IA para documentos']
+		},
+		{
+			name: 'Mancha',
+			subtitle: 'Reservaciones para Restaurantes',
+			description: 'Plataforma estilo OpenTable para restaurantes mexicanos: reservaciones en línea, gestión de mesas, confirmaciones automáticas por email y WhatsApp, y analytics de ocupación.',
+			icon: '🪑',
+			status: 'live',
+			url: 'https://mancha.redbroomsoftware.com',
+			tech: ['SvelteKit', 'Supabase', 'Camino API', 'Real-time'],
+			highlights: ['Reservaciones 24/7', 'Confirmaciones automáticas', 'Gestión de mesas', 'Widget embebible']
 		}
 	];
 </script>
 
 <svelte:head>
 	<title>Portafolio - Red Broom Software</title>
-	<meta name="description" content="Portafolio de productos desarrollados por Red Broom Software: 8 plataformas SaaS en producción para PyMEs mexicanas." />
+	<meta name="description" content="Portafolio de productos desarrollados por Red Broom Software: 9 plataformas SaaS en producción para PyMEs mexicanas." />
 </svelte:head>
 
 <div class="min-h-screen bg-slate-950">
@@ -118,7 +128,7 @@
 		<div class="max-w-7xl mx-auto text-center relative">
 			<div class="inline-flex items-center px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-full text-sm text-slate-300 mb-6">
 				<span class="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
-				8 productos en producción
+				9 productos en producción
 			</div>
 			<h2 class="text-4xl md:text-6xl font-bold text-white mb-6">
 				Nuestro <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Portafolio</span>
@@ -188,7 +198,7 @@
 		<div class="max-w-7xl mx-auto">
 			<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
 				<div>
-					<p class="text-4xl font-bold text-white">8</p>
+					<p class="text-4xl font-bold text-white">9</p>
 					<p class="text-slate-400">Productos en producción</p>
 				</div>
 				<div>

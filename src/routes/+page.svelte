@@ -69,7 +69,7 @@
 	];
 
 	const stats = [
-		{ value: '8', label: 'Productos en producción' },
+		{ value: '9', label: 'Productos en producción' },
 		{ value: '6', label: 'Industrias diferentes' },
 		{ value: '99.9%', label: 'Uptime promedio' }
 	];
@@ -83,7 +83,7 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://redbroomsoftware.com/" />
 	<meta property="og:title" content="Red Broom Software - Desarrollo de Software Empresarial" />
-	<meta property="og:description" content="Desarrollamos SaaS, POS, CRM con IA y apps móviles para PyMEs mexicanas. 8 productos en producción." />
+	<meta property="og:description" content="Desarrollamos SaaS, POS, CRM con IA y apps móviles para PyMEs mexicanas. 9 productos en producción." />
 	<meta property="og:image" content="https://redbroomsoftware.com/og-image.png" />
 	<meta property="og:locale" content="es_MX" />
 
@@ -181,7 +181,7 @@
 			<div class="max-w-7xl mx-auto text-center relative">
 				<div class="inline-flex items-center px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-full text-sm text-slate-300 mb-8">
 					<span class="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
-					8 productos en producción
+					9 productos en producción
 				</div>
 
 				<h2 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
