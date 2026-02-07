@@ -158,7 +158,7 @@
 	<!-- Footer -->
 	<footer class="border-t border-slate-800 py-8 px-4">
 		<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-			<p class="text-slate-500 text-sm">© 2024 Red Broom Software S.A.S. de C.V.</p>
+			<p class="text-slate-500 text-sm">© 2025 Red Broom Software S.A.S. de C.V.</p>
 			<div class="flex items-center gap-6">
 				<a href="/privacidad" class="text-slate-500 hover:text-slate-300 text-sm">Privacidad</a>
 				<a href="/terminos" class="text-slate-500 hover:text-slate-300 text-sm">Términos</a>

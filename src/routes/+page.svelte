@@ -69,8 +69,8 @@
 	];
 
 	const stats = [
-		{ value: '9', label: 'Productos en producción' },
-		{ value: '6', label: 'Industrias diferentes' },
+		{ value: '15', label: 'Productos en producción' },
+		{ value: '10+', label: 'Industrias diferentes' },
 		{ value: '99.9%', label: 'Uptime promedio' }
 	];
 </script>
@@ -83,7 +83,7 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://redbroomsoftware.com/" />
 	<meta property="og:title" content="Red Broom Software - Desarrollo de Software Empresarial" />
-	<meta property="og:description" content="Desarrollamos SaaS, POS, CRM con IA y apps móviles para PyMEs mexicanas. 9 productos en producción." />
+	<meta property="og:description" content="Desarrollamos SaaS, POS, CRM con IA y apps móviles para PyMEs mexicanas. 15 productos en producción." />
 	<meta property="og:image" content="https://redbroomsoftware.com/og-image.png" />
 	<meta property="og:locale" content="es_MX" />
 
@@ -181,7 +181,7 @@
 			<div class="max-w-7xl mx-auto text-center relative">
 				<div class="inline-flex items-center px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-full text-sm text-slate-300 mb-8">
 					<span class="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
-					9 productos en producción
+					15 productos en producción
 				</div>
 
 				<h2 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
@@ -265,7 +265,7 @@
 								</div>
 								<div>
 									<h3 class="text-lg font-semibold text-white">Productos en producción</h3>
-									<p class="text-slate-400">No somos una agencia que solo hace proyectos. Operamos 7 plataformas SaaS propias. Sabemos lo que funciona.</p>
+									<p class="text-slate-400">No somos una agencia que solo hace proyectos. Operamos 15 plataformas SaaS propias. Sabemos lo que funciona.</p>
 								</div>
 							</div>
 							<div class="flex items-start gap-4">
@@ -396,7 +396,7 @@
 				</div>
 			</div>
 			<div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-				<p class="text-slate-500 text-sm">© 2024 Red Broom Software S.A.S. de C.V. Todos los derechos reservados.</p>
+				<p class="text-slate-500 text-sm">© 2025 Red Broom Software S.A.S. de C.V. Todos los derechos reservados.</p>
 				<a href="mailto:dia@redbroomsoftware.com" class="text-slate-400 hover:text-white text-sm transition-colors">
 					dia@redbroomsoftware.com
 				</a>

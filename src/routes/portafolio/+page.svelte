@@ -12,12 +12,12 @@
 		},
 		{
 			name: 'La Hoja',
-			subtitle: 'ERP para Cafeterías y Retail',
-			description: 'Sistema ERP completo para operaciones de retail: POS ultra-rápido, inventario FIFO, gestión de proveedores, programa de lealtad y analytics.',
-			icon: '☕',
+			subtitle: 'ERP para Restaurantes y Retail',
+			description: 'Sistema ERP completo para restaurantes y negocios de alimentos: POS ultra-rápido, inventario FIFO, gestión de proveedores, programa de lealtad y analytics.',
+			icon: '🍽️',
 			status: 'live',
 			url: 'https://hoja.redbroomsoftware.com',
-			tech: ['SvelteKit', 'PostgreSQL', 'FIFO Inventory', 'WhatsApp API'],
+			tech: ['Next.js', 'Firebase', 'FIFO Inventory', 'WhatsApp API'],
 			highlights: ['POS de alta velocidad', 'Programa de lealtad', 'Multi-sucursal', 'Analíticas avanzadas']
 		},
 		{
@@ -42,13 +42,13 @@
 		},
 		{
 			name: 'Colectiva',
-			subtitle: 'Gateway de Pagos + Hub de IA',
-			description: 'Plataforma de pagos con CoDi, SPEI, tarjetas y monedero virtual. Centro de control para metrificación de IA del ecosistema.',
+			subtitle: 'Plataforma B2B de Pagos y Billing',
+			description: 'Plataforma B2B multi-merchant: billing para todo el ecosistema RBS, gateway de pagos (CoDi, SPEI, MercadoPago, tarjetas), suscripciones y monedero virtual.',
 			icon: '💳',
 			status: 'live',
 			url: 'https://colectiva.redbroomsoftware.com',
-			tech: ['SvelteKit', 'SPEI', 'CoDi', 'Open Banking'],
-			highlights: ['Pagos en tiempo real', 'Multi-merchant', 'Conciliación automática', 'Dashboard analytics']
+			tech: ['SvelteKit', 'SPEI', 'CoDi', 'MercadoPago', 'Open Banking'],
+			highlights: ['Billing ecosistema', 'Multi-merchant', 'Suscripciones', 'Conciliación automática']
 		},
 		{
 			name: 'Constanza',
@@ -415,7 +415,7 @@
 	<!-- Footer -->
 	<footer class="border-t border-slate-800 py-8 px-4">
 		<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-			<p class="text-slate-500 text-sm">© 2024 Red Broom Software S.A.S. de C.V.</p>
+			<p class="text-slate-500 text-sm">© 2025 Red Broom Software S.A.S. de C.V.</p>
 			<div class="flex items-center gap-6">
 				<a href="/privacidad" class="text-slate-500 hover:text-slate-300 text-sm">Privacidad</a>
 				<a href="/terminos" class="text-slate-500 hover:text-slate-300 text-sm">Términos</a>
