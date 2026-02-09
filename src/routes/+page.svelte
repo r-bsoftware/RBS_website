@@ -91,25 +91,59 @@
 	<meta name="twitter:title" content="Red Broom Software - Software Empresarial" />
 	<meta name="twitter:description" content="Desarrollo de software de alto rendimiento para PyMEs mexicanas." />
 
+	<!-- Organization Schema - Establishes brand entity -->
 	{@html `<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
 		"@type": "Organization",
+		"@id": "https://redbroomsoftware.com/#organization",
 		"name": "Red Broom Software",
 		"legalName": "Red Broom Software S.A.S. de C.V.",
+		"alternateName": ["RBS", "RedBroom", "Red Broom"],
 		"url": "https://redbroomsoftware.com",
-		"logo": "https://redbroomsoftware.com/logo.svg",
-		"description": "Desarrollo de software empresarial de alto rendimiento para PyMEs mexicanas",
+		"logo": {
+			"@type": "ImageObject",
+			"url": "https://redbroomsoftware.com/logo.svg",
+			"width": 512,
+			"height": 512
+		},
+		"image": "https://redbroomsoftware.com/og-image.png",
+		"description": "Desarrollo de software empresarial de alto rendimiento para PyMEs mexicanas. Especialistas en SaaS, POS, ERP, CRM con IA y apps móviles.",
+		"foundingDate": "2023",
 		"address": {
 			"@type": "PostalAddress",
 			"addressLocality": "Ciudad de México",
+			"addressRegion": "CDMX",
 			"addressCountry": "MX"
 		},
-		"contactPoint": {
+		"contactPoint": [{
 			"@type": "ContactPoint",
 			"email": "dia@redbroomsoftware.com",
-			"contactType": "sales"
-		}
+			"contactType": "sales",
+			"availableLanguage": ["Spanish", "English"]
+		}],
+		"sameAs": [
+			"https://github.com/redbroomsoftware",
+			"https://twitter.com/redbroomsoftware"
+		],
+		"knowsAbout": ["Software Development", "SaaS", "ERP", "POS", "CRM", "Mobile Apps", "FinTech", "Legal Tech"]
+	}
+	</script>`}
+
+	<!-- WebSite Schema - Critical for brand name searches -->
+	{@html `<script type="application/ld+json">
+	{
+		"@context": "https://schema.org",
+		"@type": "WebSite",
+		"@id": "https://redbroomsoftware.com/#website",
+		"url": "https://redbroomsoftware.com",
+		"name": "Red Broom Software",
+		"alternateName": "RBS",
+		"description": "Software empresarial para PyMEs mexicanas",
+		"publisher": {
+			"@id": "https://redbroomsoftware.com/#organization"
+		},
+		"inLanguage": "es-MX"
 	}
 	</script>`}
 </svelte:head>
@@ -385,6 +419,7 @@
 						<li><a href="/portafolio" class="text-slate-400 hover:text-white transition-colors">Portafolio</a></li>
 						<li><a href="/tecnologia" class="text-slate-400 hover:text-white transition-colors">Tecnología</a></li>
 						<li><a href="/contacto" class="text-slate-400 hover:text-white transition-colors">Contacto</a></li>
+						<li><a href="https://developers.redbroomsoftware.com" class="text-slate-400 hover:text-white transition-colors">Developers</a></li>
 					</ul>
 				</div>
 				<div>
