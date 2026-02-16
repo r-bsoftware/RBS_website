@@ -1,0 +1,529 @@
+{
+	"common": {
+		"companyName": "Red Broom Software",
+		"tagline": "Enterprise Solutions",
+		"copyright": "2025 Red Broom Software S.A.S. de C.V. Todos los derechos reservados.",
+		"email": "dia@redbroomsoftware.com"
+	},
+	"nav": {
+		"services": "Servicios",
+		"portfolio": "Portafolio",
+		"technology": "Tecnologia",
+		"contact": "Contactar",
+		"privacy": "Privacidad",
+		"terms": "Terminos",
+		"developers": "Developers",
+		"menu": "Menu",
+		"skipToContent": "Saltar al contenido"
+	},
+	"home": {
+		"meta": {
+			"title": "Red Broom Software - Desarrollo de Software Empresarial",
+			"description": "Desarrollamos software empresarial de alto rendimiento: SaaS, POS, ERP, CRM con IA, apps moviles. Especialistas en soluciones para PyMEs mexicanas."
+		},
+		"hero": {
+			"badge": "15 productos en produccion",
+			"titlePart1": "Construimos",
+			"titleHighlight": "software",
+			"titlePart2": "de alto rendimiento",
+			"subtitle": "Desarrollo de plataformas SaaS, sistemas POS/ERP, CRM con IA, y aplicaciones moviles. Especialistas en soluciones para PyMEs mexicanas."
+		},
+		"cta": {
+			"viewPortfolio": "Ver Portafolio",
+			"startProject": "Iniciar Proyecto",
+			"startConversation": "Iniciar conversacion"
+		},
+		"stats": {
+			"products": "Productos en produccion",
+			"industries": "Industrias diferentes",
+			"uptime": "Uptime promedio"
+		},
+		"capabilities": {
+			"title": "Que desarrollamos?",
+			"subtitle": "Desde sistemas operacionales hasta plataformas con IA",
+			"viewAll": "Ver todos los servicios",
+			"saas": {
+				"title": "Desarrollo SaaS",
+				"desc": "Plataformas multi-tenant con billing y escalabilidad"
+			},
+			"pos": {
+				"title": "POS & ERP",
+				"desc": "Sistemas operacionales con CFDI 4.0 integrado"
+			},
+			"crm": {
+				"title": "CRM con IA",
+				"desc": "Agentes conversacionales para WhatsApp y voz"
+			},
+			"fintech": {
+				"title": "FinTech",
+				"desc": "Open Banking, SPEI, CoDi, conciliacion"
+			},
+			"legaltech": {
+				"title": "Legal Tech",
+				"desc": "Gestion de casos, trust accounting, documentos con IA"
+			},
+			"mobile": {
+				"title": "Apps Moviles",
+				"desc": "Flutter cross-platform con sync en tiempo real"
+			}
+		},
+		"whyUs": {
+			"title": "Por que trabajar con nosotros?",
+			"production": {
+				"title": "Productos en produccion",
+				"desc": "No somos una agencia que solo hace proyectos. Operamos 15 plataformas SaaS propias. Sabemos lo que funciona."
+			},
+			"mexico": {
+				"title": "Especialistas en Mexico",
+				"desc": "CFDI 4.0, SPEI, CoDi, SAT, IMSS. Conocemos las integraciones que tu negocio necesita."
+			},
+			"ai": {
+				"title": "IA desde el diseno",
+				"desc": "No agregamos IA como feature. La disenamos como parte central de la arquitectura."
+			}
+		},
+		"quickForm": {
+			"title": "Empecemos a hablar",
+			"emailLabel": "Email",
+			"emailPlaceholder": "tu@empresa.com",
+			"projectLabel": "Que necesitas?",
+			"selectOption": "Selecciona una opcion",
+			"optionSaas": "Desarrollo SaaS",
+			"optionPos": "Sistema POS/ERP",
+			"optionCrm": "CRM con IA",
+			"optionMobile": "App Movil",
+			"optionOther": "Otro",
+			"submit": "Quiero saber mas",
+			"submitting": "Enviando...",
+			"success": "Te contactamos pronto"
+		},
+		"projectCta": {
+			"title": "Tienes un proyecto en mente?",
+			"subtitle": "Cuentanos que necesitas y te daremos una propuesta en 48 horas."
+		}
+	},
+	"services": {
+		"meta": {
+			"title": "Servicios de Desarrollo - Red Broom Software",
+			"description": "Desarrollo de software empresarial: SaaS, POS, ERP, CRM con IA, integraciones FinTech y aplicaciones moviles. Especialistas en soluciones para Mexico."
+		},
+		"hero": {
+			"titlePart1": "Que podemos",
+			"titleHighlight": "construir",
+			"titlePart2": "para ti?",
+			"subtitle": "Desarrollamos software empresarial de alto rendimiento. Desde sistemas POS hasta plataformas SaaS con IA."
+		},
+		"saas": {
+			"title": "Desarrollo SaaS",
+			"subtitle": "Plataformas multi-tenant de alto rendimiento",
+			"description": "Construimos aplicaciones SaaS con arquitectura multi-tenant, billing automatizado, y escalabilidad horizontal. Experiencia en Stripe, SPEI, CoDi y Open Banking.",
+			"features": ["Multi-tenancy nativo", "Billing recurrente", "API REST + Webhooks", "White-labeling"]
+		},
+		"pos": {
+			"title": "Sistemas POS & ERP",
+			"subtitle": "Software operacional para PyMEs",
+			"description": "Puntos de venta, inventarios, control de caja, comandas en tiempo real. Integracion con SAT para facturacion CFDI 4.0 y cumplimiento fiscal mexicano.",
+			"features": ["CFDI 4.0 integrado", "Sincronizacion offline", "Multi-sucursal", "Reportes fiscales"]
+		},
+		"crm": {
+			"title": "CRM con IA",
+			"subtitle": "Automatizacion de ventas y marketing",
+			"description": "CRMs con lead scoring, agentes de IA para WhatsApp y llamadas telefonicas, pipelines de ventas, y automatizacion de nurturing.",
+			"features": ["Agentes IA multicanal", "Lead scoring automatico", "Automatizacion de citas", "Analytics de conversion"]
+		},
+		"fintech": {
+			"title": "Integraciones FinTech",
+			"subtitle": "Open Banking, pagos y conciliacion",
+			"description": "Conectamos tu sistema con Fintoc, Belvo, Stripe, SPEI, CoDi. Conciliacion automatica de transacciones bancarias.",
+			"features": ["Open Banking", "Pagos SPEI/CoDi", "Conciliacion automatica", "Multi-merchant"]
+		},
+		"mobile": {
+			"title": "Aplicaciones Moviles",
+			"subtitle": "Flutter cross-platform",
+			"description": "Apps nativas para iOS y Android con una sola base de codigo. Sincronizacion en tiempo real, notificaciones push, y modo offline.",
+			"features": ["iOS + Android", "Sync en tiempo real", "Modo offline", "Push notifications"]
+		},
+		"consulting": {
+			"title": "Consultoria Tecnica",
+			"subtitle": "Arquitectura y optimizacion",
+			"description": "Revision de arquitectura, optimizacion de performance, migracion de sistemas legacy, y capacitacion de equipos tecnicos.",
+			"features": ["Code review", "Migracion de datos", "Performance tuning", "Capacitacion"]
+		},
+		"process": {
+			"title": "Nuestro Proceso",
+			"step1": {
+				"title": "Discovery",
+				"desc": "Entendemos tu negocio, procesos y objetivos"
+			},
+			"step2": {
+				"title": "Diseno",
+				"desc": "Arquitectura tecnica y prototipos"
+			},
+			"step3": {
+				"title": "Desarrollo",
+				"desc": "Sprints iterativos con demos frecuentes"
+			},
+			"step4": {
+				"title": "Launch",
+				"desc": "Deployment, capacitacion y soporte"
+			}
+		},
+		"cta": {
+			"title": "Listo para construir?",
+			"subtitle": "Cuentanos sobre tu proyecto y te daremos una propuesta en 48 horas.",
+			"button": "Solicitar Cotizacion"
+		}
+	},
+	"portfolio": {
+		"meta": {
+			"title": "Portafolio - Red Broom Software",
+			"description": "Portafolio de productos desarrollados por Red Broom Software: 15 plataformas SaaS + 5 servicios B2C para PyMEs mexicanas."
+		},
+		"hero": {
+			"badge": "15 plataformas + 5 servicios B2C",
+			"titlePart1": "Nuestro",
+			"titleHighlight": "Portafolio",
+			"subtitle": "Plataformas SaaS que hemos desarrollado y operamos. Cada una resuelve problemas reales de negocios mexicanos."
+		},
+		"products": {
+			"live": "Live",
+			"visitProduct": "Visitar producto",
+			"caracol": {
+				"name": "Caracol",
+				"subtitle": "Sistema POS para Restaurantes",
+				"description": "Punto de venta completo con gestion de mesas, comandas a cocina en tiempo real, sistema de meseros, facturacion CFDI 4.0 y reportes avanzados.",
+				"highlights": ["Multi-terminal", "KDS Cocina", "Gestion de Meseros", "Multi-sucursal"]
+			},
+			"lahoja": {
+				"name": "La Hoja",
+				"subtitle": "ERP para Restaurantes y Retail",
+				"description": "Sistema ERP completo para restaurantes y negocios de alimentos: POS ultra-rapido, inventario FIFO, gestion de proveedores, programa de lealtad y analytics.",
+				"highlights": ["POS de alta velocidad", "Programa de lealtad", "Multi-sucursal", "Analiticas avanzadas"]
+			},
+			"cosmos": {
+				"name": "Cosmos Pet",
+				"subtitle": "Software para Veterinarias",
+				"description": "Plataforma SaaS especializada para clinicas veterinarias: expedientes medicos SOAP, control de vacunas, agenda, estetica canina y facturacion.",
+				"highlights": ["Expedientes SOAP", "Control de vacunas", "Agenda inteligente", "Multi-clinica"]
+			},
+			"camino": {
+				"name": "Camino CRM",
+				"subtitle": "CRM con IA Multicanal",
+				"description": "CRM con agentes de IA que atienden WhatsApp y llamadas telefonicas automaticamente. Contexto unificado de cliente, lead scoring, pipeline de ventas.",
+				"highlights": ["Agente IA WhatsApp", "Agente IA Voz", "Lead scoring", "Automatizacion total"]
+			},
+			"colectiva": {
+				"name": "Colectiva",
+				"subtitle": "Plataforma B2B de Pagos y Billing",
+				"description": "Plataforma B2B multi-merchant: billing para todo el ecosistema RBS, gateway de pagos (CoDi, SPEI, MercadoPago, tarjetas), suscripciones y monedero virtual.",
+				"highlights": ["Billing ecosistema", "Multi-merchant", "Suscripciones", "Conciliacion automatica"]
+			},
+			"constanza": {
+				"name": "Constanza",
+				"subtitle": "Contabilidad Inteligente para Despachos",
+				"description": "Plataforma multi-cliente para contadores: gestiona decenas de empresas desde un solo dashboard. IA fiscal, CFDI 4.0, DIOT automatico.",
+				"highlights": ["Multi-cliente", "IA Fiscal", "DIOT/Balanza automatico", "Consolidacion grupos"]
+			},
+			"plenura": {
+				"name": "Plenura",
+				"subtitle": "Plataforma de Nutricion con IA",
+				"description": "Sistema para nutriologos con planes alimenticios generados por IA, tracking de pacientes, recetas personalizadas y recordatorios automaticos.",
+				"highlights": ["Planes con IA", "Tracking de pacientes", "Recetas personalizadas", "Multi-nutriologo"]
+			},
+			"agora": {
+				"name": "Agora",
+				"subtitle": "Software Legal para Despachos",
+				"description": "Plataforma completa para firmas legales: gestion de casos, control de horas, cuentas trust IOLTA, facturacion, documentos con IA y calendario judicial.",
+				"highlights": ["Gestion de casos", "Cuentas Trust IOLTA", "Control de tiempo", "IA para documentos"]
+			},
+			"mancha": {
+				"name": "Mancha",
+				"subtitle": "Reservaciones para Restaurantes",
+				"description": "Plataforma estilo OpenTable para restaurantes mexicanos: reservaciones en linea, gestion de mesas, confirmaciones automaticas por email y WhatsApp, y analytics de ocupacion.",
+				"highlights": ["Reservaciones 24/7", "Confirmaciones automaticas", "Gestion de mesas", "Widget embebible"]
+			},
+			"cookiemonster": {
+				"name": "Cookie Monster",
+				"subtitle": "E-commerce para Panaderias",
+				"description": "Plataforma de comercio electronico para panaderias y reposteria artesanal: catalogo, carrito, pedidos personalizados, checkout y gestion de entregas.",
+				"highlights": ["Pedidos personalizados", "Checkout integrado", "Gestion de entregas", "Catalogo visual"]
+			},
+			"continua": {
+				"name": "Continua",
+				"subtitle": "Plataforma de Donacion de Sangre",
+				"description": "Conecta donadores con hospitales: registro de donadores, emergencias activas, historial de donaciones, notificaciones por tipo de sangre.",
+				"highlights": ["Emergencias en tiempo real", "Matching por tipo", "Historial de donaciones", "Alertas hospitales"]
+			},
+			"puppylove": {
+				"name": "Puppy Love",
+				"subtitle": "Matching para Mascotas",
+				"description": "Plataforma de matching para duenos de mascotas: encuentra companeros de juego, parejas para cria responsable, y adopcion. Perfiles verificados.",
+				"highlights": ["Matching inteligente", "Perfiles verificados", "Chat integrado", "Suscripcion premium"]
+			},
+			"baul": {
+				"name": "Baul",
+				"subtitle": "Almacenamiento y Bodegas",
+				"description": "Renta de espacios de almacenamiento: mini-bodegas, pallets, gestion de inventario, recoleccion y entrega a domicilio.",
+				"highlights": ["Multi-tamano", "Recoleccion a domicilio", "Control de acceso", "Inventario digital"]
+			},
+			"servilleta": {
+				"name": "Servilleta",
+				"subtitle": "Marketplace de Servicios",
+				"description": "Conecta clientes con taskers verificados para limpieza, mudanzas, reparaciones y mas. Reviews, pagos seguros y garantia de servicio.",
+				"highlights": ["Taskers verificados", "Pagos seguros", "Reviews", "Garantia de servicio"]
+			},
+			"hospitality": {
+				"name": "Hospitality Fiscal",
+				"subtitle": "Alquiler Vacacional Inteligente",
+				"description": "Plataforma de renta vacacional con modelo fiscal optimizado: propiedades, reservaciones, servicios bajo demanda y gestion de limpieza.",
+				"highlights": ["Modelo fiscal inteligente", "Limpieza bajo demanda", "Multi-propiedad", "Gestion de huespedes"]
+			}
+		},
+		"b2cServices": {
+			"title": "Servicios B2C",
+			"subtitle": "Ademas de software, operamos servicios directos para empresas que prefieren solucion llave en mano.",
+			"new": "Nuevo",
+			"active": "Servicio Activo",
+			"comingSoon": "Proximamente",
+			"learnMore": "Conocer servicio",
+			"availableSoon": "Disponible pronto",
+			"constanza": {
+				"name": "Constanza Servicios",
+				"subtitle": "Contabilidad Administrada",
+				"description": "Tu departamento de contabilidad completo: declaraciones, CFDI 4.0, DIOT, Balanza, IMSS - todo resuelto por expertos. Desde $8,900/mes.",
+				"highlights": ["Cumplimiento SAT 100%", "Contador asignado", "Multi-regimen", "Sin complicaciones"]
+			},
+			"camino": {
+				"name": "Camino Servicios",
+				"subtitle": "Marketing Administrado",
+				"description": "Tu departamento de marketing completo: redes sociales, campanas, WhatsApp IA, publicidad digital y analytics. Desde $5,900/mes.",
+				"highlights": ["Redes sociales 24/7", "WhatsApp IA", "Campanas automatizadas", "Publicidad digital"]
+			},
+			"colectiva": {
+				"name": "Colectiva Servicios",
+				"subtitle": "Tesoreria Administrada",
+				"description": "Cobranza, dispersiones SPEI, nomina integrada y tesoreria completamente administrada. Desde $3,900/mes.",
+				"highlights": ["Cobranza CoDi/SPEI", "Dispersiones masivas", "Nomina integrada", "Conciliacion automatica"]
+			},
+			"aiSupport": {
+				"name": "Atencion al Cliente IA",
+				"subtitle": "Ecosistema Completo",
+				"description": "Agentes IA que atienden WhatsApp y llamadas 24/7 para cualquier negocio: restaurantes, veterinarias, clinicas, retail. Integra con todo el ecosistema.",
+				"highlights": ["Multi-industria", "WhatsApp + Voz", "Integra con Mancha", "Contexto unificado"]
+			},
+			"mancha": {
+				"name": "Mancha Servicios",
+				"subtitle": "Reservaciones Universal",
+				"description": "Sistema de citas y reservaciones para cualquier negocio: restaurantes, veterinarias, clinicas, salones, estudios. Confirmaciones automaticas y widget embebible.",
+				"highlights": ["Multi-industria", "Confirmaciones auto", "Widget embebible", "Integra con Camino IA"]
+			}
+		},
+		"stats": {
+			"saasProducts": "Productos SaaS",
+			"b2cServices": "Servicios B2C",
+			"industries": "Industrias",
+			"uptime": "Uptime",
+			"support": "Soporte"
+		},
+		"cta": {
+			"title": "Tu producto aqui?",
+			"subtitle": "Podemos desarrollar la proxima plataforma para tu industria.",
+			"button": "Platiquemos"
+		}
+	},
+	"technology": {
+		"meta": {
+			"title": "Tecnologia - Red Broom Software",
+			"description": "Stack tecnologico de Red Broom Software: SvelteKit, TypeScript, Supabase, OpenAI, y mas. Desarrollo moderno para PyMEs mexicanas."
+		},
+		"hero": {
+			"titlePart1": "Nuestra",
+			"titleHighlight": "Tecnologia",
+			"subtitle": "Stack moderno, probado en produccion. Cada decision tecnica optimizada para performance, mantenibilidad y escalabilidad."
+		},
+		"principles": {
+			"svelteFirst": {
+				"title": "Svelte-First",
+				"description": "Usamos SvelteKit para todo. Menos JavaScript, mejor performance, developer experience superior."
+			},
+			"typeSafety": {
+				"title": "Type Safety",
+				"description": "TypeScript estricto en todo el codebase. Menos bugs en produccion, refactoring confiable."
+			},
+			"edgePerformance": {
+				"title": "Edge Performance",
+				"description": "Serverless functions en el edge para latencia minima. Mexico primero, global despues."
+			},
+			"aiNative": {
+				"title": "AI-Native",
+				"description": "IA integrada desde el diseno, no como feature adicional. Clasificacion, automatizacion, asistencia."
+			}
+		},
+		"sections": {
+			"frontend": "Frontend",
+			"backend": "Backend & Database",
+			"ai": "Inteligencia Artificial",
+			"integrations": "Integraciones",
+			"infrastructure": "Infraestructura"
+		},
+		"stack": {
+			"sveltekit": {
+				"name": "SvelteKit",
+				"description": "Framework principal para todas las aplicaciones"
+			},
+			"typescript": {
+				"name": "TypeScript",
+				"description": "Type safety en todo el codebase"
+			},
+			"tailwind": {
+				"name": "Tailwind CSS",
+				"description": "Diseno consistente y responsive"
+			},
+			"flutter": {
+				"name": "Flutter",
+				"description": "Apps moviles cross-platform"
+			},
+			"supabase": {
+				"name": "Supabase",
+				"description": "PostgreSQL, Auth, Realtime, Storage"
+			},
+			"firebase": {
+				"name": "Firebase",
+				"description": "Auth, Firestore para algunos productos"
+			},
+			"nodejs": {
+				"name": "Node.js",
+				"description": "APIs y microservicios"
+			},
+			"postgresql": {
+				"name": "PostgreSQL",
+				"description": "Base de datos principal"
+			},
+			"gpt4": {
+				"name": "OpenAI GPT-4",
+				"description": "Agentes conversacionales y clasificacion"
+			},
+			"claude": {
+				"name": "Claude",
+				"description": "Analisis de documentos y codigo"
+			},
+			"whisper": {
+				"name": "Whisper",
+				"description": "Transcripcion de audio"
+			},
+			"customml": {
+				"name": "Custom ML",
+				"description": "Modelos propios para casos especificos"
+			},
+			"satcfdi": {
+				"name": "SAT/CFDI 4.0",
+				"description": "Facturacion electronica mexicana"
+			},
+			"speicodi": {
+				"name": "SPEI/CoDi",
+				"description": "Pagos bancarios en tiempo real"
+			},
+			"whatsapp": {
+				"name": "WhatsApp Cloud",
+				"description": "Mensajeria empresarial"
+			},
+			"twilio": {
+				"name": "Twilio",
+				"description": "Voz, SMS, verificacion"
+			},
+			"fintocbelvo": {
+				"name": "Fintoc/Belvo",
+				"description": "Open Banking"
+			},
+			"stripe": {
+				"name": "Stripe",
+				"description": "Pagos internacionales"
+			},
+			"vercel": {
+				"name": "Vercel",
+				"description": "Hosting y edge functions"
+			},
+			"supabasecloud": {
+				"name": "Supabase Cloud",
+				"description": "Base de datos managed"
+			},
+			"github": {
+				"name": "GitHub Actions",
+				"description": "CI/CD automatizado"
+			},
+			"cloudflare": {
+				"name": "Cloudflare",
+				"description": "DNS, CDN, proteccion"
+			}
+		},
+		"cta": {
+			"title": "Quieres ver el codigo?",
+			"subtitle": "Si eres tecnico y quieres evaluar nuestra calidad de codigo, podemos darte acceso a repos de demostracion.",
+			"button": "Solicitar Demo Tecnica"
+		}
+	},
+	"contact": {
+		"meta": {
+			"title": "Contacto - Red Broom Software",
+			"description": "Contactanos para discutir tu proyecto de software. Desarrollo de SaaS, POS, CRM, apps moviles y mas para PyMEs mexicanas."
+		},
+		"hero": {
+			"titlePart1": "Hablemos de tu",
+			"titleHighlight": "proyecto",
+			"subtitle": "Cuentanos que necesitas y te daremos una propuesta en 48 horas."
+		},
+		"form": {
+			"title": "Envianos un mensaje",
+			"nameLabel": "Nombre",
+			"emailLabel": "Email",
+			"companyLabel": "Empresa",
+			"phoneLabel": "Telefono",
+			"projectTypeLabel": "Tipo de proyecto",
+			"selectOption": "Selecciona una opcion",
+			"messageLabel": "Cuentanos sobre tu proyecto",
+			"messagePlaceholder": "Que problema quieres resolver? Que funcionalidades necesitas?",
+			"submitButton": "Enviar mensaje",
+			"submitting": "Enviando...",
+			"successTitle": "Mensaje enviado",
+			"successMessage": "Te responderemos en las proximas 48 horas.",
+			"required": "*",
+			"projectTypes": {
+				"saas": "Desarrollo SaaS",
+				"pos": "Sistema POS/ERP",
+				"crm": "CRM con IA",
+				"mobile": "App Movil",
+				"integration": "Integracion/API",
+				"consulting": "Consultoria",
+				"other": "Otro"
+			}
+		},
+		"process": {
+			"title": "Que sigue?",
+			"step1": {
+				"title": "Recibimos tu mensaje",
+				"desc": "Revisamos tu proyecto y asignamos al equipo adecuado."
+			},
+			"step2": {
+				"title": "Llamada de discovery",
+				"desc": "30 minutos para entender tu negocio y requerimientos."
+			},
+			"step3": {
+				"title": "Propuesta detallada",
+				"desc": "Alcance, arquitectura, timeline y presupuesto."
+			}
+		},
+		"directContact": {
+			"title": "Contacto directo"
+		},
+		"urgent": {
+			"title": "Proyecto urgente?",
+			"desc": "Si tienes un deadline critico, mencionalo en tu mensaje y te priorizamos."
+		}
+	},
+	"footer": {
+		"description": "Desarrollo de software empresarial de alto rendimiento.",
+		"services": "Servicios",
+		"company": "Empresa",
+		"legal": "Legal"
+	}
+}
