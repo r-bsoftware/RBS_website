@@ -198,7 +198,7 @@
 			subtitle: 'Ecosistema Completo',
 			description: 'Agentes IA que atienden WhatsApp y llamadas 24/7 para cualquier negocio: restaurantes, veterinarias, clínicas, retail. Integra con todo el ecosistema.',
 			icon: '🤖',
-			status: 'coming_soon',
+			status: 'live',
 			url: 'https://camino.redbroomsoftware.com',
 			highlights: ['Multi-industria', 'WhatsApp + Voz', 'Integra con Mancha', 'Contexto unificado']
 		},
@@ -209,7 +209,7 @@
 			icon: '📅',
 			status: 'coming_soon',
 			url: 'https://mancha.redbroomsoftware.com',
-			highlights: ['Multi-industria', 'Confirmaciones auto', 'Widget embebible', 'Integra con Camino IA']
+			highlights: ['Multi-industria', 'IA predictiva', 'Confirmaciones auto', 'Widget embebible']
 		}
 	];
 </script>
