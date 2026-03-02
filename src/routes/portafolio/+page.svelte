@@ -34,23 +34,25 @@
 		},
 		{
 			name: 'Camino CRM',
-			subtitle: 'CRM con IA Multicanal',
+			subtitle: 'CRM con Agentes IA Multicanal',
 			description: 'CRM con agentes de IA que atienden WhatsApp y llamadas telefónicas automáticamente. Contexto unificado de cliente, lead scoring, pipeline de ventas.',
 			icon: '🛤️',
 			status: 'live',
+			agentBadge: 'Agentes IA',
 			url: 'https://camino.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'Multi-provider AI', 'Twilio', 'WhatsApp Cloud API'],
 			highlights: ['Agente IA WhatsApp', 'Agente IA Voz', 'Lead scoring', 'Automatización total']
 		},
 		{
 			name: 'Colectiva',
-			subtitle: 'Plataforma B2B de Pagos y Billing',
-			description: 'Plataforma B2B multi-merchant: billing para todo el ecosistema RBS, gateway de pagos (CoDi, SPEI, MercadoPago, tarjetas), suscripciones y monedero virtual.',
+			subtitle: 'Plataforma B2B de Pagos, Billing y Capital',
+			description: 'Plataforma B2B multi-merchant: billing para el ecosistema RBS, gateway de pagos (CoDi, SPEI, MercadoPago), suscripciones, monedero virtual y mercado de CPIs para financiamiento colectivo. Incluye Oracle, el agente de BI del ecosistema.',
 			icon: '💳',
 			status: 'live',
+			agentBadge: 'Oracle IA',
 			url: 'https://colectiva.redbroomsoftware.com',
-			tech: ['SvelteKit', 'SPEI', 'CoDi', 'MercadoPago', 'Open Banking'],
-			highlights: ['Billing ecosistema', 'Multi-merchant', 'Suscripciones', 'Conciliación automática']
+			tech: ['SvelteKit', 'SPEI', 'CoDi', 'MercadoPago', 'Polygon', 'Multi-provider AI'],
+			highlights: ['Billing ecosistema', 'Mercado de CPIs', 'Oracle IA chat', 'Conciliación automática']
 		},
 		{
 			name: 'Constanza',
@@ -58,6 +60,7 @@
 			description: 'Plataforma multi-cliente para contadores: gestiona decenas de empresas desde un solo dashboard. IA fiscal, CFDI 4.0, DIOT automático.',
 			icon: '📊',
 			status: 'live',
+			agentBadge: 'IA Fiscal',
 			url: 'https://constanza.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Firebase', 'SAT APIs', 'AI Classification'],
 			highlights: ['Multi-cliente', 'IA Fiscal', 'DIOT/Balanza automático', 'Consolidación grupos']
@@ -68,6 +71,7 @@
 			description: 'Sistema para profesionales de salud y bienestar: matching inteligente de pacientes, prescreening con IA, notas de sesión automatizadas, búsqueda semántica y gestión de citas.',
 			icon: '🧘',
 			status: 'live',
+			agentBadge: 'Matching IA',
 			url: 'https://plenura.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'Multi-provider AI', 'Smart Matching'],
 			highlights: ['Matching con IA', 'Prescreening inteligente', 'Notas de sesión IA', 'Multi-profesional']
@@ -78,9 +82,10 @@
 			description: 'Plataforma para fondos de inversión inmobiliaria: underwriting de deals, pro-formas, cascadas de distribución, gestión de inversionistas y reportes de performance.',
 			icon: '🏢',
 			status: 'live',
+			agentBadge: 'Deal Copilot',
 			url: 'https://rito.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'Claude AI', 'Financial Modeling'],
-			highlights: ['Underwriting completo', 'Cascada de distribución', 'Portal inversionistas', 'Análisis con IA']
+			highlights: ['Underwriting completo', 'Deal Copilot IA', 'Portal inversionistas', 'Análisis con IA']
 		},
 		{
 			name: 'Agora',
@@ -88,6 +93,7 @@
 			description: 'Plataforma completa para firmas legales: gestión de casos, control de horas, cuentas trust IOLTA, facturación, documentos con IA y calendario judicial.',
 			icon: '⚖️',
 			status: 'live',
+			agentBadge: 'Doc IA',
 			url: 'https://agora.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'Trust Accounting', 'AI Documents'],
 			highlights: ['Gestión de casos', 'Cuentas Trust IOLTA', 'Control de tiempo', 'IA para documentos']
@@ -259,9 +265,16 @@
 								<p class="text-sm text-purple-400">{product.subtitle}</p>
 							</div>
 						</div>
-						<span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs font-medium">
-							Live
-						</span>
+						<div class="flex flex-col items-end gap-1">
+							<span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs font-medium">
+								Live
+							</span>
+							{#if product.agentBadge}
+								<span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs font-medium">
+									🤖 {product.agentBadge}
+								</span>
+							{/if}
+						</div>
 					</div>
 
 					<p class="text-slate-400 text-sm mb-4">{product.description}</p>

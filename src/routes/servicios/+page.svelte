@@ -17,11 +17,11 @@
 			features: ['CFDI 4.0 integrado', 'Sincronización offline', 'Multi-sucursal', 'Reportes fiscales']
 		},
 		{
-			title: 'CRM con IA',
-			subtitle: 'Automatización de ventas y marketing',
-			description: 'CRMs con lead scoring, agentes de IA para WhatsApp y llamadas telefónicas, pipelines de ventas, y automatización de nurturing.',
+			title: 'CRM con Agentes IA',
+			subtitle: 'Ventas automatizadas, 24/7 sin intervención humana',
+			description: 'Agentes que atienden WhatsApp y llamadas telefónicas alrededor del reloj: califican prospectos, coordinan citas, responden preguntas de producto y sintetizan cada conversación para el equipo de ventas. El equipo solo interviene cuando hay una oportunidad real.',
 			icon: '🤖',
-			features: ['Agentes IA multicanal', 'Lead scoring automático', 'Automatización de citas', 'Analytics de conversión']
+			features: ['Agentes WhatsApp + Voz 24/7', 'Lead scoring automático', 'Coordinación de citas sin intervención', 'Síntesis de conversaciones']
 		},
 		{
 			title: 'Integraciones FinTech',

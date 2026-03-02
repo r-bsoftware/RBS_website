@@ -143,6 +143,95 @@
 	</div>
 </section>
 
+<!-- Agent Architecture -->
+<section class="py-16 px-4 sm:px-6 lg:px-8">
+	<div class="max-w-7xl mx-auto">
+		<div class="mb-10">
+			<h3 class="text-2xl font-bold text-white mb-2">Arquitectura de Agentes</h3>
+			<p class="text-slate-400 max-w-2xl">
+				Todos los agentes del ecosistema RBS comparten una infraestructura centralizada: enrutamiento inteligente al proveedor más económico capaz, herramientas MCP para acceso a datos en tiempo real, y ciclo agéntico para tareas de múltiples pasos.
+			</p>
+		</div>
+
+		<!-- Pipeline flow -->
+		<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
+			<div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+				<div class="text-purple-400 font-mono text-xs mb-2">1. REQUEST</div>
+				<p class="text-white font-semibold text-sm mb-1">App cliente</p>
+				<p class="text-slate-400 text-xs">Camino, Rito, Plenura u otro app envía mensajes y herramientas disponibles al proxy centralizado</p>
+			</div>
+			<div class="bg-slate-900 border border-purple-500/30 rounded-xl p-5">
+				<div class="text-purple-400 font-mono text-xs mb-2">2. ROUTE</div>
+				<p class="text-white font-semibold text-sm mb-1">AI Router (Colectiva)</p>
+				<p class="text-slate-400 text-xs">Herramientas → Anthropic · Contexto largo → Gemini · Texto simple → Groq</p>
+			</div>
+			<div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+				<div class="text-purple-400 font-mono text-xs mb-2">3. EXECUTE</div>
+				<p class="text-white font-semibold text-sm mb-1">Herramientas MCP</p>
+				<p class="text-slate-400 text-xs">Acceso a Firestore, Supabase, APIs externas. Ciclo agéntico hasta completar la tarea</p>
+			</div>
+			<div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+				<div class="text-purple-400 font-mono text-xs mb-2">4. METER</div>
+				<p class="text-white font-semibold text-sm mb-1">Metering centralizado</p>
+				<p class="text-slate-400 text-xs">Tokens contados, costo calculado en MXN, cuota aplicada por organización</p>
+			</div>
+		</div>
+
+		<!-- Live agents -->
+		<h4 class="text-lg font-semibold text-white mb-4">Agentes en producción</h4>
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+			<div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+				<div class="flex items-center gap-2 mb-3">
+					<span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+					<span class="text-xs text-emerald-400 font-medium">En vivo · Colectiva</span>
+				</div>
+				<h5 class="text-white font-semibold mb-1">Oracle</h5>
+				<p class="text-slate-400 text-sm">Chat interno de BI con 15+ herramientas MCP: consulta en tiempo real acuerdos, distribuciones, quotas, wallets y salud del ecosistema.</p>
+			</div>
+			<div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+				<div class="flex items-center gap-2 mb-3">
+					<span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+					<span class="text-xs text-emerald-400 font-medium">En vivo · Rito</span>
+				</div>
+				<h5 class="text-white font-semibold mb-1">Deal Copilot</h5>
+				<p class="text-slate-400 text-sm">Asistente de underwriting con 8 herramientas: analiza PDFs de deals, genera pro-formas, calcula distribuciones y redacta paquetes para instituciones financieras.</p>
+			</div>
+			<div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+				<div class="flex items-center gap-2 mb-3">
+					<span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+					<span class="text-xs text-emerald-400 font-medium">En vivo · Camino</span>
+				</div>
+				<h5 class="text-white font-semibold mb-1">Agentes de Atención</h5>
+				<p class="text-slate-400 text-sm">Atienden WhatsApp y llamadas 24/7, califican prospectos, coordinan citas y sintetizan conversaciones. El equipo solo interviene con oportunidades reales.</p>
+			</div>
+			<div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+				<div class="flex items-center gap-2 mb-3">
+					<span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+					<span class="text-xs text-emerald-400 font-medium">En vivo · Plenura</span>
+				</div>
+				<h5 class="text-white font-semibold mb-1">Matching de Bienestar</h5>
+				<p class="text-slate-400 text-sm">Prescreening conversacional, matching semántico paciente-terapeuta, notas de sesión automatizadas y resúmenes de reseñas.</p>
+			</div>
+			<div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+				<div class="flex items-center gap-2 mb-3">
+					<span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+					<span class="text-xs text-emerald-400 font-medium">En vivo · Constanza</span>
+				</div>
+				<h5 class="text-white font-semibold mb-1">Clasificación Fiscal</h5>
+				<p class="text-slate-400 text-sm">Clasifica transacciones contables, sugiere cuentas SAT, detecta deducciones y genera DIOT sin intervención manual.</p>
+			</div>
+			<div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+				<div class="flex items-center gap-2 mb-3">
+					<span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
+					<span class="text-xs text-emerald-400 font-medium">En vivo · Agora</span>
+				</div>
+				<h5 class="text-white font-semibold mb-1">Redacción Legal</h5>
+				<p class="text-slate-400 text-sm">Genera 8 tipos de documentos legales desde contexto de casos: contratos, poderes, convenios y escritos judiciales en segundos.</p>
+			</div>
+		</div>
+	</div>
+</section>
+
 <!-- Integrations -->
 <section class="py-12 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-7xl mx-auto">
