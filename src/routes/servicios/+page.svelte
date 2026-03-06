@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
+	import { scrollReveal } from '$lib/actions/scrollReveal';
 
 	const services = [
 		{
@@ -76,9 +77,9 @@
 <section class="py-16 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-7xl mx-auto">
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-			{#each services as service}
-				<article class="bg-slate-900 rounded-2xl border border-slate-800 p-6 hover:border-blue-500/50 transition-all hover:shadow-lg hover:shadow-blue-500/10">
-					<div class="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center text-3xl mb-4">
+			{#each services as service, i}
+				<article use:scrollReveal={{ delay: i * 100 }} class="glass rounded-2xl p-6 hover:border-blue-500/50 transition-all hover:shadow-lg hover:shadow-blue-500/10">
+					<div class="w-14 h-14 bg-slate-800/80 rounded-xl flex items-center justify-center text-3xl mb-4">
 						{service.icon}
 					</div>
 					<h3 class="text-xl font-bold text-white mb-1">{service.title}</h3>
@@ -103,28 +104,24 @@
 <!-- Process Section -->
 <section class="py-16 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
 	<div class="max-w-7xl mx-auto">
-		<h3 class="text-3xl font-bold text-white text-center mb-12">Nuestro Proceso</h3>
-		<div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-			<div class="text-center">
-				<div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4">1</div>
-				<h4 class="text-white font-semibold mb-2">Discovery</h4>
-				<p class="text-slate-400 text-sm">Entendemos tu negocio, procesos y objetivos</p>
-			</div>
-			<div class="text-center">
-				<div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4">2</div>
-				<h4 class="text-white font-semibold mb-2">Diseño</h4>
-				<p class="text-slate-400 text-sm">Arquitectura técnica y prototipos</p>
-			</div>
-			<div class="text-center">
-				<div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4">3</div>
-				<h4 class="text-white font-semibold mb-2">Desarrollo</h4>
-				<p class="text-slate-400 text-sm">Sprints iterativos con demos frecuentes</p>
-			</div>
-			<div class="text-center">
-				<div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4">4</div>
-				<h4 class="text-white font-semibold mb-2">Launch</h4>
-				<p class="text-slate-400 text-sm">Deployment, capacitación y soporte</p>
-			</div>
+		<h3 class="text-3xl font-bold text-white text-center mb-12" use:scrollReveal>Nuestro Proceso</h3>
+		<div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+			<!-- Connecting line (desktop) -->
+			<div class="hidden md:block absolute top-6 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-blue-500/50 via-purple-500/50 to-blue-500/50"></div>
+			{#each [
+				{ num: 1, title: 'Discovery', desc: 'Entendemos tu negocio, procesos y objetivos' },
+				{ num: 2, title: 'Diseño', desc: 'Arquitectura técnica y prototipos' },
+				{ num: 3, title: 'Desarrollo', desc: 'Sprints iterativos con demos frecuentes' },
+				{ num: 4, title: 'Launch', desc: 'Deployment, capacitación y soporte' }
+			] as step, i}
+				<div class="text-center relative" use:scrollReveal={{ delay: i * 150 }}>
+					<div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4 relative z-10 shadow-lg shadow-blue-500/25">
+						{step.num}
+					</div>
+					<h4 class="text-white font-semibold mb-2">{step.title}</h4>
+					<p class="text-slate-400 text-sm">{step.desc}</p>
+				</div>
+			{/each}
 		</div>
 	</div>
 </section>

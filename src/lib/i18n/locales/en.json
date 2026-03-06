@@ -22,7 +22,7 @@
 			"description": "We build high-performance enterprise software: SaaS, POS, ERP, AI-powered CRM, mobile apps. Specialists in solutions for Mexican SMBs."
 		},
 		"hero": {
-			"badge": "15 products in production",
+			"badge": "18 products in production",
 			"titlePart1": "We build",
 			"titleHighlight": "high-performance",
 			"titlePart2": "software",
@@ -71,7 +71,7 @@
 			"title": "Why work with us?",
 			"production": {
 				"title": "Products in production",
-				"desc": "We're not an agency that only does projects. We operate 15 of our own SaaS platforms. We know what works."
+				"desc": "We're not an agency that only does projects. We operate 18 of our own SaaS platforms. We know what works."
 			},
 			"mexico": {
 				"title": "Mexico specialists",
@@ -177,10 +177,10 @@
 	"portfolio": {
 		"meta": {
 			"title": "Portfolio - Red Broom Software",
-			"description": "Portfolio of products developed by Red Broom Software: 15 SaaS platforms + 5 B2C services for Mexican SMBs."
+			"description": "Portfolio of products developed by Red Broom Software: 18 SaaS platforms + 5 B2C services for Mexican SMBs."
 		},
 		"hero": {
-			"badge": "15 platforms + 5 B2C services",
+			"badge": "18 platforms + 5 B2C services",
 			"titlePart1": "Our",
 			"titleHighlight": "Portfolio",
 			"subtitle": "SaaS platforms we have developed and operate. Each one solves real problems for Mexican businesses."
@@ -277,6 +277,24 @@
 				"subtitle": "Smart Vacation Rental",
 				"description": "Vacation rental platform with optimized tax model: properties, reservations, on-demand services, and cleaning management.",
 				"highlights": ["Smart tax model", "On-demand cleaning", "Multi-property", "Guest management"]
+			},
+			"rito": {
+				"name": "Rito",
+				"subtitle": "Real Estate Private Equity",
+				"description": "Platform for real estate investment funds: deal underwriting, pro-formas, distribution waterfalls, investor management.",
+				"highlights": ["Full underwriting", "AI Deal Copilot", "Investor portal", "AI analysis"]
+			},
+			"comal": {
+				"name": "Comal",
+				"subtitle": "Multi-Tenant E-commerce",
+				"description": "Shopify-style platform for Mexico: online stores, subscription clubs, gated content, CoDi/MercadoPago payments and premium themes.",
+				"highlights": ["Multi-tenant", "Subscription clubs", "Premium themes", "Custom domain"]
+			},
+			"goodbay": {
+				"name": "Goodbay",
+				"subtitle": "Farewell Party Marketplace",
+				"description": "Platform for organizing bachelor/bachelorette parties: curated packages, verified vendors, automated itineraries and group payments.",
+				"highlights": ["Curated packages", "Group payments", "Verified vendors", "AI itineraries"]
 			}
 		},
 		"b2cServices": {

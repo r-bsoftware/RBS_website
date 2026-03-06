@@ -22,7 +22,7 @@
 			"description": "Desarrollamos software empresarial de alto rendimiento: SaaS, POS, ERP, CRM con IA, apps moviles. Especialistas en soluciones para PyMEs mexicanas."
 		},
 		"hero": {
-			"badge": "15 productos en produccion",
+			"badge": "18 productos en produccion",
 			"titlePart1": "Construimos",
 			"titleHighlight": "software",
 			"titlePart2": "de alto rendimiento",
@@ -71,7 +71,7 @@
 			"title": "Por que trabajar con nosotros?",
 			"production": {
 				"title": "Productos en produccion",
-				"desc": "No somos una agencia que solo hace proyectos. Operamos 15 plataformas SaaS propias. Sabemos lo que funciona."
+				"desc": "No somos una agencia que solo hace proyectos. Operamos 18 plataformas SaaS propias. Sabemos lo que funciona."
 			},
 			"mexico": {
 				"title": "Especialistas en Mexico",
@@ -177,10 +177,10 @@
 	"portfolio": {
 		"meta": {
 			"title": "Portafolio - Red Broom Software",
-			"description": "Portafolio de productos desarrollados por Red Broom Software: 15 plataformas SaaS + 5 servicios B2C para PyMEs mexicanas."
+			"description": "Portafolio de productos desarrollados por Red Broom Software: 18 plataformas SaaS + 5 servicios B2C para PyMEs mexicanas."
 		},
 		"hero": {
-			"badge": "15 plataformas + 5 servicios B2C",
+			"badge": "18 plataformas + 5 servicios B2C",
 			"titlePart1": "Nuestro",
 			"titleHighlight": "Portafolio",
 			"subtitle": "Plataformas SaaS que hemos desarrollado y operamos. Cada una resuelve problemas reales de negocios mexicanos."
@@ -277,6 +277,24 @@
 				"subtitle": "Alquiler Vacacional Inteligente",
 				"description": "Plataforma de renta vacacional con modelo fiscal optimizado: propiedades, reservaciones, servicios bajo demanda y gestion de limpieza.",
 				"highlights": ["Modelo fiscal inteligente", "Limpieza bajo demanda", "Multi-propiedad", "Gestion de huespedes"]
+			},
+			"rito": {
+				"name": "Rito",
+				"subtitle": "Real Estate Private Equity",
+				"description": "Plataforma para fondos de inversion inmobiliaria: underwriting de deals, pro-formas, cascadas de distribucion, gestion de inversionistas.",
+				"highlights": ["Underwriting completo", "Deal Copilot IA", "Portal inversionistas", "Analisis con IA"]
+			},
+			"comal": {
+				"name": "Comal",
+				"subtitle": "E-commerce Multi-Tenant",
+				"description": "Plataforma Shopify-style para Mexico: tiendas online, clubs de suscripcion, contenido gateado, pagos con CoDi/MercadoPago y temas premium.",
+				"highlights": ["Multi-tenant", "Clubs de suscripcion", "Temas premium", "Dominio propio"]
+			},
+			"goodbay": {
+				"name": "Goodbay",
+				"subtitle": "Marketplace de Despedidas",
+				"description": "Plataforma para organizar despedidas de soltero/a: paquetes curados, proveedores verificados, itinerarios automatizados y pagos grupales.",
+				"highlights": ["Paquetes curados", "Pagos grupales", "Proveedores verificados", "Itinerarios IA"]
 			}
 		},
 		"b2cServices": {

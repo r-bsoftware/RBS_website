@@ -1,11 +1,12 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import { scrollReveal } from '$lib/actions/scrollReveal';
 
 	// Camino CRM API endpoint for lead capture
 	const CAMINO_API_URL = 'https://camino.redbroomsoftware.com/api/leads';
 
-	let visitorId = '';
+	let visitorId = $state('');
 
 	function getVisitorId(): string {
 		if (typeof window === 'undefined') return '';
@@ -22,16 +23,16 @@
 	});
 
 	// Contact form state
-	let contactForm = {
+	let contactForm = $state({
 		name: '',
 		email: '',
 		company: '',
 		phone: '',
 		projectType: '',
 		message: ''
-	};
-	let submitStatus: 'idle' | 'submitting' | 'success' | 'error' = 'idle';
-	let errorMessage = '';
+	});
+	let submitStatus: 'idle' | 'submitting' | 'success' | 'error' = $state('idle');
+	let errorMessage = $state('');
 
 	const projectTypes = [
 		{ value: 'saas', label: 'Desarrollo SaaS' },
@@ -121,7 +122,7 @@
 	<div class="max-w-7xl mx-auto">
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
 			<!-- Form -->
-			<div class="bg-slate-900 rounded-2xl border border-slate-800 p-8">
+			<div use:scrollReveal class="glass-strong rounded-2xl p-8">
 				{#if submitStatus === 'success'}
 					<div class="text-center py-12">
 						<div class="w-16 h-16 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -134,7 +135,7 @@
 					</div>
 				{:else}
 					<h3 class="text-2xl font-bold text-white mb-6">Envíanos un mensaje</h3>
-					<form on:submit={handleContactSubmit} class="space-y-6">
+					<form onsubmit={handleContactSubmit} class="space-y-6">
 						<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 							<div>
 								<label for="name" class="block text-sm text-slate-400 mb-2">Nombre *</label>
@@ -223,7 +224,7 @@
 			</div>
 
 			<!-- Info -->
-			<div class="space-y-8">
+			<div class="space-y-8" use:scrollReveal={{ delay: 200 }}>
 				<div>
 					<h3 class="text-2xl font-bold text-white mb-4">¿Qué sigue?</h3>
 					<div class="space-y-4">
@@ -251,7 +252,7 @@
 					</div>
 				</div>
 
-				<div class="bg-slate-900 rounded-2xl border border-slate-800 p-6">
+				<div class="glass rounded-2xl p-6">
 					<h4 class="text-white font-semibold mb-4">Contacto directo</h4>
 					<div class="space-y-3">
 						<a href="mailto:dia@redbroomsoftware.com" class="flex items-center gap-3 text-slate-400 hover:text-white transition-colors">

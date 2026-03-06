@@ -1,11 +1,14 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
 	import Footer from '$lib/components/Footer.svelte';
+	import TypewriterText from '$lib/components/TypewriterText.svelte';
+	import AnimatedCounter from '$lib/components/AnimatedCounter.svelte';
+	import EcosystemDiagram from '$lib/components/EcosystemDiagram.svelte';
+	import { scrollReveal } from '$lib/actions/scrollReveal';
 
-	// Camino CRM API endpoint for lead capture
 	const CAMINO_API_URL = 'https://camino.redbroomsoftware.com/api/leads';
 
-	let visitorId = '';
+	let visitorId = $state('');
 
 	function getVisitorId(): string {
 		if (typeof window === 'undefined') return '';
@@ -21,9 +24,8 @@
 		visitorId = getVisitorId();
 	});
 
-	// Quick contact form
-	let quickForm = { email: '', projectType: '' };
-	let quickSubmitStatus: 'idle' | 'submitting' | 'success' | 'error' = 'idle';
+	let quickForm = $state({ email: '', projectType: '' });
+	let quickSubmitStatus: 'idle' | 'submitting' | 'success' | 'error' = $state('idle');
 
 	async function handleQuickSubmit(event: Event) {
 		event.preventDefault();
@@ -60,10 +62,31 @@
 		{ icon: '📱', title: 'Apps Móviles', desc: 'Flutter cross-platform con sync en tiempo real' }
 	];
 
-	const stats = [
-		{ value: '17', label: 'Productos en producción' },
-		{ value: '10+', label: 'Industrias diferentes' },
-		{ value: '99.9%', label: 'Uptime promedio' }
+	const techLogos = [
+		'SvelteKit', 'TypeScript', 'Supabase', 'Firebase', 'PostgreSQL',
+		'Tailwind', 'Anthropic', 'Groq', 'Vercel', 'Cloudflare',
+		'SPEI', 'CoDi', 'WhatsApp', 'Flutter', 'Node.js'
+	];
+
+	const flagshipProducts = [
+		{
+			name: 'Camino CRM',
+			desc: 'Agentes IA que atienden WhatsApp y llamadas 24/7',
+			gradient: 'from-blue-500 to-cyan-500',
+			badge: 'IA Multicanal'
+		},
+		{
+			name: 'Colectiva',
+			desc: 'Plataforma B2B: pagos, billing ecosistema, mercado de CPIs',
+			gradient: 'from-purple-500 to-pink-500',
+			badge: 'Oracle IA'
+		},
+		{
+			name: 'Constanza',
+			desc: 'Contabilidad multi-cliente con IA fiscal y DIOT automático',
+			gradient: 'from-emerald-500 to-teal-500',
+			badge: 'IA Fiscal'
+		}
 	];
 </script>
 
@@ -75,7 +98,7 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://redbroomsoftware.com/" />
 	<meta property="og:title" content="Red Broom Software - Desarrollo de Software Empresarial" />
-	<meta property="og:description" content="Desarrollamos SaaS, POS, CRM con IA y apps móviles para PyMEs mexicanas. 17 productos en producción." />
+	<meta property="og:description" content="Desarrollamos SaaS, POS, CRM con IA y apps móviles para PyMEs mexicanas. 18 productos en producción." />
 	<meta property="og:image" content="https://redbroomsoftware.com/logo.svg" />
 	<meta property="og:locale" content="es_MX" />
 
@@ -83,7 +106,6 @@
 	<meta name="twitter:title" content="Red Broom Software - Software Empresarial" />
 	<meta name="twitter:description" content="Desarrollo de software de alto rendimiento para PyMEs mexicanas." />
 
-	<!-- Organization Schema -->
 	{@html `<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
@@ -121,7 +143,6 @@
 	}
 	</script>`}
 
-	<!-- WebSite Schema -->
 	{@html `<script type="application/ld+json">
 	{
 		"@context": "https://schema.org",
@@ -141,22 +162,21 @@
 
 <main id="main">
 	<!-- Hero -->
-	<section class="relative py-24 px-4 sm:px-6 lg:px-8 overflow-hidden">
+	<section class="relative py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
 		<div class="absolute inset-0 bg-gradient-to-b from-blue-600/10 via-purple-600/5 to-transparent"></div>
-		<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full blur-3xl"></div>
+		<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-500/15 to-purple-500/15 rounded-full blur-3xl animate-glow"></div>
 
 		<div class="max-w-7xl mx-auto text-center relative">
-			<div class="inline-flex items-center px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-full text-sm text-slate-300 mb-8">
+			<div class="inline-flex items-center px-4 py-2 glass rounded-full text-sm text-slate-300 mb-8">
 				<span class="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
-				17 productos en producción
+				18 productos en producción
 			</div>
 
 			<h2 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-				Construimos
-				<span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
-					software
-				</span>
-				<br />de alto rendimiento
+				Construimos<br />
+				<TypewriterText words={['SaaS', 'POS & ERP', 'CRM con IA', 'FinTech', 'Legal Tech', 'E-commerce']} interval={2500} />
+				<br />
+				<span class="text-slate-300">de alto rendimiento</span>
 			</h2>
 			<p class="text-xl text-slate-400 mb-10 max-w-3xl mx-auto leading-relaxed">
 				Desarrollo de plataformas SaaS, sistemas POS/ERP, CRM con IA, y aplicaciones móviles.
@@ -164,30 +184,45 @@
 			</p>
 
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
-				<a href="/portafolio" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all text-lg font-semibold shadow-lg shadow-blue-500/25">
+				<a href="/portafolio" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all text-lg font-semibold shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-0.5">
 					Ver Portafolio
 				</a>
-				<a href="/contacto" class="px-8 py-4 bg-slate-800 text-white border border-slate-700 rounded-xl hover:bg-slate-700 transition-all text-lg font-semibold">
+				<a href="/contacto" class="px-8 py-4 glass text-white rounded-xl hover:bg-slate-800/80 transition-all text-lg font-semibold">
 					Iniciar Proyecto
 				</a>
 			</div>
 
 			<!-- Stats -->
 			<div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-20 max-w-2xl mx-auto">
-				{#each stats as stat}
-					<div>
-						<p class="text-4xl font-bold text-white">{stat.value}</p>
-						<p class="text-slate-400 text-sm">{stat.label}</p>
-					</div>
-				{/each}
+				<div>
+					<p class="text-4xl font-bold text-white"><AnimatedCounter value={18} /></p>
+					<p class="text-slate-400 text-sm">Productos en producción</p>
+				</div>
+				<div>
+					<p class="text-4xl font-bold text-white"><AnimatedCounter value={10} suffix="+" /></p>
+					<p class="text-slate-400 text-sm">Industrias diferentes</p>
+				</div>
+				<div>
+					<p class="text-4xl font-bold text-white">99.9%</p>
+					<p class="text-slate-400 text-sm">Uptime promedio</p>
+				</div>
 			</div>
+		</div>
+	</section>
+
+	<!-- Tech Marquee -->
+	<section class="py-8 overflow-hidden border-y border-slate-800/50">
+		<div class="flex animate-marquee whitespace-nowrap">
+			{#each [...techLogos, ...techLogos] as logo}
+				<span class="mx-8 text-slate-500 text-sm font-medium">{logo}</span>
+			{/each}
 		</div>
 	</section>
 
 	<!-- Capabilities -->
 	<section class="py-24 px-4 sm:px-6 lg:px-8">
 		<div class="max-w-7xl mx-auto">
-			<div class="text-center mb-16">
+			<div class="text-center mb-16" use:scrollReveal>
 				<h2 class="text-4xl font-bold text-white mb-4">¿Qué desarrollamos?</h2>
 				<p class="text-xl text-slate-400 max-w-2xl mx-auto">
 					Desde sistemas operacionales hasta plataformas con IA
@@ -195,9 +230,12 @@
 			</div>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-				{#each capabilities as cap}
-					<div class="bg-slate-900 rounded-2xl border border-slate-800 p-6 hover:border-blue-500/50 transition-all hover:shadow-lg hover:shadow-blue-500/10 group">
-						<div class="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
+				{#each capabilities as cap, i}
+					<div
+						use:scrollReveal={{ delay: i * 100 }}
+						class="glass rounded-2xl p-6 hover:border-blue-500/50 transition-all hover:shadow-lg hover:shadow-blue-500/10 group"
+					>
+						<div class="w-14 h-14 bg-slate-800/80 rounded-xl flex items-center justify-center text-3xl mb-4 group-hover:scale-110 transition-transform">
 							{cap.icon}
 						</div>
 						<h3 class="text-xl font-bold text-white mb-2">{cap.title}</h3>
@@ -207,7 +245,7 @@
 			</div>
 
 			<div class="text-center mt-12">
-				<a href="/servicios" class="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium">
+				<a href="/servicios" class="inline-flex items-center text-blue-400 hover:text-blue-300 font-medium transition-colors">
 					Ver todos los servicios
 					<svg class="w-4 h-4 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
@@ -217,11 +255,50 @@
 		</div>
 	</section>
 
+	<!-- Flagship Products -->
+	<section class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
+		<div class="max-w-7xl mx-auto">
+			<div class="text-center mb-16" use:scrollReveal>
+				<h2 class="text-4xl font-bold text-white mb-4">Productos estrella</h2>
+				<p class="text-xl text-slate-400">Nuestras plataformas más avanzadas</p>
+			</div>
+
+			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+				{#each flagshipProducts as product, i}
+					<div
+						use:scrollReveal={{ delay: i * 150 }}
+						class="glass-strong rounded-2xl p-8 hover:scale-[1.02] transition-all group"
+					>
+						<div class="w-12 h-12 rounded-xl bg-gradient-to-r {product.gradient} mb-4 opacity-80 group-hover:opacity-100 transition-opacity"></div>
+						<span class="inline-block px-2.5 py-1 bg-purple-500/20 text-purple-300 rounded-full text-xs font-medium mb-3">
+							{product.badge}
+						</span>
+						<h3 class="text-xl font-bold text-white mb-2">{product.name}</h3>
+						<p class="text-slate-400 text-sm">{product.desc}</p>
+					</div>
+				{/each}
+			</div>
+		</div>
+	</section>
+
+	<!-- Ecosystem Diagram -->
+	<section class="py-24 px-4 sm:px-6 lg:px-8">
+		<div class="max-w-5xl mx-auto">
+			<div class="text-center mb-12" use:scrollReveal>
+				<h2 class="text-4xl font-bold text-white mb-4">Un ecosistema conectado</h2>
+				<p class="text-xl text-slate-400">18 apps que comparten autenticación, pagos, facturación e IA</p>
+			</div>
+			<div use:scrollReveal>
+				<EcosystemDiagram />
+			</div>
+		</div>
+	</section>
+
 	<!-- Why RBS -->
 	<section class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
 		<div class="max-w-7xl mx-auto">
 			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-				<div>
+				<div use:scrollReveal>
 					<h2 class="text-4xl font-bold text-white mb-6">¿Por qué trabajar con nosotros?</h2>
 					<div class="space-y-6">
 						<div class="flex items-start gap-4">
@@ -232,7 +309,7 @@
 							</div>
 							<div>
 								<h3 class="text-lg font-semibold text-white">Productos en producción</h3>
-								<p class="text-slate-400">No somos una agencia que solo hace proyectos. Operamos 17 plataformas SaaS propias. Sabemos lo que funciona.</p>
+								<p class="text-slate-400">No somos una agencia que solo hace proyectos. Operamos 18 plataformas SaaS propias. Sabemos lo que funciona.</p>
 							</div>
 						</div>
 						<div class="flex items-start gap-4">
@@ -259,7 +336,7 @@
 						</div>
 					</div>
 				</div>
-				<div class="bg-slate-900 rounded-2xl border border-slate-800 p-8">
+				<div use:scrollReveal={{ delay: 200 }} class="glass-strong rounded-2xl p-8">
 					<h3 class="text-xl font-bold text-white mb-6">Empecemos a hablar</h3>
 					{#if quickSubmitStatus === 'success'}
 						<div class="text-center py-8">
@@ -271,7 +348,7 @@
 							<p class="text-white font-medium">Te contactamos pronto</p>
 						</div>
 					{:else}
-						<form on:submit={handleQuickSubmit} class="space-y-4">
+						<form onsubmit={handleQuickSubmit} class="space-y-4">
 							<div>
 								<label for="quick-email" class="block text-sm text-slate-400 mb-2">Email</label>
 								<input
@@ -279,7 +356,7 @@
 									id="quick-email"
 									bind:value={quickForm.email}
 									required
-									class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
+									class="w-full px-4 py-3 bg-slate-800/80 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none transition-colors"
 									placeholder="tu@empresa.com"
 								/>
 							</div>
@@ -289,7 +366,7 @@
 									id="quick-type"
 									bind:value={quickForm.projectType}
 									required
-									class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
+									class="w-full px-4 py-3 bg-slate-800/80 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none transition-colors"
 								>
 									<option value="">Selecciona una opción</option>
 									<option value="saas">Desarrollo SaaS</option>
@@ -302,7 +379,7 @@
 							<button
 								type="submit"
 								disabled={quickSubmitStatus === 'submitting'}
-								class="w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all font-semibold disabled:opacity-50"
+								class="w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all font-semibold disabled:opacity-50 hover:shadow-lg hover:shadow-blue-500/25"
 							>
 								{quickSubmitStatus === 'submitting' ? 'Enviando...' : 'Quiero saber más'}
 							</button>
@@ -314,13 +391,14 @@
 	</section>
 
 	<!-- CTA -->
-	<section class="py-24 px-4 sm:px-6 lg:px-8">
-		<div class="max-w-4xl mx-auto text-center">
+	<section class="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+		<div class="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-purple-600/5 to-blue-600/5"></div>
+		<div class="max-w-4xl mx-auto text-center relative" use:scrollReveal>
 			<h2 class="text-4xl font-bold text-white mb-6">¿Tienes un proyecto en mente?</h2>
 			<p class="text-xl text-slate-400 mb-10">
 				Cuéntanos qué necesitas y te daremos una propuesta en 48 horas.
 			</p>
-			<a href="/contacto" class="inline-flex px-10 py-5 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all text-lg font-semibold shadow-lg shadow-blue-500/25">
+			<a href="/contacto" class="inline-flex px-10 py-5 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all text-lg font-semibold shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-0.5">
 				Iniciar conversación
 			</a>
 		</div>

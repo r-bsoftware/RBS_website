@@ -1,9 +1,22 @@
 <script>
 	import '../app.css';
+	import { initI18n, getStoredLocale, setLocale } from '$lib/i18n';
+	import { onMount } from 'svelte';
 	import Header from '$lib/components/Header.svelte';
+
+	let { children } = $props();
+
+	initI18n();
+
+	onMount(() => {
+		const stored = getStoredLocale();
+		if (stored) setLocale(stored);
+	});
 </script>
 
 <div class="min-h-screen bg-slate-950">
 	<Header />
-	<slot />
+	<main id="main">
+		{@render children()}
+	</main>
 </div>

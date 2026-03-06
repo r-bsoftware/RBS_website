@@ -1,5 +1,7 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
+	import AnimatedCounter from '$lib/components/AnimatedCounter.svelte';
+	import { scrollReveal } from '$lib/actions/scrollReveal';
 
 	const products = [
 		{
@@ -7,7 +9,7 @@
 			subtitle: 'Sistema POS para Restaurantes',
 			description: 'Punto de venta completo con gestión de mesas, comandas a cocina en tiempo real, sistema de meseros, facturación CFDI 4.0 y reportes avanzados.',
 			icon: '🍽️',
-			status: 'live',
+			category: 'hospitality',
 			url: 'https://caracol.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'CFDI 4.0', 'Real-time sync'],
 			highlights: ['Multi-terminal', 'KDS Cocina', 'Gestión de Meseros', 'Multi-sucursal']
@@ -17,7 +19,7 @@
 			subtitle: 'ERP para Restaurantes y Retail',
 			description: 'Sistema ERP completo para restaurantes y negocios de alimentos: POS ultra-rápido, inventario FIFO, gestión de proveedores, programa de lealtad y analytics.',
 			icon: '🍽️',
-			status: 'live',
+			category: 'hospitality',
 			url: 'https://hoja.redbroomsoftware.com',
 			tech: ['Next.js', 'Firebase', 'FIFO Inventory', 'WhatsApp API'],
 			highlights: ['POS de alta velocidad', 'Programa de lealtad', 'Multi-sucursal', 'Analíticas avanzadas']
@@ -27,7 +29,7 @@
 			subtitle: 'Software para Veterinarias',
 			description: 'Plataforma SaaS especializada para clínicas veterinarias: expedientes médicos SOAP, control de vacunas, agenda, estética canina y facturación.',
 			icon: '🐾',
-			status: 'live',
+			category: 'vertical',
 			url: 'https://cosmos.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'SOAP Records', 'Notifications'],
 			highlights: ['Expedientes SOAP', 'Control de vacunas', 'Agenda inteligente', 'Multi-clínica']
@@ -37,7 +39,7 @@
 			subtitle: 'CRM con Agentes IA Multicanal',
 			description: 'CRM con agentes de IA que atienden WhatsApp y llamadas telefónicas automáticamente. Contexto unificado de cliente, lead scoring, pipeline de ventas.',
 			icon: '🛤️',
-			status: 'live',
+			category: 'core',
 			agentBadge: 'Agentes IA',
 			url: 'https://camino.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'Multi-provider AI', 'Twilio', 'WhatsApp Cloud API'],
@@ -46,9 +48,9 @@
 		{
 			name: 'Colectiva',
 			subtitle: 'Plataforma B2B de Pagos, Billing y Capital',
-			description: 'Plataforma B2B multi-merchant: billing para el ecosistema RBS, gateway de pagos (CoDi, SPEI, MercadoPago), suscripciones, monedero virtual y mercado de CPIs para financiamiento colectivo. Incluye Oracle, el agente de BI del ecosistema.',
+			description: 'Plataforma B2B multi-merchant: billing para el ecosistema RBS, gateway de pagos (CoDi, SPEI, MercadoPago), suscripciones, monedero virtual y mercado de CPIs.',
 			icon: '💳',
-			status: 'live',
+			category: 'core',
 			agentBadge: 'Oracle IA',
 			url: 'https://colectiva.redbroomsoftware.com',
 			tech: ['SvelteKit', 'SPEI', 'CoDi', 'MercadoPago', 'Polygon', 'Multi-provider AI'],
@@ -59,18 +61,28 @@
 			subtitle: 'Contabilidad Inteligente para Despachos',
 			description: 'Plataforma multi-cliente para contadores: gestiona decenas de empresas desde un solo dashboard. IA fiscal, CFDI 4.0, DIOT automático.',
 			icon: '📊',
-			status: 'live',
+			category: 'core',
 			agentBadge: 'IA Fiscal',
 			url: 'https://constanza.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Firebase', 'SAT APIs', 'AI Classification'],
 			highlights: ['Multi-cliente', 'IA Fiscal', 'DIOT/Balanza automático', 'Consolidación grupos']
 		},
 		{
+			name: 'Comal',
+			subtitle: 'E-commerce Multi-Tenant',
+			description: 'Plataforma Shopify-style para México: tiendas online, clubs de suscripción, contenido gateado, pagos con CoDi/MercadoPago y temas premium.',
+			icon: '🛒',
+			category: 'core',
+			url: 'https://comal.redbroomsoftware.com',
+			tech: ['SvelteKit', 'Supabase', 'Colectiva', 'Theme Engine'],
+			highlights: ['Multi-tenant', 'Clubs de suscripción', 'Temas premium', 'Dominio propio']
+		},
+		{
 			name: 'Plenura',
 			subtitle: 'Plataforma de Bienestar con IA',
-			description: 'Sistema para profesionales de salud y bienestar: matching inteligente de pacientes, prescreening con IA, notas de sesión automatizadas, búsqueda semántica y gestión de citas.',
+			description: 'Sistema para profesionales de salud y bienestar: matching inteligente de pacientes, prescreening con IA, notas de sesión automatizadas y gestión de citas.',
 			icon: '🧘',
-			status: 'live',
+			category: 'vertical',
 			agentBadge: 'Matching IA',
 			url: 'https://plenura.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'Multi-provider AI', 'Smart Matching'],
@@ -79,9 +91,9 @@
 		{
 			name: 'Rito',
 			subtitle: 'Real Estate Private Equity',
-			description: 'Plataforma para fondos de inversión inmobiliaria: underwriting de deals, pro-formas, cascadas de distribución, gestión de inversionistas y reportes de performance.',
+			description: 'Plataforma para fondos de inversión inmobiliaria: underwriting de deals, pro-formas, cascadas de distribución, gestión de inversionistas.',
 			icon: '🏢',
-			status: 'live',
+			category: 'fintech',
 			agentBadge: 'Deal Copilot',
 			url: 'https://rito.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'Claude AI', 'Financial Modeling'],
@@ -90,20 +102,30 @@
 		{
 			name: 'Agora',
 			subtitle: 'Software Legal para Despachos',
-			description: 'Plataforma completa para firmas legales: gestión de casos, control de horas, cuentas trust IOLTA, facturación, documentos con IA y calendario judicial.',
+			description: 'Plataforma completa para firmas legales: gestión de casos, control de horas, cuentas trust IOLTA, facturación, documentos con IA.',
 			icon: '⚖️',
-			status: 'live',
+			category: 'vertical',
 			agentBadge: 'Doc IA',
 			url: 'https://agora.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'Trust Accounting', 'AI Documents'],
 			highlights: ['Gestión de casos', 'Cuentas Trust IOLTA', 'Control de tiempo', 'IA para documentos']
 		},
 		{
+			name: 'Goodbay',
+			subtitle: 'Marketplace de Despedidas',
+			description: 'Plataforma para organizar despedidas de soltero/a: paquetes curados, proveedores verificados, itinerarios automatizados y pagos grupales.',
+			icon: '🎉',
+			category: 'marketplace',
+			url: 'https://goodbay.redbroomsoftware.com',
+			tech: ['SvelteKit', 'Supabase', 'Colectiva', 'Group Payments'],
+			highlights: ['Paquetes curados', 'Pagos grupales', 'Proveedores verificados', 'Itinerarios IA']
+		},
+		{
 			name: 'Mancha',
 			subtitle: 'Reservaciones para Restaurantes',
-			description: 'Plataforma estilo OpenTable para restaurantes mexicanos: reservaciones en línea, gestión de mesas, confirmaciones automáticas por email y WhatsApp, y analytics de ocupación.',
+			description: 'Plataforma estilo OpenTable para restaurantes mexicanos: reservaciones en línea, gestión de mesas, confirmaciones automáticas.',
 			icon: '🪑',
-			status: 'live',
+			category: 'hospitality',
 			url: 'https://mancha.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'Camino API', 'Real-time'],
 			highlights: ['Reservaciones 24/7', 'Confirmaciones automáticas', 'Gestión de mesas', 'Widget embebible']
@@ -111,9 +133,9 @@
 		{
 			name: 'Cookie Monster',
 			subtitle: 'E-commerce para Panaderías',
-			description: 'Plataforma de comercio electrónico para panaderías y repostería artesanal: catálogo, carrito, pedidos personalizados, checkout y gestión de entregas.',
+			description: 'Plataforma de comercio electrónico para panaderías y repostería artesanal: catálogo, carrito, pedidos personalizados y checkout.',
 			icon: '🍪',
-			status: 'live',
+			category: 'marketplace',
 			url: 'https://cookiemonster.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'Stripe', 'Colectiva API'],
 			highlights: ['Pedidos personalizados', 'Checkout integrado', 'Gestión de entregas', 'Catálogo visual']
@@ -123,7 +145,7 @@
 			subtitle: 'Plataforma de Donación de Sangre',
 			description: 'Conecta donadores con hospitales: registro de donadores, emergencias activas, historial de donaciones, notificaciones por tipo de sangre.',
 			icon: '🩸',
-			status: 'live',
+			category: 'vertical',
 			url: 'https://continua.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'Geolocation', 'Push Notifications'],
 			highlights: ['Emergencias en tiempo real', 'Matching por tipo', 'Historial de donaciones', 'Alertas hospitales']
@@ -131,9 +153,9 @@
 		{
 			name: 'Puppy Love',
 			subtitle: 'Matching para Mascotas',
-			description: 'Plataforma de matching para dueños de mascotas: encuentra compañeros de juego, parejas para cría responsable, y adopción. Perfiles verificados.',
+			description: 'Plataforma de matching para dueños de mascotas: compañeros de juego, parejas para cría responsable, y adopción.',
 			icon: '🐕',
-			status: 'live',
+			category: 'marketplace',
 			url: 'https://puppylove.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'Matching Algorithm', 'Chat'],
 			highlights: ['Matching inteligente', 'Perfiles verificados', 'Chat integrado', 'Suscripción premium']
@@ -143,7 +165,7 @@
 			subtitle: 'Almacenamiento y Bodegas',
 			description: 'Renta de espacios de almacenamiento: mini-bodegas, pallets, gestión de inventario, recolección y entrega a domicilio.',
 			icon: '📦',
-			status: 'live',
+			category: 'vertical',
 			url: 'https://baul.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'Inventory Management', 'Logistics'],
 			highlights: ['Multi-tamaño', 'Recolección a domicilio', 'Control de acceso', 'Inventario digital']
@@ -151,9 +173,9 @@
 		{
 			name: 'Servilleta',
 			subtitle: 'Marketplace de Servicios',
-			description: 'Conecta clientes con taskers verificados para limpieza, mudanzas, reparaciones y más. Reviews, pagos seguros y garantía de servicio.',
+			description: 'Conecta clientes con taskers verificados para limpieza, mudanzas, reparaciones y más. Reviews, pagos seguros.',
 			icon: '🧹',
-			status: 'live',
+			category: 'marketplace',
 			url: 'https://servilleta.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'Colectiva API', 'Geolocation'],
 			highlights: ['Taskers verificados', 'Pagos seguros', 'Reviews', 'Garantía de servicio']
@@ -161,21 +183,20 @@
 		{
 			name: 'Hospitality Fiscal',
 			subtitle: 'Alquiler Vacacional Inteligente',
-			description: 'Plataforma de renta vacacional con modelo fiscal optimizado: propiedades, reservaciones, servicios bajo demanda y gestión de limpieza.',
+			description: 'Plataforma de renta vacacional con modelo fiscal optimizado: propiedades, reservaciones, servicios bajo demanda.',
 			icon: '🏖️',
-			status: 'live',
+			category: 'hospitality',
 			url: 'https://hospitality.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'Booking Engine', 'Fiscal Optimization'],
 			highlights: ['Modelo fiscal inteligente', 'Limpieza bajo demanda', 'Multi-propiedad', 'Gestión de huéspedes']
 		}
 	];
 
-	// B2C Services - Managed services we offer directly to businesses
 	const b2cServices = [
 		{
 			name: 'Constanza Servicios',
 			subtitle: 'Contabilidad Administrada',
-			description: 'Tu departamento de contabilidad completo: declaraciones, CFDI 4.0, DIOT, Balanza, IMSS - todo resuelto por expertos. Desde $8,900/mes.',
+			description: 'Tu departamento de contabilidad completo: declaraciones, CFDI 4.0, DIOT, Balanza, IMSS. Desde $8,900/mes.',
 			icon: '📊',
 			status: 'live',
 			url: 'https://constanza.redbroomsoftware.com/servicios',
@@ -202,7 +223,7 @@
 		{
 			name: 'Atención al Cliente IA',
 			subtitle: 'Ecosistema Completo',
-			description: 'Agentes IA que atienden WhatsApp y llamadas 24/7 para cualquier negocio: restaurantes, veterinarias, clínicas, retail. Integra con todo el ecosistema.',
+			description: 'Agentes IA que atienden WhatsApp y llamadas 24/7 para cualquier negocio.',
 			icon: '🤖',
 			status: 'live',
 			url: 'https://camino.redbroomsoftware.com',
@@ -211,23 +232,38 @@
 		{
 			name: 'Mancha Servicios',
 			subtitle: 'Reservaciones Universal',
-			description: 'Sistema de citas y reservaciones para cualquier negocio: restaurantes, veterinarias, clínicas, salones, estudios. Confirmaciones automáticas y widget embebible.',
+			description: 'Sistema de citas y reservaciones para cualquier negocio: restaurantes, veterinarias, clínicas, salones.',
 			icon: '📅',
 			status: 'coming_soon',
 			url: 'https://mancha.redbroomsoftware.com',
 			highlights: ['Multi-industria', 'IA predictiva', 'Confirmaciones auto', 'Widget embebible']
 		}
 	];
+
+	const categories = [
+		{ value: '', label: 'Todos' },
+		{ value: 'core', label: 'Core' },
+		{ value: 'hospitality', label: 'Hospitalidad' },
+		{ value: 'vertical', label: 'Verticales' },
+		{ value: 'fintech', label: 'FinTech' },
+		{ value: 'marketplace', label: 'Marketplaces' }
+	];
+
+	let activeCategory = $state('');
+
+	const filteredProducts = $derived(
+		activeCategory ? products.filter(p => p.category === activeCategory) : products
+	);
 </script>
 
 <svelte:head>
 	<title>Portafolio - Red Broom Software</title>
-	<meta name="description" content="Portafolio de productos desarrollados por Red Broom Software: 16 plataformas SaaS + 5 servicios B2C para PyMEs mexicanas." />
+	<meta name="description" content="Portafolio de productos desarrollados por Red Broom Software: 18 plataformas SaaS + 5 servicios B2C para PyMEs mexicanas." />
 	<link rel="canonical" href="https://redbroomsoftware.com/portafolio" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://redbroomsoftware.com/portafolio" />
 	<meta property="og:title" content="Portafolio - Red Broom Software" />
-	<meta property="og:description" content="16 plataformas SaaS + 5 servicios B2C para PyMEs mexicanas. POS, ERP, CRM, FinTech, IA y más." />
+	<meta property="og:description" content="18 plataformas SaaS + 5 servicios B2C para PyMEs mexicanas. POS, ERP, CRM, FinTech, IA y más." />
 	<meta property="og:image" content="https://redbroomsoftware.com/logo.svg" />
 	<meta name="twitter:card" content="summary" />
 </svelte:head>
@@ -236,9 +272,9 @@
 <section class="py-20 px-4 sm:px-6 lg:px-8 relative">
 	<div class="absolute inset-0 bg-gradient-to-b from-purple-600/10 via-transparent to-transparent"></div>
 	<div class="max-w-7xl mx-auto text-center relative">
-		<div class="inline-flex items-center px-4 py-2 bg-slate-800/50 border border-slate-700 rounded-full text-sm text-slate-300 mb-6">
+		<div class="inline-flex items-center px-4 py-2 glass rounded-full text-sm text-slate-300 mb-6">
 			<span class="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
-			16 plataformas + 5 servicios B2C
+			18 plataformas + 5 servicios B2C
 		</div>
 		<h2 class="text-4xl md:text-6xl font-bold text-white mb-6">
 			Nuestro <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Portafolio</span>
@@ -249,15 +285,37 @@
 	</div>
 </section>
 
+<!-- Category Filters -->
+<section class="px-4 sm:px-6 lg:px-8 pb-8">
+	<div class="max-w-7xl mx-auto">
+		<div class="flex flex-wrap gap-2 justify-center">
+			{#each categories as cat}
+				<button
+					onclick={() => activeCategory = cat.value}
+					class="px-4 py-2 rounded-full text-sm font-medium transition-all
+						{activeCategory === cat.value
+							? 'bg-purple-500/20 text-purple-300 border border-purple-500/30'
+							: 'glass text-slate-400 hover:text-white'}"
+				>
+					{cat.label}
+				</button>
+			{/each}
+		</div>
+	</div>
+</section>
+
 <!-- Products Grid -->
-<section class="py-16 px-4 sm:px-6 lg:px-8">
+<section class="py-8 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-7xl mx-auto">
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-			{#each products as product}
-				<article class="bg-slate-900 rounded-2xl border border-slate-800 p-6 hover:border-purple-500/50 transition-all hover:shadow-lg hover:shadow-purple-500/10 group">
+			{#each filteredProducts as product, i (product.name)}
+				<article
+					use:scrollReveal={{ delay: Math.min(i * 80, 400) }}
+					class="glass rounded-2xl p-6 hover:border-purple-500/50 transition-all hover:shadow-lg hover:shadow-purple-500/10 group"
+				>
 					<div class="flex items-start justify-between mb-4">
 						<div class="flex items-center gap-4">
-							<div class="w-14 h-14 bg-slate-800 rounded-xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+							<div class="w-14 h-14 bg-slate-800/80 rounded-xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
 								{product.icon}
 							</div>
 							<div>
@@ -271,7 +329,7 @@
 							</span>
 							{#if product.agentBadge}
 								<span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs font-medium">
-									🤖 {product.agentBadge}
+									{product.agentBadge}
 								</span>
 							{/if}
 						</div>
@@ -279,14 +337,12 @@
 
 					<p class="text-slate-400 text-sm mb-4">{product.description}</p>
 
-					<!-- Tech Stack -->
 					<div class="flex flex-wrap gap-2 mb-4">
 						{#each product.tech as tech}
-							<span class="px-2 py-1 bg-slate-800 text-slate-300 rounded text-xs">{tech}</span>
+							<span class="px-2 py-1 bg-slate-800/80 text-slate-300 rounded text-xs">{tech}</span>
 						{/each}
 					</div>
 
-					<!-- Highlights -->
 					<ul class="grid grid-cols-2 gap-2 mb-4">
 						{#each product.highlights as highlight}
 							<li class="flex items-center text-sm text-slate-300">
@@ -298,7 +354,7 @@
 						{/each}
 					</ul>
 
-					<a href={product.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-purple-400 hover:text-purple-300 text-sm font-medium">
+					<a href={product.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors">
 						Visitar producto
 						<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
@@ -310,10 +366,10 @@
 	</div>
 </section>
 
-<!-- B2C Services Section -->
+<!-- B2C Services -->
 <section class="py-20 px-4 sm:px-6 lg:px-8 bg-gradient-to-b from-slate-950 via-emerald-950/20 to-slate-950">
 	<div class="max-w-7xl mx-auto">
-		<div class="text-center mb-12">
+		<div class="text-center mb-12" use:scrollReveal>
 			<div class="inline-flex items-center px-4 py-2 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-sm text-emerald-300 mb-6">
 				Nuevo
 			</div>
@@ -326,8 +382,11 @@
 		</div>
 
 		<div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-			{#each b2cServices as service}
-				<article class="bg-slate-900 rounded-2xl border border-slate-800 p-6 hover:border-emerald-500/50 transition-all hover:shadow-lg hover:shadow-emerald-500/10 group">
+			{#each b2cServices as service, i}
+				<article
+					use:scrollReveal={{ delay: i * 100 }}
+					class="glass rounded-2xl p-6 hover:border-emerald-500/50 transition-all hover:shadow-lg hover:shadow-emerald-500/10 group"
+				>
 					<div class="flex items-start justify-between mb-4">
 						<div class="flex items-center gap-4">
 							<div class="w-14 h-14 bg-emerald-500/10 rounded-xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
@@ -340,7 +399,7 @@
 						</div>
 						{#if service.status === 'live'}
 							<span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs font-medium">
-								Servicio Activo
+								Activo
 							</span>
 						{:else}
 							<span class="px-3 py-1 bg-amber-500/20 text-amber-400 rounded-full text-xs font-medium">
@@ -351,7 +410,6 @@
 
 					<p class="text-slate-400 text-sm mb-4">{service.description}</p>
 
-					<!-- Highlights -->
 					<ul class="grid grid-cols-2 gap-2 mb-4">
 						{#each service.highlights as highlight}
 							<li class="flex items-center text-sm text-slate-300">
@@ -364,16 +422,14 @@
 					</ul>
 
 					{#if service.status === 'live'}
-						<a href={service.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-emerald-400 hover:text-emerald-300 text-sm font-medium">
+						<a href={service.url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center text-emerald-400 hover:text-emerald-300 text-sm font-medium transition-colors">
 							Conocer servicio
 							<svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
 							</svg>
 						</a>
 					{:else}
-						<span class="inline-flex items-center text-slate-500 text-sm">
-							Disponible pronto
-						</span>
+						<span class="inline-flex items-center text-slate-500 text-sm">Disponible pronto</span>
 					{/if}
 				</article>
 			{/each}
@@ -384,17 +440,17 @@
 <!-- Stats -->
 <section class="py-16 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
 	<div class="max-w-7xl mx-auto">
-		<div class="grid grid-cols-2 md:grid-cols-5 gap-8 text-center">
+		<div class="grid grid-cols-2 md:grid-cols-5 gap-8 text-center" use:scrollReveal>
 			<div>
-				<p class="text-4xl font-bold text-white">16</p>
+				<p class="text-4xl font-bold text-white"><AnimatedCounter value={18} /></p>
 				<p class="text-slate-400">Productos SaaS</p>
 			</div>
 			<div>
-				<p class="text-4xl font-bold text-white">5</p>
+				<p class="text-4xl font-bold text-white"><AnimatedCounter value={5} /></p>
 				<p class="text-slate-400">Servicios B2C</p>
 			</div>
 			<div>
-				<p class="text-4xl font-bold text-white">10+</p>
+				<p class="text-4xl font-bold text-white"><AnimatedCounter value={10} suffix="+" /></p>
 				<p class="text-slate-400">Industrias</p>
 			</div>
 			<div>
@@ -411,10 +467,10 @@
 
 <!-- CTA -->
 <section class="py-20 px-4 sm:px-6 lg:px-8">
-	<div class="max-w-3xl mx-auto text-center">
+	<div class="max-w-3xl mx-auto text-center" use:scrollReveal>
 		<h3 class="text-3xl font-bold text-white mb-4">¿Tu producto aquí?</h3>
 		<p class="text-slate-400 mb-8">Podemos desarrollar la próxima plataforma para tu industria.</p>
-		<a href="/contacto" class="inline-flex px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-xl hover:from-purple-600 hover:to-pink-700 transition-all font-semibold">
+		<a href="/contacto" class="inline-flex px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-xl hover:from-purple-600 hover:to-pink-700 transition-all font-semibold hover:shadow-lg hover:shadow-purple-500/25 hover:-translate-y-0.5">
 			Platiquemos
 		</a>
 	</div>

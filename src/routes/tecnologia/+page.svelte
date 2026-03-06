@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
+	import { scrollReveal } from '$lib/actions/scrollReveal';
 
 	const techStack = {
 		frontend: [
@@ -85,8 +86,8 @@
 <section class="py-12 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-7xl mx-auto">
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-			{#each principles as principle}
-				<div class="bg-slate-900/50 border border-slate-800 rounded-xl p-6">
+			{#each principles as principle, i}
+				<div use:scrollReveal={{ delay: i * 100 }} class="glass rounded-xl p-6">
 					<h3 class="text-lg font-bold text-emerald-400 mb-2">{principle.title}</h3>
 					<p class="text-slate-400 text-sm">{principle.description}</p>
 				</div>
@@ -101,7 +102,7 @@
 		<h3 class="text-2xl font-bold text-white mb-6">Frontend</h3>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			{#each techStack.frontend as tech}
-				<div class="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-emerald-500/50 transition-all">
+				<div class="glass rounded-xl p-5 hover:border-emerald-500/50 transition-all">
 					<div class="text-2xl mb-2">{tech.icon}</div>
 					<h4 class="text-white font-semibold">{tech.name}</h4>
 					<p class="text-slate-400 text-sm">{tech.description}</p>
@@ -117,7 +118,7 @@
 		<h3 class="text-2xl font-bold text-white mb-6">Backend & Database</h3>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			{#each techStack.backend as tech}
-				<div class="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-emerald-500/50 transition-all">
+				<div class="glass rounded-xl p-5 hover:border-emerald-500/50 transition-all">
 					<div class="text-2xl mb-2">{tech.icon}</div>
 					<h4 class="text-white font-semibold">{tech.name}</h4>
 					<p class="text-slate-400 text-sm">{tech.description}</p>
@@ -133,7 +134,7 @@
 		<h3 class="text-2xl font-bold text-white mb-6">Inteligencia Artificial</h3>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			{#each techStack.ai as tech}
-				<div class="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-purple-500/50 transition-all">
+				<div class="glass rounded-xl p-5 hover:border-purple-500/50 transition-all">
 					<div class="text-2xl mb-2">{tech.icon}</div>
 					<h4 class="text-white font-semibold">{tech.name}</h4>
 					<p class="text-slate-400 text-sm">{tech.description}</p>
@@ -146,7 +147,7 @@
 <!-- Agent Architecture -->
 <section class="py-16 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-7xl mx-auto">
-		<div class="mb-10">
+		<div class="mb-10" use:scrollReveal>
 			<h3 class="text-2xl font-bold text-white mb-2">Arquitectura de Agentes</h3>
 			<p class="text-slate-400 max-w-2xl">
 				Todos los agentes del ecosistema RBS comparten una infraestructura centralizada: enrutamiento inteligente al proveedor más económico capaz, herramientas MCP para acceso a datos en tiempo real, y ciclo agéntico para tareas de múltiples pasos.
@@ -155,7 +156,7 @@
 
 		<!-- Pipeline flow -->
 		<div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-12">
-			<div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+			<div class="glass rounded-xl p-5">
 				<div class="text-purple-400 font-mono text-xs mb-2">1. REQUEST</div>
 				<p class="text-white font-semibold text-sm mb-1">App cliente</p>
 				<p class="text-slate-400 text-xs">Camino, Rito, Plenura u otro app envía mensajes y herramientas disponibles al proxy centralizado</p>
@@ -165,12 +166,12 @@
 				<p class="text-white font-semibold text-sm mb-1">AI Router (Colectiva)</p>
 				<p class="text-slate-400 text-xs">Herramientas → Anthropic · Contexto largo → Gemini · Texto simple → Groq</p>
 			</div>
-			<div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+			<div class="glass rounded-xl p-5">
 				<div class="text-purple-400 font-mono text-xs mb-2">3. EXECUTE</div>
 				<p class="text-white font-semibold text-sm mb-1">Herramientas MCP</p>
 				<p class="text-slate-400 text-xs">Acceso a Firestore, Supabase, APIs externas. Ciclo agéntico hasta completar la tarea</p>
 			</div>
-			<div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+			<div class="glass rounded-xl p-5">
 				<div class="text-purple-400 font-mono text-xs mb-2">4. METER</div>
 				<p class="text-white font-semibold text-sm mb-1">Metering centralizado</p>
 				<p class="text-slate-400 text-xs">Tokens contados, costo calculado en MXN, cuota aplicada por organización</p>
@@ -178,9 +179,9 @@
 		</div>
 
 		<!-- Live agents -->
-		<h4 class="text-lg font-semibold text-white mb-4">Agentes en producción</h4>
+		<h4 class="text-lg font-semibold text-white mb-4" use:scrollReveal>Agentes en producción</h4>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-			<div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+			<div class="glass rounded-xl p-5">
 				<div class="flex items-center gap-2 mb-3">
 					<span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
 					<span class="text-xs text-emerald-400 font-medium">En vivo · Colectiva</span>
@@ -188,7 +189,7 @@
 				<h5 class="text-white font-semibold mb-1">Oracle</h5>
 				<p class="text-slate-400 text-sm">Chat interno de BI con 15+ herramientas MCP: consulta en tiempo real acuerdos, distribuciones, quotas, wallets y salud del ecosistema.</p>
 			</div>
-			<div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+			<div class="glass rounded-xl p-5">
 				<div class="flex items-center gap-2 mb-3">
 					<span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
 					<span class="text-xs text-emerald-400 font-medium">En vivo · Rito</span>
@@ -196,7 +197,7 @@
 				<h5 class="text-white font-semibold mb-1">Deal Copilot</h5>
 				<p class="text-slate-400 text-sm">Asistente de underwriting con 8 herramientas: analiza PDFs de deals, genera pro-formas, calcula distribuciones y redacta paquetes para instituciones financieras.</p>
 			</div>
-			<div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+			<div class="glass rounded-xl p-5">
 				<div class="flex items-center gap-2 mb-3">
 					<span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
 					<span class="text-xs text-emerald-400 font-medium">En vivo · Camino</span>
@@ -204,7 +205,7 @@
 				<h5 class="text-white font-semibold mb-1">Agentes de Atención</h5>
 				<p class="text-slate-400 text-sm">Atienden WhatsApp y llamadas 24/7, califican prospectos, coordinan citas y sintetizan conversaciones. El equipo solo interviene con oportunidades reales.</p>
 			</div>
-			<div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+			<div class="glass rounded-xl p-5">
 				<div class="flex items-center gap-2 mb-3">
 					<span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
 					<span class="text-xs text-emerald-400 font-medium">En vivo · Plenura</span>
@@ -212,7 +213,7 @@
 				<h5 class="text-white font-semibold mb-1">Matching de Bienestar</h5>
 				<p class="text-slate-400 text-sm">Prescreening conversacional, matching semántico paciente-terapeuta, notas de sesión automatizadas y resúmenes de reseñas.</p>
 			</div>
-			<div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+			<div class="glass rounded-xl p-5">
 				<div class="flex items-center gap-2 mb-3">
 					<span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
 					<span class="text-xs text-emerald-400 font-medium">En vivo · Constanza</span>
@@ -220,7 +221,7 @@
 				<h5 class="text-white font-semibold mb-1">Clasificación Fiscal</h5>
 				<p class="text-slate-400 text-sm">Clasifica transacciones contables, sugiere cuentas SAT, detecta deducciones y genera DIOT sin intervención manual.</p>
 			</div>
-			<div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+			<div class="glass rounded-xl p-5">
 				<div class="flex items-center gap-2 mb-3">
 					<span class="w-2 h-2 bg-emerald-400 rounded-full animate-pulse"></span>
 					<span class="text-xs text-emerald-400 font-medium">En vivo · Agora</span>
@@ -238,7 +239,7 @@
 		<h3 class="text-2xl font-bold text-white mb-6">Integraciones</h3>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 			{#each techStack.integrations as tech}
-				<div class="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-blue-500/50 transition-all">
+				<div class="glass rounded-xl p-5 hover:border-blue-500/50 transition-all">
 					<div class="text-2xl mb-2">{tech.icon}</div>
 					<h4 class="text-white font-semibold">{tech.name}</h4>
 					<p class="text-slate-400 text-sm">{tech.description}</p>
@@ -254,7 +255,7 @@
 		<h3 class="text-2xl font-bold text-white mb-6">Infraestructura</h3>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			{#each techStack.infrastructure as tech}
-				<div class="bg-slate-900 border border-slate-800 rounded-xl p-5 hover:border-cyan-500/50 transition-all">
+				<div class="glass rounded-xl p-5 hover:border-cyan-500/50 transition-all">
 					<div class="text-2xl mb-2">{tech.icon}</div>
 					<h4 class="text-white font-semibold">{tech.name}</h4>
 					<p class="text-slate-400 text-sm">{tech.description}</p>

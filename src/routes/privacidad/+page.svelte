@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
+	import { scrollReveal } from '$lib/actions/scrollReveal';
 
 	const lastUpdated = '19 de diciembre de 2025';
 </script>
@@ -12,7 +13,7 @@
 
 <!-- Content -->
 <main class="py-16 px-4 sm:px-6 lg:px-8">
-	<article class="max-w-4xl mx-auto">
+	<article class="max-w-4xl mx-auto" use:scrollReveal>
 		<div class="mb-12">
 			<h1 class="text-4xl font-bold text-white mb-4">Aviso de Privacidad</h1>
 			<p class="text-slate-400">Última actualización: {lastUpdated}</p>
