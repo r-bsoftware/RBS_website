@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { page } from '$app/stores';
 	import LanguageSwitcher from './LanguageSwitcher.svelte';
 
@@ -23,12 +23,12 @@
 
 	const currentPath = $derived($page.url.pathname);
 
-	function isActive(path) {
+	function isActive(path: string) {
 		if (path === '/') return currentPath === '/';
 		return currentPath === path || currentPath.startsWith(path + '/');
 	}
 
-	function navClass(path) {
+	function navClass(path: string) {
 		return isActive(path)
 			? 'text-white font-medium'
 			: 'text-slate-300 hover:text-white transition-colors';
