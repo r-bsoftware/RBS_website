@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { _ } from 'svelte-i18n';
 	import Footer from '$lib/components/Footer.svelte';
 	import TypewriterText from '$lib/components/TypewriterText.svelte';
 	import AnimatedCounter from '$lib/components/AnimatedCounter.svelte';
@@ -53,14 +54,15 @@
 		}
 	}
 
-	const capabilities = [
-		{ icon: '☁️', title: 'Desarrollo SaaS', desc: 'Plataformas multi-tenant con billing y escalabilidad' },
-		{ icon: '🏪', title: 'POS & ERP', desc: 'Sistemas operacionales con CFDI 4.0 integrado' },
-		{ icon: '🤖', title: 'CRM con IA', desc: 'Agentes conversacionales para WhatsApp y voz' },
-		{ icon: '🏦', title: 'FinTech', desc: 'Open Banking, SPEI, CoDi, conciliación' },
-		{ icon: '⚖️', title: 'Legal Tech', desc: 'Gestión de casos, trust accounting, documentos con IA' },
-		{ icon: '📱', title: 'Apps Móviles', desc: 'Flutter cross-platform con sync en tiempo real' }
-	];
+	const capabilityKeys = ['saas', 'pos', 'crm', 'fintech', 'legaltech', 'mobile'] as const;
+	const capabilityIcons = ['☁️', '🏪', '🤖', '🏦', '⚖️', '📱'];
+	const capabilities = $derived(
+		capabilityKeys.map((key, i) => ({
+			icon: capabilityIcons[i],
+			title: $_(`home.capabilities.${key}.title`),
+			desc: $_(`home.capabilities.${key}.desc`)
+		}))
+	);
 
 	const techLogos = [
 		'SvelteKit', 'TypeScript', 'Supabase', 'Firebase', 'PostgreSQL',
@@ -98,7 +100,7 @@
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://redbroomsoftware.com/" />
 	<meta property="og:title" content="Red Broom Software - Desarrollo de Software Empresarial" />
-	<meta property="og:description" content="Desarrollamos SaaS, POS, CRM con IA y apps móviles para PyMEs mexicanas. 18 productos en producción." />
+	<meta property="og:description" content="Desarrollamos SaaS, POS, CRM con IA y apps móviles para PyMEs mexicanas. {$_("home.hero.badge")}." />
 	<meta property="og:image" content="https://redbroomsoftware.com/logo.svg" />
 	<meta property="og:locale" content="es_MX" />
 
@@ -169,18 +171,17 @@
 		<div class="max-w-7xl mx-auto text-center relative">
 			<div class="inline-flex items-center px-4 py-2 glass rounded-full text-sm text-slate-300 mb-8">
 				<span class="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
-				18 productos en producción
+				{$_("home.hero.badge")}
 			</div>
 
 			<h2 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-				Construimos<br />
+				{$_("home.hero.titlePart1")}<br />
 				<TypewriterText words={['SaaS', 'POS & ERP', 'CRM con IA', 'FinTech', 'Legal Tech', 'E-commerce']} interval={2500} />
 				<br />
-				<span class="text-slate-300">de alto rendimiento</span>
+				<span class="text-slate-300">{$_("home.hero.titlePart2")}</span>
 			</h2>
 			<p class="text-xl text-slate-400 mb-10 max-w-3xl mx-auto leading-relaxed">
-				Desarrollo de plataformas SaaS, sistemas POS/ERP, CRM con IA, y aplicaciones móviles.
-				Especialistas en soluciones para PyMEs mexicanas.
+				{$_("home.hero.subtitle")}
 			</p>
 
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -196,15 +197,15 @@
 			<div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-20 max-w-2xl mx-auto">
 				<div>
 					<p class="text-4xl font-bold text-white"><AnimatedCounter value={18} /></p>
-					<p class="text-slate-400 text-sm">Productos en producción</p>
+					<p class="text-slate-400 text-sm">{$_("home.stats.products")}</p>
 				</div>
 				<div>
 					<p class="text-4xl font-bold text-white"><AnimatedCounter value={10} suffix="+" /></p>
-					<p class="text-slate-400 text-sm">Industrias diferentes</p>
+					<p class="text-slate-400 text-sm">{$_("home.stats.industries")}</p>
 				</div>
 				<div>
 					<p class="text-4xl font-bold text-white">99.9%</p>
-					<p class="text-slate-400 text-sm">Uptime promedio</p>
+					<p class="text-slate-400 text-sm">{$_("home.stats.uptime")}</p>
 				</div>
 			</div>
 		</div>
@@ -223,9 +224,9 @@
 	<section class="py-24 px-4 sm:px-6 lg:px-8">
 		<div class="max-w-7xl mx-auto">
 			<div class="text-center mb-16" use:scrollReveal>
-				<h2 class="text-4xl font-bold text-white mb-4">¿Qué desarrollamos?</h2>
+				<h2 class="text-4xl font-bold text-white mb-4">{$_("home.capabilities.title")}</h2>
 				<p class="text-xl text-slate-400 max-w-2xl mx-auto">
-					Desde sistemas operacionales hasta plataformas con IA
+					{$_("home.capabilities.subtitle")}
 				</p>
 			</div>
 
@@ -259,8 +260,8 @@
 	<section class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
 		<div class="max-w-7xl mx-auto">
 			<div class="text-center mb-16" use:scrollReveal>
-				<h2 class="text-4xl font-bold text-white mb-4">Productos estrella</h2>
-				<p class="text-xl text-slate-400">Nuestras plataformas más avanzadas</p>
+				<h2 class="text-4xl font-bold text-white mb-4">{$_("home.hero.badge").includes("18") ? "Productos estrella" : "Featured Products"}</h2>
+				<p class="text-xl text-slate-400">{$_("home.capabilities.subtitle")}</p>
 			</div>
 
 			<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -285,8 +286,8 @@
 	<section class="py-24 px-4 sm:px-6 lg:px-8">
 		<div class="max-w-5xl mx-auto">
 			<div class="text-center mb-12" use:scrollReveal>
-				<h2 class="text-4xl font-bold text-white mb-4">Un ecosistema conectado</h2>
-				<p class="text-xl text-slate-400">18 apps que comparten autenticación, pagos, facturación e IA</p>
+				<h2 class="text-4xl font-bold text-white mb-4">{"Un ecosistema conectado"}</h2>
+				<p class="text-xl text-slate-400">{"18 apps que comparten autenticación, pagos, facturación e IA"}</p>
 			</div>
 			<div use:scrollReveal>
 				<EcosystemDiagram />
@@ -299,7 +300,7 @@
 		<div class="max-w-7xl mx-auto">
 			<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 				<div use:scrollReveal>
-					<h2 class="text-4xl font-bold text-white mb-6">¿Por qué trabajar con nosotros?</h2>
+					<h2 class="text-4xl font-bold text-white mb-6">{$_("home.whyUs.title")}</h2>
 					<div class="space-y-6">
 						<div class="flex items-start gap-4">
 							<div class="w-10 h-10 bg-blue-500/20 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -308,8 +309,8 @@
 								</svg>
 							</div>
 							<div>
-								<h3 class="text-lg font-semibold text-white">Productos en producción</h3>
-								<p class="text-slate-400">No somos una agencia que solo hace proyectos. Operamos 18 plataformas SaaS propias. Sabemos lo que funciona.</p>
+								<h3 class="text-lg font-semibold text-white">{$_("home.whyUs.production.title")}</h3>
+								<p class="text-slate-400">{$_("home.whyUs.production.desc")}</p>
 							</div>
 						</div>
 						<div class="flex items-start gap-4">
@@ -319,8 +320,8 @@
 								</svg>
 							</div>
 							<div>
-								<h3 class="text-lg font-semibold text-white">Especialistas en México</h3>
-								<p class="text-slate-400">CFDI 4.0, SPEI, CoDi, SAT, IMSS. Conocemos las integraciones que tu negocio necesita.</p>
+								<h3 class="text-lg font-semibold text-white">{$_("home.whyUs.mexico.title")}</h3>
+								<p class="text-slate-400">{$_("home.whyUs.mexico.desc")}</p>
 							</div>
 						</div>
 						<div class="flex items-start gap-4">
@@ -330,14 +331,14 @@
 								</svg>
 							</div>
 							<div>
-								<h3 class="text-lg font-semibold text-white">IA desde el diseño</h3>
-								<p class="text-slate-400">No agregamos IA como feature. La diseñamos como parte central de la arquitectura.</p>
+								<h3 class="text-lg font-semibold text-white">{$_("home.whyUs.ai.title")}</h3>
+								<p class="text-slate-400">{$_("home.whyUs.ai.desc")}</p>
 							</div>
 						</div>
 					</div>
 				</div>
 				<div use:scrollReveal={{ delay: 200 }} class="glass-strong rounded-2xl p-8">
-					<h3 class="text-xl font-bold text-white mb-6">Empecemos a hablar</h3>
+					<h3 class="text-xl font-bold text-white mb-6">{$_("home.quickForm.title")}</h3>
 					{#if quickSubmitStatus === 'success'}
 						<div class="text-center py-8">
 							<div class="w-12 h-12 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
@@ -345,35 +346,35 @@
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
 								</svg>
 							</div>
-							<p class="text-white font-medium">Te contactamos pronto</p>
+							<p class="text-white font-medium">{$_("home.quickForm.success")}</p>
 						</div>
 					{:else}
 						<form onsubmit={handleQuickSubmit} class="space-y-4">
 							<div>
-								<label for="quick-email" class="block text-sm text-slate-400 mb-2">Email</label>
+								<label for="quick-email" class="block text-sm text-slate-400 mb-2">{$_("home.quickForm.emailLabel")}</label>
 								<input
 									type="email"
 									id="quick-email"
 									bind:value={quickForm.email}
 									required
 									class="w-full px-4 py-3 bg-slate-800/80 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none transition-colors"
-									placeholder="tu@empresa.com"
+									placeholder={$_("home.quickForm.emailPlaceholder")}
 								/>
 							</div>
 							<div>
-								<label for="quick-type" class="block text-sm text-slate-400 mb-2">¿Qué necesitas?</label>
+								<label for="quick-type" class="block text-sm text-slate-400 mb-2">{$_("home.quickForm.projectLabel")}</label>
 								<select
 									id="quick-type"
 									bind:value={quickForm.projectType}
 									required
 									class="w-full px-4 py-3 bg-slate-800/80 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none transition-colors"
 								>
-									<option value="">Selecciona una opción</option>
-									<option value="saas">Desarrollo SaaS</option>
-									<option value="pos">Sistema POS/ERP</option>
-									<option value="crm">CRM con IA</option>
-									<option value="mobile">App Móvil</option>
-									<option value="other">Otro</option>
+									<option value="">{$_("home.quickForm.selectOption")}</option>
+									<option value="saas">{$_("home.quickForm.optionSaas")}</option>
+									<option value="pos">{$_("home.quickForm.optionPos")}</option>
+									<option value="crm">{$_("home.quickForm.optionCrm")}</option>
+									<option value="mobile">{$_("home.quickForm.optionMobile")}</option>
+									<option value="other">{$_("home.quickForm.optionOther")}</option>
 								</select>
 							</div>
 							<button
@@ -381,7 +382,7 @@
 								disabled={quickSubmitStatus === 'submitting'}
 								class="w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all font-semibold disabled:opacity-50 hover:shadow-lg hover:shadow-blue-500/25"
 							>
-								{quickSubmitStatus === 'submitting' ? 'Enviando...' : 'Quiero saber más'}
+								{quickSubmitStatus === 'submitting' ? $_('home.quickForm.submitting') : $_('home.quickForm.submit')}
 							</button>
 						</form>
 					{/if}
@@ -394,9 +395,9 @@
 	<section class="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
 		<div class="absolute inset-0 bg-gradient-to-r from-blue-600/5 via-purple-600/5 to-blue-600/5"></div>
 		<div class="max-w-4xl mx-auto text-center relative" use:scrollReveal>
-			<h2 class="text-4xl font-bold text-white mb-6">¿Tienes un proyecto en mente?</h2>
+			<h2 class="text-4xl font-bold text-white mb-6">{$_("home.projectCta.title")}</h2>
 			<p class="text-xl text-slate-400 mb-10">
-				Cuéntanos qué necesitas y te daremos una propuesta en 48 horas.
+				{$_("home.projectCta.subtitle")}
 			</p>
 			<a href="/contacto" class="inline-flex px-10 py-5 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all text-lg font-semibold shadow-lg shadow-blue-500/25 hover:shadow-xl hover:shadow-blue-500/30 hover:-translate-y-0.5">
 				Iniciar conversación

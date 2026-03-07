@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
+	import { _ } from 'svelte-i18n';
 	import { scrollReveal } from '$lib/actions/scrollReveal';
 
 	const techStack = {
@@ -74,10 +75,10 @@
 	<div class="absolute inset-0 bg-gradient-to-b from-emerald-600/10 via-transparent to-transparent"></div>
 	<div class="max-w-7xl mx-auto text-center relative">
 		<h2 class="text-4xl md:text-6xl font-bold text-white mb-6">
-			Nuestra <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">Tecnología</span>
+			{$_('technology.hero.titlePart1')} <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">{$_('technology.hero.titleHighlight')}</span>
 		</h2>
 		<p class="text-xl text-slate-400 max-w-3xl mx-auto">
-			Stack moderno, probado en producción. Cada decisión técnica optimizada para performance, mantenibilidad y escalabilidad.
+			{$_('technology.hero.subtitle')}
 		</p>
 	</div>
 </section>
@@ -99,7 +100,7 @@
 <!-- Frontend -->
 <section class="py-12 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-7xl mx-auto">
-		<h3 class="text-2xl font-bold text-white mb-6">Frontend</h3>
+		<h3 class="text-2xl font-bold text-white mb-6">{$_("technology.sections.frontend")}</h3>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			{#each techStack.frontend as tech}
 				<div class="glass rounded-xl p-5 hover:border-emerald-500/50 transition-all">
@@ -115,7 +116,7 @@
 <!-- Backend -->
 <section class="py-12 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-7xl mx-auto">
-		<h3 class="text-2xl font-bold text-white mb-6">Backend & Database</h3>
+		<h3 class="text-2xl font-bold text-white mb-6">{$_("technology.sections.backend")}</h3>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			{#each techStack.backend as tech}
 				<div class="glass rounded-xl p-5 hover:border-emerald-500/50 transition-all">
@@ -131,7 +132,7 @@
 <!-- AI -->
 <section class="py-12 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
 	<div class="max-w-7xl mx-auto">
-		<h3 class="text-2xl font-bold text-white mb-6">Inteligencia Artificial</h3>
+		<h3 class="text-2xl font-bold text-white mb-6">{$_("technology.sections.ai")}</h3>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			{#each techStack.ai as tech}
 				<div class="glass rounded-xl p-5 hover:border-purple-500/50 transition-all">
@@ -236,7 +237,7 @@
 <!-- Integrations -->
 <section class="py-12 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-7xl mx-auto">
-		<h3 class="text-2xl font-bold text-white mb-6">Integraciones</h3>
+		<h3 class="text-2xl font-bold text-white mb-6">{$_("technology.sections.integrations")}</h3>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 			{#each techStack.integrations as tech}
 				<div class="glass rounded-xl p-5 hover:border-blue-500/50 transition-all">
@@ -252,7 +253,7 @@
 <!-- Infrastructure -->
 <section class="py-12 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-7xl mx-auto">
-		<h3 class="text-2xl font-bold text-white mb-6">Infraestructura</h3>
+		<h3 class="text-2xl font-bold text-white mb-6">{$_("technology.sections.infrastructure")}</h3>
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
 			{#each techStack.infrastructure as tech}
 				<div class="glass rounded-xl p-5 hover:border-cyan-500/50 transition-all">
@@ -268,8 +269,8 @@
 <!-- CTA -->
 <section class="py-20 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-3xl mx-auto text-center">
-		<h3 class="text-3xl font-bold text-white mb-4">¿Quieres ver el código?</h3>
-		<p class="text-slate-400 mb-8">Si eres técnico y quieres evaluar nuestra calidad de código, podemos darte acceso a repos de demostración.</p>
+		<h3 class="text-3xl font-bold text-white mb-4">{$_("technology.cta.title")}</h3>
+		<p class="text-slate-400 mb-8">{$_("technology.cta.subtitle")}</p>
 		<a href="/contacto" class="inline-flex px-8 py-4 bg-gradient-to-r from-emerald-500 to-cyan-600 text-white rounded-xl hover:from-emerald-600 hover:to-cyan-700 transition-all font-semibold">
 			Solicitar Demo Técnica
 		</a>

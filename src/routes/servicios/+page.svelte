@@ -1,51 +1,19 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
+	import { _ } from 'svelte-i18n';
 	import { scrollReveal } from '$lib/actions/scrollReveal';
 
-	const services = [
-		{
-			title: 'Desarrollo SaaS',
-			subtitle: 'Plataformas multi-tenant de alto rendimiento',
-			description: 'Construimos aplicaciones SaaS con arquitectura multi-tenant, billing automatizado, y escalabilidad horizontal. Experiencia en Stripe, SPEI, CoDi y Open Banking.',
-			icon: '☁️',
-			features: ['Multi-tenancy nativo', 'Billing recurrente', 'API REST + Webhooks', 'White-labeling']
-		},
-		{
-			title: 'Sistemas POS & ERP',
-			subtitle: 'Software operacional para PyMEs',
-			description: 'Puntos de venta, inventarios, control de caja, comandas en tiempo real. Integración con SAT para facturación CFDI 4.0 y cumplimiento fiscal mexicano.',
-			icon: '🏪',
-			features: ['CFDI 4.0 integrado', 'Sincronización offline', 'Multi-sucursal', 'Reportes fiscales']
-		},
-		{
-			title: 'CRM con Agentes IA',
-			subtitle: 'Ventas automatizadas, 24/7 sin intervención humana',
-			description: 'Agentes que atienden WhatsApp y llamadas telefónicas alrededor del reloj: califican prospectos, coordinan citas, responden preguntas de producto y sintetizan cada conversación para el equipo de ventas. El equipo solo interviene cuando hay una oportunidad real.',
-			icon: '🤖',
-			features: ['Agentes WhatsApp + Voz 24/7', 'Lead scoring automático', 'Coordinación de citas sin intervención', 'Síntesis de conversaciones']
-		},
-		{
-			title: 'Integraciones FinTech',
-			subtitle: 'Open Banking, pagos y conciliación',
-			description: 'Conectamos tu sistema con Fintoc, Belvo, Stripe, SPEI, CoDi. Conciliación automática de transacciones bancarias.',
-			icon: '🏦',
-			features: ['Open Banking', 'Pagos SPEI/CoDi', 'Conciliación automática', 'Multi-merchant']
-		},
-		{
-			title: 'Aplicaciones Móviles',
-			subtitle: 'Flutter cross-platform',
-			description: 'Apps nativas para iOS y Android con una sola base de código. Sincronización en tiempo real, notificaciones push, y modo offline.',
-			icon: '📱',
-			features: ['iOS + Android', 'Sync en tiempo real', 'Modo offline', 'Push notifications']
-		},
-		{
-			title: 'Consultoría Técnica',
-			subtitle: 'Arquitectura y optimización',
-			description: 'Revisión de arquitectura, optimización de performance, migración de sistemas legacy, y capacitación de equipos técnicos.',
-			icon: '🎯',
-			features: ['Code review', 'Migración de datos', 'Performance tuning', 'Capacitación']
-		}
-	];
+	const serviceKeys = ['saas', 'pos', 'crm', 'fintech', 'mobile', 'consulting'] as const;
+	const serviceIcons = ['☁️', '🏪', '🤖', '🏦', '📱', '🎯'];
+	const services = $derived(
+		serviceKeys.map((key, i) => ({
+			title: $_(`services.${key}.title`),
+			subtitle: $_(`services.${key}.subtitle`),
+			description: $_(`services.${key}.description`),
+			icon: serviceIcons[i],
+			features: $_(`services.${key}.features`) as unknown as string[]
+		}))
+	);
 </script>
 
 <svelte:head>
@@ -65,10 +33,10 @@
 	<div class="absolute inset-0 bg-gradient-to-b from-blue-600/10 via-transparent to-transparent"></div>
 	<div class="max-w-7xl mx-auto text-center relative">
 		<h2 class="text-4xl md:text-6xl font-bold text-white mb-6">
-			¿Qué podemos <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">construir</span> para ti?
+			{$_('services.hero.titlePart1')} <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">{$_('services.hero.titleHighlight')}</span> {$_('services.hero.titlePart2')}
 		</h2>
 		<p class="text-xl text-slate-400 max-w-3xl mx-auto">
-			Desarrollamos software empresarial de alto rendimiento. Desde sistemas POS hasta plataformas SaaS con IA.
+			{$_('services.hero.subtitle')}
 		</p>
 	</div>
 </section>
@@ -104,15 +72,15 @@
 <!-- Process Section -->
 <section class="py-16 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
 	<div class="max-w-7xl mx-auto">
-		<h3 class="text-3xl font-bold text-white text-center mb-12" use:scrollReveal>Nuestro Proceso</h3>
+		<h3 class="text-3xl font-bold text-white text-center mb-12" use:scrollReveal>{$_('services.process.title')}</h3>
 		<div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
 			<!-- Connecting line (desktop) -->
 			<div class="hidden md:block absolute top-6 left-[12.5%] right-[12.5%] h-0.5 bg-gradient-to-r from-blue-500/50 via-purple-500/50 to-blue-500/50"></div>
 			{#each [
-				{ num: 1, title: 'Discovery', desc: 'Entendemos tu negocio, procesos y objetivos' },
-				{ num: 2, title: 'Diseño', desc: 'Arquitectura técnica y prototipos' },
-				{ num: 3, title: 'Desarrollo', desc: 'Sprints iterativos con demos frecuentes' },
-				{ num: 4, title: 'Launch', desc: 'Deployment, capacitación y soporte' }
+				{ num: 1, title: $_('services.process.step1.title'), desc: $_('services.process.step1.desc') },
+				{ num: 2, title: $_('services.process.step2.title'), desc: $_('services.process.step2.desc') },
+				{ num: 3, title: $_('services.process.step3.title'), desc: $_('services.process.step3.desc') },
+				{ num: 4, title: $_('services.process.step4.title'), desc: $_('services.process.step4.desc') }
 			] as step, i}
 				<div class="text-center relative" use:scrollReveal={{ delay: i * 150 }}>
 					<div class="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center text-white font-bold mx-auto mb-4 relative z-10 shadow-lg shadow-blue-500/25">
@@ -129,8 +97,8 @@
 <!-- CTA -->
 <section class="py-20 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-3xl mx-auto text-center">
-		<h3 class="text-3xl font-bold text-white mb-4">¿Listo para construir?</h3>
-		<p class="text-slate-400 mb-8">Cuéntanos sobre tu proyecto y te daremos una propuesta en 48 horas.</p>
+		<h3 class="text-3xl font-bold text-white mb-4">{$_('services.cta.title')}</h3>
+		<p class="text-slate-400 mb-8">{$_('services.cta.subtitle')}</p>
 		<a href="/contacto" class="inline-flex px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all font-semibold">
 			Solicitar Cotización
 		</a>

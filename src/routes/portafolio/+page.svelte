@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
+	import { _ } from 'svelte-i18n';
 	import AnimatedCounter from '$lib/components/AnimatedCounter.svelte';
 	import { scrollReveal } from '$lib/actions/scrollReveal';
 
@@ -274,13 +275,13 @@
 	<div class="max-w-7xl mx-auto text-center relative">
 		<div class="inline-flex items-center px-4 py-2 glass rounded-full text-sm text-slate-300 mb-6">
 			<span class="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
-			18 plataformas + 5 servicios B2C
+			{$_("portfolio.hero.badge")}
 		</div>
 		<h2 class="text-4xl md:text-6xl font-bold text-white mb-6">
-			Nuestro <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">Portafolio</span>
+			{$_("portfolio.hero.titlePart1")} <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">{$_("portfolio.hero.titleHighlight")}</span>
 		</h2>
 		<p class="text-xl text-slate-400 max-w-3xl mx-auto">
-			Plataformas SaaS que hemos desarrollado y operamos. Cada una resuelve problemas reales de negocios mexicanos.
+			{$_("portfolio.hero.subtitle")}
 		</p>
 	</div>
 </section>
@@ -371,13 +372,13 @@
 	<div class="max-w-7xl mx-auto">
 		<div class="text-center mb-12" use:scrollReveal>
 			<div class="inline-flex items-center px-4 py-2 bg-emerald-500/20 border border-emerald-500/30 rounded-full text-sm text-emerald-300 mb-6">
-				Nuevo
+				{$_("portfolio.b2cServices.new")}
 			</div>
 			<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-				Servicios <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">B2C</span>
+				{$_("portfolio.b2cServices.title").split(" ")[0]} <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">B2C</span>
 			</h2>
 			<p class="text-xl text-slate-400 max-w-2xl mx-auto">
-				Además de software, operamos servicios directos para empresas que prefieren solución llave en mano.
+				{$_("portfolio.b2cServices.subtitle")}
 			</p>
 		</div>
 
@@ -429,7 +430,7 @@
 							</svg>
 						</a>
 					{:else}
-						<span class="inline-flex items-center text-slate-500 text-sm">Disponible pronto</span>
+						<span class="inline-flex items-center text-slate-500 text-sm">{$_("portfolio.b2cServices.availableSoon")}</span>
 					{/if}
 				</article>
 			{/each}
@@ -443,23 +444,23 @@
 		<div class="grid grid-cols-2 md:grid-cols-5 gap-8 text-center" use:scrollReveal>
 			<div>
 				<p class="text-4xl font-bold text-white"><AnimatedCounter value={18} /></p>
-				<p class="text-slate-400">Productos SaaS</p>
+				<p class="text-slate-400">{$_("portfolio.stats.saasProducts")}</p>
 			</div>
 			<div>
 				<p class="text-4xl font-bold text-white"><AnimatedCounter value={5} /></p>
-				<p class="text-slate-400">Servicios B2C</p>
+				<p class="text-slate-400">{$_("portfolio.stats.b2cServices")}</p>
 			</div>
 			<div>
 				<p class="text-4xl font-bold text-white"><AnimatedCounter value={10} suffix="+" /></p>
-				<p class="text-slate-400">Industrias</p>
+				<p class="text-slate-400">{$_("portfolio.stats.industries")}</p>
 			</div>
 			<div>
 				<p class="text-4xl font-bold text-white">99.9%</p>
-				<p class="text-slate-400">Uptime</p>
+				<p class="text-slate-400">{$_("portfolio.stats.uptime")}</p>
 			</div>
 			<div>
 				<p class="text-4xl font-bold text-white">24/7</p>
-				<p class="text-slate-400">Soporte</p>
+				<p class="text-slate-400">{$_("portfolio.stats.support")}</p>
 			</div>
 		</div>
 	</div>
@@ -468,8 +469,8 @@
 <!-- CTA -->
 <section class="py-20 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-3xl mx-auto text-center" use:scrollReveal>
-		<h3 class="text-3xl font-bold text-white mb-4">¿Tu producto aquí?</h3>
-		<p class="text-slate-400 mb-8">Podemos desarrollar la próxima plataforma para tu industria.</p>
+		<h3 class="text-3xl font-bold text-white mb-4">{$_("portfolio.cta.title")}</h3>
+		<p class="text-slate-400 mb-8">{$_("portfolio.cta.subtitle")}</p>
 		<a href="/contacto" class="inline-flex px-8 py-4 bg-gradient-to-r from-purple-500 to-pink-600 text-white rounded-xl hover:from-purple-600 hover:to-pink-700 transition-all font-semibold hover:shadow-lg hover:shadow-purple-500/25 hover:-translate-y-0.5">
 			Platiquemos
 		</a>

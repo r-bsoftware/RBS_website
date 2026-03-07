@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { _ } from 'svelte-i18n';
 	import Footer from '$lib/components/Footer.svelte';
 	import { scrollReveal } from '$lib/actions/scrollReveal';
 
@@ -109,10 +110,10 @@
 	<div class="absolute inset-0 bg-gradient-to-b from-blue-600/10 via-transparent to-transparent"></div>
 	<div class="max-w-7xl mx-auto text-center relative">
 		<h2 class="text-4xl md:text-6xl font-bold text-white mb-6">
-			Hablemos de tu <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">proyecto</span>
+			{$_('contact.hero.titlePart1')} <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">{$_('contact.hero.titleHighlight')}</span>
 		</h2>
 		<p class="text-xl text-slate-400 max-w-2xl mx-auto">
-			Cuéntanos qué necesitas y te daremos una propuesta en 48 horas.
+			{$_('contact.hero.subtitle')}
 		</p>
 	</div>
 </section>
@@ -130,15 +131,15 @@
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
 							</svg>
 						</div>
-						<h3 class="text-2xl font-bold text-white mb-2">Mensaje enviado</h3>
-						<p class="text-slate-400">Te responderemos en las próximas 48 horas.</p>
+						<h3 class="text-2xl font-bold text-white mb-2">{$_('contact.form.successTitle')}</h3>
+						<p class="text-slate-400">{$_('contact.form.successMessage')}</p>
 					</div>
 				{:else}
-					<h3 class="text-2xl font-bold text-white mb-6">Envíanos un mensaje</h3>
+					<h3 class="text-2xl font-bold text-white mb-6">{$_('contact.form.title')}</h3>
 					<form onsubmit={handleContactSubmit} class="space-y-6">
 						<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 							<div>
-								<label for="name" class="block text-sm text-slate-400 mb-2">Nombre *</label>
+								<label for="name" class="block text-sm text-slate-400 mb-2">{$_("contact.form.nameLabel")} {$_("contact.form.required")}</label>
 								<input
 									type="text"
 									id="name"
@@ -148,7 +149,7 @@
 								/>
 							</div>
 							<div>
-								<label for="email" class="block text-sm text-slate-400 mb-2">Email *</label>
+								<label for="email" class="block text-sm text-slate-400 mb-2">{$_("contact.form.emailLabel")} {$_("contact.form.required")}</label>
 								<input
 									type="email"
 									id="email"
@@ -161,7 +162,7 @@
 
 						<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 							<div>
-								<label for="company" class="block text-sm text-slate-400 mb-2">Empresa</label>
+								<label for="company" class="block text-sm text-slate-400 mb-2">{$_("contact.form.companyLabel")}</label>
 								<input
 									type="text"
 									id="company"
@@ -170,7 +171,7 @@
 								/>
 							</div>
 							<div>
-								<label for="phone" class="block text-sm text-slate-400 mb-2">Teléfono</label>
+								<label for="phone" class="block text-sm text-slate-400 mb-2">{$_("contact.form.phoneLabel")}</label>
 								<input
 									type="tel"
 									id="phone"
@@ -181,13 +182,13 @@
 						</div>
 
 						<div>
-							<label for="projectType" class="block text-sm text-slate-400 mb-2">Tipo de proyecto</label>
+							<label for="projectType" class="block text-sm text-slate-400 mb-2">{$_("contact.form.projectTypeLabel")}</label>
 							<select
 								id="projectType"
 								bind:value={contactForm.projectType}
 								class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
 							>
-								<option value="">Selecciona una opción</option>
+								<option value="">{$_("contact.form.selectOption")}</option>
 								{#each projectTypes as type}
 									<option value={type.value}>{type.label}</option>
 								{/each}
@@ -195,14 +196,14 @@
 						</div>
 
 						<div>
-							<label for="message" class="block text-sm text-slate-400 mb-2">Cuéntanos sobre tu proyecto *</label>
+							<label for="message" class="block text-sm text-slate-400 mb-2">{$_("contact.form.messageLabel")} {$_("contact.form.required")}</label>
 							<textarea
 								id="message"
 								bind:value={contactForm.message}
 								required
 								rows="4"
 								class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none resize-none"
-								placeholder="¿Qué problema quieres resolver? ¿Qué funcionalidades necesitas?"
+								placeholder={$_("contact.form.messagePlaceholder")}
 							></textarea>
 						</div>
 
@@ -217,7 +218,7 @@
 							disabled={submitStatus === 'submitting'}
 							class="w-full px-6 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all font-semibold disabled:opacity-50 disabled:cursor-not-allowed"
 						>
-							{submitStatus === 'submitting' ? 'Enviando...' : 'Enviar mensaje'}
+							{submitStatus === 'submitting' ? $_('contact.form.submitting') : $_('contact.form.submitButton')}
 						</button>
 					</form>
 				{/if}
@@ -226,34 +227,34 @@
 			<!-- Info -->
 			<div class="space-y-8" use:scrollReveal={{ delay: 200 }}>
 				<div>
-					<h3 class="text-2xl font-bold text-white mb-4">¿Qué sigue?</h3>
+					<h3 class="text-2xl font-bold text-white mb-4">{$_('contact.process.title')}</h3>
 					<div class="space-y-4">
 						<div class="flex items-start gap-4">
 							<div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">1</div>
 							<div>
-								<h4 class="text-white font-semibold">Recibimos tu mensaje</h4>
-								<p class="text-slate-400 text-sm">Revisamos tu proyecto y asignamos al equipo adecuado.</p>
+								<h4 class="text-white font-semibold">{$_('contact.process.step1.title')}</h4>
+								<p class="text-slate-400 text-sm">{$_('contact.process.step1.desc')}</p>
 							</div>
 						</div>
 						<div class="flex items-start gap-4">
 							<div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">2</div>
 							<div>
-								<h4 class="text-white font-semibold">Llamada de discovery</h4>
-								<p class="text-slate-400 text-sm">30 minutos para entender tu negocio y requerimientos.</p>
+								<h4 class="text-white font-semibold">{$_('contact.process.step2.title')}</h4>
+								<p class="text-slate-400 text-sm">{$_('contact.process.step2.desc')}</p>
 							</div>
 						</div>
 						<div class="flex items-start gap-4">
 							<div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold flex-shrink-0">3</div>
 							<div>
-								<h4 class="text-white font-semibold">Propuesta detallada</h4>
-								<p class="text-slate-400 text-sm">Alcance, arquitectura, timeline y presupuesto.</p>
+								<h4 class="text-white font-semibold">{$_('contact.process.step3.title')}</h4>
+								<p class="text-slate-400 text-sm">{$_('contact.process.step3.desc')}</p>
 							</div>
 						</div>
 					</div>
 				</div>
 
 				<div class="glass rounded-2xl p-6">
-					<h4 class="text-white font-semibold mb-4">Contacto directo</h4>
+					<h4 class="text-white font-semibold mb-4">{$_('contact.directContact.title')}</h4>
 					<div class="space-y-3">
 						<a href="mailto:dia@redbroomsoftware.com" class="flex items-center gap-3 text-slate-400 hover:text-white transition-colors">
 							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -265,8 +266,8 @@
 				</div>
 
 				<div class="bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-2xl border border-blue-500/20 p-6">
-					<h4 class="text-white font-semibold mb-2">¿Proyecto urgente?</h4>
-					<p class="text-slate-400 text-sm mb-4">Si tienes un deadline crítico, menciónalo en tu mensaje y te priorizamos.</p>
+					<h4 class="text-white font-semibold mb-2">{$_('contact.urgent.title')}</h4>
+					<p class="text-slate-400 text-sm mb-4">{$_('contact.urgent.desc')}</p>
 				</div>
 			</div>
 		</div>
