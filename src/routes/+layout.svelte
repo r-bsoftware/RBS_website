@@ -1,12 +1,10 @@
 <script>
 	import '../app.css';
-	import { initI18n, getStoredLocale, setLocale } from '$lib/i18n';
+	import { getStoredLocale, setLocale } from '$lib/i18n';
 	import { onMount } from 'svelte';
 	import Header from '$lib/components/Header.svelte';
 
 	let { children } = $props();
-
-	initI18n();
 
 	onMount(() => {
 		const stored = getStoredLocale();
