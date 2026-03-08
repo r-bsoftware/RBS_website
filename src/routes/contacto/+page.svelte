@@ -7,6 +7,28 @@
 	// Camino CRM API endpoint for lead capture
 	const CAMINO_API_URL = 'https://camino.redbroomsoftware.com/api/leads';
 
+	// reCAPTCHA v3 site key — register at https://www.google.com/recaptcha/admin
+	// Domain: redbroomsoftware.com
+	const RECAPTCHA_SITE_KEY = ''; // TODO: Add your reCAPTCHA v3 site key here
+
+	let recaptchaLoaded = $state(false);
+
+	function loadRecaptcha() {
+		if (!RECAPTCHA_SITE_KEY || typeof window === 'undefined') return;
+		const script = document.createElement('script');
+		script.src = `https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}`;
+		script.onload = () => { recaptchaLoaded = true; };
+		document.head.appendChild(script);
+	}
+
+	async function getRecaptchaToken(): Promise<string | null> {
+		if (!RECAPTCHA_SITE_KEY || !recaptchaLoaded) return null;
+		try {
+			const grecaptcha = (window as any).grecaptcha;
+			return await grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'contact_form' });
+		} catch { return null; }
+	}
+
 	let visitorId = $state('');
 
 	function getVisitorId(): string {
@@ -21,6 +43,15 @@
 
 	onMount(() => {
 		visitorId = getVisitorId();
+		loadRecaptcha();
+	});
+
+	// Anti-spam: honeypot field (bots fill this, humans don't see it)
+	let honeypot = $state('');
+	// Anti-spam: timing check (bots submit instantly)
+	let formLoadedAt = $state(0);
+	onMount(() => {
+		formLoadedAt = Date.now();
 	});
 
 	// Contact form state
@@ -47,11 +78,27 @@
 
 	async function handleContactSubmit(event: Event) {
 		event.preventDefault();
+
+		// Anti-spam: honeypot check
+		if (honeypot) {
+			// Bot filled the hidden field — silently "succeed" to not tip off the bot
+			submitStatus = 'success';
+			return;
+		}
+
+		// Anti-spam: timing check — reject if submitted in under 3 seconds
+		const elapsed = Date.now() - formLoadedAt;
+		if (elapsed < 3000) {
+			submitStatus = 'success'; // Silent fake success
+			return;
+		}
+
 		submitStatus = 'submitting';
 		errorMessage = '';
 
 		try {
 			const urlParams = new URLSearchParams(window.location.search);
+			const recaptchaToken = await getRecaptchaToken();
 
 			const response = await fetch(CAMINO_API_URL, {
 				method: 'POST',
@@ -73,7 +120,8 @@
 					utm_medium: urlParams.get('utm_medium') || 'organic',
 					utm_campaign: urlParams.get('utm_campaign'),
 					campaign_id: urlParams.get('campaign_id'),
-					visitorId
+					visitorId,
+					recaptcha_token: recaptchaToken
 				})
 			});
 
@@ -137,6 +185,11 @@
 				{:else}
 					<h3 class="text-2xl font-bold text-white mb-6">{$_('contact.form.title')}</h3>
 					<form onsubmit={handleContactSubmit} class="space-y-6">
+						<!-- Honeypot: invisible to humans, bots auto-fill it -->
+						<div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;height:0;overflow:hidden;opacity:0;">
+							<label for="website">Website</label>
+							<input type="text" id="website" name="website" tabindex="-1" autocomplete="off" bind:value={honeypot} />
+						</div>
 						<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
 							<div>
 								<label for="name" class="block text-sm text-slate-400 mb-2">{$_("contact.form.nameLabel")} {$_("contact.form.required")}</label>
