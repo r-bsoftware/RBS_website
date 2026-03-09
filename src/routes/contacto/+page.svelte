@@ -7,9 +7,8 @@
 	// Camino CRM API endpoint for lead capture
 	const CAMINO_API_URL = 'https://camino.redbroomsoftware.com/api/leads';
 
-	// reCAPTCHA v3 site key — register at https://www.google.com/recaptcha/admin
-	// Domain: redbroomsoftware.com
-	const RECAPTCHA_SITE_KEY = ''; // TODO: Add your reCAPTCHA v3 site key here
+	// reCAPTCHA v3 site key (GCP: Colectiva-RBS)
+	const RECAPTCHA_SITE_KEY = '6LdpE2IrAAAAACprbiG263FNJ7p3DfTT-Q-uuCtG';
 
 	let recaptchaLoaded = $state(false);
 
