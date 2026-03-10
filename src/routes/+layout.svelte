@@ -3,6 +3,7 @@
 	import { getStoredLocale, setLocale } from '$lib/i18n';
 	import { onMount } from 'svelte';
 	import Header from '$lib/components/Header.svelte';
+	import ChatWidget from '$lib/components/ChatWidget.svelte';
 
 	let { children } = $props();
 
@@ -17,4 +18,5 @@
 	<main id="main">
 		{@render children()}
 	</main>
+	<ChatWidget />
 </div>
