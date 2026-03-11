@@ -113,13 +113,13 @@
 		},
 		{
 			name: 'Goodbay',
-			subtitle: 'Marketplace de Despedidas',
-			description: 'Plataforma para organizar despedidas de soltero/a: paquetes curados, proveedores verificados, itinerarios automatizados y pagos grupales.',
-			icon: '🎉',
-			category: 'marketplace',
+			subtitle: 'Alquiler Vacacional Inteligente',
+			description: 'Plataforma de renta vacacional con modelo fiscal optimizado: gestión de propiedades, reservaciones, servicios bajo demanda y gestión de limpieza.',
+			icon: '🏖️',
+			category: 'hospitality',
 			url: 'https://goodbay.redbroomsoftware.com',
-			tech: ['SvelteKit', 'Supabase', 'Colectiva', 'Group Payments'],
-			highlights: ['Paquetes curados', 'Pagos grupales', 'Proveedores verificados', 'Itinerarios IA']
+			tech: ['SvelteKit', 'Supabase', 'Booking Engine', 'Fiscal Optimization'],
+			highlights: ['Modelo fiscal inteligente', 'Limpieza bajo demanda', 'Multi-propiedad', 'Gestión de huéspedes']
 		},
 		{
 			name: 'Mancha',
@@ -130,16 +130,6 @@
 			url: 'https://mancha.redbroomsoftware.com',
 			tech: ['SvelteKit', 'Supabase', 'Camino API', 'Real-time'],
 			highlights: ['Reservaciones 24/7', 'Confirmaciones automáticas', 'Gestión de mesas', 'Widget embebible']
-		},
-		{
-			name: 'Cookie Monster',
-			subtitle: 'E-commerce para Panaderías',
-			description: 'Plataforma de comercio electrónico para panaderías y repostería artesanal: catálogo, carrito, pedidos personalizados y checkout.',
-			icon: '🍪',
-			category: 'marketplace',
-			url: 'https://cookiemonster.redbroomsoftware.com',
-			tech: ['SvelteKit', 'Supabase', 'Stripe', 'Colectiva API'],
-			highlights: ['Pedidos personalizados', 'Checkout integrado', 'Gestión de entregas', 'Catálogo visual']
 		},
 		{
 			name: 'Continua',
@@ -181,16 +171,6 @@
 			tech: ['SvelteKit', 'Supabase', 'Colectiva API', 'Geolocation'],
 			highlights: ['Taskers verificados', 'Pagos seguros', 'Reviews', 'Garantía de servicio']
 		},
-		{
-			name: 'Hospitality Fiscal',
-			subtitle: 'Alquiler Vacacional Inteligente',
-			description: 'Plataforma de renta vacacional con modelo fiscal optimizado: propiedades, reservaciones, servicios bajo demanda.',
-			icon: '🏖️',
-			category: 'hospitality',
-			url: 'https://hospitality.redbroomsoftware.com',
-			tech: ['SvelteKit', 'Supabase', 'Booking Engine', 'Fiscal Optimization'],
-			highlights: ['Modelo fiscal inteligente', 'Limpieza bajo demanda', 'Multi-propiedad', 'Gestión de huéspedes']
-		}
 	];
 
 	const b2cServices = [
@@ -259,12 +239,12 @@
 
 <svelte:head>
 	<title>Portafolio - Red Broom Software</title>
-	<meta name="description" content="Portafolio de productos desarrollados por Red Broom Software: 18 plataformas SaaS + 5 servicios B2C para PyMEs mexicanas." />
+	<meta name="description" content="Portafolio de productos desarrollados por Red Broom Software: 16 plataformas SaaS + 5 servicios B2C para PyMEs mexicanas." />
 	<link rel="canonical" href="https://redbroomsoftware.com/portafolio" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://redbroomsoftware.com/portafolio" />
 	<meta property="og:title" content="Portafolio - Red Broom Software" />
-	<meta property="og:description" content="18 plataformas SaaS + 5 servicios B2C para PyMEs mexicanas. POS, ERP, CRM, FinTech, IA y más." />
+	<meta property="og:description" content="16 plataformas SaaS + 5 servicios B2C para PyMEs mexicanas. POS, ERP, CRM, FinTech, IA y más." />
 	<meta property="og:image" content="https://redbroomsoftware.com/logo.svg" />
 	<meta name="twitter:card" content="summary" />
 </svelte:head>
@@ -443,7 +423,7 @@
 	<div class="max-w-7xl mx-auto">
 		<div class="grid grid-cols-2 md:grid-cols-5 gap-8 text-center" use:scrollReveal>
 			<div>
-				<p class="text-4xl font-bold text-white"><AnimatedCounter value={18} /></p>
+				<p class="text-4xl font-bold text-white"><AnimatedCounter value={16} /></p>
 				<p class="text-slate-400">{$_("portfolio.stats.saasProducts")}</p>
 			</div>
 			<div>

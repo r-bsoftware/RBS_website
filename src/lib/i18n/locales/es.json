@@ -22,7 +22,7 @@
 			"description": "Desarrollamos software empresarial de alto rendimiento: SaaS, POS, ERP, CRM con IA, apps moviles. Especialistas en soluciones para PyMEs mexicanas."
 		},
 		"hero": {
-			"badge": "18 productos en produccion",
+			"badge": "16 productos en produccion",
 			"titlePart1": "Construimos",
 			"titleHighlight": "software",
 			"titlePart2": "de alto rendimiento",
@@ -71,7 +71,7 @@
 			"title": "Por que trabajar con nosotros?",
 			"production": {
 				"title": "Productos en produccion",
-				"desc": "No somos una agencia que solo hace proyectos. Operamos 18 plataformas SaaS propias. Sabemos lo que funciona."
+				"desc": "No somos una agencia que solo hace proyectos. Operamos 16 plataformas SaaS propias. Sabemos lo que funciona."
 			},
 			"mexico": {
 				"title": "Especialistas en Mexico",
@@ -177,10 +177,10 @@
 	"portfolio": {
 		"meta": {
 			"title": "Portafolio - Red Broom Software",
-			"description": "Portafolio de productos desarrollados por Red Broom Software: 18 plataformas SaaS + 5 servicios B2C para PyMEs mexicanas."
+			"description": "Portafolio de productos desarrollados por Red Broom Software: 16 plataformas SaaS + 5 servicios B2C para PyMEs mexicanas."
 		},
 		"hero": {
-			"badge": "18 plataformas + 5 servicios B2C",
+			"badge": "16 plataformas + 5 servicios B2C",
 			"titlePart1": "Nuestro",
 			"titleHighlight": "Portafolio",
 			"subtitle": "Plataformas SaaS que hemos desarrollado y operamos. Cada una resuelve problemas reales de negocios mexicanos."
@@ -226,9 +226,9 @@
 			},
 			"plenura": {
 				"name": "Plenura",
-				"subtitle": "Plataforma de Nutricion con IA",
-				"description": "Sistema para nutriologos con planes alimenticios generados por IA, tracking de pacientes, recetas personalizadas y recordatorios automaticos.",
-				"highlights": ["Planes con IA", "Tracking de pacientes", "Recetas personalizadas", "Multi-nutriologo"]
+				"subtitle": "Plataforma de Bienestar con IA",
+				"description": "Sistema para profesionales de salud y bienestar: matching inteligente de pacientes, prescreening con IA, notas de sesion automatizadas y gestion de citas.",
+				"highlights": ["Matching con IA", "Prescreening inteligente", "Notas de sesion IA", "Multi-profesional"]
 			},
 			"agora": {
 				"name": "Agora",
@@ -241,12 +241,6 @@
 				"subtitle": "Reservaciones para Restaurantes",
 				"description": "Plataforma estilo OpenTable para restaurantes mexicanos: reservaciones en linea, gestion de mesas, confirmaciones automaticas por email y WhatsApp, y analytics de ocupacion.",
 				"highlights": ["Reservaciones 24/7", "Confirmaciones automaticas", "Gestion de mesas", "Widget embebible"]
-			},
-			"cookiemonster": {
-				"name": "Cookie Monster",
-				"subtitle": "E-commerce para Panaderias",
-				"description": "Plataforma de comercio electronico para panaderias y reposteria artesanal: catalogo, carrito, pedidos personalizados, checkout y gestion de entregas.",
-				"highlights": ["Pedidos personalizados", "Checkout integrado", "Gestion de entregas", "Catalogo visual"]
 			},
 			"continua": {
 				"name": "Continua",
@@ -272,12 +266,6 @@
 				"description": "Conecta clientes con taskers verificados para limpieza, mudanzas, reparaciones y mas. Reviews, pagos seguros y garantia de servicio.",
 				"highlights": ["Taskers verificados", "Pagos seguros", "Reviews", "Garantia de servicio"]
 			},
-			"hospitality": {
-				"name": "Hospitality Fiscal",
-				"subtitle": "Alquiler Vacacional Inteligente",
-				"description": "Plataforma de renta vacacional con modelo fiscal optimizado: propiedades, reservaciones, servicios bajo demanda y gestion de limpieza.",
-				"highlights": ["Modelo fiscal inteligente", "Limpieza bajo demanda", "Multi-propiedad", "Gestion de huespedes"]
-			},
 			"rito": {
 				"name": "Rito",
 				"subtitle": "Real Estate Private Equity",
@@ -292,9 +280,9 @@
 			},
 			"goodbay": {
 				"name": "Goodbay",
-				"subtitle": "Marketplace de Despedidas",
-				"description": "Plataforma para organizar despedidas de soltero/a: paquetes curados, proveedores verificados, itinerarios automatizados y pagos grupales.",
-				"highlights": ["Paquetes curados", "Pagos grupales", "Proveedores verificados", "Itinerarios IA"]
+				"subtitle": "Alquiler Vacacional Inteligente",
+				"description": "Plataforma de renta vacacional con modelo fiscal optimizado: gestion de propiedades, reservaciones, servicios bajo demanda y gestion de limpieza.",
+				"highlights": ["Modelo fiscal inteligente", "Limpieza bajo demanda", "Multi-propiedad", "Gestion de huespedes"]
 			}
 		},
 		"b2cServices": {

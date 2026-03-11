@@ -22,7 +22,7 @@
 			"description": "We build high-performance enterprise software: SaaS, POS, ERP, AI-powered CRM, mobile apps. Specialists in solutions for Mexican SMBs."
 		},
 		"hero": {
-			"badge": "18 products in production",
+			"badge": "16 products in production",
 			"titlePart1": "We build",
 			"titleHighlight": "high-performance",
 			"titlePart2": "software",
@@ -71,7 +71,7 @@
 			"title": "Why work with us?",
 			"production": {
 				"title": "Products in production",
-				"desc": "We're not an agency that only does projects. We operate 18 of our own SaaS platforms. We know what works."
+				"desc": "We're not an agency that only does projects. We operate 16 of our own SaaS platforms. We know what works."
 			},
 			"mexico": {
 				"title": "Mexico specialists",
@@ -177,10 +177,10 @@
 	"portfolio": {
 		"meta": {
 			"title": "Portfolio - Red Broom Software",
-			"description": "Portfolio of products developed by Red Broom Software: 18 SaaS platforms + 5 B2C services for Mexican SMBs."
+			"description": "Portfolio of products developed by Red Broom Software: 16 SaaS platforms + 5 B2C services for Mexican SMBs."
 		},
 		"hero": {
-			"badge": "18 platforms + 5 B2C services",
+			"badge": "16 platforms + 5 B2C services",
 			"titlePart1": "Our",
 			"titleHighlight": "Portfolio",
 			"subtitle": "SaaS platforms we have developed and operate. Each one solves real problems for Mexican businesses."
@@ -226,9 +226,9 @@
 			},
 			"plenura": {
 				"name": "Plenura",
-				"subtitle": "AI Nutrition Platform",
-				"description": "System for nutritionists with AI-generated meal plans, patient tracking, personalized recipes, and automatic reminders.",
-				"highlights": ["AI Plans", "Patient tracking", "Personalized recipes", "Multi-nutritionist"]
+				"subtitle": "AI Wellness Platform",
+				"description": "System for health and wellness professionals: smart patient matching, AI prescreening, automated session notes, and appointment management.",
+				"highlights": ["AI Matching", "Smart prescreening", "AI session notes", "Multi-professional"]
 			},
 			"agora": {
 				"name": "Agora",
@@ -241,12 +241,6 @@
 				"subtitle": "Restaurant Reservations",
 				"description": "OpenTable-style platform for Mexican restaurants: online reservations, table management, automatic confirmations via email and WhatsApp, and occupancy analytics.",
 				"highlights": ["24/7 Reservations", "Automatic confirmations", "Table management", "Embeddable widget"]
-			},
-			"cookiemonster": {
-				"name": "Cookie Monster",
-				"subtitle": "Bakery E-commerce",
-				"description": "E-commerce platform for bakeries and artisan pastry: catalog, cart, custom orders, checkout, and delivery management.",
-				"highlights": ["Custom orders", "Integrated checkout", "Delivery management", "Visual catalog"]
 			},
 			"continua": {
 				"name": "Continua",
@@ -272,12 +266,6 @@
 				"description": "Connects clients with verified taskers for cleaning, moving, repairs, and more. Reviews, secure payments, and service guarantee.",
 				"highlights": ["Verified taskers", "Secure payments", "Reviews", "Service guarantee"]
 			},
-			"hospitality": {
-				"name": "Hospitality Fiscal",
-				"subtitle": "Smart Vacation Rental",
-				"description": "Vacation rental platform with optimized tax model: properties, reservations, on-demand services, and cleaning management.",
-				"highlights": ["Smart tax model", "On-demand cleaning", "Multi-property", "Guest management"]
-			},
 			"rito": {
 				"name": "Rito",
 				"subtitle": "Real Estate Private Equity",
@@ -292,9 +280,9 @@
 			},
 			"goodbay": {
 				"name": "Goodbay",
-				"subtitle": "Farewell Party Marketplace",
-				"description": "Platform for organizing bachelor/bachelorette parties: curated packages, verified vendors, automated itineraries and group payments.",
-				"highlights": ["Curated packages", "Group payments", "Verified vendors", "AI itineraries"]
+				"subtitle": "Smart Vacation Rental",
+				"description": "Vacation rental platform with optimized tax model: property management, reservations, on-demand services, and cleaning management.",
+				"highlights": ["Smart tax model", "On-demand cleaning", "Multi-property", "Guest management"]
 			}
 		},
 		"b2cServices": {

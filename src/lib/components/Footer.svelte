@@ -8,19 +8,17 @@
 		{ name: 'Constanza', url: 'https://constanza.redbroomsoftware.com' },
 		{ name: 'Caracol', url: 'https://caracol.redbroomsoftware.com' },
 		{ name: 'La Hoja', url: 'https://lahoja.redbroomsoftware.com' },
-		{ name: 'Plenura', url: 'https://plenura.com' },
+		{ name: 'Plenura', url: 'https://plenura.redbroomsoftware.com' },
 		{ name: 'Rito', url: 'https://rito.redbroomsoftware.com' },
 		{ name: 'Agora', url: 'https://agora.redbroomsoftware.com' },
 		{ name: 'Comal', url: 'https://comal.redbroomsoftware.com' },
 		{ name: 'Mancha', url: 'https://mancha.redbroomsoftware.com' },
 		{ name: 'Cosmos Pet', url: 'https://cosmospet.redbroomsoftware.com' },
 		{ name: 'Servilleta', url: 'https://servilleta.redbroomsoftware.com' },
-		{ name: 'Cookie Monster', url: 'https://cookiemonster.redbroomsoftware.com' },
 		{ name: 'Puppy Love', url: 'https://puppylove.redbroomsoftware.com' },
-		{ name: 'Continua', url: 'https://continue.redbroomsoftware.com' },
+		{ name: 'Continua', url: 'https://continua.redbroomsoftware.com' },
 		{ name: 'Baul', url: 'https://baul.redbroomsoftware.com' },
 		{ name: 'Goodbay', url: 'https://goodbay.redbroomsoftware.com' },
-		{ name: 'Hospitality', url: 'https://hospitality.redbroomsoftware.com' },
 	];
 </script>
 

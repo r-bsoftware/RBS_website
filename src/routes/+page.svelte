@@ -196,7 +196,7 @@
 			<!-- Stats -->
 			<div class="grid grid-cols-1 sm:grid-cols-3 gap-8 mt-20 max-w-2xl mx-auto">
 				<div>
-					<p class="text-4xl font-bold text-white"><AnimatedCounter value={18} /></p>
+					<p class="text-4xl font-bold text-white"><AnimatedCounter value={16} /></p>
 					<p class="text-slate-400 text-sm">{$_("home.stats.products")}</p>
 				</div>
 				<div>
