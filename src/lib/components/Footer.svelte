@@ -1,11 +1,26 @@
-<script>
+<script lang="ts">
 	import { _ } from 'svelte-i18n';
 	let { full = false } = $props();
 
-	const ecosystemApps = [
-		'Camino', 'Colectiva', 'Constanza', 'Caracol', 'La Hoja', 'Plenura',
-		'Rito', 'Agora', 'Comal', 'Mancha', 'Cosmos Pet', 'Servilleta',
-		'Cookie Monster', 'Puppy Love', 'Continua', 'Baul', 'Goodbay', 'Hospitality'
+	const ecosystemApps: Array<{ name: string; url: string }> = [
+		{ name: 'Camino', url: 'https://camino.redbroomsoftware.com' },
+		{ name: 'Colectiva', url: 'https://colectiva.redbroomsoftware.com' },
+		{ name: 'Constanza', url: 'https://constanza.redbroomsoftware.com' },
+		{ name: 'Caracol', url: 'https://caracol.redbroomsoftware.com' },
+		{ name: 'La Hoja', url: 'https://lahoja.redbroomsoftware.com' },
+		{ name: 'Plenura', url: 'https://plenura.com' },
+		{ name: 'Rito', url: 'https://rito.redbroomsoftware.com' },
+		{ name: 'Agora', url: 'https://agora.redbroomsoftware.com' },
+		{ name: 'Comal', url: 'https://comal.redbroomsoftware.com' },
+		{ name: 'Mancha', url: 'https://mancha.redbroomsoftware.com' },
+		{ name: 'Cosmos Pet', url: 'https://cosmospet.redbroomsoftware.com' },
+		{ name: 'Servilleta', url: 'https://servilleta.redbroomsoftware.com' },
+		{ name: 'Cookie Monster', url: 'https://cookiemonster.redbroomsoftware.com' },
+		{ name: 'Puppy Love', url: 'https://puppylove.redbroomsoftware.com' },
+		{ name: 'Continua', url: 'https://continue.redbroomsoftware.com' },
+		{ name: 'Baul', url: 'https://baul.redbroomsoftware.com' },
+		{ name: 'Goodbay', url: 'https://goodbay.redbroomsoftware.com' },
+		{ name: 'Hospitality', url: 'https://hospitality.redbroomsoftware.com' },
 	];
 </script>
 
@@ -54,9 +69,9 @@
 			<div class="border-t border-slate-800 pt-6 mb-6">
 				<p class="text-xs text-slate-500 mb-3">{$_("common.companyName")} Ecosistema</p>
 				<div class="flex flex-wrap gap-2">
-					{#each ecosystemApps as app}
-						<span class="text-xs text-slate-500 hover:text-slate-300 transition-colors cursor-default">{app}</span>
-						{#if app !== ecosystemApps[ecosystemApps.length - 1]}
+					{#each ecosystemApps as app, i}
+						<a href={app.url} target="_blank" rel="noopener noreferrer" class="text-xs text-slate-500 hover:text-slate-300 transition-colors">{app.name}</a>
+						{#if i !== ecosystemApps.length - 1}
 							<span class="text-slate-700">·</span>
 						{/if}
 					{/each}
