@@ -7,13 +7,13 @@
 	const products = [
 		{
 			name: 'Caracol',
-			subtitle: 'Sistema POS para Restaurantes',
-			description: 'Punto de venta completo con gestión de mesas, comandas a cocina en tiempo real, sistema de meseros, facturación CFDI 4.0 y reportes avanzados.',
-			icon: '🍽️',
-			category: 'hospitality',
+			subtitle: 'Gestión de Inventario e Importaciones',
+			description: 'Sistema integral para importaciones complejas: seguimiento de contenedores, costeo por lote, control aduanal, inventario multi-bodega y conciliación automática con proveedores internacionales.',
+			icon: '📦',
+			category: 'logistics',
 			url: 'https://caracol.redbroomsoftware.com',
-			tech: ['SvelteKit', 'Supabase', 'CFDI 4.0', 'Real-time sync'],
-			highlights: ['Multi-terminal', 'KDS Cocina', 'Gestión de Meseros', 'Multi-sucursal']
+			tech: ['SvelteKit', 'Firebase', 'CFDI 4.0', 'Multi-warehouse'],
+			highlights: ['Tracking de contenedores', 'Costeo por lote', 'Multi-bodega', 'Conciliación automática']
 		},
 		{
 			name: 'La Hoja',

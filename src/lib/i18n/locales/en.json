@@ -190,9 +190,9 @@
 			"visitProduct": "Visit product",
 			"caracol": {
 				"name": "Caracol",
-				"subtitle": "Restaurant POS System",
-				"description": "Complete point of sale with table management, real-time kitchen orders, waiter system, CFDI 4.0 invoicing, and advanced reports.",
-				"highlights": ["Multi-terminal", "Kitchen KDS", "Waiter Management", "Multi-location"]
+				"subtitle": "Inventory & Import Management",
+				"description": "Comprehensive system for complex imports: container tracking, batch costing, customs control, multi-warehouse inventory, and automatic reconciliation with international suppliers.",
+				"highlights": ["Container tracking", "Batch costing", "Multi-warehouse", "Auto reconciliation"]
 			},
 			"lahoja": {
 				"name": "La Hoja",

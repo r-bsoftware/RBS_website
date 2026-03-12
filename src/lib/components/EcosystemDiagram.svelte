@@ -3,7 +3,7 @@
 		{ name: 'Camino', role: 'CRM + SSO', color: 'from-blue-500 to-cyan-500' },
 		{ name: 'Colectiva', role: 'Pagos + IA', color: 'from-purple-500 to-pink-500' },
 		{ name: 'Constanza', role: 'Contabilidad', color: 'from-emerald-500 to-teal-500' },
-		{ name: 'Caracol', role: 'POS', color: 'from-orange-500 to-red-500' },
+		{ name: 'Caracol', role: 'Inventario', color: 'from-orange-500 to-red-500' },
 		{ name: 'La Hoja', role: 'ERP', color: 'from-green-500 to-lime-500' },
 		{ name: 'Plenura', role: 'Bienestar', color: 'from-violet-500 to-purple-500' },
 		{ name: 'Rito', role: 'Real Estate', color: 'from-amber-500 to-orange-500' },

@@ -190,9 +190,9 @@
 			"visitProduct": "Visitar producto",
 			"caracol": {
 				"name": "Caracol",
-				"subtitle": "Sistema POS para Restaurantes",
-				"description": "Punto de venta completo con gestion de mesas, comandas a cocina en tiempo real, sistema de meseros, facturacion CFDI 4.0 y reportes avanzados.",
-				"highlights": ["Multi-terminal", "KDS Cocina", "Gestion de Meseros", "Multi-sucursal"]
+				"subtitle": "Gestión de Inventario e Importaciones",
+				"description": "Sistema integral para importaciones complejas: seguimiento de contenedores, costeo por lote, control aduanal, inventario multi-bodega y conciliación automática con proveedores internacionales.",
+				"highlights": ["Tracking de contenedores", "Costeo por lote", "Multi-bodega", "Conciliación automática"]
 			},
 			"lahoja": {
 				"name": "La Hoja",

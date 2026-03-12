@@ -36,7 +36,7 @@
 					RBS proporciona software empresarial en modalidad SaaS (Software como Servicio), que incluye:
 				</p>
 				<ul class="list-disc list-inside text-slate-300 space-y-2">
-					<li><strong class="text-white">Caracol:</strong> Sistema de Punto de Venta para restaurantes</li>
+					<li><strong class="text-white">Caracol:</strong> Gestión de inventario e importaciones complejas</li>
 					<li><strong class="text-white">La Hoja:</strong> ERP para cafeterías y retail</li>
 					<li><strong class="text-white">Cosmos Pet:</strong> Software para clínicas veterinarias</li>
 					<li><strong class="text-white">Camino CRM:</strong> Sistema de gestión de relaciones con clientes</li>

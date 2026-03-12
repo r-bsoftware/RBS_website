@@ -34,7 +34,7 @@
 
 		try {
 			const urlParams = new URLSearchParams(window.location.search);
-			await fetch(CAMINO_API_URL, {
+			const response = await fetch(CAMINO_API_URL, {
 				method: 'POST',
 				headers: { 'Content-Type': 'application/json' },
 				body: JSON.stringify({
@@ -48,7 +48,7 @@
 					visitorId
 				})
 			});
-			quickSubmitStatus = 'success';
+			quickSubmitStatus = response.ok ? 'success' : 'error';
 		} catch {
 			quickSubmitStatus = 'error';
 		}
@@ -287,7 +287,7 @@
 		<div class="max-w-5xl mx-auto">
 			<div class="text-center mb-12" use:scrollReveal>
 				<h2 class="text-4xl font-bold text-white mb-4">{"Un ecosistema conectado"}</h2>
-				<p class="text-xl text-slate-400">{"18 apps que comparten autenticación, pagos, facturación e IA"}</p>
+				<p class="text-xl text-slate-400">{"16 apps que comparten autenticación, pagos, facturación e IA"}</p>
 			</div>
 			<div use:scrollReveal>
 				<EcosystemDiagram />
