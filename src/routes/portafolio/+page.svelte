@@ -215,9 +215,9 @@
 			subtitle: 'Reservaciones Universal',
 			description: 'Sistema de citas y reservaciones para cualquier negocio: restaurantes, veterinarias, clínicas, salones.',
 			icon: '📅',
-			status: 'coming_soon',
+			status: 'live',
 			url: 'https://mancha.redbroomsoftware.com',
-			highlights: ['Multi-industria', 'IA predictiva', 'Confirmaciones auto', 'Widget embebible']
+			highlights: ['Multi-industria', 'API externa autenticada', 'Confirmaciones auto', 'Widget embebible']
 		}
 	];
 
