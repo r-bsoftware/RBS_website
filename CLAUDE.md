@@ -57,23 +57,39 @@
 Corporate marketing website for Red Broom Software S.A.S. Showcases the 18-product ecosystem to potential customers.
 - **URL**: `redbroomsoftware.com`
 
-## Decision Boundaries — ALWAYS FOLLOW
+## Decision Boundaries
 
 ### Act freely (no approval needed)
-- Copy/text changes, styling fixes
-- Animation improvements
-- SEO metadata updates
+- UI components, client-side logic, styling
+- Bug fixes (single or multi-file)
+- Read AND write queries (Supabase SELECT, INSERT, UPDATE, DELETE)
+- New Supabase tables or columns (migrations)
+- New API routes and endpoints
+- New dependencies
+- Changes to AI prompts or matching algorithms
+- Refactoring and code cleanup
+- Error handling improvements
+- Performance optimizations
+- Security hardening (headers, validation, sanitization)
+- Git commits to main
+- Git push to main
+- Deploying to Vercel
+- Adding/updating environment variables
+- Creating new services, utilities, or helpers
+- Updating CLAUDE.md and documentation
+- Running builds, tests, and verifications
 
-### Propose before implementing
-- New sections or pages
-- Contact form changes (affects Camino CRM)
-- Product showcase additions
+### Confirm before acting (present plan, then proceed if sensible)
+- Supabase RLS policy changes
+- Webhook secret changes or additions
+- Database migrations that DROP or ALTER existing columns
+- Removing existing API routes
 
-### NEVER act autonomously — always present and wait for explicit approval
-- `git push` to main/master
-- CRM integration changes
-- Analytics/tracking changes
-
+### NEVER act autonomously — always wait for explicit approval
+- Commission rate or pricing changes
+- Payment/escrow flow changes (money movement logic)
+- Deleting production data
+- Changing auth providers or SSO configuration
 ## Tech Stack
 - **Framework**: SvelteKit 2 with Svelte 5 runes ($state, $derived, $effect, $props)
 - **UI**: Tailwind CSS 3.3 + custom animations (fadeInUp, float, glow, marquee, countUp)
