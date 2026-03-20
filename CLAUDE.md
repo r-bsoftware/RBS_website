@@ -94,7 +94,7 @@ Corporate marketing website for Red Broom Software S.A.S. Showcases the 18-produ
 - **Framework**: SvelteKit 2 with Svelte 5 runes ($state, $derived, $effect, $props)
 - **UI**: Tailwind CSS 3.3 + custom animations (fadeInUp, float, glow, marquee, countUp)
 - **Fonts**: Inter Variable (@fontsource-variable/inter)
-- **Deployment**: GitHub Pages (static adapter)
+- **Deployment**: Vercel (SSR via adapter-vercel, Node.js 22.x)
 - **i18n**: svelte-i18n (547 keys ES/EN, language switcher built — NOT wired to UI yet)
 - **Error Tracking**: Sentry (@sentry/sveltekit)
 
@@ -131,16 +131,17 @@ Corporate marketing website for Red Broom Software S.A.S. Showcases the 18-produ
 ## Custom Actions
 - `scrollReveal.ts` — IntersectionObserver for fade-in-up animations
 
-## Routes (8 pages, all prerendered)
-| Route | Purpose |
-|-------|---------|
-| `/` | Hero, stats, capabilities, products grid |
-| `/portafolio` | 18 products + 3 B2C services |
-| `/servicios` | Service offerings |
-| `/tecnologia` | Tech stack showcase |
-| `/contacto` | Contact form → Camino CRM |
-| `/privacidad` | Privacy policy |
-| `/terminos` | Terms of service |
+## Routes (8 pages, most prerendered)
+| Route | Purpose | Rendering |
+|-------|---------|-----------|
+| `/` | Hero, stats, capabilities, products grid | Prerendered |
+| `/plataformas` | Camino-powered platforms showcase | SSR (fetches from Camino content API) |
+| `/portafolio` | 18 products + 3 B2C services | Prerendered |
+| `/servicios` | Service offerings | Prerendered |
+| `/tecnologia` | Tech stack showcase | Prerendered |
+| `/contacto` | Contact form → Camino CRM | Prerendered |
+| `/privacidad` | Privacy policy | Prerendered |
+| `/terminos` | Terms of service | Prerendered |
 
 ## Key Patterns
 - Contact form submits to Camino CRM API with UTM tracking
@@ -149,8 +150,15 @@ Corporate marketing website for Red Broom Software S.A.S. Showcases the 18-produ
 - Design: dark slate backgrounds, blue→purple gradients
 
 ## Deployment
-- GitHub Pages (branch: `master`, directory: `/build`)
-- Custom domain via CNAME: `redbroomsoftware.com`
+- Vercel (project: `rbs-website`, adapter-vercel)
+- Custom domain: `redbroomsoftware.com` (A record → 76.76.21.21)
+- Deploy: `npx vercel deploy --prod`
+
+## Camino Integration
+- `/plataformas` fetches content from `camino.redbroomsoftware.com/api/public/page/plataformas` (SSR)
+- Personalization rules in Camino swap hero content based on UTM campaign
+- Tracking SDK (`camino-track.js`) embedded in `app.html` — tracks page views, scroll, CTA clicks
+- Falls back to static defaults if Camino API unavailable
 
 ## Build & Dev
 ```bash
