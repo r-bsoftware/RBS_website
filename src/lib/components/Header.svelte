@@ -59,6 +59,7 @@
 				<a href="/servicios" class={navClass('/servicios')} aria-current={isActive('/servicios') ? 'page' : undefined}>{$_('nav.services')}</a>
 				<a href="/portafolio" class={navClass('/portafolio')} aria-current={isActive('/portafolio') ? 'page' : undefined}>{$_('nav.portfolio')}</a>
 				<a href="/tecnologia" class={navClass('/tecnologia')} aria-current={isActive('/tecnologia') ? 'page' : undefined}>{$_('nav.technology')}</a>
+				<a href="/pricing" class={navClass('/pricing')} aria-current={isActive('/pricing') ? 'page' : undefined}>{$_('nav.pricing')}</a>
 				<a href="/contacto" class="px-5 py-2.5 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg hover:from-blue-600 hover:to-purple-700 transition-all font-medium hover:shadow-lg hover:shadow-blue-500/25">
 					{$_("nav.contact")}
 				</a>
@@ -86,6 +87,7 @@
 					<a href="/servicios" onclick={closeMobileMenu} class="text-slate-300 hover:text-white py-2 transition-colors">{$_("nav.services")}</a>
 					<a href="/portafolio" onclick={closeMobileMenu} class="text-slate-300 hover:text-white py-2 transition-colors">{$_("nav.portfolio")}</a>
 					<a href="/tecnologia" onclick={closeMobileMenu} class="text-slate-300 hover:text-white py-2 transition-colors">{$_("nav.technology")}</a>
+					<a href="/pricing" onclick={closeMobileMenu} class="text-slate-300 hover:text-white py-2 transition-colors">{$_("nav.pricing")}</a>
 					<a href="/contacto" onclick={closeMobileMenu} class="px-5 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg text-center font-medium">
 						{$_("nav.contact")}
 					</a>
