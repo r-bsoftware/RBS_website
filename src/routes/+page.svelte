@@ -7,6 +7,16 @@
 	import EcosystemDiagram from '$lib/components/EcosystemDiagram.svelte';
 	import { scrollReveal } from '$lib/actions/scrollReveal';
 
+	let { data } = $props();
+
+	// Extract content blocks from Camino API response, or use defaults
+	const caminoContent = data.content?.page?.content || [];
+	function getBlock(id: string) {
+		return caminoContent.find((b: { id: string; data: Record<string, unknown> }) => b.id === id)?.data;
+	}
+
+	const heroOverride = getBlock('hero-main');
+
 	const CAMINO_API_URL = 'https://camino.redbroomsoftware.com/api/leads';
 
 	let visitorId = $state('');
@@ -171,17 +181,17 @@
 		<div class="max-w-7xl mx-auto text-center relative">
 			<div class="inline-flex items-center px-4 py-2 glass rounded-full text-sm text-slate-300 mb-8">
 				<span class="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
-				{$_("home.hero.badge")}
+				{heroOverride?.badge || $_("home.hero.badge")}
 			</div>
 
 			<h2 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-				{$_("home.hero.titlePart1")}<br />
-				<TypewriterText words={['SaaS', 'POS & ERP', 'CRM con IA', 'FinTech', 'Legal Tech', 'E-commerce']} interval={2500} />
+				{heroOverride?.title || $_("home.hero.titlePart1")}<br />
+				<TypewriterText words={heroOverride?.typewriter_words || ['SaaS', 'POS & ERP', 'CRM con IA', 'FinTech', 'Legal Tech', 'E-commerce']} interval={2500} />
 				<br />
-				<span class="text-slate-300">{$_("home.hero.titlePart2")}</span>
+				<span class="text-slate-300">{heroOverride?.subtitle_line || $_("home.hero.titlePart2")}</span>
 			</h2>
 			<p class="text-xl text-slate-400 mb-10 max-w-3xl mx-auto leading-relaxed">
-				{$_("home.hero.subtitle")}
+				{heroOverride?.subtitle || $_("home.hero.subtitle")}
 			</p>
 
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
