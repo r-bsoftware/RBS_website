@@ -17,13 +17,13 @@
 </script>
 
 <svelte:head>
-	<title>Servicios de Desarrollo - Red Broom Software</title>
-	<meta name="description" content="Desarrollo de software empresarial: SaaS, POS, ERP, CRM con IA, integraciones FinTech y aplicaciones móviles. Especialistas en soluciones para México." />
+	<title>{$_('services.meta.title')}</title>
+	<meta name="description" content={$_('services.meta.description')} />
 	<link rel="canonical" href="https://redbroomsoftware.com/servicios" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://redbroomsoftware.com/servicios" />
-	<meta property="og:title" content="Servicios de Desarrollo - Red Broom Software" />
-	<meta property="og:description" content="Desarrollo de software empresarial: SaaS, POS, ERP, CRM con IA, integraciones FinTech y aplicaciones móviles." />
+	<meta property="og:title" content={$_('services.meta.title')} />
+	<meta property="og:description" content={$_('services.meta.description')} />
 	<meta property="og:image" content="https://redbroomsoftware.com/logo.svg" />
 	<meta name="twitter:card" content="summary" />
 </svelte:head>
@@ -100,7 +100,7 @@
 		<h3 class="text-3xl font-bold text-white mb-4">{$_('services.cta.title')}</h3>
 		<p class="text-slate-400 mb-8">{$_('services.cta.subtitle')}</p>
 		<a href="/contacto" class="inline-flex px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-xl hover:from-blue-600 hover:to-purple-700 transition-all font-semibold">
-			Solicitar Cotización
+			{$_('services.cta.button')}
 		</a>
 	</div>
 </section>

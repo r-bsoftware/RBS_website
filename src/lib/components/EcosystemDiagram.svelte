@@ -1,15 +1,17 @@
 <script lang="ts">
+	import { _ } from 'svelte-i18n';
+
 	const apps = [
-		{ name: 'Camino', role: 'CRM + SSO', color: 'from-blue-500 to-cyan-500' },
-		{ name: 'Colectiva', role: 'Pagos + IA', color: 'from-purple-500 to-pink-500' },
-		{ name: 'Constanza', role: 'Contabilidad', color: 'from-emerald-500 to-teal-500' },
-		{ name: 'Caracol', role: 'Inventario', color: 'from-orange-500 to-red-500' },
-		{ name: 'La Hoja', role: 'ERP', color: 'from-green-500 to-lime-500' },
-		{ name: 'Plenura', role: 'Bienestar', color: 'from-violet-500 to-purple-500' },
-		{ name: 'Rito', role: 'Real Estate', color: 'from-amber-500 to-orange-500' },
-		{ name: 'Agora', role: 'Legal', color: 'from-sky-500 to-blue-500' },
-		{ name: 'Comal', role: 'E-commerce', color: 'from-red-500 to-rose-500' },
-		{ name: 'Mancha', role: 'Reservas', color: 'from-teal-500 to-cyan-500' }
+		{ name: 'Camino', roleKey: 'camino', color: 'from-blue-500 to-cyan-500' },
+		{ name: 'Colectiva', roleKey: 'colectiva', color: 'from-purple-500 to-pink-500' },
+		{ name: 'Constanza', roleKey: 'constanza', color: 'from-emerald-500 to-teal-500' },
+		{ name: 'Caracol', roleKey: 'caracol', color: 'from-orange-500 to-red-500' },
+		{ name: 'La Hoja', roleKey: 'lahoja', color: 'from-green-500 to-lime-500' },
+		{ name: 'Plenura', roleKey: 'plenura', color: 'from-violet-500 to-purple-500' },
+		{ name: 'Rito', roleKey: 'rito', color: 'from-amber-500 to-orange-500' },
+		{ name: 'Agora', roleKey: 'agora', color: 'from-sky-500 to-blue-500' },
+		{ name: 'Comal', roleKey: 'comal', color: 'from-red-500 to-rose-500' },
+		{ name: 'Mancha', roleKey: 'mancha', color: 'from-teal-500 to-cyan-500' }
 	];
 </script>
 
@@ -19,7 +21,7 @@
 		<div class="w-24 h-24 rounded-full bg-gradient-to-r from-blue-500 to-purple-600 flex items-center justify-center shadow-lg shadow-blue-500/30 animate-float">
 			<div class="text-center">
 				<span class="text-white font-bold text-sm block">RBS</span>
-				<span class="text-white/70 text-[10px]">Ecosistema</span>
+				<span class="text-white/70 text-[10px]">{$_('ecosystemDiagram.hub')}</span>
 			</div>
 		</div>
 	</div>
@@ -33,7 +35,7 @@
 			>
 				<div class="w-8 h-8 rounded-lg bg-gradient-to-r {app.color} mx-auto mb-1.5 opacity-80"></div>
 				<p class="text-white text-xs font-semibold">{app.name}</p>
-				<p class="text-slate-400 text-[10px]">{app.role}</p>
+				<p class="text-slate-400 text-[10px]">{$_(`ecosystemDiagram.roles.${app.roleKey}`)}</p>
 			</div>
 		{/each}
 	</div>

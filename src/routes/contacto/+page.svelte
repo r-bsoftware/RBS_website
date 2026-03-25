@@ -65,15 +65,7 @@
 	let submitStatus: 'idle' | 'submitting' | 'success' | 'error' = $state('idle');
 	let errorMessage = $state('');
 
-	const projectTypes = [
-		{ value: 'saas', label: 'Desarrollo SaaS' },
-		{ value: 'pos', label: 'Sistema POS/ERP' },
-		{ value: 'crm', label: 'CRM con IA' },
-		{ value: 'mobile', label: 'App Móvil' },
-		{ value: 'integration', label: 'Integración/API' },
-		{ value: 'consulting', label: 'Consultoría' },
-		{ value: 'other', label: 'Otro' }
-	];
+	const projectTypeKeys = ['saas', 'pos', 'crm', 'mobile', 'integration', 'consulting', 'other'] as const;
 
 	async function handleContactSubmit(event: Event) {
 		event.preventDefault();
@@ -141,8 +133,8 @@
 </script>
 
 <svelte:head>
-	<title>Contacto - Red Broom Software</title>
-	<meta name="description" content="Contáctanos para discutir tu proyecto de software. Desarrollo de SaaS, POS, CRM, apps móviles y más para PyMEs mexicanas." />
+	<title>{$_('contact.meta.title')}</title>
+	<meta name="description" content={$_('contact.meta.description')} />
 	<link rel="canonical" href="https://redbroomsoftware.com/contacto" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://redbroomsoftware.com/contacto" />
@@ -241,8 +233,8 @@
 								class="w-full px-4 py-3 bg-slate-800 border border-slate-700 rounded-lg text-white focus:border-blue-500 focus:outline-none"
 							>
 								<option value="">{$_("contact.form.selectOption")}</option>
-								{#each projectTypes as type}
-									<option value={type.value}>{type.label}</option>
+								{#each projectTypeKeys as key}
+									<option value={key}>{$_(`contact.form.projectTypes.${key}`)}</option>
 								{/each}
 							</select>
 						</div>

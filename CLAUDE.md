@@ -95,7 +95,7 @@ Corporate marketing website for Red Broom Software S.A.S. Showcases the 18-produ
 - **UI**: Tailwind CSS 3.3 + custom animations (fadeInUp, float, glow, marquee, countUp)
 - **Fonts**: Inter Variable (@fontsource-variable/inter)
 - **Deployment**: Vercel (SSR via adapter-vercel, Node.js 22.x)
-- **i18n**: svelte-i18n (547 keys ES/EN, language switcher built — NOT wired to UI yet)
+- **i18n**: svelte-i18n (580 keys ES/EN, fully wired — all 8 pages + 5 components use $_())
 - **Error Tracking**: Sentry (@sentry/sveltekit)
 
 ## Portfolio (18 Products + 3 B2C Services)
@@ -168,4 +168,4 @@ npm run preview   # Preview
 ```
 
 ## Known Gaps
-- i18n translation files exist (547 keys ES/EN) but $_() is NOT called in any .svelte file — all UI text is hardcoded Spanish
+- Platform product descriptions on /plataformas use hardcoded Spanish fallbacks (sourced from Camino API when available)

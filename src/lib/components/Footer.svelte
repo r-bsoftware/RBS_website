@@ -65,7 +65,7 @@
 
 			<!-- Ecosystem strip -->
 			<div class="border-t border-slate-800 pt-6 mb-6">
-				<p class="text-xs text-slate-500 mb-3">{$_("common.companyName")} Ecosistema</p>
+				<p class="text-xs text-slate-500 mb-3">{$_("common.companyName")} {$_("footer.ecosystem")}</p>
 				<div class="flex flex-wrap gap-2">
 					{#each ecosystemApps as app, i}
 						<a href={app.url} target="_blank" rel="noopener noreferrer" class="text-xs text-slate-500 hover:text-slate-300 transition-colors">{app.name}</a>
@@ -77,7 +77,7 @@
 			</div>
 
 			<div class="border-t border-slate-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
-				<p class="text-slate-500 text-sm">&copy; {new Date().getFullYear()} Red Broom Software S.A.S. de C.V. Todos los derechos reservados.</p>
+				<p class="text-slate-500 text-sm">&copy; {new Date().getFullYear()} {$_("footer.copyright")}</p>
 				<a href="mailto:dia@redbroomsoftware.com" class="text-slate-400 hover:text-white text-sm transition-colors">
 					dia@redbroomsoftware.com
 				</a>

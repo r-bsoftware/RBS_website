@@ -1,4 +1,5 @@
 <script>
+	import { _ } from 'svelte-i18n';
 	import Footer from '$lib/components/Footer.svelte';
 
 	let { data } = $props();
@@ -28,37 +29,37 @@
 	}
 
 	// Defaults for when Camino API is unavailable
-	const heroData = getBlock('hero-main') || {
-		title: 'Soluciones para tu',
-		title_highlight: 'Negocio',
-		subtitle: 'Cada plataforma resuelve un problema real. Usa las que necesites — entre más uses, más ahorras.',
-		cta_primary: { text: 'Explorar Plataformas', href: '#plataformas' },
-		cta_secondary: { text: 'Cotización Personalizada', href: '/contacto' }
-	};
+	const heroData = $derived(getBlock('hero-main') || {
+		title: $_('plataformas.hero.title'),
+		title_highlight: $_('plataformas.hero.titleHighlight'),
+		subtitle: $_('plataformas.hero.subtitle'),
+		cta_primary: { text: $_('plataformas.hero.ctaPrimary'), href: '#plataformas' },
+		cta_secondary: { text: $_('plataformas.hero.ctaSecondary'), href: '/contacto' }
+	});
 
-	const bannerData = getBlock('bundle-discount') || {
-		title: 'Descuento multi-app',
-		subtitle: 'automático al suscribirte a más de una plataforma',
-		description: 'Los descuentos aplican sobre la suscripción base. Sin códigos, sin trámites.',
+	const bannerData = $derived(getBlock('bundle-discount') || {
+		title: $_('plataformas.bundle.title'),
+		subtitle: $_('plataformas.bundle.subtitle'),
+		description: $_('plataformas.bundle.description'),
 		items: [
-			{ label: '2 apps', value: '5%' },
-			{ label: '3 apps', value: '10%' },
-			{ label: '4+ apps', value: '15%' }
+			{ label: $_('plataformas.bundle.apps2'), value: '5%' },
+			{ label: $_('plataformas.bundle.apps3'), value: '10%' },
+			{ label: $_('plataformas.bundle.apps4'), value: '15%' }
 		]
-	};
+	});
 
-	const gridData = getBlock('plataformas-grid') || {
-		title: 'Nuestras Plataformas',
-		subtitle: 'Cada una con su propio precio justo, diseñada para resolver un problema específico.',
+	const gridData = $derived(getBlock('plataformas-grid') || {
+		title: $_('plataformas.grid.title'),
+		subtitle: $_('plataformas.grid.subtitle'),
 		platforms: defaultPlatforms()
-	};
+	});
 
-	const ctaData = getBlock('enterprise-cta') || {
-		title: '¿Necesitas una solución a medida?',
-		subtitle: 'Para empresas con múltiples sucursales, integraciones personalizadas o volúmenes altos — diseñamos paquetes a medida con precios preferenciales y soporte dedicado.',
-		cta_primary: { text: 'Cotización Personalizada', href: '/contacto' },
-		cta_secondary: { text: 'Empezar con Prueba Gratis', href: 'https://camino.redbroomsoftware.com/register?utm_source=rbs_website&utm_medium=plataformas_enterprise' }
-	};
+	const ctaData = $derived(getBlock('enterprise-cta') || {
+		title: $_('plataformas.enterprise.title'),
+		subtitle: $_('plataformas.enterprise.subtitle'),
+		cta_primary: { text: $_('plataformas.enterprise.ctaPrimary'), href: '/contacto' },
+		cta_secondary: { text: $_('plataformas.enterprise.ctaSecondary'), href: 'https://camino.redbroomsoftware.com/register?utm_source=rbs_website&utm_medium=plataformas_enterprise' }
+	});
 
 	function defaultPlatforms() {
 		return [
@@ -93,8 +94,8 @@
 </script>
 
 <svelte:head>
-	<title>Plataformas — Red Broom Software</title>
-	<meta name="description" content="Plataformas SaaS integradas para empresas mexicanas. Punto de venta, e-commerce, facturación, CRM y más. Precios en pesos." />
+	<title>{$_('plataformas.meta.title')}</title>
+	<meta name="description" content={$_('plataformas.meta.description')} />
 </svelte:head>
 
 <!-- Hero -->
@@ -177,7 +178,7 @@
 						class="block text-center glass text-white hover:bg-slate-800/80 transition-all rounded-xl px-6 py-3 font-semibold text-sm"
 						data-camino-cta="platform-{platform.id}"
 					>
-						Prueba Gratis
+						{$_('plataformas.trialButton')}
 					</a>
 				</div>
 			{/each}
@@ -189,7 +190,7 @@
 <section class="py-20 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-4xl mx-auto text-center" use:scrollReveal>
 		<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">
-			{ctaData.title.split(' ').slice(0, -3).join(' ')} <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">{ctaData.title.split(' ').slice(-3).join(' ')}</span>
+			{ctaData.title}
 		</h2>
 		<p class="text-lg text-slate-400 mb-8 max-w-2xl mx-auto">{ctaData.subtitle}</p>
 		<div class="flex flex-col sm:flex-row gap-4 justify-center">

@@ -65,7 +65,7 @@
 
       if (!response.ok) {
         const err = await response.json().catch(() => ({}));
-        messages[assistantIndex].content = (err as any).fallback || 'Lo siento, hubo un error. Intenta de nuevo.';
+        messages[assistantIndex].content = (err as any).fallback || $_('chat.errorGeneric');
         isLoading = false;
         scrollToBottom();
         return;
@@ -105,7 +105,7 @@
       messages[assistantIndex].content = stripLeadTags(messages[assistantIndex].content);
 
     } catch {
-      messages[assistantIndex].content = 'Lo siento, no pude conectar con el servidor. Intenta de nuevo.';
+      messages[assistantIndex].content = $_('chat.errorConnection');
     }
 
     isLoading = false;
@@ -125,7 +125,7 @@
     if (isOpen && messages.length === 0) {
       messages.push({
         role: 'assistant',
-        content: '¡Hola! Soy el asistente de Red Broom Software. ¿En qué puedo ayudarte hoy? Puedo informarte sobre nuestros productos, agendar una demo, o resolver tus dudas.'
+        content: $_('chat.greeting')
       });
     }
     scrollToBottom();
@@ -138,8 +138,8 @@
   function openWhatsApp() {
     const lastUserMsg = messages.filter(m => m.role === 'user').pop()?.content || '';
     const prefilledText = lastUserMsg
-      ? `Hola, vengo del chat de su sitio web. Estaba preguntando sobre: ${lastUserMsg}`
-      : 'Hola, me gustaría más información sobre sus productos.';
+      ? $_('chat.whatsappPrefill').replace('{message}', lastUserMsg)
+      : $_('chat.whatsappDefault');
     window.open(`${WHATSAPP_URL}?text=${encodeURIComponent(prefilledText)}`, '_blank');
   }
 </script>
@@ -148,7 +148,7 @@
 <button
   onclick={toggleChat}
   class="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-r from-blue-500 to-purple-600 text-white shadow-lg shadow-blue-500/25 transition-all duration-300 hover:scale-110 hover:shadow-xl hover:shadow-blue-500/40"
-  aria-label={isOpen ? 'Cerrar chat' : 'Abrir chat'}
+  aria-label={isOpen ? $_('chat.closeChat') : $_('chat.openChat')}
 >
   {#if isOpen}
     <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -180,14 +180,14 @@
       </div>
       <div class="flex-1">
         <p class="text-sm font-semibold text-white">Red Broom Software</p>
-        <p class="text-xs text-slate-400">Asistente de ventas</p>
+        <p class="text-xs text-slate-400">{$_('chat.salesAssistant')}</p>
       </div>
       <div class="flex items-center gap-1">
         <!-- WhatsApp button -->
         <button
           onclick={openWhatsApp}
           class="rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-800 hover:text-green-400"
-          title="Continuar por WhatsApp"
+          title={$_('chat.continueWhatsApp')}
         >
           <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -197,7 +197,7 @@
         <button
           onclick={toggleExpand}
           class="hidden rounded-lg p-1.5 text-slate-400 transition-colors hover:bg-slate-800 hover:text-white sm:block"
-          title={isExpanded ? 'Reducir' : 'Expandir'}
+          title={isExpanded ? $_('chat.collapse') : $_('chat.expand')}
         >
           {#if isExpanded}
             <svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -246,7 +246,7 @@
           type="text"
           bind:value={inputText}
           onkeydown={handleKeydown}
-          placeholder="Escribe tu mensaje..."
+          placeholder={$_('chat.placeholder')}
           disabled={isLoading}
           class="flex-1 rounded-xl border border-slate-700 bg-slate-800/50 px-4 py-2.5 text-sm text-white placeholder-slate-500 outline-none transition-colors focus:border-blue-500 disabled:opacity-50"
         />
@@ -270,9 +270,9 @@
           <svg class="h-3.5 w-3.5" viewBox="0 0 24 24" fill="currentColor">
             <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
           </svg>
-          Continuar por WhatsApp
+          {$_('chat.continueWhatsApp')}
         </a>
-        <p class="text-[10px] text-slate-600">Powered by RBS AI</p>
+        <p class="text-[10px] text-slate-600">{$_('chat.poweredBy')}</p>
       </div>
     </div>
   </div>

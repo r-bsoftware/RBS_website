@@ -13,59 +13,43 @@
 		'SPEI', 'CoDi', 'WhatsApp', 'Node.js'
 	];
 
-	const ecosystemApps = [
-		{ name: 'Patadas', desc: 'AI Marketplace — broker inteligente', gradient: 'from-orange-500 to-red-500', badge: 'Puerta de Entrada' },
-		{ name: 'Camino', desc: 'CRM con copiloto IA, SSO, marketing', gradient: 'from-cyan-500 to-blue-500', badge: 'Infraestructura' },
-		{ name: 'Colectiva', desc: 'Pagos, escrow, wallets, cerebro IA', gradient: 'from-purple-500 to-pink-500', badge: 'Infraestructura' },
-		{ name: 'Constanza', desc: 'Contabilidad, CFDI, facturación intl', gradient: 'from-blue-500 to-indigo-500', badge: 'Infraestructura' },
-		{ name: 'Agora', desc: 'Legal: contratos, trust, time tracking', gradient: 'from-indigo-500 to-violet-500', badge: 'Vertical' },
-		{ name: 'Caracol', desc: 'POS con añadas, FIFO, facturación', gradient: 'from-green-500 to-emerald-500', badge: 'Revenue' },
-		{ name: 'Comal', desc: 'E-commerce con clubs de suscripción', gradient: 'from-blue-400 to-cyan-400', badge: 'Revenue' },
-		{ name: 'La Hoja', desc: 'ERP de producción, recetas, costos', gradient: 'from-teal-500 to-green-500', badge: 'Vertical' },
-		{ name: 'Mancha', desc: 'Reservaciones con IA predictiva', gradient: 'from-red-500 to-orange-500', badge: 'Vertical' },
-		{ name: 'Plenura', desc: 'Marketplace de terapeutas, video', gradient: 'from-pink-500 to-rose-500', badge: 'Vertical' },
-		{ name: 'Rito', desc: 'Capital privado e inversiones', gradient: 'from-amber-500 to-yellow-500', badge: 'Revenue' },
-		{ name: 'Cosmos Pet', desc: 'Veterinaria: SOAP, cirugía, vacunas', gradient: 'from-yellow-500 to-amber-500', badge: 'Vertical' }
-	];
+	const ecosystemAppKeys = [
+		{ key: 'patadas', gradient: 'from-orange-500 to-red-500' },
+		{ key: 'camino', gradient: 'from-cyan-500 to-blue-500' },
+		{ key: 'colectiva', gradient: 'from-purple-500 to-pink-500' },
+		{ key: 'constanza', gradient: 'from-blue-500 to-indigo-500' },
+		{ key: 'agora', gradient: 'from-indigo-500 to-violet-500' },
+		{ key: 'caracol', gradient: 'from-green-500 to-emerald-500' },
+		{ key: 'comal', gradient: 'from-blue-400 to-cyan-400' },
+		{ key: 'lahoja', gradient: 'from-teal-500 to-green-500' },
+		{ key: 'mancha', gradient: 'from-red-500 to-orange-500' },
+		{ key: 'plenura', gradient: 'from-pink-500 to-rose-500' },
+		{ key: 'rito', gradient: 'from-amber-500 to-yellow-500' },
+		{ key: 'cosmosPet', gradient: 'from-yellow-500 to-amber-500' }
+	] as const;
 
-	const pillars = [
-		{
-			icon: '🧠',
-			title: 'IA en Todo',
-			desc: 'Copiloto de ventas, matching inteligente, análisis fiscal, predicción de demanda, generación de contratos. No es un feature — es la base.'
-		},
-		{
-			icon: '🔗',
-			title: 'Ecosistema Integrado',
-			desc: 'Cada app comparte autenticación, pagos, facturación e inteligencia. Agrega una y las demás se vuelven más inteligentes.'
-		},
-		{
-			icon: '🌎',
-			title: 'Alcance Global',
-			desc: 'CFDI para México, facturas estándar para internacional. Bilingüe EN+ES. Contratos legales adaptados por jurisdicción.'
-		},
-		{
-			icon: '🛡️',
-			title: 'Enterprise desde el Día 1',
-			desc: 'RLS en cada tabla, HMAC en cada webhook, escrow en cada transacción, JWT verificado criptográficamente. No hay atajos.'
-		}
-	];
+	const pillarKeys = [
+		{ key: 'aiEverything', icon: '🧠' },
+		{ key: 'integratedEcosystem', icon: '🔗' },
+		{ key: 'globalReach', icon: '🌎' },
+		{ key: 'enterpriseDay1', icon: '🛡️' }
+	] as const;
 </script>
 
 <svelte:head>
-	<title>Red Broom Software — 22 Apps, Un Ecosistema Inteligente</title>
-	<meta name="description" content="Construimos el ecosistema de software empresarial más integrado del mundo. 22 aplicaciones con IA, pagos, facturación y contratos — conectadas por un SDK y un marketplace inteligente." />
+	<title>{$_('home.meta.title')}</title>
+	<meta name="description" content={$_('home.meta.description')} />
 	<link rel="canonical" href="https://redbroomsoftware.com/" />
 
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://redbroomsoftware.com/" />
-	<meta property="og:title" content="Red Broom Software — 22 Apps, Un Ecosistema Inteligente" />
-	<meta property="og:description" content="22 aplicaciones con IA conectadas por un SDK unificado. POS, CRM, pagos, contabilidad, legal, e-commerce — todo integrado." />
+	<meta property="og:title" content={$_('home.meta.title')} />
+	<meta property="og:description" content={$_('home.meta.description')} />
 	<meta property="og:image" content="https://redbroomsoftware.com/logo.svg" />
 	<meta property="og:locale" content="es_MX" />
 
 	<meta name="twitter:card" content="summary_large_image" />
-	<meta name="twitter:title" content="Red Broom Software — Ecosistema de 22 Apps" />
+	<meta name="twitter:title" content={$_('home.meta.title')} />
 
 	{@html `<script type="application/ld+json">
 	{
@@ -95,27 +79,26 @@
 		<div class="max-w-7xl mx-auto text-center relative">
 			<div class="inline-flex items-center px-4 py-2 glass rounded-full text-sm text-slate-300 mb-8">
 				<span class="w-2 h-2 bg-emerald-400 rounded-full mr-2 animate-pulse"></span>
-				22 aplicaciones · 1 SDK · IA en todo
+				{$_('home.hero.badge')}
 			</div>
 
 			<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
-				Construimos<br />
-				<TypewriterText words={['software inteligente', 'ecosistemas conectados', 'plataformas con IA', 'soluciones que escalan']} interval={2500} />
+				{$_('home.hero.titlePart1')}<br />
+				<TypewriterText words={[$_('home.hero.typewriterWords.0'), $_('home.hero.typewriterWords.1'), $_('home.hero.typewriterWords.2'), $_('home.hero.typewriterWords.3')]} interval={2500} />
 				<br />
-				<span class="text-slate-300">para negocios globales</span>
+				<span class="text-slate-300">{$_('home.hero.forGlobalBusiness')}</span>
 			</h1>
 
 			<p class="text-xl text-slate-400 mb-10 max-w-3xl mx-auto leading-relaxed">
-				Red Broom Software es el ecosistema de software empresarial más integrado del mundo.
-				22 aplicaciones que comparten autenticación, pagos, facturación e inteligencia artificial.
+				{$_('home.hero.subtitle')}
 			</p>
 
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
 				<a href="https://patadas.redbroomsoftware.com/get-started" class="px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all text-lg font-semibold shadow-lg shadow-orange-500/25 hover:shadow-xl hover:-translate-y-0.5">
-					⚡ Encontrar mi solución
+					{$_('home.cta.findSolution')}
 				</a>
 				<a href="https://patadas.redbroomsoftware.com/developers/apply" class="px-8 py-4 glass text-white rounded-xl hover:bg-slate-800/80 transition-all text-lg font-semibold">
-					Unirse como desarrollador
+					{$_('home.cta.joinDeveloper')}
 				</a>
 			</div>
 
@@ -123,19 +106,19 @@
 			<div class="grid grid-cols-2 sm:grid-cols-4 gap-8 mt-20 max-w-3xl mx-auto">
 				<div>
 					<p class="text-4xl font-bold text-white"><AnimatedCounter value={22} /></p>
-					<p class="text-slate-400 text-sm">Aplicaciones</p>
+					<p class="text-slate-400 text-sm">{$_('home.stats.apps')}</p>
 				</div>
 				<div>
 					<p class="text-4xl font-bold text-white"><AnimatedCounter value={10} suffix="+" /></p>
-					<p class="text-slate-400 text-sm">Industrias</p>
+					<p class="text-slate-400 text-sm">{$_('home.stats.industries')}</p>
 				</div>
 				<div>
 					<p class="text-4xl font-bold text-white">1</p>
-					<p class="text-slate-400 text-sm">SDK unificado</p>
+					<p class="text-slate-400 text-sm">{$_('home.stats.sdk')}</p>
 				</div>
 				<div>
 					<p class="text-4xl font-bold text-white">2</p>
-					<p class="text-slate-400 text-sm">Idiomas</p>
+					<p class="text-slate-400 text-sm">{$_('home.stats.languages')}</p>
 				</div>
 			</div>
 		</div>
@@ -155,15 +138,13 @@
 		<div class="max-w-5xl mx-auto">
 			<div class="glass-strong rounded-3xl p-8 md:p-12 text-center" use:scrollReveal>
 				<div class="text-5xl mb-4">⚡</div>
-				<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Patadas</h2>
-				<p class="text-xl text-slate-300 mb-2">Nuestro marketplace inteligente</p>
+				<h2 class="text-3xl md:text-4xl font-bold text-white mb-4">{$_('home.patadas.title')}</h2>
+				<p class="text-xl text-slate-300 mb-2">{$_('home.patadas.subtitle')}</p>
 				<p class="text-slate-400 max-w-2xl mx-auto mb-8">
-					¿Necesitas una solución de software o un desarrollador de IA? Patadas te evalúa,
-					te conecta con el producto correcto o un desarrollador verificado, genera el contrato,
-					maneja el escrow y la facturación. Todo en un solo lugar.
+					{$_('home.patadas.description')}
 				</p>
 				<a href="https://patadas.redbroomsoftware.com" class="inline-flex px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all text-lg font-semibold shadow-lg shadow-orange-500/25 hover:shadow-xl hover:-translate-y-0.5">
-					Ir a Patadas →
+					{$_('home.patadas.button')} →
 				</a>
 			</div>
 		</div>
@@ -173,21 +154,21 @@
 	<section class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
 		<div class="max-w-7xl mx-auto">
 			<div class="text-center mb-16" use:scrollReveal>
-				<h2 class="text-4xl font-bold text-white mb-4">¿Qué nos hace diferentes?</h2>
+				<h2 class="text-4xl font-bold text-white mb-4">{$_('home.pillars.title')}</h2>
 				<p class="text-xl text-slate-400 max-w-2xl mx-auto">
-					No somos una agencia. No somos un marketplace genérico. Somos dueños de cada producto que recomendamos.
+					{$_('home.pillars.subtitle')}
 				</p>
 			</div>
 
 			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-				{#each pillars as pillar, i}
+				{#each pillarKeys as pillar, i}
 					<div
 						use:scrollReveal={{ delay: i * 100 }}
 						class="glass rounded-2xl p-8 hover:border-blue-500/50 transition-all group"
 					>
 						<div class="text-4xl mb-4">{pillar.icon}</div>
-						<h3 class="text-xl font-bold text-white mb-3">{pillar.title}</h3>
-						<p class="text-slate-400 leading-relaxed">{pillar.desc}</p>
+						<h3 class="text-xl font-bold text-white mb-3">{$_(`home.pillars.${pillar.key}.title`)}</h3>
+						<p class="text-slate-400 leading-relaxed">{$_(`home.pillars.${pillar.key}.desc`)}</p>
 					</div>
 				{/each}
 			</div>
@@ -198,22 +179,22 @@
 	<section class="py-24 px-4 sm:px-6 lg:px-8">
 		<div class="max-w-7xl mx-auto">
 			<div class="text-center mb-16" use:scrollReveal>
-				<h2 class="text-4xl font-bold text-white mb-4">El Ecosistema</h2>
-				<p class="text-xl text-slate-400">22 apps que comparten autenticación, pagos, facturación e IA</p>
+				<h2 class="text-4xl font-bold text-white mb-4">{$_('home.ecosystem.title')}</h2>
+				<p class="text-xl text-slate-400">{$_('home.ecosystem.subtitle')}</p>
 			</div>
 
 			<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-				{#each ecosystemApps as app, i}
+				{#each ecosystemAppKeys as app, i}
 					<div
 						use:scrollReveal={{ delay: i * 50 }}
 						class="glass rounded-xl p-5 hover:scale-[1.03] transition-all group"
 					>
 						<div class="w-10 h-10 rounded-lg bg-gradient-to-r {app.gradient} mb-3 opacity-80 group-hover:opacity-100 transition-opacity"></div>
 						<span class="inline-block px-2 py-0.5 bg-slate-700/50 text-slate-400 rounded-full text-[10px] font-medium mb-2">
-							{app.badge}
+							{$_(`home.ecosystem.apps.${app.key}.badge`)}
 						</span>
-						<h3 class="text-lg font-bold text-white">{app.name}</h3>
-						<p class="text-slate-400 text-sm">{app.desc}</p>
+						<h3 class="text-lg font-bold text-white">{$_(`home.ecosystem.apps.${app.key}.name`)}</h3>
+						<p class="text-slate-400 text-sm">{$_(`home.ecosystem.apps.${app.key}.desc`)}</p>
 					</div>
 				{/each}
 			</div>
@@ -224,8 +205,8 @@
 	<section class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
 		<div class="max-w-5xl mx-auto">
 			<div class="text-center mb-12" use:scrollReveal>
-				<h2 class="text-4xl font-bold text-white mb-4">Un ecosistema conectado</h2>
-				<p class="text-xl text-slate-400">Cada app fortalece a las demás</p>
+				<h2 class="text-4xl font-bold text-white mb-4">{$_('home.ecosystemDiagram.title')}</h2>
+				<p class="text-xl text-slate-400">{$_('home.ecosystemDiagram.subtitle')}</p>
 			</div>
 			<div use:scrollReveal>
 				<EcosystemDiagram />
@@ -237,17 +218,16 @@
 	<section class="py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
 		<div class="absolute inset-0 bg-gradient-to-r from-orange-600/5 via-purple-600/5 to-orange-600/5"></div>
 		<div class="max-w-4xl mx-auto text-center relative" use:scrollReveal>
-			<h2 class="text-4xl font-bold text-white mb-6">¿Listo para empezar?</h2>
+			<h2 class="text-4xl font-bold text-white mb-6">{$_('home.finalCta.title')}</h2>
 			<p class="text-xl text-slate-400 mb-10">
-				Ya sea que necesites un producto listo o un desarrollador verificado,
-				Patadas te conecta con la solución correcta.
+				{$_('home.finalCta.subtitle')}
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
 				<a href="https://patadas.redbroomsoftware.com/get-started" class="px-10 py-5 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all text-lg font-semibold shadow-lg shadow-orange-500/25 hover:shadow-xl hover:-translate-y-0.5">
-					⚡ Encontrar mi solución
+					{$_('home.finalCta.findSolution')}
 				</a>
 				<a href="mailto:dia@redbroomsoftware.com" class="px-10 py-5 glass text-white rounded-xl hover:bg-slate-800/80 transition-all text-lg font-semibold">
-					Contacto directo
+					{$_('home.finalCta.directContact')}
 				</a>
 			</div>
 		</div>

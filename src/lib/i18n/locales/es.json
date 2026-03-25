@@ -15,29 +15,92 @@
 		"developers": "Developers",
 		"pricing": "Plataformas",
 		"menu": "Menu",
-		"skipToContent": "Saltar al contenido"
+		"skipToContent": "Saltar al contenido",
+		"switchLanguage": "Cambiar idioma"
 	},
 	"home": {
 		"meta": {
-			"title": "Red Broom Software - Desarrollo de Software Empresarial",
-			"description": "Desarrollamos software empresarial de alto rendimiento: SaaS, POS, ERP, CRM con IA, apps moviles. Especialistas en soluciones para PyMEs mexicanas."
+			"title": "Red Broom Software — 22 Apps, Un Ecosistema Inteligente",
+			"description": "Construimos el ecosistema de software empresarial mas integrado del mundo. 22 aplicaciones con IA, pagos, facturacion y contratos — conectadas por un SDK y un marketplace inteligente."
 		},
 		"hero": {
-			"badge": "16 productos en produccion",
+			"badge": "22 aplicaciones · 1 SDK · IA en todo",
 			"titlePart1": "Construimos",
 			"titleHighlight": "software",
 			"titlePart2": "de alto rendimiento",
-			"subtitle": "Desarrollo de plataformas SaaS, sistemas POS/ERP, CRM con IA, y aplicaciones moviles. Especialistas en soluciones para PyMEs mexicanas."
+			"subtitle": "Red Broom Software es el ecosistema de software empresarial mas integrado del mundo. 22 aplicaciones que comparten autenticacion, pagos, facturacion e inteligencia artificial.",
+			"typewriterWords": ["software inteligente", "ecosistemas conectados", "plataformas con IA", "soluciones que escalan"],
+			"forGlobalBusiness": "para negocios globales"
 		},
 		"cta": {
+			"findSolution": "Encontrar mi solucion",
+			"joinDeveloper": "Unirse como desarrollador",
 			"viewPortfolio": "Ver Portafolio",
 			"startProject": "Iniciar Proyecto",
 			"startConversation": "Iniciar conversacion"
 		},
 		"stats": {
+			"apps": "Aplicaciones",
+			"industries": "Industrias",
+			"sdk": "SDK unificado",
+			"languages": "Idiomas",
 			"products": "Productos en produccion",
-			"industries": "Industrias diferentes",
+			"industriesDifferent": "Industrias diferentes",
 			"uptime": "Uptime promedio"
+		},
+		"patadas": {
+			"title": "Patadas",
+			"subtitle": "Nuestro marketplace inteligente",
+			"description": "Necesitas una solucion de software o un desarrollador de IA? Patadas te evalua, te conecta con el producto correcto o un desarrollador verificado, genera el contrato, maneja el escrow y la facturacion. Todo en un solo lugar.",
+			"button": "Ir a Patadas"
+		},
+		"pillars": {
+			"title": "Que nos hace diferentes?",
+			"subtitle": "No somos una agencia. No somos un marketplace generico. Somos duenos de cada producto que recomendamos.",
+			"aiEverything": {
+				"title": "IA en Todo",
+				"desc": "Copiloto de ventas, matching inteligente, analisis fiscal, prediccion de demanda, generacion de contratos. No es un feature — es la base."
+			},
+			"integratedEcosystem": {
+				"title": "Ecosistema Integrado",
+				"desc": "Cada app comparte autenticacion, pagos, facturacion e inteligencia. Agrega una y las demas se vuelven mas inteligentes."
+			},
+			"globalReach": {
+				"title": "Alcance Global",
+				"desc": "CFDI para Mexico, facturas estandar para internacional. Bilingue EN+ES. Contratos legales adaptados por jurisdiccion."
+			},
+			"enterpriseDay1": {
+				"title": "Enterprise desde el Dia 1",
+				"desc": "RLS en cada tabla, HMAC en cada webhook, escrow en cada transaccion, JWT verificado criptograficamente. No hay atajos."
+			}
+		},
+		"ecosystem": {
+			"title": "El Ecosistema",
+			"subtitle": "22 apps que comparten autenticacion, pagos, facturacion e IA",
+			"apps": {
+				"patadas": { "name": "Patadas", "desc": "AI Marketplace — broker inteligente", "badge": "Puerta de Entrada" },
+				"camino": { "name": "Camino", "desc": "CRM con copiloto IA, SSO, marketing", "badge": "Infraestructura" },
+				"colectiva": { "name": "Colectiva", "desc": "Pagos, escrow, wallets, cerebro IA", "badge": "Infraestructura" },
+				"constanza": { "name": "Constanza", "desc": "Contabilidad, CFDI, facturacion intl", "badge": "Infraestructura" },
+				"agora": { "name": "Agora", "desc": "Legal: contratos, trust, time tracking", "badge": "Vertical" },
+				"caracol": { "name": "Caracol", "desc": "POS con anadas, FIFO, facturacion", "badge": "Revenue" },
+				"comal": { "name": "Comal", "desc": "E-commerce con clubs de suscripcion", "badge": "Revenue" },
+				"lahoja": { "name": "La Hoja", "desc": "ERP de produccion, recetas, costos", "badge": "Vertical" },
+				"mancha": { "name": "Mancha", "desc": "Reservaciones con IA predictiva", "badge": "Vertical" },
+				"plenura": { "name": "Plenura", "desc": "Marketplace de terapeutas, video", "badge": "Vertical" },
+				"rito": { "name": "Rito", "desc": "Capital privado e inversiones", "badge": "Revenue" },
+				"cosmosPet": { "name": "Cosmos Pet", "desc": "Veterinaria: SOAP, cirugia, vacunas", "badge": "Vertical" }
+			}
+		},
+		"ecosystemDiagram": {
+			"title": "Un ecosistema conectado",
+			"subtitle": "Cada app fortalece a las demas"
+		},
+		"finalCta": {
+			"title": "Listo para empezar?",
+			"subtitle": "Ya sea que necesites un producto listo o un desarrollador verificado, Patadas te conecta con la solucion correcta.",
+			"findSolution": "Encontrar mi solucion",
+			"directContact": "Contacto directo"
 		},
 		"capabilities": {
 			"title": "Que desarrollamos?",
@@ -325,6 +388,14 @@
 				"highlights": ["Multi-industria", "Confirmaciones auto", "Widget embebible", "Integra con Camino IA"]
 			}
 		},
+		"categories": {
+			"all": "Todos",
+			"core": "Core",
+			"hospitality": "Hospitalidad",
+			"verticals": "Verticales",
+			"fintech": "FinTech",
+			"marketplaces": "Marketplaces"
+		},
 		"stats": {
 			"saasProducts": "Productos SaaS",
 			"b2cServices": "Servicios B2C",
@@ -410,17 +481,25 @@
 				"name": "OpenAI GPT-4",
 				"description": "Agentes conversacionales y clasificacion"
 			},
+			"groq": {
+				"name": "Groq",
+				"description": "Proveedor principal: inferencia ultra-rapida"
+			},
 			"claude": {
-				"name": "Claude",
-				"description": "Analisis de documentos y codigo"
+				"name": "Anthropic Claude",
+				"description": "Agentes con herramientas y analisis de documentos"
+			},
+			"gemini": {
+				"name": "Google Gemini",
+				"description": "Contexto largo para documentos extensos"
 			},
 			"whisper": {
 				"name": "Whisper",
 				"description": "Transcripcion de audio"
 			},
 			"customml": {
-				"name": "Custom ML",
-				"description": "Modelos propios para casos especificos"
+				"name": "Modelos Propios",
+				"description": "Scoring, matching y clasificacion especificos"
 			},
 			"satcfdi": {
 				"name": "SAT/CFDI 4.0",
@@ -461,6 +540,54 @@
 			"cloudflare": {
 				"name": "Cloudflare",
 				"description": "DNS, CDN, proteccion"
+			}
+		},
+		"agents": {
+			"title": "Arquitectura de Agentes",
+			"subtitle": "Todos los agentes del ecosistema RBS comparten una infraestructura centralizada: enrutamiento inteligente al proveedor mas economico capaz, herramientas MCP para acceso a datos en tiempo real, y ciclo agentico para tareas de multiples pasos.",
+			"live": "En vivo",
+			"liveTitle": "Agentes en produccion",
+			"pipeline": {
+				"request": {
+					"title": "App cliente",
+					"desc": "Camino, Rito, Plenura u otro app envia mensajes y herramientas disponibles al proxy centralizado"
+				},
+				"route": {
+					"title": "AI Router (Colectiva)",
+					"desc": "Herramientas → Anthropic · Contexto largo → Gemini · Texto simple → Groq"
+				},
+				"execute": {
+					"title": "Herramientas MCP",
+					"desc": "Acceso a Firestore, Supabase, APIs externas. Ciclo agentico hasta completar la tarea"
+				},
+				"meter": {
+					"title": "Metering centralizado",
+					"desc": "Tokens contados, costo calculado en MXN, cuota aplicada por organizacion"
+				}
+			},
+			"oracle": {
+				"title": "Oracle",
+				"desc": "Chat interno de BI con 15+ herramientas MCP: consulta en tiempo real acuerdos, distribuciones, quotas, wallets y salud del ecosistema."
+			},
+			"dealCopilot": {
+				"title": "Deal Copilot",
+				"desc": "Asistente de underwriting con 8 herramientas: analiza PDFs de deals, genera pro-formas, calcula distribuciones y redacta paquetes para instituciones financieras."
+			},
+			"support": {
+				"title": "Agentes de Atencion",
+				"desc": "Atienden WhatsApp y llamadas 24/7, califican prospectos, coordinan citas y sintetizan conversaciones. El equipo solo interviene con oportunidades reales."
+			},
+			"wellness": {
+				"title": "Matching de Bienestar",
+				"desc": "Prescreening conversacional, matching semantico paciente-terapeuta, notas de sesion automatizadas y resumenes de resenas."
+			},
+			"fiscal": {
+				"title": "Clasificacion Fiscal",
+				"desc": "Clasifica transacciones contables, sugiere cuentas SAT, detecta deducciones y genera DIOT sin intervencion manual."
+			},
+			"legal": {
+				"title": "Redaccion Legal",
+				"desc": "Genera 8 tipos de documentos legales desde contexto de casos: contratos, poderes, convenios y escritos judiciales en segundos."
 			}
 		},
 		"cta": {
@@ -531,6 +658,273 @@
 		"description": "Desarrollo de software empresarial de alto rendimiento.",
 		"services": "Servicios",
 		"company": "Empresa",
-		"legal": "Legal"
+		"legal": "Legal",
+		"ecosystem": "Ecosistema",
+		"copyright": "Red Broom Software S.A.S. de C.V. Todos los derechos reservados."
+	},
+	"plataformas": {
+		"meta": {
+			"title": "Plataformas — Red Broom Software",
+			"description": "Plataformas SaaS integradas para empresas mexicanas. Punto de venta, e-commerce, facturacion, CRM y mas. Precios en pesos."
+		},
+		"hero": {
+			"title": "Soluciones para tu",
+			"titleHighlight": "Negocio",
+			"subtitle": "Cada plataforma resuelve un problema real. Usa las que necesites — entre mas uses, mas ahorras.",
+			"ctaPrimary": "Explorar Plataformas",
+			"ctaSecondary": "Cotizacion Personalizada"
+		},
+		"bundle": {
+			"title": "Descuento multi-app",
+			"subtitle": "automatico al suscribirte a mas de una plataforma",
+			"description": "Los descuentos aplican sobre la suscripcion base. Sin codigos, sin tramites.",
+			"apps2": "2 apps",
+			"apps3": "3 apps",
+			"apps4": "4+ apps"
+		},
+		"grid": {
+			"title": "Nuestras Plataformas",
+			"subtitle": "Cada una con su propio precio justo, disenada para resolver un problema especifico."
+		},
+		"trialButton": "Prueba Gratis",
+		"enterprise": {
+			"title": "Necesitas una solucion a medida?",
+			"subtitle": "Para empresas con multiples sucursales, integraciones personalizadas o volumenes altos — disenamos paquetes a medida con precios preferenciales y soporte dedicado.",
+			"ctaPrimary": "Cotizacion Personalizada",
+			"ctaSecondary": "Empezar con Prueba Gratis"
+		}
+	},
+	"privacy": {
+		"meta": {
+			"title": "Aviso de Privacidad - Red Broom Software",
+			"description": "Aviso de Privacidad de Red Broom Software S.A.S. de C.V. Conoce como protegemos y tratamos tus datos personales."
+		},
+		"title": "Aviso de Privacidad",
+		"lastUpdated": "Ultima actualizacion",
+		"date": "19 de diciembre de 2025",
+		"section1": {
+			"title": "1. Identidad del Responsable",
+			"p1": "(en adelante \"RBS\", \"nosotros\" o \"la Empresa\"), con domicilio en Ciudad de Mexico, Mexico, es responsable del tratamiento de sus datos personales.",
+			"p2": "Para cualquier duda o ejercicio de derechos ARCO, puede contactarnos en:"
+		},
+		"section2": {
+			"title": "2. Datos Personales Recabados",
+			"intro": "Para las finalidades senaladas en el presente aviso de privacidad, podemos recabar las siguientes categorias de datos personales:",
+			"items": {
+				"identification": { "label": "Datos de identificacion:", "desc": "nombre completo, RFC, CURP, direccion" },
+				"contact": { "label": "Datos de contacto:", "desc": "correo electronico, numero telefonico" },
+				"work": { "label": "Datos laborales:", "desc": "nombre de la empresa, cargo, giro comercial" },
+				"fiscal": { "label": "Datos fiscales:", "desc": "regimen fiscal, certificados digitales (CSD), domicilio fiscal" },
+				"financial": { "label": "Datos financieros:", "desc": "informacion bancaria para procesamiento de pagos" },
+				"usage": { "label": "Datos de uso:", "desc": "informacion sobre como utiliza nuestros servicios, logs de acceso" }
+			}
+		},
+		"section3": {
+			"title": "3. Finalidades del Tratamiento",
+			"intro": "Sus datos personales seran utilizados para las siguientes finalidades primarias:",
+			"primary": [
+				"Provision de servicios de software contratados (POS, ERP, CRM, facturacion)",
+				"Emision de Comprobantes Fiscales Digitales por Internet (CFDI)",
+				"Procesamiento de pagos y transacciones",
+				"Soporte tecnico y atencion al cliente",
+				"Comunicaciones relacionadas con su cuenta y servicios",
+				"Cumplimiento de obligaciones legales y fiscales"
+			],
+			"secondaryIntro": "Finalidades secundarias (puede oponerse):",
+			"secondary": [
+				"Envio de comunicaciones promocionales y de marketing",
+				"Encuestas de satisfaccion y mejora de servicios",
+				"Invitaciones a eventos y webinars"
+			]
+		},
+		"section4": {
+			"title": "4. Transferencias de Datos",
+			"intro": "Sus datos personales podran ser transferidos a:",
+			"items": {
+				"cloud": { "label": "Proveedores de servicios en la nube:", "desc": "para almacenamiento y procesamiento (Google Cloud, Firebase)" },
+				"pac": { "label": "Proveedores de Autorizacion de Certificados (PAC):", "desc": "para timbrado de CFDI ante el SAT" },
+				"payment": { "label": "Procesadores de pago:", "desc": "para gestion de transacciones" },
+				"authorities": { "label": "Autoridades competentes:", "desc": "cuando sea requerido por ley" }
+			},
+			"note": "Todas las transferencias se realizan conforme a la legislacion aplicable y con las medidas de seguridad necesarias."
+		},
+		"section5": {
+			"title": "5. Derechos ARCO",
+			"intro": "Usted tiene derecho a:",
+			"access": { "label": "Acceder", "desc": "a sus datos personales en nuestra posesion" },
+			"rectify": { "label": "Rectificar", "desc": "sus datos cuando sean inexactos o incompletos" },
+			"cancel": { "label": "Cancelar", "desc": "sus datos cuando considere que no se requieren para las finalidades" },
+			"oppose": { "label": "Oponerse", "desc": "al tratamiento de sus datos para fines especificos" },
+			"howTo": "Para ejercer estos derechos, envie su solicitud a",
+			"howToSuffix": "con los siguientes datos: nombre completo, descripcion clara de su solicitud, documentos que acrediten su identidad."
+		},
+		"section6": {
+			"title": "6. Medidas de Seguridad",
+			"intro": "Implementamos medidas de seguridad tecnicas, administrativas y fisicas para proteger sus datos personales, incluyendo:",
+			"items": [
+				"Encriptacion AES-256 para datos sensibles",
+				"Conexiones seguras mediante HTTPS/TLS",
+				"Controles de acceso basados en roles",
+				"Monitoreo y auditoria de accesos",
+				"Respaldos automaticos y plan de recuperacion",
+				"Cumplimiento con estandares PCI DSS para datos de pago"
+			]
+		},
+		"section7": {
+			"title": "7. Uso de Cookies y Tecnologias",
+			"content": "Utilizamos cookies y tecnologias similares para mejorar su experiencia en nuestros sitios web. Estas tecnologias nos permiten recordar sus preferencias, analizar el uso del sitio y personalizar contenido. Puede configurar su navegador para rechazar cookies, aunque esto podria afectar la funcionalidad del sitio."
+		},
+		"section8": {
+			"title": "8. Cambios al Aviso de Privacidad",
+			"content": "Nos reservamos el derecho de modificar este aviso de privacidad en cualquier momento. Los cambios seran publicados en esta pagina y, en caso de cambios significativos, le notificaremos por correo electronico. Le recomendamos revisar periodicamente esta pagina."
+		},
+		"section9": {
+			"title": "9. Contacto",
+			"intro": "Si tiene preguntas sobre este aviso de privacidad o sobre el tratamiento de sus datos personales, puede contactarnos en:",
+			"location": "Ciudad de Mexico, Mexico"
+		}
+	},
+	"terms": {
+		"meta": {
+			"title": "Terminos de Servicio - Red Broom Software",
+			"description": "Terminos y Condiciones de Uso de los servicios de Red Broom Software S.A.S. de C.V."
+		},
+		"title": "Terminos de Servicio",
+		"lastUpdated": "Ultima actualizacion",
+		"date": "19 de diciembre de 2025",
+		"section1": {
+			"title": "1. Aceptacion de los Terminos",
+			"content": "Al acceder y utilizar los servicios de Red Broom Software S.A.S. de C.V. (incluyendo pero no limitado a Caracol, La Hoja, Cosmos Pet, Camino CRM, Colectiva y Constanza), usted acepta estar sujeto a estos Terminos de Servicio. Si no esta de acuerdo con alguna parte de estos terminos, no podra acceder a nuestros servicios."
+		},
+		"section2": {
+			"title": "2. Descripcion de los Servicios",
+			"intro": "RBS proporciona software empresarial en modalidad SaaS (Software como Servicio), que incluye:",
+			"items": {
+				"caracol": { "label": "Caracol:", "desc": "Gestion de inventario e importaciones complejas" },
+				"lahoja": { "label": "La Hoja:", "desc": "ERP para cafeterias y retail" },
+				"cosmos": { "label": "Cosmos Pet:", "desc": "Software para clinicas veterinarias" },
+				"camino": { "label": "Camino CRM:", "desc": "Sistema de gestion de relaciones con clientes" },
+				"colectiva": { "label": "Colectiva:", "desc": "Gateway de pagos y hub de IA" },
+				"constanza": { "label": "Constanza:", "desc": "Plataforma de contabilidad inteligente" }
+			}
+		},
+		"section3": {
+			"title": "3. Registro y Cuenta",
+			"p1": "Para utilizar nuestros servicios, debe crear una cuenta proporcionando informacion veraz, completa y actualizada. Usted es responsable de mantener la confidencialidad de sus credenciales de acceso y de todas las actividades que ocurran bajo su cuenta. Debe notificarnos inmediatamente de cualquier uso no autorizado.",
+			"p2": "Nos reservamos el derecho de suspender o cancelar cuentas que violen estos terminos o que permanezcan inactivas por periodos prolongados sin suscripcion activa."
+		},
+		"section4": {
+			"title": "4. Pagos y Facturacion",
+			"intro": "Los servicios de RBS se ofrecen bajo modelo de suscripcion. Al contratar, usted acepta:",
+			"items": [
+				"Pagar las tarifas aplicables segun el plan contratado",
+				"Los cargos de implementacion inicial son pagaderos antes del inicio del servicio",
+				"Las suscripciones mensuales se cobran por adelantado",
+				"Los precios pueden actualizarse con previo aviso de 30 dias",
+				"No hay reembolsos por periodos no utilizados en caso de cancelacion anticipada"
+			],
+			"note": "La falta de pago puede resultar en la suspension o cancelacion del servicio. Emitimos CFDI por todos los pagos recibidos."
+		},
+		"section5": {
+			"title": "5. Uso Aceptable",
+			"intro": "Al utilizar nuestros servicios, usted se compromete a NO:",
+			"items": [
+				"Violar leyes o regulaciones aplicables, incluyendo las fiscales",
+				"Intentar acceder a sistemas o datos sin autorizacion",
+				"Transmitir malware, virus o codigo malicioso",
+				"Interferir con el funcionamiento de los servicios",
+				"Usar los servicios para actividades fraudulentas o ilegales",
+				"Revender o sublicenciar los servicios sin autorizacion",
+				"Emitir CFDI con informacion falsa o fraudulenta",
+				"Compartir credenciales de acceso con terceros no autorizados"
+			]
+		},
+		"section6": {
+			"title": "6. Propiedad Intelectual",
+			"p1": "Todo el software, diseno, codigo, documentacion y contenido de los servicios de RBS son propiedad exclusiva de Red Broom Software S.A.S. de C.V. o sus licenciantes. Se le otorga una licencia limitada, no exclusiva y no transferible para utilizar los servicios durante la vigencia de su suscripcion.",
+			"p2": "Los datos que usted ingrese a los sistemas permanecen siendo de su propiedad. RBS no reclamara propiedad sobre sus datos comerciales, fiscales o de clientes."
+		},
+		"section7": {
+			"title": "7. Disponibilidad y Soporte",
+			"intro": "Nos esforzamos por mantener una disponibilidad del 99.9% (SLA). Sin embargo:",
+			"items": [
+				"Pueden ocurrir interrupciones programadas para mantenimiento (con aviso previo)",
+				"Eventos fuera de nuestro control (fuerza mayor) no estan cubiertos por el SLA",
+				"El soporte tecnico esta disponible segun el plan contratado",
+				"Los tiempos de respuesta varian segun la severidad del incidente y el plan"
+			]
+		},
+		"section8": {
+			"title": "8. Facturacion Electronica (CFDI)",
+			"intro": "Para los servicios de facturacion electronica, usted reconoce y acepta:",
+			"items": [
+				"Es su responsabilidad proporcionar datos fiscales correctos y actualizados",
+				"Los Certificados de Sello Digital (CSD) son de su exclusiva responsabilidad",
+				"RBS actua como intermediario con el PAC autorizado por el SAT",
+				"Los CFDI emitidos a traves de nuestros sistemas tienen validez legal",
+				"Debe cumplir con todas las obligaciones fiscales aplicables",
+				"RBS no es responsable por errores en datos proporcionados por el usuario"
+			]
+		},
+		"section9": {
+			"title": "9. Limitacion de Responsabilidad",
+			"p1": "EN LA MAXIMA MEDIDA PERMITIDA POR LA LEY, RBS NO SERA RESPONSABLE POR DANOS INDIRECTOS, INCIDENTALES, ESPECIALES, CONSECUENTES O PUNITIVOS, INCLUYENDO PERO NO LIMITADO A PERDIDA DE BENEFICIOS, DATOS, USO O CUALQUIER OTRA PERDIDA INTANGIBLE.",
+			"p2": "La responsabilidad total de RBS bajo estos terminos no excedera el monto pagado por usted en los ultimos 12 meses por los servicios relacionados con la reclamacion."
+		},
+		"section10": {
+			"title": "10. Cancelacion y Terminacion",
+			"intro": "Puede cancelar su suscripcion en cualquier momento. Al cancelar:",
+			"items": [
+				"Su acceso continuara hasta el final del periodo pagado",
+				"Podra solicitar una exportacion de sus datos dentro de los 90 dias siguientes",
+				"Despues de 90 dias, sus datos seran eliminados permanentemente",
+				"Los cargos de implementacion no son reembolsables"
+			],
+			"note": "RBS puede suspender o terminar su acceso si viola estos terminos, no realiza los pagos correspondientes, o por requerimiento de autoridad competente."
+		},
+		"section11": {
+			"title": "11. Modificaciones",
+			"content": "Nos reservamos el derecho de modificar estos terminos en cualquier momento. Los cambios significativos seran notificados con al menos 30 dias de anticipacion. El uso continuado de los servicios despues de la entrada en vigor de los cambios constituye su aceptacion de los nuevos terminos."
+		},
+		"section12": {
+			"title": "12. Ley Aplicable y Jurisdiccion",
+			"content": "Estos terminos se rigen por las leyes de los Estados Unidos Mexicanos. Cualquier controversia derivada de estos terminos sera sometida a los tribunales competentes de la Ciudad de Mexico, renunciando las partes a cualquier otro fuero que pudiera corresponderles por razon de su domicilio presente o futuro."
+		},
+		"section13": {
+			"title": "13. Contacto",
+			"intro": "Para preguntas sobre estos Terminos de Servicio, contactenos en:",
+			"location": "Ciudad de Mexico, Mexico"
+		},
+		"acceptance": "Al utilizar los servicios de Red Broom Software, usted confirma que ha leido, entendido y acepta estos Terminos de Servicio en su totalidad."
+	},
+	"chat": {
+		"salesAssistant": "Asistente de ventas",
+		"openChat": "Abrir chat",
+		"closeChat": "Cerrar chat",
+		"expand": "Expandir",
+		"collapse": "Reducir",
+		"continueWhatsApp": "Continuar por WhatsApp",
+		"placeholder": "Escribe tu mensaje...",
+		"poweredBy": "Powered by RBS AI",
+		"greeting": "Hola! Soy el asistente de Red Broom Software. En que puedo ayudarte hoy? Puedo informarte sobre nuestros productos, agendar una demo, o resolver tus dudas.",
+		"errorGeneric": "Lo siento, hubo un error. Intenta de nuevo.",
+		"errorConnection": "Lo siento, no pude conectar con el servidor. Intenta de nuevo.",
+		"whatsappPrefill": "Hola, vengo del chat de su sitio web. Estaba preguntando sobre: {message}",
+		"whatsappDefault": "Hola, me gustaria mas informacion sobre sus productos."
+	},
+	"ecosystemDiagram": {
+		"hub": "Ecosistema",
+		"roles": {
+			"camino": "CRM + SSO",
+			"colectiva": "Pagos + IA",
+			"constanza": "Contabilidad",
+			"caracol": "Inventario",
+			"lahoja": "ERP",
+			"plenura": "Bienestar",
+			"rito": "Real Estate",
+			"agora": "Legal",
+			"comal": "E-commerce",
+			"mancha": "Reservas"
+		}
 	}
 }
