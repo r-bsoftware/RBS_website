@@ -119,7 +119,7 @@
 			const result = await response.json();
 
 			if (!response.ok) {
-				throw new Error(result.error || 'Error al enviar el formulario');
+				throw new Error(result.error || $_('contact.form.errorSubmit'));
 			}
 
 			submitStatus = 'success';
@@ -127,7 +127,7 @@
 		} catch (error) {
 			console.error('Form submission error:', error);
 			submitStatus = 'error';
-			errorMessage = error instanceof Error ? error.message : 'Error al enviar. Por favor intenta de nuevo.';
+			errorMessage = error instanceof Error ? error.message : $_('contact.form.errorGeneric');
 		}
 	}
 </script>
@@ -138,8 +138,8 @@
 	<link rel="canonical" href="https://redbroomsoftware.com/contacto" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://redbroomsoftware.com/contacto" />
-	<meta property="og:title" content="Contacto - Red Broom Software" />
-	<meta property="og:description" content="Cuéntanos sobre tu proyecto y te daremos una propuesta en 48 horas." />
+	<meta property="og:title" content={$_('contact.meta.title')} />
+	<meta property="og:description" content={$_('contact.meta.description')} />
 	<meta property="og:image" content="https://redbroomsoftware.com/logo.svg" />
 	<meta name="twitter:card" content="summary" />
 </svelte:head>

@@ -19,7 +19,9 @@
 		ai: [
 			{ key: 'groq', icon: '⚡' },
 			{ key: 'claude', icon: '🤖' },
+			{ key: 'gpt4', icon: '💬' },
 			{ key: 'gemini', icon: '🧠' },
+			{ key: 'whisper', icon: '🎙️' },
 			{ key: 'customml', icon: '📊' }
 		],
 		integrations: [
@@ -47,8 +49,8 @@
 	<link rel="canonical" href="https://redbroomsoftware.com/tecnologia" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://redbroomsoftware.com/tecnologia" />
-	<meta property="og:title" content="Tecnología - Red Broom Software" />
-	<meta property="og:description" content="Stack moderno probado en producción: SvelteKit, Supabase, multi-provider AI, FinTech integrations." />
+	<meta property="og:title" content={$_('technology.meta.title')} />
+	<meta property="og:description" content={$_('technology.meta.description')} />
 	<meta property="og:image" content="https://redbroomsoftware.com/logo.svg" />
 	<meta name="twitter:card" content="summary" />
 </svelte:head>

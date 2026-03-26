@@ -91,6 +91,7 @@
 					<a href="/contacto" onclick={closeMobileMenu} class="px-5 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg text-center font-medium">
 						{$_("nav.contact")}
 					</a>
+					<LanguageSwitcher />
 				</div>
 			</nav>
 		{/if}

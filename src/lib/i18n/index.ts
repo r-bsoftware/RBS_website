@@ -7,6 +7,11 @@ register('es', () => import('./locales/es.json'));
 register('en', () => import('./locales/en.json'));
 
 export function initI18n() {
+	// NOTE: initialLocale uses navigator language, not localStorage preference.
+	// Reading localStorage here would require browser check, but initI18n runs
+	// during SSR load() where browser=false. The stored preference is applied
+	// in +layout.svelte onMount via getStoredLocale(). This causes a brief
+	// language flash on first paint — acceptable tradeoff vs SSR complexity.
 	init({
 		fallbackLocale: defaultLocale,
 		initialLocale: browser ? getLocaleFromNavigator() ?? defaultLocale : defaultLocale

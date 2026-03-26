@@ -61,6 +61,10 @@
 		cta_secondary: { text: $_('plataformas.enterprise.ctaSecondary'), href: 'https://camino.redbroomsoftware.com/register?utm_source=rbs_website&utm_medium=plataformas_enterprise' }
 	});
 
+	// TODO: Fallback platform content is hardcoded in Spanish. When Camino API is
+	// unavailable, visitors see Spanish regardless of locale. Restructuring this to
+	// use i18n keys is planned but too complex for this pass — requires reworking
+	// the Camino content merge logic.
 	function defaultPlatforms() {
 		return [
 			{ id: 'caracol', name: 'Caracol POS', tagline: 'Punto de venta para restaurantes y bares', pricing: '$425/usuario/mes', features: ['CFDI 4.0 en punto de venta', 'Control de inventario y añadas', 'Modo mostrador rápido'], color: 'amber', cta_href: 'https://camino.redbroomsoftware.com/register?app=caracol&utm_source=rbs_website&utm_medium=plataformas' },
@@ -96,6 +100,13 @@
 <svelte:head>
 	<title>{$_('plataformas.meta.title')}</title>
 	<meta name="description" content={$_('plataformas.meta.description')} />
+	<link rel="canonical" href="https://redbroomsoftware.com/plataformas" />
+	<meta property="og:type" content="website" />
+	<meta property="og:url" content="https://redbroomsoftware.com/plataformas" />
+	<meta property="og:title" content={$_('plataformas.meta.title')} />
+	<meta property="og:description" content={$_('plataformas.meta.description')} />
+	<meta property="og:image" content="https://redbroomsoftware.com/logo.svg" />
+	<meta name="twitter:card" content="summary" />
 </svelte:head>
 
 <!-- Hero -->

@@ -51,7 +51,7 @@
 						<li><a href="/portafolio" class="text-slate-400 hover:text-white transition-colors">{$_("nav.portfolio")}</a></li>
 						<li><a href="/tecnologia" class="text-slate-400 hover:text-white transition-colors">{$_("nav.technology")}</a></li>
 						<li><a href="/contacto" class="text-slate-400 hover:text-white transition-colors">{$_("nav.contact")}</a></li>
-						<li><a href="https://developers.redbroomsoftware.com" class="text-slate-400 hover:text-white transition-colors">{$_("nav.developers")}</a></li>
+						<li><a href="https://developers.redbroomsoftware.com" target="_blank" rel="noopener noreferrer" class="text-slate-400 hover:text-white transition-colors">{$_("nav.developers")}</a></li>
 					</ul>
 				</div>
 				<div>
@@ -87,7 +87,7 @@
 {:else}
 	<footer class="border-t border-slate-800 py-8 px-4">
 		<div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-			<p class="text-slate-500 text-sm">&copy; {new Date().getFullYear()} Red Broom Software S.A.S. de C.V.</p>
+			<p class="text-slate-500 text-sm">&copy; {new Date().getFullYear()} {$_('footer.copyright')}</p>
 			<div class="flex items-center gap-6">
 				<a href="/privacidad" class="text-slate-500 hover:text-slate-300 text-sm">{$_("nav.privacy")}</a>
 				<a href="/terminos" class="text-slate-500 hover:text-slate-300 text-sm">{$_("nav.terms")}</a>

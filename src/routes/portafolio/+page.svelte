@@ -8,13 +8,13 @@
 		{ key: 'caracol', icon: '📦', category: 'logistics', url: 'https://caracol.redbroomsoftware.com', tech: ['SvelteKit', 'Firebase', 'CFDI 4.0', 'Multi-warehouse'] },
 		{ key: 'lahoja', icon: '🍽️', category: 'hospitality', url: 'https://hoja.redbroomsoftware.com', tech: ['Next.js', 'Firebase', 'FIFO Inventory', 'WhatsApp API'] },
 		{ key: 'cosmos', icon: '🐾', category: 'vertical', url: 'https://cosmos.redbroomsoftware.com', tech: ['SvelteKit', 'Supabase', 'SOAP Records', 'Notifications'] },
-		{ key: 'camino', icon: '🛤️', category: 'core', agentBadge: 'Agentes IA', url: 'https://camino.redbroomsoftware.com', tech: ['SvelteKit', 'Supabase', 'Multi-provider AI', 'Twilio', 'WhatsApp Cloud API'] },
-		{ key: 'colectiva', icon: '💳', category: 'core', agentBadge: 'Oracle IA', url: 'https://colectiva.redbroomsoftware.com', tech: ['SvelteKit', 'SPEI', 'CoDi', 'MercadoPago', 'Polygon', 'Multi-provider AI'] },
-		{ key: 'constanza', icon: '📊', category: 'core', agentBadge: 'IA Fiscal', url: 'https://constanza.redbroomsoftware.com', tech: ['SvelteKit', 'Firebase', 'SAT APIs', 'AI Classification'] },
+		{ key: 'camino', icon: '🛤️', category: 'core', agentBadgeKey: 'portfolio.agentBadges.aiAgents', url: 'https://camino.redbroomsoftware.com', tech: ['SvelteKit', 'Supabase', 'Multi-provider AI', 'Twilio', 'WhatsApp Cloud API'] },
+		{ key: 'colectiva', icon: '💳', category: 'core', agentBadgeKey: 'portfolio.agentBadges.oracleAI', url: 'https://colectiva.redbroomsoftware.com', tech: ['SvelteKit', 'SPEI', 'CoDi', 'MercadoPago', 'Polygon', 'Multi-provider AI'] },
+		{ key: 'constanza', icon: '📊', category: 'core', agentBadgeKey: 'portfolio.agentBadges.fiscalAI', url: 'https://constanza.redbroomsoftware.com', tech: ['SvelteKit', 'Firebase', 'SAT APIs', 'AI Classification'] },
 		{ key: 'comal', icon: '🛒', category: 'core', url: 'https://comal.redbroomsoftware.com', tech: ['SvelteKit', 'Supabase', 'Colectiva', 'Theme Engine'] },
-		{ key: 'plenura', icon: '🧘', category: 'vertical', agentBadge: 'Matching IA', url: 'https://plenura.redbroomsoftware.com', tech: ['SvelteKit', 'Supabase', 'Multi-provider AI', 'Smart Matching'] },
-		{ key: 'rito', icon: '🏢', category: 'fintech', agentBadge: 'Deal Copilot', url: 'https://rito.redbroomsoftware.com', tech: ['SvelteKit', 'Supabase', 'Claude AI', 'Financial Modeling'] },
-		{ key: 'agora', icon: '⚖️', category: 'vertical', agentBadge: 'Doc IA', url: 'https://agora.redbroomsoftware.com', tech: ['SvelteKit', 'Supabase', 'Trust Accounting', 'AI Documents'] },
+		{ key: 'plenura', icon: '🧘', category: 'vertical', agentBadgeKey: 'portfolio.agentBadges.matchingAI', url: 'https://plenura.redbroomsoftware.com', tech: ['SvelteKit', 'Supabase', 'Multi-provider AI', 'Smart Matching'] },
+		{ key: 'rito', icon: '🏢', category: 'fintech', agentBadgeKey: 'portfolio.agentBadges.dealCopilot', url: 'https://rito.redbroomsoftware.com', tech: ['SvelteKit', 'Supabase', 'Claude AI', 'Financial Modeling'] },
+		{ key: 'agora', icon: '⚖️', category: 'vertical', agentBadgeKey: 'portfolio.agentBadges.docAI', url: 'https://agora.redbroomsoftware.com', tech: ['SvelteKit', 'Supabase', 'Trust Accounting', 'AI Documents'] },
 		{ key: 'goodbay', icon: '🏖️', category: 'hospitality', url: 'https://goodbay.redbroomsoftware.com', tech: ['SvelteKit', 'Supabase', 'Booking Engine', 'Fiscal Optimization'] },
 		{ key: 'mancha', icon: '🪑', category: 'hospitality', url: 'https://mancha.redbroomsoftware.com', tech: ['SvelteKit', 'Supabase', 'Camino API', 'Real-time'] },
 		{ key: 'continua', icon: '🩸', category: 'vertical', url: 'https://continua.redbroomsoftware.com', tech: ['SvelteKit', 'Supabase', 'Geolocation', 'Push Notifications'] },
@@ -55,8 +55,8 @@
 	<link rel="canonical" href="https://redbroomsoftware.com/portafolio" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://redbroomsoftware.com/portafolio" />
-	<meta property="og:title" content="Portafolio - Red Broom Software" />
-	<meta property="og:description" content="16 plataformas SaaS + 5 servicios B2C para PyMEs mexicanas. POS, ERP, CRM, FinTech, IA y más." />
+	<meta property="og:title" content={$_('portfolio.meta.title')} />
+	<meta property="og:description" content={$_('portfolio.meta.description')} />
 	<meta property="og:image" content="https://redbroomsoftware.com/logo.svg" />
 	<meta name="twitter:card" content="summary" />
 </svelte:head>
@@ -120,9 +120,9 @@
 							<span class="px-3 py-1 bg-emerald-500/20 text-emerald-400 rounded-full text-xs font-medium">
 								{$_('portfolio.products.live')}
 							</span>
-							{#if product.agentBadge}
+							{#if product.agentBadgeKey}
 								<span class="px-3 py-1 bg-purple-500/20 text-purple-400 rounded-full text-xs font-medium">
-									{product.agentBadge}
+									{$_(product.agentBadgeKey)}
 								</span>
 							{/if}
 						</div>

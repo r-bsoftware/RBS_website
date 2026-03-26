@@ -26,27 +26,24 @@
 		"hero": {
 			"badge": "22 applications · 1 SDK · AI in everything",
 			"titlePart1": "We build",
-			"titleHighlight": "high-performance",
-			"titlePart2": "software",
 			"subtitle": "Red Broom Software is the most integrated enterprise software ecosystem in the world. 22 applications that share authentication, payments, invoicing, and artificial intelligence.",
-			"typewriterWords": ["intelligent software", "connected ecosystems", "AI-powered platforms", "solutions that scale"],
+			"typewriterWords": [
+				"intelligent software",
+				"connected ecosystems",
+				"AI-powered platforms",
+				"solutions that scale"
+			],
 			"forGlobalBusiness": "for global businesses"
 		},
 		"cta": {
 			"findSolution": "Find my solution",
-			"joinDeveloper": "Join as a developer",
-			"viewPortfolio": "View Portfolio",
-			"startProject": "Start a Project",
-			"startConversation": "Start a conversation"
+			"joinDeveloper": "Join as a developer"
 		},
 		"stats": {
 			"apps": "Applications",
 			"industries": "Industries",
 			"sdk": "Unified SDK",
-			"languages": "Languages",
-			"products": "Products in production",
-			"industriesDifferent": "Different industries",
-			"uptime": "Average uptime"
+			"languages": "Languages"
 		},
 		"patadas": {
 			"title": "Patadas",
@@ -78,18 +75,66 @@
 			"title": "The Ecosystem",
 			"subtitle": "22 apps that share authentication, payments, invoicing, and AI",
 			"apps": {
-				"patadas": { "name": "Patadas", "desc": "AI Marketplace — intelligent broker", "badge": "Front Door" },
-				"camino": { "name": "Camino", "desc": "CRM with AI copilot, SSO, marketing", "badge": "Infrastructure" },
-				"colectiva": { "name": "Colectiva", "desc": "Payments, escrow, wallets, AI brain", "badge": "Infrastructure" },
-				"constanza": { "name": "Constanza", "desc": "Accounting, CFDI, intl invoicing", "badge": "Infrastructure" },
-				"agora": { "name": "Agora", "desc": "Legal: contracts, trust, time tracking", "badge": "Vertical" },
-				"caracol": { "name": "Caracol", "desc": "POS with vintages, FIFO, invoicing", "badge": "Revenue" },
-				"comal": { "name": "Comal", "desc": "E-commerce with subscription clubs", "badge": "Revenue" },
-				"lahoja": { "name": "La Hoja", "desc": "Production ERP, recipes, costs", "badge": "Vertical" },
-				"mancha": { "name": "Mancha", "desc": "Reservations with predictive AI", "badge": "Vertical" },
-				"plenura": { "name": "Plenura", "desc": "Therapist marketplace, video", "badge": "Vertical" },
-				"rito": { "name": "Rito", "desc": "Private equity and investments", "badge": "Revenue" },
-				"cosmosPet": { "name": "Cosmos Pet", "desc": "Veterinary: SOAP, surgery, vaccines", "badge": "Vertical" }
+				"patadas": {
+					"name": "Patadas",
+					"desc": "AI Marketplace — intelligent broker",
+					"badge": "Front Door"
+				},
+				"camino": {
+					"name": "Camino",
+					"desc": "CRM with AI copilot, SSO, marketing",
+					"badge": "Infrastructure"
+				},
+				"colectiva": {
+					"name": "Colectiva",
+					"desc": "Payments, escrow, wallets, AI brain",
+					"badge": "Infrastructure"
+				},
+				"constanza": {
+					"name": "Constanza",
+					"desc": "Accounting, CFDI, intl invoicing",
+					"badge": "Infrastructure"
+				},
+				"agora": {
+					"name": "Agora",
+					"desc": "Legal: contracts, trust, time tracking",
+					"badge": "Vertical"
+				},
+				"caracol": {
+					"name": "Caracol",
+					"desc": "POS with vintages, FIFO, invoicing",
+					"badge": "Revenue"
+				},
+				"comal": {
+					"name": "Comal",
+					"desc": "E-commerce with subscription clubs",
+					"badge": "Revenue"
+				},
+				"lahoja": {
+					"name": "La Hoja",
+					"desc": "Production ERP, recipes, costs",
+					"badge": "Vertical"
+				},
+				"mancha": {
+					"name": "Mancha",
+					"desc": "Reservations with predictive AI",
+					"badge": "Vertical"
+				},
+				"plenura": {
+					"name": "Plenura",
+					"desc": "Therapist marketplace, video",
+					"badge": "Vertical"
+				},
+				"rito": {
+					"name": "Rito",
+					"desc": "Private equity and investments",
+					"badge": "Revenue"
+				},
+				"cosmosPet": {
+					"name": "Cosmos Pet",
+					"desc": "Veterinary: SOAP, surgery, vaccines",
+					"badge": "Vertical"
+				}
 			}
 		},
 		"ecosystemDiagram": {
@@ -103,13 +148,6 @@
 			"directContact": "Direct contact"
 		},
 		"capabilities": {
-			"title": "What do we build?",
-			"subtitle": "From operational systems to AI-powered platforms",
-			"viewAll": "View all services",
-			"saas": {
-				"title": "SaaS Development",
-				"desc": "Multi-tenant platforms with billing and scalability"
-			},
 			"pos": {
 				"title": "POS & ERP",
 				"desc": "Operational systems with integrated CFDI 4.0"
@@ -118,52 +156,10 @@
 				"title": "AI-Powered CRM",
 				"desc": "Conversational agents for WhatsApp and voice"
 			},
-			"fintech": {
-				"title": "FinTech",
-				"desc": "Open Banking, SPEI, CoDi, reconciliation"
-			},
-			"legaltech": {
-				"title": "Legal Tech",
-				"desc": "Case management, trust accounting, AI documents"
-			},
 			"mobile": {
 				"title": "Mobile Apps",
 				"desc": "Flutter cross-platform with real-time sync"
 			}
-		},
-		"whyUs": {
-			"title": "Why work with us?",
-			"production": {
-				"title": "Products in production",
-				"desc": "We're not an agency that only does projects. We operate 16 of our own SaaS platforms. We know what works."
-			},
-			"mexico": {
-				"title": "Mexico specialists",
-				"desc": "CFDI 4.0, SPEI, CoDi, SAT, IMSS. We know the integrations your business needs."
-			},
-			"ai": {
-				"title": "AI from the design",
-				"desc": "We don't add AI as a feature. We design it as a core part of the architecture."
-			}
-		},
-		"quickForm": {
-			"title": "Let's start talking",
-			"emailLabel": "Email",
-			"emailPlaceholder": "you@company.com",
-			"projectLabel": "What do you need?",
-			"selectOption": "Select an option",
-			"optionSaas": "SaaS Development",
-			"optionPos": "POS/ERP System",
-			"optionCrm": "AI-Powered CRM",
-			"optionMobile": "Mobile App",
-			"optionOther": "Other",
-			"submit": "I want to learn more",
-			"submitting": "Sending...",
-			"success": "We'll contact you soon"
-		},
-		"projectCta": {
-			"title": "Have a project in mind?",
-			"subtitle": "Tell us what you need and we'll give you a proposal within 48 hours."
 		}
 	},
 	"services": {
@@ -181,37 +177,67 @@
 			"title": "SaaS Development",
 			"subtitle": "High-performance multi-tenant platforms",
 			"description": "We build SaaS applications with multi-tenant architecture, automated billing, and horizontal scalability. Experience with Stripe, SPEI, CoDi, and Open Banking.",
-			"features": ["Native multi-tenancy", "Recurring billing", "REST API + Webhooks", "White-labeling"]
+			"features": [
+				"Native multi-tenancy",
+				"Recurring billing",
+				"REST API + Webhooks",
+				"White-labeling"
+			]
 		},
 		"pos": {
 			"title": "POS & ERP Systems",
 			"subtitle": "Operational software for SMBs",
 			"description": "Point of sale, inventory, cash control, real-time kitchen orders. SAT integration for CFDI 4.0 invoicing and Mexican tax compliance.",
-			"features": ["Integrated CFDI 4.0", "Offline sync", "Multi-location", "Tax reports"]
+			"features": [
+				"Integrated CFDI 4.0",
+				"Offline sync",
+				"Multi-location",
+				"Tax reports"
+			]
 		},
 		"crm": {
 			"title": "AI-Powered CRM",
 			"subtitle": "Sales and marketing automation",
 			"description": "CRMs with lead scoring, AI agents for WhatsApp and phone calls, sales pipelines, and nurturing automation.",
-			"features": ["Multichannel AI agents", "Automatic lead scoring", "Appointment automation", "Conversion analytics"]
+			"features": [
+				"Multichannel AI agents",
+				"Automatic lead scoring",
+				"Appointment automation",
+				"Conversion analytics"
+			]
 		},
 		"fintech": {
 			"title": "FinTech Integrations",
 			"subtitle": "Open Banking, payments, and reconciliation",
 			"description": "We connect your system with Fintoc, Belvo, Stripe, SPEI, CoDi. Automatic bank transaction reconciliation.",
-			"features": ["Open Banking", "SPEI/CoDi payments", "Automatic reconciliation", "Multi-merchant"]
+			"features": [
+				"Open Banking",
+				"SPEI/CoDi payments",
+				"Automatic reconciliation",
+				"Multi-merchant"
+			]
 		},
 		"mobile": {
 			"title": "Mobile Applications",
 			"subtitle": "Flutter cross-platform",
 			"description": "Native apps for iOS and Android with a single codebase. Real-time sync, push notifications, and offline mode.",
-			"features": ["iOS + Android", "Real-time sync", "Offline mode", "Push notifications"]
+			"features": [
+				"iOS + Android",
+				"Real-time sync",
+				"Offline mode",
+				"Push notifications"
+			]
 		},
 		"consulting": {
 			"title": "Technical Consulting",
 			"subtitle": "Architecture and optimization",
 			"description": "Architecture review, performance optimization, legacy system migration, and technical team training.",
-			"features": ["Code review", "Data migration", "Performance tuning", "Training"]
+			"features": [
+				"Code review",
+				"Data migration",
+				"Performance tuning",
+				"Training"
+			]
 		},
 		"process": {
 			"title": "Our Process",
@@ -236,6 +262,17 @@
 			"title": "Ready to build?",
 			"subtitle": "Tell us about your project and we'll give you a proposal within 48 hours.",
 			"button": "Request a Quote"
+		},
+		"legaltech": {
+			"title": "Legal Tech",
+			"subtitle": "Case management and AI documents",
+			"description": "Complete platforms for law firms: case management, trust accounting (IOLTA), time tracking, AI document generation, and court calendar.",
+			"features": [
+				"Case management",
+				"Trust accounting",
+				"AI documents",
+				"Court calendar"
+			]
 		}
 	},
 	"portfolio": {
@@ -256,97 +293,177 @@
 				"name": "Caracol",
 				"subtitle": "Inventory & Import Management",
 				"description": "Comprehensive system for complex imports: container tracking, batch costing, customs control, multi-warehouse inventory, and automatic reconciliation with international suppliers.",
-				"highlights": ["Container tracking", "Batch costing", "Multi-warehouse", "Auto reconciliation"]
+				"highlights": [
+					"Container tracking",
+					"Batch costing",
+					"Multi-warehouse",
+					"Auto reconciliation"
+				]
 			},
 			"lahoja": {
 				"name": "La Hoja",
 				"subtitle": "Restaurant and Retail ERP",
 				"description": "Complete ERP system for restaurants and food businesses: ultra-fast POS, FIFO inventory, supplier management, loyalty program, and analytics.",
-				"highlights": ["High-speed POS", "Loyalty program", "Multi-location", "Advanced analytics"]
+				"highlights": [
+					"High-speed POS",
+					"Loyalty program",
+					"Multi-location",
+					"Advanced analytics"
+				]
 			},
 			"cosmos": {
 				"name": "Cosmos Pet",
 				"subtitle": "Veterinary Software",
 				"description": "Specialized SaaS platform for veterinary clinics: SOAP medical records, vaccine control, scheduling, pet grooming, and invoicing.",
-				"highlights": ["SOAP Records", "Vaccine control", "Smart scheduling", "Multi-clinic"]
+				"highlights": [
+					"SOAP Records",
+					"Vaccine control",
+					"Smart scheduling",
+					"Multi-clinic"
+				]
 			},
 			"camino": {
 				"name": "Camino CRM",
 				"subtitle": "Multichannel AI CRM",
 				"description": "CRM with AI agents that automatically handle WhatsApp and phone calls. Unified customer context, lead scoring, sales pipeline.",
-				"highlights": ["WhatsApp AI Agent", "Voice AI Agent", "Lead scoring", "Full automation"]
+				"highlights": [
+					"WhatsApp AI Agent",
+					"Voice AI Agent",
+					"Lead scoring",
+					"Full automation"
+				]
 			},
 			"colectiva": {
 				"name": "Colectiva",
 				"subtitle": "B2B Payments and Billing Platform",
 				"description": "B2B multi-merchant platform: billing for the entire RBS ecosystem, payment gateway (CoDi, SPEI, MercadoPago, cards), subscriptions, and virtual wallet.",
-				"highlights": ["Ecosystem billing", "Multi-merchant", "Subscriptions", "Automatic reconciliation"]
+				"highlights": [
+					"Ecosystem billing",
+					"Multi-merchant",
+					"Subscriptions",
+					"Automatic reconciliation"
+				]
 			},
 			"constanza": {
 				"name": "Constanza",
 				"subtitle": "Smart Accounting for Firms",
 				"description": "Multi-client platform for accountants: manage dozens of companies from a single dashboard. Tax AI, CFDI 4.0, automatic DIOT.",
-				"highlights": ["Multi-client", "Tax AI", "Automatic DIOT/Balance", "Group consolidation"]
+				"highlights": [
+					"Multi-client",
+					"Tax AI",
+					"Automatic DIOT/Balance",
+					"Group consolidation"
+				]
 			},
 			"plenura": {
 				"name": "Plenura",
 				"subtitle": "AI Wellness Platform",
 				"description": "System for health and wellness professionals: smart patient matching, AI prescreening, automated session notes, and appointment management.",
-				"highlights": ["AI Matching", "Smart prescreening", "AI session notes", "Multi-professional"]
+				"highlights": [
+					"AI Matching",
+					"Smart prescreening",
+					"AI session notes",
+					"Multi-professional"
+				]
 			},
 			"agora": {
 				"name": "Agora",
 				"subtitle": "Legal Software for Firms",
 				"description": "Complete platform for law firms: case management, time tracking, IOLTA trust accounts, invoicing, AI documents, and court calendar.",
-				"highlights": ["Case management", "IOLTA Trust Accounts", "Time tracking", "AI for documents"]
+				"highlights": [
+					"Case management",
+					"IOLTA Trust Accounts",
+					"Time tracking",
+					"AI for documents"
+				]
 			},
 			"mancha": {
 				"name": "Mancha",
 				"subtitle": "Restaurant Reservations",
 				"description": "OpenTable-style platform for Mexican restaurants: online reservations, table management, automatic confirmations via email and WhatsApp, and occupancy analytics.",
-				"highlights": ["24/7 Reservations", "Automatic confirmations", "Table management", "Embeddable widget"]
+				"highlights": [
+					"24/7 Reservations",
+					"Automatic confirmations",
+					"Table management",
+					"Embeddable widget"
+				]
 			},
 			"continua": {
 				"name": "Continua",
 				"subtitle": "Blood Donation Platform",
 				"description": "Connects donors with hospitals: donor registration, active emergencies, donation history, blood type notifications.",
-				"highlights": ["Real-time emergencies", "Type matching", "Donation history", "Hospital alerts"]
+				"highlights": [
+					"Real-time emergencies",
+					"Type matching",
+					"Donation history",
+					"Hospital alerts"
+				]
 			},
 			"puppylove": {
 				"name": "Puppy Love",
 				"subtitle": "Pet Matching",
 				"description": "Matching platform for pet owners: find playmates, breeding partners, and adoption. Verified profiles.",
-				"highlights": ["Smart matching", "Verified profiles", "Integrated chat", "Premium subscription"]
+				"highlights": [
+					"Smart matching",
+					"Verified profiles",
+					"Integrated chat",
+					"Premium subscription"
+				]
 			},
 			"baul": {
 				"name": "Baul",
 				"subtitle": "Storage and Warehousing",
 				"description": "Storage space rental: mini-warehouses, pallets, inventory management, pickup and home delivery.",
-				"highlights": ["Multi-size", "Home pickup", "Access control", "Digital inventory"]
+				"highlights": [
+					"Multi-size",
+					"Home pickup",
+					"Access control",
+					"Digital inventory"
+				]
 			},
 			"servilleta": {
 				"name": "Servilleta",
 				"subtitle": "Services Marketplace",
 				"description": "Connects clients with verified taskers for cleaning, moving, repairs, and more. Reviews, secure payments, and service guarantee.",
-				"highlights": ["Verified taskers", "Secure payments", "Reviews", "Service guarantee"]
+				"highlights": [
+					"Verified taskers",
+					"Secure payments",
+					"Reviews",
+					"Service guarantee"
+				]
 			},
 			"rito": {
 				"name": "Rito",
 				"subtitle": "Real Estate Private Equity",
 				"description": "Platform for real estate investment funds: deal underwriting, pro-formas, distribution waterfalls, investor management.",
-				"highlights": ["Full underwriting", "AI Deal Copilot", "Investor portal", "AI analysis"]
+				"highlights": [
+					"Full underwriting",
+					"AI Deal Copilot",
+					"Investor portal",
+					"AI analysis"
+				]
 			},
 			"comal": {
 				"name": "Comal",
 				"subtitle": "Multi-Tenant E-commerce",
 				"description": "Shopify-style platform for Mexico: online stores, subscription clubs, gated content, CoDi/MercadoPago payments and premium themes.",
-				"highlights": ["Multi-tenant", "Subscription clubs", "Premium themes", "Custom domain"]
+				"highlights": [
+					"Multi-tenant",
+					"Subscription clubs",
+					"Premium themes",
+					"Custom domain"
+				]
 			},
 			"goodbay": {
 				"name": "Goodbay",
 				"subtitle": "Smart Vacation Rental",
 				"description": "Vacation rental platform with optimized tax model: property management, reservations, on-demand services, and cleaning management.",
-				"highlights": ["Smart tax model", "On-demand cleaning", "Multi-property", "Guest management"]
+				"highlights": [
+					"Smart tax model",
+					"On-demand cleaning",
+					"Multi-property",
+					"Guest management"
+				]
 			}
 		},
 		"b2cServices": {
@@ -361,31 +478,56 @@
 				"name": "Constanza Services",
 				"subtitle": "Managed Accounting",
 				"description": "Your complete accounting department: tax filings, CFDI 4.0, DIOT, Balance, IMSS - all handled by experts. Starting at $8,900/month.",
-				"highlights": ["100% SAT Compliance", "Assigned accountant", "Multi-regime", "Hassle-free"]
+				"highlights": [
+					"100% SAT Compliance",
+					"Assigned accountant",
+					"Multi-regime",
+					"Hassle-free"
+				]
 			},
 			"camino": {
 				"name": "Camino Services",
 				"subtitle": "Managed Marketing",
 				"description": "Your complete marketing department: social media, campaigns, WhatsApp AI, digital advertising, and analytics. Starting at $5,900/month.",
-				"highlights": ["24/7 Social media", "WhatsApp AI", "Automated campaigns", "Digital advertising"]
+				"highlights": [
+					"24/7 Social media",
+					"WhatsApp AI",
+					"Automated campaigns",
+					"Digital advertising"
+				]
 			},
 			"colectiva": {
 				"name": "Colectiva Services",
 				"subtitle": "Managed Treasury",
 				"description": "Collections, SPEI disbursements, integrated payroll, and fully managed treasury. Starting at $3,900/month.",
-				"highlights": ["CoDi/SPEI Collections", "Mass disbursements", "Integrated payroll", "Automatic reconciliation"]
+				"highlights": [
+					"CoDi/SPEI Collections",
+					"Mass disbursements",
+					"Integrated payroll",
+					"Automatic reconciliation"
+				]
 			},
 			"aiSupport": {
 				"name": "AI Customer Support",
 				"subtitle": "Complete Ecosystem",
 				"description": "AI agents that handle WhatsApp and calls 24/7 for any business: restaurants, veterinaries, clinics, retail. Integrates with the entire ecosystem.",
-				"highlights": ["Multi-industry", "WhatsApp + Voice", "Integrates with Mancha", "Unified context"]
+				"highlights": [
+					"Multi-industry",
+					"WhatsApp + Voice",
+					"Integrates with Mancha",
+					"Unified context"
+				]
 			},
 			"mancha": {
 				"name": "Mancha Services",
 				"subtitle": "Universal Reservations",
 				"description": "Appointment and reservation system for any business: restaurants, veterinaries, clinics, salons, studios. Automatic confirmations and embeddable widget.",
-				"highlights": ["Multi-industry", "Auto confirmations", "Embeddable widget", "Integrates with Camino AI"]
+				"highlights": [
+					"Multi-industry",
+					"Auto confirmations",
+					"Embeddable widget",
+					"Integrates with Camino AI"
+				]
 			}
 		},
 		"categories": {
@@ -407,6 +549,14 @@
 			"title": "Your product here?",
 			"subtitle": "We can develop the next platform for your industry.",
 			"button": "Let's talk"
+		},
+		"agentBadges": {
+			"aiAgents": "AI Agents",
+			"oracleAI": "Oracle AI",
+			"fiscalAI": "Fiscal AI",
+			"matchingAI": "AI Matching",
+			"dealCopilot": "Deal Copilot",
+			"docAI": "Doc AI"
 		}
 	},
 	"technology": {
@@ -629,7 +779,9 @@
 				"integration": "Integration/API",
 				"consulting": "Consulting",
 				"other": "Other"
-			}
+			},
+			"errorSubmit": "Error submitting the form",
+			"errorGeneric": "Error submitting. Please try again."
 		},
 		"process": {
 			"title": "What's next?",
@@ -711,12 +863,30 @@
 			"title": "2. Personal Data Collected",
 			"intro": "For the purposes stated in this privacy notice, we may collect the following categories of personal data:",
 			"items": {
-				"identification": { "label": "Identification data:", "desc": "full name, RFC, CURP, address" },
-				"contact": { "label": "Contact data:", "desc": "email, phone number" },
-				"work": { "label": "Employment data:", "desc": "company name, position, business sector" },
-				"fiscal": { "label": "Tax data:", "desc": "tax regime, digital certificates (CSD), tax address" },
-				"financial": { "label": "Financial data:", "desc": "banking information for payment processing" },
-				"usage": { "label": "Usage data:", "desc": "information about how you use our services, access logs" }
+				"identification": {
+					"label": "Identification data:",
+					"desc": "full name, RFC, CURP, address"
+				},
+				"contact": {
+					"label": "Contact data:",
+					"desc": "email, phone number"
+				},
+				"work": {
+					"label": "Employment data:",
+					"desc": "company name, position, business sector"
+				},
+				"fiscal": {
+					"label": "Tax data:",
+					"desc": "tax regime, digital certificates (CSD), tax address"
+				},
+				"financial": {
+					"label": "Financial data:",
+					"desc": "banking information for payment processing"
+				},
+				"usage": {
+					"label": "Usage data:",
+					"desc": "information about how you use our services, access logs"
+				}
 			}
 		},
 		"section3": {
@@ -741,20 +911,44 @@
 			"title": "4. Data Transfers",
 			"intro": "Your personal data may be transferred to:",
 			"items": {
-				"cloud": { "label": "Cloud service providers:", "desc": "for storage and processing (Google Cloud, Firebase)" },
-				"pac": { "label": "Certificate Authorization Providers (PAC):", "desc": "for CFDI stamping with the SAT" },
-				"payment": { "label": "Payment processors:", "desc": "for transaction management" },
-				"authorities": { "label": "Competent authorities:", "desc": "when required by law" }
+				"cloud": {
+					"label": "Cloud service providers:",
+					"desc": "for storage and processing (Google Cloud, Firebase)"
+				},
+				"pac": {
+					"label": "Certificate Authorization Providers (PAC):",
+					"desc": "for CFDI stamping with the SAT"
+				},
+				"payment": {
+					"label": "Payment processors:",
+					"desc": "for transaction management"
+				},
+				"authorities": {
+					"label": "Competent authorities:",
+					"desc": "when required by law"
+				}
 			},
 			"note": "All transfers are made in accordance with applicable legislation and with the necessary security measures."
 		},
 		"section5": {
 			"title": "5. ARCO Rights",
 			"intro": "You have the right to:",
-			"access": { "label": "Access", "desc": "your personal data in our possession" },
-			"rectify": { "label": "Rectify", "desc": "your data when it is inaccurate or incomplete" },
-			"cancel": { "label": "Cancel", "desc": "your data when you consider it is not required for the purposes" },
-			"oppose": { "label": "Oppose", "desc": "the processing of your data for specific purposes" },
+			"access": {
+				"label": "Access",
+				"desc": "your personal data in our possession"
+			},
+			"rectify": {
+				"label": "Rectify",
+				"desc": "your data when it is inaccurate or incomplete"
+			},
+			"cancel": {
+				"label": "Cancel",
+				"desc": "your data when you consider it is not required for the purposes"
+			},
+			"oppose": {
+				"label": "Oppose",
+				"desc": "the processing of your data for specific purposes"
+			},
 			"howTo": "To exercise these rights, send your request to",
 			"howToSuffix": "with the following information: full name, clear description of your request, documents proving your identity."
 		},
@@ -800,12 +994,30 @@
 			"title": "2. Description of Services",
 			"intro": "RBS provides enterprise software in SaaS (Software as a Service) mode, which includes:",
 			"items": {
-				"caracol": { "label": "Caracol:", "desc": "Inventory and complex import management" },
-				"lahoja": { "label": "La Hoja:", "desc": "ERP for cafes and retail" },
-				"cosmos": { "label": "Cosmos Pet:", "desc": "Software for veterinary clinics" },
-				"camino": { "label": "Camino CRM:", "desc": "Customer relationship management system" },
-				"colectiva": { "label": "Colectiva:", "desc": "Payment gateway and AI hub" },
-				"constanza": { "label": "Constanza:", "desc": "Intelligent accounting platform" }
+				"caracol": {
+					"label": "Caracol:",
+					"desc": "Inventory and complex import management"
+				},
+				"lahoja": {
+					"label": "La Hoja:",
+					"desc": "ERP for cafes and retail"
+				},
+				"cosmos": {
+					"label": "Cosmos Pet:",
+					"desc": "Software for veterinary clinics"
+				},
+				"camino": {
+					"label": "Camino CRM:",
+					"desc": "Customer relationship management system"
+				},
+				"colectiva": {
+					"label": "Colectiva:",
+					"desc": "Payment gateway and AI hub"
+				},
+				"constanza": {
+					"label": "Constanza:",
+					"desc": "Intelligent accounting platform"
+				}
 			}
 		},
 		"section3": {

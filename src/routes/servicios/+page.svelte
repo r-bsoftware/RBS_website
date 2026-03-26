@@ -3,8 +3,8 @@
 	import { _ } from 'svelte-i18n';
 	import { scrollReveal } from '$lib/actions/scrollReveal';
 
-	const serviceKeys = ['saas', 'pos', 'crm', 'fintech', 'mobile', 'consulting'] as const;
-	const serviceIcons = ['☁️', '🏪', '🤖', '🏦', '📱', '🎯'];
+	const serviceKeys = ['saas', 'pos', 'crm', 'fintech', 'legaltech', 'mobile', 'consulting'] as const;
+	const serviceIcons = ['☁️', '🏪', '🤖', '🏦', '⚖️', '📱', '🎯'];
 	const services = $derived(
 		serviceKeys.map((key, i) => ({
 			title: $_(`services.${key}.title`),

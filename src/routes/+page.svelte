@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { _ } from 'svelte-i18n';
+	import { _, locale } from 'svelte-i18n';
 	import Footer from '$lib/components/Footer.svelte';
 	import TypewriterText from '$lib/components/TypewriterText.svelte';
 	import AnimatedCounter from '$lib/components/AnimatedCounter.svelte';
@@ -46,7 +46,7 @@
 	<meta property="og:title" content={$_('home.meta.title')} />
 	<meta property="og:description" content={$_('home.meta.description')} />
 	<meta property="og:image" content="https://redbroomsoftware.com/logo.svg" />
-	<meta property="og:locale" content="es_MX" />
+	<meta property="og:locale" content={$locale === 'es' ? 'es_MX' : 'en_US'} />
 
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:title" content={$_('home.meta.title')} />
@@ -70,8 +70,7 @@
 	</script>`}
 </svelte:head>
 
-<main id="main">
-	<!-- Hero -->
+<!-- Hero -->
 	<section class="relative py-28 px-4 sm:px-6 lg:px-8 overflow-hidden">
 		<div class="absolute inset-0 bg-gradient-to-b from-blue-600/10 via-purple-600/5 to-transparent"></div>
 		<div class="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-500/15 to-purple-500/15 rounded-full blur-3xl animate-glow"></div>
@@ -94,10 +93,10 @@
 			</p>
 
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
-				<a href="https://patadas.redbroomsoftware.com/get-started" class="px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all text-lg font-semibold shadow-lg shadow-orange-500/25 hover:shadow-xl hover:-translate-y-0.5">
+				<a href="https://patadas.redbroomsoftware.com/get-started" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all text-lg font-semibold shadow-lg shadow-orange-500/25 hover:shadow-xl hover:-translate-y-0.5">
 					{$_('home.cta.findSolution')}
 				</a>
-				<a href="https://patadas.redbroomsoftware.com/developers/apply" class="px-8 py-4 glass text-white rounded-xl hover:bg-slate-800/80 transition-all text-lg font-semibold">
+				<a href="https://patadas.redbroomsoftware.com/developers/apply" target="_blank" rel="noopener noreferrer" class="px-8 py-4 glass text-white rounded-xl hover:bg-slate-800/80 transition-all text-lg font-semibold">
 					{$_('home.cta.joinDeveloper')}
 				</a>
 			</div>
@@ -143,7 +142,7 @@
 				<p class="text-slate-400 max-w-2xl mx-auto mb-8">
 					{$_('home.patadas.description')}
 				</p>
-				<a href="https://patadas.redbroomsoftware.com" class="inline-flex px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all text-lg font-semibold shadow-lg shadow-orange-500/25 hover:shadow-xl hover:-translate-y-0.5">
+				<a href="https://patadas.redbroomsoftware.com" target="_blank" rel="noopener noreferrer" class="inline-flex px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all text-lg font-semibold shadow-lg shadow-orange-500/25 hover:shadow-xl hover:-translate-y-0.5">
 					{$_('home.patadas.button')} →
 				</a>
 			</div>
@@ -223,7 +222,7 @@
 				{$_('home.finalCta.subtitle')}
 			</p>
 			<div class="flex flex-col sm:flex-row gap-4 justify-center">
-				<a href="https://patadas.redbroomsoftware.com/get-started" class="px-10 py-5 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all text-lg font-semibold shadow-lg shadow-orange-500/25 hover:shadow-xl hover:-translate-y-0.5">
+				<a href="https://patadas.redbroomsoftware.com/get-started" target="_blank" rel="noopener noreferrer" class="px-10 py-5 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-xl hover:from-orange-600 hover:to-orange-700 transition-all text-lg font-semibold shadow-lg shadow-orange-500/25 hover:shadow-xl hover:-translate-y-0.5">
 					{$_('home.finalCta.findSolution')}
 				</a>
 				<a href="mailto:dia@redbroomsoftware.com" class="px-10 py-5 glass text-white rounded-xl hover:bg-slate-800/80 transition-all text-lg font-semibold">
@@ -232,6 +231,4 @@
 			</div>
 		</div>
 	</section>
-</main>
-
 <Footer full={true} />
