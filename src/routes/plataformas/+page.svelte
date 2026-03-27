@@ -72,7 +72,8 @@
 		'agora': 'agora',
 		'la-hoja': null, // Not in Camino's APP_REGISTRY — keep hardcoded fallback
 		'mancha': 'mancha',
-		'cosmos-pet': 'cosmos_pet'
+		'cosmos-pet': 'cosmos_pet',
+		'garita': 'garita'
 	};
 
 	const pricingData = data.pricing;
@@ -155,7 +156,8 @@
 			{ id: 'agora', name: 'Agora', tagline: 'Gestión de despachos jurídicos', pricing: getDynamicPricing('agora', 'Próximamente'), features: ['IOLTA trust accounting', 'Redacción IA con plantillas MX', 'Ghost timer para tiempo facturable'], color: 'sky', cta_href: 'https://camino.redbroomsoftware.com/register?app=agora&utm_source=rbs_website&utm_medium=plataformas' },
 			{ id: 'la-hoja', name: 'La Hoja', tagline: 'ERP para cafeterías y panaderías', pricing: 'Desde $499/mes', features: ['Inventario FIFO para perecederos', 'Gestión multi-sucursal', 'Reportes operativos en tiempo real'], color: 'lime', cta_href: 'https://camino.redbroomsoftware.com/register?app=la-hoja&utm_source=rbs_website&utm_medium=plataformas' },
 			{ id: 'mancha', name: 'Mancha', tagline: 'Reservaciones para restaurantes', pricing: getDynamicPricing('mancha', 'Desde $12/cubierto'), features: ['Integración nativa con Caracol POS', 'Booking por WhatsApp con IA', 'Pricing dinámico por demanda'], color: 'orange', cta_href: 'https://camino.redbroomsoftware.com/register?app=mancha&utm_source=rbs_website&utm_medium=plataformas' },
-			{ id: 'cosmos-pet', name: 'Cosmos Pet', tagline: 'Gestión de clínicas veterinarias', pricing: getDynamicPricing('cosmos-pet', 'Desde $599/mes'), features: ['Expediente clínico digital', 'Inventario veterinario', 'Facturación CFDI integrada'], color: 'cyan', cta_href: 'https://camino.redbroomsoftware.com/register?app=cosmos-pet&utm_source=rbs_website&utm_medium=plataformas' }
+			{ id: 'cosmos-pet', name: 'Cosmos Pet', tagline: 'Gestión de clínicas veterinarias', pricing: getDynamicPricing('cosmos-pet', 'Desde $599/mes'), features: ['Expediente clínico digital', 'Inventario veterinario', 'Facturación CFDI integrada'], color: 'cyan', cta_href: 'https://camino.redbroomsoftware.com/register?app=cosmos-pet&utm_source=rbs_website&utm_medium=plataformas' },
+			{ id: 'garita', name: 'Garita', tagline: 'Control de acceso y amenidades para propiedades', pricing: getDynamicPricing('garita', 'Desde $1,500/mes'), features: ['Control de acceso inteligente', '8 verticales: residencial, gym, spa, club, coworking', 'Portal de residente y reservaciones'], color: 'emerald', cta_href: 'https://garita.redbroomsoftware.com?utm_source=rbs_website&utm_medium=plataformas' }
 		];
 	}
 
