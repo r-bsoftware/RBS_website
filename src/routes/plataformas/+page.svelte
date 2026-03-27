@@ -70,7 +70,7 @@
 		'plenura': 'plenura',
 		'rito': 'rito',
 		'agora': 'agora',
-		'la-hoja': null, // Not in Camino's APP_REGISTRY — keep hardcoded fallback
+		'la-hoja': 'la-hoja',
 		'mancha': 'mancha',
 		'cosmos-pet': 'cosmos_pet',
 		'garita': 'garita'

@@ -4,7 +4,7 @@ const CAMINO_CONTENT_API = 'https://camino.redbroomsoftware.com/api/public/page'
 const CAMINO_PRICING_API = 'https://camino.redbroomsoftware.com/api/public/pricing';
 
 /** Apps displayed on the plataformas page that exist in Camino's pricing registry */
-const PRICED_APPS = ['caracol', 'comal', 'constanza', 'plenura', 'rito', 'agora', 'mancha', 'cosmos_pet', 'garita'] as const;
+const PRICED_APPS = ['caracol', 'comal', 'constanza', 'plenura', 'rito', 'agora', 'mancha', 'cosmos_pet', 'garita', 'la-hoja'] as const;
 
 export const load: PageServerLoad = async ({ url, cookies, request }) => {
 	let visitorId = cookies.get('camino_visitor');
