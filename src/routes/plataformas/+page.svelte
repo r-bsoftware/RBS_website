@@ -1,5 +1,5 @@
 <script>
-	import { _ } from 'svelte-i18n';
+	import { _, locale } from 'svelte-i18n';
 	import Footer from '$lib/components/Footer.svelte';
 
 	let { data } = $props();
@@ -61,21 +61,101 @@
 		cta_secondary: { text: $_('plataformas.enterprise.ctaSecondary'), href: 'https://camino.redbroomsoftware.com/register?utm_source=rbs_website&utm_medium=plataformas_enterprise' }
 	});
 
+	// ─── Dynamic Pricing ────────────────────────────────────────────────────────
+	// Map platform display IDs to Camino pricing API app IDs
+	const PRICING_APP_MAP = {
+		'caracol': 'caracol',
+		'comal': 'comal',
+		'constanza': 'constanza',
+		'plenura': 'plenura',
+		'rito': 'rito',
+		'agora': 'agora',
+		'la-hoja': null, // Not in Camino's APP_REGISTRY — keep hardcoded fallback
+		'mancha': 'mancha',
+		'cosmos-pet': 'cosmos_pet'
+	};
+
+	const pricingData = data.pricing;
+	const currency = data.currency || 'MXN';
+	const isEs = $locale === 'es';
+
+	/**
+	 * Format a price amount using Intl.NumberFormat based on currency.
+	 */
+	function formatPrice(amount, curr = currency) {
+		const loc = curr === 'MXN' ? 'es-MX' : curr === 'EUR' ? 'de-DE' : 'en-US';
+		return new Intl.NumberFormat(loc, {
+			style: 'currency',
+			currency: curr,
+			minimumFractionDigits: 0,
+			maximumFractionDigits: 0
+		}).format(amount);
+	}
+
+	/**
+	 * Derive a display pricing string from the Camino pricing API response for an app.
+	 * Returns the lowest non-free tier's price formatted as "Desde $X/mes" or "From $X/mo".
+	 * Falls back to the hardcoded default if pricing data is unavailable.
+	 */
+	function getDynamicPricing(platformId, fallback) {
+		const appId = PRICING_APP_MAP[platformId];
+		if (!appId || !pricingData?.[appId]) return fallback;
+
+		const appPricing = pricingData[appId];
+		const tiers = appPricing.tiers || [];
+
+		// Find the lowest non-free, non-custom tier price
+		const paidTiers = tiers.filter(t => t.price > 0 && !t.custom_pricing);
+
+		if (paidTiers.length === 0) {
+			// All tiers are free or custom — check for per-cover model
+			const coverTier = tiers.find(t => t.per_cover_rate && t.per_cover_rate > 0);
+			if (coverTier) {
+				const formatted = formatPrice(coverTier.per_cover_rate, appPricing.currency);
+				return isEs ? `Desde ${formatted}/cubierto` : `From ${formatted}/cover`;
+			}
+			return fallback;
+		}
+
+		const lowestPrice = Math.min(...paidTiers.map(t => t.price));
+		const formatted = formatPrice(lowestPrice, appPricing.currency);
+
+		// Per-user pricing with implementation fee (e.g. caracol)
+		if (appPricing.pricing_model === 'per_user_plus_implementation') {
+			const perUser = appPricing.subscription_info?.per_user_price;
+			if (perUser) {
+				const perUserFormatted = formatPrice(perUser, appPricing.currency);
+				return isEs ? `${perUserFormatted}/usuario/mes` : `${perUserFormatted}/user/mo`;
+			}
+		}
+
+		// Per-user pricing model
+		if (appPricing.pricing_model === 'subscription' || appPricing.pricing_model === 'per_user_subscription') {
+			const lowestTier = paidTiers.find(t => t.price === lowestPrice);
+			// Standard tiers with per-user pricing
+			if (lowestTier) {
+				return isEs ? `${formatted}/usuario/mes` : `${formatted}/user/mo`;
+			}
+		}
+
+		return isEs ? `Desde ${formatted}/mes` : `From ${formatted}/mo`;
+	}
+
 	// TODO: Fallback platform content is hardcoded in Spanish. When Camino API is
 	// unavailable, visitors see Spanish regardless of locale. Restructuring this to
 	// use i18n keys is planned but too complex for this pass — requires reworking
 	// the Camino content merge logic.
 	function defaultPlatforms() {
 		return [
-			{ id: 'caracol', name: 'Caracol POS', tagline: 'Punto de venta para restaurantes y bares', pricing: '$425/usuario/mes', features: ['CFDI 4.0 en punto de venta', 'Control de inventario y añadas', 'Modo mostrador rápido'], color: 'amber', cta_href: 'https://camino.redbroomsoftware.com/register?app=caracol&utm_source=rbs_website&utm_medium=plataformas' },
-			{ id: 'comal', name: 'Comal', tagline: 'Tu tienda en línea — en pesos, con facturación', pricing: 'Desde $399/mes', features: ['Vs Shopify: $399 vs $600+ MXN', 'Clubs de suscripción incluidos', 'CFDI automático por venta'], color: 'rose', cta_href: 'https://camino.redbroomsoftware.com/register?app=comal&utm_source=rbs_website&utm_medium=plataformas' },
-			{ id: 'constanza', name: 'Constanza', tagline: 'Facturación CFDI y contabilidad fiscal', pricing: 'Desde $590/mes', features: ['Timbrado CFDI con clasificación IA', 'Conciliación bancaria automática', 'RESICO Guardian (optimizador fiscal)'], color: 'purple', cta_href: 'https://camino.redbroomsoftware.com/register?app=constanza&utm_source=rbs_website&utm_medium=plataformas' },
-			{ id: 'plenura', name: 'Plenura', tagline: 'Marketplace de bienestar y terapia', pricing: 'Desde $299/mes + comisión', features: ['Escrow protege a ambas partes', '5 herramientas de IA clínica', 'Video sesiones integradas'], color: 'teal', cta_href: 'https://camino.redbroomsoftware.com/register?app=plenura&utm_source=rbs_website&utm_medium=plataformas' },
-			{ id: 'rito', name: 'Rito', tagline: 'Capital privado inmobiliario', pricing: 'Desde $2,499/mes', features: ['AI Copilot para análisis de deals', 'Portal LP con capital calls', 'Cumplimiento fiscal mexicano nativo'], color: 'indigo', cta_href: 'https://camino.redbroomsoftware.com/register?app=rito&utm_source=rbs_website&utm_medium=plataformas' },
-			{ id: 'agora', name: 'Agora', tagline: 'Gestión de despachos jurídicos', pricing: 'Próximamente', features: ['IOLTA trust accounting', 'Redacción IA con plantillas MX', 'Ghost timer para tiempo facturable'], color: 'sky', cta_href: 'https://camino.redbroomsoftware.com/register?app=agora&utm_source=rbs_website&utm_medium=plataformas' },
+			{ id: 'caracol', name: 'Caracol POS', tagline: 'Punto de venta para restaurantes y bares', pricing: getDynamicPricing('caracol', '$425/usuario/mes'), features: ['CFDI 4.0 en punto de venta', 'Control de inventario y añadas', 'Modo mostrador rápido'], color: 'amber', cta_href: 'https://camino.redbroomsoftware.com/register?app=caracol&utm_source=rbs_website&utm_medium=plataformas' },
+			{ id: 'comal', name: 'Comal', tagline: 'Tu tienda en línea — en pesos, con facturación', pricing: getDynamicPricing('comal', 'Desde $399/mes'), features: ['Vs Shopify: $399 vs $600+ MXN', 'Clubs de suscripción incluidos', 'CFDI automático por venta'], color: 'rose', cta_href: 'https://camino.redbroomsoftware.com/register?app=comal&utm_source=rbs_website&utm_medium=plataformas' },
+			{ id: 'constanza', name: 'Constanza', tagline: 'Facturación CFDI y contabilidad fiscal', pricing: getDynamicPricing('constanza', 'Desde $590/mes'), features: ['Timbrado CFDI con clasificación IA', 'Conciliación bancaria automática', 'RESICO Guardian (optimizador fiscal)'], color: 'purple', cta_href: 'https://camino.redbroomsoftware.com/register?app=constanza&utm_source=rbs_website&utm_medium=plataformas' },
+			{ id: 'plenura', name: 'Plenura', tagline: 'Marketplace de bienestar y terapia', pricing: getDynamicPricing('plenura', 'Desde $299/mes + comisión'), features: ['Escrow protege a ambas partes', '5 herramientas de IA clínica', 'Video sesiones integradas'], color: 'teal', cta_href: 'https://camino.redbroomsoftware.com/register?app=plenura&utm_source=rbs_website&utm_medium=plataformas' },
+			{ id: 'rito', name: 'Rito', tagline: 'Capital privado inmobiliario', pricing: getDynamicPricing('rito', 'Desde $2,499/mes'), features: ['AI Copilot para análisis de deals', 'Portal LP con capital calls', 'Cumplimiento fiscal mexicano nativo'], color: 'indigo', cta_href: 'https://camino.redbroomsoftware.com/register?app=rito&utm_source=rbs_website&utm_medium=plataformas' },
+			{ id: 'agora', name: 'Agora', tagline: 'Gestión de despachos jurídicos', pricing: getDynamicPricing('agora', 'Próximamente'), features: ['IOLTA trust accounting', 'Redacción IA con plantillas MX', 'Ghost timer para tiempo facturable'], color: 'sky', cta_href: 'https://camino.redbroomsoftware.com/register?app=agora&utm_source=rbs_website&utm_medium=plataformas' },
 			{ id: 'la-hoja', name: 'La Hoja', tagline: 'ERP para cafeterías y panaderías', pricing: 'Desde $499/mes', features: ['Inventario FIFO para perecederos', 'Gestión multi-sucursal', 'Reportes operativos en tiempo real'], color: 'lime', cta_href: 'https://camino.redbroomsoftware.com/register?app=la-hoja&utm_source=rbs_website&utm_medium=plataformas' },
-			{ id: 'mancha', name: 'Mancha', tagline: 'Reservaciones para restaurantes', pricing: 'Desde $12/cubierto', features: ['Integración nativa con Caracol POS', 'Booking por WhatsApp con IA', 'Pricing dinámico por demanda'], color: 'orange', cta_href: 'https://camino.redbroomsoftware.com/register?app=mancha&utm_source=rbs_website&utm_medium=plataformas' },
-			{ id: 'cosmos-pet', name: 'Cosmos Pet', tagline: 'Gestión de clínicas veterinarias', pricing: 'Desde $599/mes', features: ['Expediente clínico digital', 'Inventario veterinario', 'Facturación CFDI integrada'], color: 'cyan', cta_href: 'https://camino.redbroomsoftware.com/register?app=cosmos-pet&utm_source=rbs_website&utm_medium=plataformas' }
+			{ id: 'mancha', name: 'Mancha', tagline: 'Reservaciones para restaurantes', pricing: getDynamicPricing('mancha', 'Desde $12/cubierto'), features: ['Integración nativa con Caracol POS', 'Booking por WhatsApp con IA', 'Pricing dinámico por demanda'], color: 'orange', cta_href: 'https://camino.redbroomsoftware.com/register?app=mancha&utm_source=rbs_website&utm_medium=plataformas' },
+			{ id: 'cosmos-pet', name: 'Cosmos Pet', tagline: 'Gestión de clínicas veterinarias', pricing: getDynamicPricing('cosmos-pet', 'Desde $599/mes'), features: ['Expediente clínico digital', 'Inventario veterinario', 'Facturación CFDI integrada'], color: 'cyan', cta_href: 'https://camino.redbroomsoftware.com/register?app=cosmos-pet&utm_source=rbs_website&utm_medium=plataformas' }
 		];
 	}
 
@@ -100,6 +180,7 @@
 <svelte:head>
 	<title>{$_('plataformas.meta.title')}</title>
 	<meta name="description" content={$_('plataformas.meta.description')} />
+	<meta property="og:locale" content={$locale === 'es' ? 'es_MX' : 'en_US'} />
 	<link rel="canonical" href="https://redbroomsoftware.com/plataformas" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://redbroomsoftware.com/plataformas" />
