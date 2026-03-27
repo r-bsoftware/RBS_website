@@ -73,7 +73,14 @@
 		'la-hoja': 'la-hoja',
 		'mancha': 'mancha',
 		'cosmos-pet': 'cosmos_pet',
-		'garita': 'garita'
+		'garita': 'garita',
+		'patadas': 'patadas',
+		'goodbay': 'goodbay',
+		'cookie-monster': 'cookie-monster',
+		'puppy-love': 'puppy-love',
+		'baul': 'baul',
+		'continua': 'continua',
+		'colectiva': 'colectiva'
 	};
 
 	const pricingData = data.pricing;
@@ -157,7 +164,14 @@
 			{ id: 'la-hoja', name: 'La Hoja', tagline: 'ERP para cafeterías y panaderías', pricing: 'Desde $499/mes', features: ['Inventario FIFO para perecederos', 'Gestión multi-sucursal', 'Reportes operativos en tiempo real'], color: 'lime', cta_href: 'https://camino.redbroomsoftware.com/register?app=la-hoja&utm_source=rbs_website&utm_medium=plataformas' },
 			{ id: 'mancha', name: 'Mancha', tagline: 'Reservaciones para restaurantes', pricing: getDynamicPricing('mancha', 'Desde $12/cubierto'), features: ['Integración nativa con Caracol POS', 'Booking por WhatsApp con IA', 'Pricing dinámico por demanda'], color: 'orange', cta_href: 'https://camino.redbroomsoftware.com/register?app=mancha&utm_source=rbs_website&utm_medium=plataformas' },
 			{ id: 'cosmos-pet', name: 'Cosmos Pet', tagline: 'Gestión de clínicas veterinarias', pricing: getDynamicPricing('cosmos-pet', 'Desde $599/mes'), features: ['Expediente clínico digital', 'Inventario veterinario', 'Facturación CFDI integrada'], color: 'cyan', cta_href: 'https://camino.redbroomsoftware.com/register?app=cosmos-pet&utm_source=rbs_website&utm_medium=plataformas' },
-			{ id: 'garita', name: 'Garita', tagline: 'Control de acceso y amenidades para propiedades', pricing: getDynamicPricing('garita', 'Desde $1,500/mes'), features: ['Control de acceso inteligente', '8 verticales: residencial, gym, spa, club, coworking', 'Portal de residente y reservaciones'], color: 'emerald', cta_href: 'https://garita.redbroomsoftware.com?utm_source=rbs_website&utm_medium=plataformas' }
+			{ id: 'garita', name: 'Garita', tagline: 'Control de acceso y amenidades para propiedades', pricing: getDynamicPricing('garita', 'Desde $1,500/mes'), features: ['Control de acceso inteligente', '8 verticales: residencial, gym, spa, club, coworking', 'Portal de residente y reservaciones'], color: 'emerald', cta_href: 'https://garita.redbroomsoftware.com?utm_source=rbs_website&utm_medium=plataformas' },
+			{ id: 'patadas', name: 'Patadas', tagline: 'Marketplace de IA — conecta con soluciones o desarrolladores', pricing: getDynamicPricing('patadas', 'Desde $49/mes + comisión'), features: ['Matching inteligente con IA', 'Escrow protege ambas partes', 'Verificación de desarrolladores'], color: 'violet', cta_href: 'https://patadas.redbroomsoftware.com?utm_source=rbs_website&utm_medium=plataformas' },
+			{ id: 'goodbay', name: 'Goodbay', tagline: 'Gestión de rentas vacacionales y hospitalidad', pricing: getDynamicPricing('goodbay', 'Desde $199/mes'), features: ['Listings de propiedades', 'Gestión de limpieza con verificación', 'Wallet con monedas virtuales'], color: 'pink', cta_href: 'https://goodbay.redbroomsoftware.com?utm_source=rbs_website&utm_medium=plataformas' },
+			{ id: 'cookie-monster', name: 'Cookie Monster', tagline: 'Portal de consumidor multi-plataforma', pricing: getDynamicPricing('cookie-monster', 'Gratis para consumidores'), features: ['Agrega restaurantes, cafés, tiendas en un solo lugar', 'Carrito unificado multi-comercio', 'Programa de lealtad cross-platform'], color: 'yellow', cta_href: 'https://cookies.redbroomsoftware.com?utm_source=rbs_website&utm_medium=plataformas' },
+			{ id: 'puppy-love', name: 'Puppy Love', tagline: 'Matching de mascotas y publicidad para negocios pet', pricing: getDynamicPricing('puppy-love', 'Gratis / Premium $99/mes'), features: ['Matching tipo Tinder para mascotas', 'Plataforma de anuncios B2B para negocios pet', 'Recompensas MXC por matches'], color: 'red', cta_href: 'https://puppylove.redbroomsoftware.com?utm_source=rbs_website&utm_medium=plataformas' },
+			{ id: 'baul', name: 'Baúl', tagline: 'Gestión de bodegas de almacenamiento', pricing: getDynamicPricing('baul', 'Desde $299/mes'), features: ['Tracking de pallets y cajas', 'Portal de clientes', 'Logística de pickup y delivery'], color: 'stone', cta_href: 'https://baul.redbroomsoftware.com?utm_source=rbs_website&utm_medium=plataformas' },
+			{ id: 'continua', name: 'Continua', tagline: 'Coordinación de donación de sangre', pricing: getDynamicPricing('continua', 'Gratis para donantes'), features: ['Alertas a donantes en tiempo real', 'Dashboard para hospitales y bancos de sangre', 'Recompensas MXC por donación'], color: 'red', cta_href: 'https://continua.redbroomsoftware.com?utm_source=rbs_website&utm_medium=plataformas' },
+			{ id: 'colectiva', name: 'Colectiva', tagline: 'Pagos, wallets y gestión de capital', pricing: getDynamicPricing('colectiva', 'Desde $499/mes'), features: ['CoDi + SPEI en tiempo real', 'Wallet empresarial con MXC', 'Escrow y gestión de equity'], color: 'purple', cta_href: 'https://colectiva.redbroomsoftware.com?utm_source=rbs_website&utm_medium=plataformas' }
 		];
 	}
 
