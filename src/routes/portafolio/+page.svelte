@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
-	import { _ } from 'svelte-i18n';
+	import { _, locale } from 'svelte-i18n';
 	import AnimatedCounter from '$lib/components/AnimatedCounter.svelte';
 	import { scrollReveal } from '$lib/actions/scrollReveal';
 
@@ -52,6 +52,7 @@
 <svelte:head>
 	<title>{$_('portfolio.meta.title')}</title>
 	<meta name="description" content={$_('portfolio.meta.description')} />
+	<meta property="og:locale" content={$locale === 'es' ? 'es_MX' : 'en_US'} />
 	<link rel="canonical" href="https://redbroomsoftware.com/portafolio" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://redbroomsoftware.com/portafolio" />

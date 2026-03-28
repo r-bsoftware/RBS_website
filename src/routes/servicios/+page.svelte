@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
-	import { _ } from 'svelte-i18n';
+	import { _, locale } from 'svelte-i18n';
 	import { scrollReveal } from '$lib/actions/scrollReveal';
 
 	const serviceKeys = ['saas', 'pos', 'crm', 'fintech', 'legaltech', 'mobile', 'consulting'] as const;
@@ -19,6 +19,7 @@
 <svelte:head>
 	<title>{$_('services.meta.title')}</title>
 	<meta name="description" content={$_('services.meta.description')} />
+	<meta property="og:locale" content={$locale === 'es' ? 'es_MX' : 'en_US'} />
 	<link rel="canonical" href="https://redbroomsoftware.com/servicios" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://redbroomsoftware.com/servicios" />

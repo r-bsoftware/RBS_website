@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { _ } from 'svelte-i18n';
+	import { _, locale } from 'svelte-i18n';
 	import Footer from '$lib/components/Footer.svelte';
 	import { scrollReveal } from '$lib/actions/scrollReveal';
 
@@ -15,6 +15,7 @@
 <svelte:head>
 	<title>{$_('terms.meta.title')}</title>
 	<meta name="description" content={$_('terms.meta.description')} />
+	<meta property="og:locale" content={$locale === 'es' ? 'es_MX' : 'en_US'} />
 	<meta name="robots" content="noindex, follow" />
 </svelte:head>
 

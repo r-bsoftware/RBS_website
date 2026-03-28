@@ -1,6 +1,6 @@
 <script lang="ts">
 	import Footer from '$lib/components/Footer.svelte';
-	import { _ } from 'svelte-i18n';
+	import { _, locale } from 'svelte-i18n';
 	import { scrollReveal } from '$lib/actions/scrollReveal';
 
 	const techStackKeys = {
@@ -46,6 +46,7 @@
 <svelte:head>
 	<title>{$_('technology.meta.title')}</title>
 	<meta name="description" content={$_('technology.meta.description')} />
+	<meta property="og:locale" content={$locale === 'es' ? 'es_MX' : 'en_US'} />
 	<link rel="canonical" href="https://redbroomsoftware.com/tecnologia" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://redbroomsoftware.com/tecnologia" />

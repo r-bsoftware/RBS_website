@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
-	import { _ } from 'svelte-i18n';
+	import { _, locale } from 'svelte-i18n';
 	import Footer from '$lib/components/Footer.svelte';
 	import { scrollReveal } from '$lib/actions/scrollReveal';
 
@@ -135,6 +135,7 @@
 <svelte:head>
 	<title>{$_('contact.meta.title')}</title>
 	<meta name="description" content={$_('contact.meta.description')} />
+	<meta property="og:locale" content={$locale === 'es' ? 'es_MX' : 'en_US'} />
 	<link rel="canonical" href="https://redbroomsoftware.com/contacto" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://redbroomsoftware.com/contacto" />
