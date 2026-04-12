@@ -294,6 +294,30 @@
 	</div>
 </section>
 
+<!-- Patadas Discovery CTA -->
+<section class="py-16 px-4 sm:px-6 lg:px-8">
+	<div class="max-w-3xl mx-auto text-center" use:scrollReveal>
+		<div class="glass rounded-2xl p-8 md:p-12 border border-orange-500/20">
+			<div class="text-4xl mb-4">⚡</div>
+			<h2 class="text-2xl md:text-3xl font-bold text-white mb-3">
+				{isEs ? '¿No sabes cuál necesitas?' : "Not sure which one you need?"}
+			</h2>
+			<p class="text-lg text-slate-400 mb-6 max-w-xl mx-auto">
+				{isEs
+					? 'Nuestro marketplace de IA analiza tu negocio en 2 minutos y te recomienda la combinación perfecta — o te conecta con un desarrollador certificado.'
+					: 'Our AI marketplace analyzes your business in 2 minutes and recommends the perfect product combination — or connects you with a vetted developer.'}
+			</p>
+			<a
+				href="https://patadas.redbroomsoftware.com/get-started"
+				class="inline-block bg-gradient-to-r from-orange-500 to-orange-600 text-white hover:from-orange-600 hover:to-orange-700 transition-all rounded-xl px-8 py-4 font-semibold shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40"
+				data-camino-cta="patadas-discovery"
+			>
+				{isEs ? 'Obtener recomendación gratis →' : 'Get free recommendation →'}
+			</a>
+		</div>
+	</div>
+</section>
+
 <!-- Enterprise CTA -->
 <section class="py-20 px-4 sm:px-6 lg:px-8">
 	<div class="max-w-4xl mx-auto text-center" use:scrollReveal>
