@@ -67,7 +67,7 @@
 		"contactPoint": [{ "@type": "ContactPoint", "email": "dia@redbroomsoftware.com", "contactType": "sales", "availableLanguage": ["Spanish", "English"] }],
 		"sameAs": ["https://github.com/r-bsoftware"]
 	}
-	</script>`}
+	\u003C/script>`}
 </svelte:head>
 
 <!-- Hero -->
