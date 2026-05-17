@@ -28,11 +28,13 @@
 		{ key: 'cosmosPet', gradient: 'from-yellow-500 to-amber-500' }
 	] as const;
 
-	const pillarKeys = [
-		{ key: 'aiEverything', icon: '🧠' },
-		{ key: 'integratedEcosystem', icon: '🔗' },
-		{ key: 'globalReach', icon: '🌎' },
-		{ key: 'enterpriseDay1', icon: '🛡️' }
+	// Cuatro Funciones — apex mirror of Palacio's lupa (Forge/Patadas/Labs/Atlas).
+	// Spec: docs/cross-cutting/internal/palacio-themed-client-funnel.md §7.7 RATIFIED 2026-05-17.
+	const functionKeys = [
+		{ key: 'forge', icon: '⚒️', href: 'https://palacio.redbroomsoftware.com#forge' },
+		{ key: 'patadas', icon: '↗', href: 'https://patadas.redbroomsoftware.com?source=apex' },
+		{ key: 'labs', icon: '✦', href: 'https://developers.redbroomsoftware.com' },
+		{ key: 'atlas', icon: '◇', href: 'https://palace.redbroomsoftware.com' }
 	] as const;
 </script>
 
@@ -149,26 +151,33 @@
 		</div>
 	</section>
 
-	<!-- Pillars -->
+	<!-- Cuatro Funciones — apex mirror of Palacio's lupa (Forge/Patadas/Labs/Atlas) -->
 	<section class="py-24 px-4 sm:px-6 lg:px-8 bg-slate-900/50">
 		<div class="max-w-7xl mx-auto">
-			<div class="text-center mb-16" use:scrollReveal>
-				<h2 class="text-4xl font-bold text-white mb-4">{$_('home.pillars.title')}</h2>
-				<p class="text-xl text-slate-400 max-w-2xl mx-auto">
-					{$_('home.pillars.subtitle')}
+			<div class="text-center mb-16 max-w-3xl mx-auto" use:scrollReveal>
+				<h2 class="text-4xl font-bold text-white mb-4">{$_('home.functions.title')}</h2>
+				<p class="text-xl text-slate-400">
+					{$_('home.functions.subtitle')}
 				</p>
 			</div>
 
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-				{#each pillarKeys as pillar, i}
-					<div
+			<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+				{#each functionKeys as fn, i}
+					<a
+						href={fn.href}
+						target="_blank"
+						rel="noopener noreferrer"
 						use:scrollReveal={{ delay: i * 100 }}
-						class="glass rounded-2xl p-8 hover:border-blue-500/50 transition-all group"
+						class="glass rounded-2xl p-8 hover:border-blue-500/50 transition-all group block"
 					>
-						<div class="text-4xl mb-4">{pillar.icon}</div>
-						<h3 class="text-xl font-bold text-white mb-3">{$_(`home.pillars.${pillar.key}.title`)}</h3>
-						<p class="text-slate-400 leading-relaxed">{$_(`home.pillars.${pillar.key}.desc`)}</p>
-					</div>
+						<div class="text-4xl mb-4">{fn.icon}</div>
+						<h3 class="text-xs font-semibold tracking-widest uppercase text-slate-500 mb-2">{$_(`home.functions.${fn.key}.tagline`)}</h3>
+						<p class="text-2xl font-bold text-white mb-3">{$_(`home.functions.${fn.key}.title`)}</p>
+						<p class="text-slate-400 leading-relaxed text-sm">{$_(`home.functions.${fn.key}.desc`)}</p>
+						<p class="mt-6 text-xs font-semibold uppercase tracking-wider text-slate-500 group-hover:text-white transition-colors">
+							{$_(`home.functions.${fn.key}.cta`)} →
+						</p>
+					</a>
 				{/each}
 			</div>
 		</div>

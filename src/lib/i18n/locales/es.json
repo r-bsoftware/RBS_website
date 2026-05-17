@@ -51,24 +51,32 @@
 			"description": "Necesitas una solucion de software o un desarrollador de IA? Patadas te evalua, te conecta con el producto correcto o un desarrollador verificado, genera el contrato, maneja el escrow y la facturacion. Todo en un solo lugar.",
 			"button": "Ir a Patadas"
 		},
-		"pillars": {
-			"title": "Que nos hace diferentes?",
-			"subtitle": "No somos una agencia. No somos un marketplace generico. Somos duenos de cada producto que recomendamos.",
-			"aiEverything": {
-				"title": "IA en Todo",
-				"desc": "Copiloto de ventas, matching inteligente, analisis fiscal, prediccion de demanda, generacion de contratos. No es un feature — es la base."
+		"functions": {
+			"title": "Las cuatro funciones de RBS",
+			"subtitle": "RBS no es una empresa que hace un producto. Es una practica creativa con cuatro motores: uno que construye, uno que conecta, uno que investiga, y uno que opera.",
+			"forge": {
+				"tagline": "Nuestra practica de entrega",
+				"title": "Forge",
+				"desc": "Construimos software sentandonos con las personas que lo van a usar. SaaS para restaurantes, contadores, retailers, galerias y jardines comunitarios. Cada uno empezo como un sprint de seis semanas con un operador.",
+				"cta": "Ver la practica"
 			},
-			"integratedEcosystem": {
-				"title": "Ecosistema Integrado",
-				"desc": "Cada app comparte autenticacion, pagos, facturacion e inteligencia. Agrega una y las demas se vuelven mas inteligentes."
+			"patadas": {
+				"tagline": "Nuestra capa de matchmaking",
+				"title": "Patadas",
+				"desc": "No todo negocio necesita un build a medida. Patadas es la puerta de entrada con IA: habla con los operadores, entiende lo que intentan hacer, y los conecta con la respuesta correcta — nuestra o la de alguien mas.",
+				"cta": "Iniciar evaluacion"
 			},
-			"globalReach": {
-				"title": "Alcance Global",
-				"desc": "CFDI para Mexico, facturas estandar para internacional. Bilingue EN+ES. Contratos legales adaptados por jurisdiccion."
+			"labs": {
+				"tagline": "Nuestra frontera de investigacion",
+				"title": "Labs",
+				"desc": "El sustrato debajo de todo: el SDK que hace que nuestras apps se hablen, la IA que las media, los pilotos civicos donde probamos si el software puede ser infraestructura para lugares y no solo para empresas.",
+				"cta": "Documentacion del ecosistema"
 			},
-			"enterpriseDay1": {
-				"title": "Enterprise desde el Dia 1",
-				"desc": "RLS en cada tabla, HMAC en cada webhook, escrow en cada transaccion, JWT verificado criptograficamente. No hay atajos."
+			"atlas": {
+				"tagline": "Nuestro portafolio de productos vivos",
+				"title": "Atlas",
+				"desc": "Veintidos apps en produccion. Caracol para restaurantes. Constanza para contadores. Colectiva para colectivos. Camino para suscripciones. Comal para retail. Cada uno opera para tenants reales cada dia.",
+				"cta": "Ver topologia viva"
 			}
 		},
 		"ecosystem": {

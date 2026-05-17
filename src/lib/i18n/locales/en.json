@@ -51,24 +51,32 @@
 			"description": "Need a software solution or an AI developer? Patadas evaluates you, connects you with the right product or a verified developer, generates the contract, handles escrow and invoicing. All in one place.",
 			"button": "Go to Patadas"
 		},
-		"pillars": {
-			"title": "What makes us different?",
-			"subtitle": "We're not an agency. We're not a generic marketplace. We own every product we recommend.",
-			"aiEverything": {
-				"title": "AI in Everything",
-				"desc": "Sales copilot, intelligent matching, tax analysis, demand prediction, contract generation. It's not a feature — it's the foundation."
+		"functions": {
+			"title": "The four functions of RBS",
+			"subtitle": "RBS is not a company that makes a product. It's a creative practice with four engines: one that builds, one that connects, one that researches, and one that operates.",
+			"forge": {
+				"tagline": "Our delivery practice",
+				"title": "Forge",
+				"desc": "We build software by sitting with the people who will use it. SaaS for restaurants, accountants, retailers, galleries, and community gardens. Each one started as a six-week sprint with an operator.",
+				"cta": "See the practice"
 			},
-			"integratedEcosystem": {
-				"title": "Integrated Ecosystem",
-				"desc": "Every app shares authentication, payments, invoicing, and intelligence. Add one and the others become smarter."
+			"patadas": {
+				"tagline": "Our matchmaking layer",
+				"title": "Patadas",
+				"desc": "Not every business needs a custom build. Patadas is the AI front door: it talks to operators, understands what they're trying to do, and connects them with the right answer — ours or someone else's.",
+				"cta": "Start evaluation"
 			},
-			"globalReach": {
-				"title": "Global Reach",
-				"desc": "CFDI for Mexico, standard invoices for international. Bilingual EN+ES. Legal contracts adapted by jurisdiction."
+			"labs": {
+				"tagline": "Our research frontier",
+				"title": "Labs",
+				"desc": "The substrate beneath everything: the SDK that lets our apps talk, the AI that mediates them, the civic pilots where we test whether software can be infrastructure for places and not just companies.",
+				"cta": "Ecosystem documentation"
 			},
-			"enterpriseDay1": {
-				"title": "Enterprise from Day 1",
-				"desc": "RLS on every table, HMAC on every webhook, escrow on every transaction, cryptographically verified JWT. No shortcuts."
+			"atlas": {
+				"tagline": "Our portfolio of living products",
+				"title": "Atlas",
+				"desc": "Twenty-two apps in production. Caracol for restaurants. Constanza for accountants. Colectiva for collectives. Camino for subscriptions. Comal for retail. Each one operates for real tenants every day.",
+				"cta": "See the living topology"
 			}
 		},
 		"ecosystem": {
