@@ -1,4 +1,5 @@
 @import '@fontsource-variable/inter';
+@import '@r-bsoftware/palacio-ui/tokens.css';
 
 @tailwind base;
 @tailwind components;

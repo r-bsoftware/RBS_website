@@ -12,7 +12,9 @@
 	});
 </script>
 
-<div class="min-h-screen bg-slate-950">
+<!-- accent-rbs mounts the apex's Palacio Engine accent so future Palacio-themed
+     sections (4-function cards CTAs, signing previews) inherit the apex tone. -->
+<div class="min-h-screen bg-slate-950 accent-rbs">
 	<Header />
 	<main id="main">
 		{@render children()}
